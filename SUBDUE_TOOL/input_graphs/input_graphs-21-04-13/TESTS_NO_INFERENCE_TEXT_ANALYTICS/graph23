@@ -1,0 +1,10 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348702914709
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelectionClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 3 1 use
+d 3 2 use
+d 3 4 use
+d 5 3 genBy

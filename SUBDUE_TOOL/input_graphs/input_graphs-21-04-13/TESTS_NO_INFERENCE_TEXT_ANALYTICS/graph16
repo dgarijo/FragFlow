@@ -1,0 +1,33 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621567824
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSimClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsClass
+v 10 http://purl.org/net/opmv/ns#Artifact
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#DFClass
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestionsClass
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+d 3 4 use
+d 4 13 genBy
+d 5 6 use
+d 5 7 use
+d 8 5 genBy
+d 9 10 use
+d 9 11 use
+d 10 14 genBy
+d 11 3 genBy
+d 12 9 genBy
+d 13 15 use
+d 14 1 use
+d 14 7 use
+d 15 16 genBy
+d 16 2 use
+d 16 8 use

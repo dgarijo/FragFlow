@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/VALIDATE
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 8 http://www.opmw.org/ontology/ParameterVariable
+d 3 6 genBy
+d 5 7 genBy
+d 6 1 use
+d 6 2 use
+d 6 8 use
+d 7 3 use
+d 7 4 use

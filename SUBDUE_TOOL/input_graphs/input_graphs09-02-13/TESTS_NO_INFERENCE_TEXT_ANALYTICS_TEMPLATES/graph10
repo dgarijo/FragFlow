@@ -1,0 +1,38 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Cluto
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#Clustering
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatCluto
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 17 http://www.opmw.org/ontology/ParameterVariable
+v 18 http://www.opmw.org/ontology/ParameterVariable
+d 1 11 igb
+d 2 12 igb
+d 3 13 igb
+d 4 13 igb
+d 6 13 igb
+d 7 16 igb
+d 8 14 igb
+d 10 15 igb
+d 11 3 uses
+d 11 4 uses
+d 11 6 uses
+d 11 17 uses
+d 12 10 uses
+d 13 8 uses
+d 14 2 uses
+d 15 7 uses
+d 15 18 uses
+d 16 5 uses
+d 16 9 uses

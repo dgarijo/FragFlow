@@ -1,0 +1,33 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621567824
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 10 http://purl.org/net/opmv/ns#Artifact
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 3 4 used
+d 4 13 wgb
+d 5 6 used
+d 5 7 used
+d 8 5 wgb
+d 9 10 used
+d 9 11 used
+d 10 14 wgb
+d 11 3 wgb
+d 12 9 wgb
+d 13 15 used
+d 14 1 used
+d 14 7 used
+d 15 16 wgb
+d 16 2 used
+d 16 8 used

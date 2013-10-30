@@ -1,0 +1,52 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/TOPICMODELING
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Picture
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Mallet
+v 8 http://www.opmw.org/ontology/DataVariable
+v 9 http://www.opmw.org/ontology/DataVariable
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+v 11 http://www.opmw.org/ontology/DataVariable
+v 12 http://www.opmw.org/ontology/DataVariable
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize
+v 17 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 18 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 19 http://www.opmw.org/ontology/ParameterVariable
+v 20 http://www.opmw.org/ontology/ParameterVariable
+v 21 http://www.opmw.org/ontology/ParameterVariable
+v 22 http://www.opmw.org/ontology/ParameterVariable
+v 23 http://www.opmw.org/ontology/ParameterVariable
+v 24 http://www.opmw.org/ontology/ParameterVariable
+v 25 http://www.opmw.org/ontology/ParameterVariable
+v 26 http://www.opmw.org/ontology/ParameterVariable
+d 1 14 genBy
+d 3 15 genBy
+d 5 13 genBy
+d 6 16 genBy
+d 7 17 genBy
+d 8 18 genBy
+d 9 18 genBy
+d 10 18 genBy
+d 11 18 genBy
+d 12 18 genBy
+d 13 1 use
+d 13 2 use
+d 14 4 use
+d 14 19 use
+d 15 5 use
+d 15 20 use
+d 16 10 use
+d 16 26 use
+d 17 3 use
+d 18 7 use
+d 18 21 use
+d 18 22 use
+d 18 23 use
+d 18 24 use
+d 18 25 use

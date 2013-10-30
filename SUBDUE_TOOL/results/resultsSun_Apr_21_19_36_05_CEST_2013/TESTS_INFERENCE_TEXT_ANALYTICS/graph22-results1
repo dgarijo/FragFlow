@@ -1,0 +1,12 @@
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 2 3 genBy
+d 3 1 use
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 use
+

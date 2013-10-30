@@ -1,0 +1,18 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 9 http://www.opmw.org/ontology/ParameterVariable
+d 1 8 igb
+d 4 6 igb
+d 5 7 igb
+d 6 5 uses
+d 6 9 uses
+d 7 2 uses
+d 7 3 uses
+d 8 4 uses

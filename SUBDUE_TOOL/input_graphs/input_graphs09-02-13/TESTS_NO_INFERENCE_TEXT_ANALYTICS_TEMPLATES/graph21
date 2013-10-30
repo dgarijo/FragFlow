@@ -1,0 +1,14 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/SIMILAR
+v 1 http://www.opmw.org/ontology/DataVariable
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestions
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Similar
+v 7 http://www.opmw.org/ontology/ParameterVariable
+d 1 5 igb
+d 3 6 igb
+d 5 4 uses
+d 5 7 uses
+d 6 1 uses
+d 6 2 uses

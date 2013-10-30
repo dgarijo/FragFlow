@@ -1,0 +1,7 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+d 1 3 genBy
+d 3 2 use
+

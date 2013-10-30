@@ -1,0 +1,12 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/MODELTHENCLASSIFIY
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Model
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Classifier
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Modeler
+d 3 6 genBy
+d 4 5 genBy
+d 5 2 use
+d 5 3 use
+d 6 1 use

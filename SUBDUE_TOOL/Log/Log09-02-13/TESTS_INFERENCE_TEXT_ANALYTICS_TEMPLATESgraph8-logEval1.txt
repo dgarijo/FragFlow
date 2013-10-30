@@ -1,0 +1,64 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\TESTS_INFERENCE_TEXT_ANALYTICS_TEMPLATES\graph8
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\TESTS_INFERENCE_TEXT_ANALYTICS_TEMPLATES\graph8-results1
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 4
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 9
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 9 vertices, 8 edges, 98 bits
+7 unique labels
+
+2 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02577, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 1 2 igb
+
+Elapsed time for iteration 1 = 0 seconds.
+
+----- Iteration 2 -----
+
+1 positive graphs: 7 vertices, 6 edges, 72 bits
+7 unique labels
+
+2 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.933955, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+    d 1 2 igb
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 2 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.04 seconds).

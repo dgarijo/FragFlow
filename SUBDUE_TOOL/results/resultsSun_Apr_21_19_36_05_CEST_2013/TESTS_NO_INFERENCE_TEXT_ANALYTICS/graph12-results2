@@ -1,0 +1,7 @@
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 1 2 use
+d 3 1 genBy
+

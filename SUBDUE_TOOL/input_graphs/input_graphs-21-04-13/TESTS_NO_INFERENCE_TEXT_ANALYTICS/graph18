@@ -1,0 +1,18 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621598404
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 3 genBy
+d 3 4 use
+d 3 9 use
+d 5 6 genBy
+d 6 1 use
+d 6 2 use
+d 7 5 use
+d 8 7 genBy

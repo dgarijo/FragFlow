@@ -1,0 +1,34 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 4 http://www.opmw.org/ontology/DataVariable
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestions
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWords
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 16 http://www.opmw.org/ontology/ParameterVariable
+v 17 http://www.opmw.org/ontology/ParameterVariable
+d 1 11 igb
+d 2 15 igb
+d 4 10 igb
+d 7 12 igb
+d 8 14 igb
+d 9 13 igb
+d 10 5 uses
+d 10 16 uses
+d 11 9 uses
+d 11 17 uses
+d 12 2 uses
+d 13 3 uses
+d 13 6 uses
+d 14 4 uses
+d 14 7 uses
+d 15 1 uses

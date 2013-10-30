@@ -1,0 +1,8 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/CLASSIFY
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Model
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Classifier
+d 1 4 genBy
+d 4 2 use
+d 4 3 use

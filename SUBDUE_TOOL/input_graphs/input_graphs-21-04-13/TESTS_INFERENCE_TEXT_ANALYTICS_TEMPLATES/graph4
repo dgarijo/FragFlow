@@ -1,0 +1,8 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/REDUCEDATASET
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.opmw.org/ontology/ParameterVariable
+d 2 3 genBy
+d 3 1 use
+d 3 4 use

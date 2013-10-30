@@ -1,0 +1,12 @@
+Creating statistics for: C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\resultsSun_Apr_21_19_36_05_CEST_2013\Text_Analytics_Graph_Inference-results1
+- Domain: text analytics, evaluation type: MDL
+- Executed on the traces
+- Inference applied
+- Non reduced graph
+
+Number of structures found: 13
+Number of independent structures found (i.e., those structures which do not include parts of others): 10
+Number of meaningful structures found (i.e., those with at least two process steps): 9(9)
+Number of meaningful independent structures found: 6
+Frequency of detected structures: 42
+Frequency of meaningful structures: 33(33)

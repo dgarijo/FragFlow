@@ -1,0 +1,52 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+d 2 3 use
+d 3 4 genBy
+d 4 1 use
+d 5 2 genBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 genBy
+d 2 5 use
+d 2 6 use
+d 3 4 use
+d 6 3 genBy
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://purl.org/net/opmv/ns#Artifact
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://purl.org/net/opmv/ns#Artifact
+v 7 http://purl.org/net/opmv/ns#Artifact
+d 2 1 genBy
+d 3 1 genBy
+d 4 1 genBy
+d 5 1 genBy
+d 6 1 genBy
+d 7 1 genBy
+
+S
+v 1 SUB_3
+v 2 SUB_2
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://purl.org/net/opmv/ns#Artifact
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 3 1 genBy
+d 1 2 use
+d 4 1 genBy
+d 5 1 use
+d 6 5 genBy
+

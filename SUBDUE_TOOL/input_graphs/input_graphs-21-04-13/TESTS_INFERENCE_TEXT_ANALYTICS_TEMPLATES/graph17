@@ -1,0 +1,36 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 2 http://www.opmw.org/ontology/DataVariable
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 17 http://www.opmw.org/ontology/ParameterVariable
+v 18 http://www.opmw.org/ontology/ParameterVariable
+d 1 16 genBy
+d 2 11 genBy
+d 3 13 genBy
+d 8 12 genBy
+d 9 14 genBy
+d 10 15 genBy
+d 11 5 use
+d 11 17 use
+d 12 9 use
+d 12 18 use
+d 13 1 use
+d 14 4 use
+d 14 7 use
+d 15 2 use
+d 15 3 use
+d 15 6 use
+d 16 8 use

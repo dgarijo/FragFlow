@@ -1,0 +1,8 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621559929
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ReduceClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 1 used
+d 2 3 used
+d 4 2 wgb

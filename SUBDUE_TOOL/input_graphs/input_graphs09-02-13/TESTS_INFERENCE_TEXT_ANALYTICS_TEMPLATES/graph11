@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/PLOTCORRELATIONSCORE
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Picture
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass
+d 1 6 igb
+d 4 8 igb
+d 5 7 igb
+d 6 2 uses
+d 6 3 uses
+d 7 4 uses
+d 8 1 uses

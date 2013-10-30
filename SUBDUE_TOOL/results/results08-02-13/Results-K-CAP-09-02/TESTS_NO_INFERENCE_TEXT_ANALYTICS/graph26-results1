@@ -1,0 +1,52 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+d 2 3 used
+d 3 4 wgb
+d 4 1 used
+d 5 2 wgb
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 wgb
+d 2 5 used
+d 2 6 used
+d 3 4 used
+d 6 3 wgb
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://purl.org/net/opmv/ns#Artifact
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://purl.org/net/opmv/ns#Artifact
+v 7 http://purl.org/net/opmv/ns#Artifact
+d 2 1 wgb
+d 3 1 wgb
+d 4 1 wgb
+d 5 1 wgb
+d 6 1 wgb
+d 7 1 wgb
+
+S
+v 1 SUB_3
+v 2 SUB_2
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://purl.org/net/opmv/ns#Artifact
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 3 1 wgb
+d 1 2 used
+d 4 1 wgb
+d 5 1 used
+d 6 5 wgb
+

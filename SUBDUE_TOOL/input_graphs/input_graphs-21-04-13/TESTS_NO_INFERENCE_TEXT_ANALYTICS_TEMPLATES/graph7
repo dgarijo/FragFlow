@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/PREPAREDATASET
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Reduce
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#SplitDataset
+v 7 http://www.opmw.org/ontology/ParameterVariable
+v 8 http://www.opmw.org/ontology/ParameterVariable
+d 1 6 genBy
+d 3 5 genBy
+d 4 6 genBy
+d 5 2 use
+d 5 7 use
+d 6 3 use
+d 6 8 use

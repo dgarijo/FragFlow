@@ -1,0 +1,538 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\Text_Analytics_Graph_Inference_Templates
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\Text_Analytics_Graph_Inference_Templates-results2
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. size
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 127
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 271
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 271 vertices, 255 edges
+28 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.29238, pos instances = 11, neg instances = 0
+  Graph(7v,6e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+    v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    v 7 http://www.opmw.org/ontology/ParameterVariable
+    d 1 6 igb
+    d 3 5 igb
+    d 5 2 uses
+    d 5 4 uses
+    d 6 3 uses
+    d 6 7 uses
+
+Elapsed time for iteration 1 = 0 seconds.
+
+----- Iteration 2 -----
+
+1 positive graphs: 205 vertices, 189 edges
+28 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.14203, pos instances = 6, neg instances = 0
+  Graph(6v,5e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+    v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+    v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+    v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 2 4 igb
+    d 3 5 igb
+    d 4 3 uses
+    d 5 1 uses
+    d 6 2 uses
+
+Elapsed time for iteration 2 = 0 seconds.
+
+----- Iteration 3 -----
+
+1 positive graphs: 175 vertices, 159 edges
+29 unique labels
+
+24 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.10596, pos instances = 4, neg instances = 0
+  Graph(6v,6e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+    v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection
+    v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass
+    v 6 http://www.opmw.org/ontology/ParameterVariable
+    d 1 4 igb
+    d 3 5 igb
+    d 4 2 uses
+    d 4 3 uses
+    d 4 6 uses
+    d 5 2 uses
+
+Elapsed time for iteration 3 = 0 seconds.
+
+----- Iteration 4 -----
+
+1 positive graphs: 155 vertices, 135 edges
+30 unique labels
+
+24 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.07011, pos instances = 2, neg instances = 0
+  Graph(11v,10e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+    v 3 http://www.opmw.org/ontology/DataVariable
+    v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+    v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+    v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+    v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+    v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+    v 11 http://www.opmw.org/ontology/ParameterVariable
+    d 2 10 igb
+    d 3 7 igb
+    d 4 8 igb
+    d 6 9 igb
+    d 7 5 uses
+    d 7 11 uses
+    d 8 2 uses
+    d 9 3 uses
+    d 9 4 uses
+    d 10 1 uses
+
+Elapsed time for iteration 4 = 0 seconds.
+
+----- Iteration 5 -----
+
+1 positive graphs: 135 vertices, 115 edges
+31 unique labels
+
+24 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.04603, pos instances = 4, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 3 1 uses
+    d 3 2 uses
+
+Elapsed time for iteration 5 = 0 seconds.
+
+----- Iteration 6 -----
+
+1 positive graphs: 127 vertices, 107 edges
+32 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.04933, pos instances = 4, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    v 3 http://www.opmw.org/ontology/ParameterVariable
+    d 2 1 uses
+    d 2 3 uses
+
+Elapsed time for iteration 6 = 0 seconds.
+
+----- Iteration 7 -----
+
+1 positive graphs: 119 vertices, 99 edges
+33 unique labels
+
+26 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.03318, pos instances = 3, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+    d 1 3 igb
+    d 3 2 uses
+
+Elapsed time for iteration 7 = 0 seconds.
+
+----- Iteration 8 -----
+
+1 positive graphs: 113 vertices, 93 edges
+32 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.03518, pos instances = 3, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass
+    d 2 3 igb
+    d 3 1 uses
+
+Elapsed time for iteration 8 = 0 seconds.
+
+----- Iteration 9 -----
+
+1 positive graphs: 107 vertices, 87 edges
+32 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02646, pos instances = 2, neg instances = 0
+  Graph(4v,3e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Picture
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize
+    v 4 http://www.opmw.org/ontology/ParameterVariable
+    d 2 3 igb
+    d 3 1 uses
+    d 3 4 uses
+
+Elapsed time for iteration 9 = 0 seconds.
+
+----- Iteration 10 -----
+
+1 positive graphs: 101 vertices, 81 edges
+33 unique labels
+
+24 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.01676, pos instances = 3, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_2
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+    d 1 2 uses
+
+Elapsed time for iteration 10 = 0 seconds.
+
+----- Iteration 11 -----
+
+1 positive graphs: 98 vertices, 78 edges
+34 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.01734, pos instances = 3, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+    d 1 2 igb
+
+Elapsed time for iteration 11 = 0 seconds.
+
+----- Iteration 12 -----
+
+1 positive graphs: 95 vertices, 75 edges
+35 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.00592, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_11
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    d 1 2 uses
+
+Elapsed time for iteration 12 = 0 seconds.
+
+----- Iteration 13 -----
+
+1 positive graphs: 93 vertices, 73 edges
+36 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.00606, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_10
+    v 2 SUB_3
+    d 2 1 igb
+
+Elapsed time for iteration 13 = 0 seconds.
+
+----- Iteration 14 -----
+
+1 positive graphs: 91 vertices, 71 edges
+37 unique labels
+
+25 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.01887, pos instances = 2, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass
+    d 2 3 igb
+    d 3 1 uses
+
+Elapsed time for iteration 14 = 0 seconds.
+
+----- Iteration 15 -----
+
+1 positive graphs: 87 vertices, 67 edges
+37 unique labels
+
+24 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.03356, pos instances = 2, neg instances = 0
+  Graph(4v,3e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Model
+    v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Classifier
+    d 1 4 igb
+    d 4 2 uses
+    d 4 3 uses
+
+Elapsed time for iteration 15 = 0 seconds.
+
+----- Iteration 16 -----
+
+1 positive graphs: 81 vertices, 61 edges
+37 unique labels
+
+22 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02158, pos instances = 2, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.opmw.org/ontology/DataVariable
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+    v 3 http://www.opmw.org/ontology/ParameterVariable
+    d 1 2 igb
+    d 2 3 uses
+
+Elapsed time for iteration 16 = 0 seconds.
+
+----- Iteration 17 -----
+
+1 positive graphs: 77 vertices, 57 edges
+38 unique labels
+
+22 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.00752, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_6
+    v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    d 2 1 igb
+
+Elapsed time for iteration 17 = 0 seconds.
+
+----- Iteration 18 -----
+
+1 positive graphs: 75 vertices, 55 edges
+39 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.00775, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_5
+    v 2 SUB_2
+    d 1 2 igb
+
+Elapsed time for iteration 18 = 0 seconds.
+
+----- Iteration 19 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 4, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+
+Elapsed time for iteration 19 = 0 seconds.
+
+----- Iteration 20 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 3, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+
+Elapsed time for iteration 20 = 0 seconds.
+
+----- Iteration 21 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 3, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+
+Elapsed time for iteration 21 = 0 seconds.
+
+----- Iteration 22 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 2, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass
+
+Elapsed time for iteration 22 = 0 seconds.
+
+----- Iteration 23 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 2, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+
+Elapsed time for iteration 23 = 0 seconds.
+
+----- Iteration 24 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 6, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.opmw.org/ontology/ParameterVariable
+
+Elapsed time for iteration 24 = 0 seconds.
+
+----- Iteration 25 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 3, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.opmw.org/ontology/DataVariable
+
+Elapsed time for iteration 25 = 0 seconds.
+
+----- Iteration 26 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 2, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+
+Elapsed time for iteration 26 = 0 seconds.
+
+----- Iteration 27 -----
+
+1 positive graphs: 73 vertices, 53 edges
+40 unique labels
+
+23 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.992126, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_26
+    v 2 SUB_4
+    d 2 1 uses
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 27 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.47 seconds).

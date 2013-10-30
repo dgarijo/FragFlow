@@ -1,0 +1,71 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 14 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 16 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 17 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 18 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 19 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 20 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 21 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+v 22 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 23 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 24 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 25 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 26 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 27 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 28 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 29 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 30 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 31 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 32 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 33 http://www.opmw.org/ontology/ParameterVariable
+v 34 http://www.opmw.org/ontology/ParameterVariable
+v 35 http://www.opmw.org/ontology/ParameterVariable
+d 1 31 igb
+d 2 22 igb
+d 6 24 igb
+d 7 28 igb
+d 8 27 igb
+d 9 29 igb
+d 13 25 igb
+d 14 26 igb
+d 15 21 igb
+d 16 30 igb
+d 17 32 igb
+d 18 23 igb
+d 19 20 igb
+d 20 7 uses
+d 21 1 uses
+d 21 8 uses
+d 21 34 uses
+d 22 14 uses
+d 22 15 uses
+d 23 13 uses
+d 24 19 uses
+d 25 9 uses
+d 26 3 uses
+d 26 18 uses
+d 27 1 uses
+d 28 16 uses
+d 28 35 uses
+d 29 17 uses
+d 29 33 uses
+d 30 10 uses
+d 30 11 uses
+d 31 4 uses
+d 31 6 uses
+d 32 5 uses
+d 32 12 uses

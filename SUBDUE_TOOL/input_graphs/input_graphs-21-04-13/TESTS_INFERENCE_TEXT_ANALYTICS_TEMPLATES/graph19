@@ -1,0 +1,17 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/MODEL
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Model
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass
+v 8 http://www.opmw.org/ontology/ParameterVariable
+d 1 5 genBy
+d 3 6 genBy
+d 4 7 genBy
+d 5 2 use
+d 5 3 use
+d 5 8 use
+d 6 2 use
+d 7 1 use

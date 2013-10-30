@@ -1,0 +1,47 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\TESTS_NO_INFERENCE_TEXT_ANALYTICS\graph17
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\resultsSun_Apr_21_19_36_05_CEST_2013\TESTS_NO_INFERENCE_TEXT_ANALYTICS\graph17-results2
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 8
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 16
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 16 vertices, 16 edges, 225 bits
+13 unique labels
+
+3 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.970631, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+    d 2 1 use
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 1 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.01 seconds).

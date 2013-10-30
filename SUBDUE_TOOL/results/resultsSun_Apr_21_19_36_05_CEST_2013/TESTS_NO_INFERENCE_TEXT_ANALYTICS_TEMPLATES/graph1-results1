@@ -1,0 +1,38 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+d 2 4 genBy
+d 3 2 use
+d 4 1 use
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+d 3 4 genBy
+d 4 1 use
+d 4 2 use
+
+S
+v 1 SUB_2
+v 2 SUB_1
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 5 http://www.opmw.org/ontology/ParameterVariable
+d 2 4 genBy
+d 3 2 genBy
+d 4 1 use
+d 4 5 use
+
+S
+v 1 SUB_3
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+d 2 4 genBy
+d 4 3 use
+d 4 1 use
+

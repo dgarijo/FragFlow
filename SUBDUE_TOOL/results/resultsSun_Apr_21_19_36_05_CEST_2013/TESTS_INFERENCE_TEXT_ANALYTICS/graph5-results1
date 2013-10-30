@@ -1,0 +1,8 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 1 2 genBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+

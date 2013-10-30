@@ -1,0 +1,34 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 4 http://www.opmw.org/ontology/DataVariable
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 16 http://www.opmw.org/ontology/ParameterVariable
+v 17 http://www.opmw.org/ontology/ParameterVariable
+d 1 11 genBy
+d 2 15 genBy
+d 4 10 genBy
+d 7 12 genBy
+d 8 14 genBy
+d 9 13 genBy
+d 10 5 use
+d 10 16 use
+d 11 9 use
+d 11 17 use
+d 12 2 use
+d 13 3 use
+d 13 6 use
+d 14 4 use
+d 14 7 use
+d 15 1 use

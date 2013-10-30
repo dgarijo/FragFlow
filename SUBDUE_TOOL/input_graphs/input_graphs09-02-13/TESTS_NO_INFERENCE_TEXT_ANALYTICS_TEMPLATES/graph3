@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/GENERATEVOCABULAR
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#Vocabular
+d 1 7 igb
+d 3 6 igb
+d 4 8 igb
+d 6 5 uses
+d 7 2 uses
+d 8 1 uses
+d 8 3 uses

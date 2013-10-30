@@ -1,0 +1,66 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\TESTS_INFERENCE_TEXT_ANALYTICS\graph11
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\resultsSun_Apr_21_19_36_05_CEST_2013\TESTS_INFERENCE_TEXT_ANALYTICS\graph11-results1
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 17
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 29
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 29 vertices, 35 edges, 452 bits
+9 unique labels
+
+3 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.70827, pos instances = 8, neg instances = 0
+  Graph(3v,2e):
+    v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    v 2 http://purl.org/net/opmv/ns#Artifact
+    v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+    d 1 2 use
+    d 3 1 genBy
+
+Elapsed time for iteration 1 = 0 seconds.
+
+----- Iteration 2 -----
+
+1 positive graphs: 13 vertices, 19 edges, 202 bits
+8 unique labels
+
+1 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.932947, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 1 2 genBy
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 2 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.01 seconds).

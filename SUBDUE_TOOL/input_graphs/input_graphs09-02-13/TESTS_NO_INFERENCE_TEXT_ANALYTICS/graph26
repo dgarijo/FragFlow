@@ -1,0 +1,89 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1349496991091
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+v 9 http://purl.org/net/opmv/ns#Artifact
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 11 http://purl.org/net/opmv/ns#Artifact
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 14 http://purl.org/net/opmv/ns#Artifact
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 17 http://purl.org/net/opmv/ns#Artifact
+v 18 http://purl.org/net/opmv/ns#Artifact
+v 19 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+v 20 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 21 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 22 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 23 http://purl.org/net/opmv/ns#Artifact
+v 24 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 25 http://purl.org/net/opmv/ns#Artifact
+v 26 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 27 http://purl.org/net/opmv/ns#Artifact
+v 28 http://purl.org/net/opmv/ns#Artifact
+v 29 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+v 30 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 31 http://purl.org/net/opmv/ns#Artifact
+v 32 http://purl.org/net/opmv/ns#Artifact
+v 33 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 34 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 35 http://purl.org/net/opmv/ns#Artifact
+v 36 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 37 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 38 http://purl.org/net/opmv/ns#Artifact
+v 39 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 40 http://purl.org/net/opmv/ns#Artifact
+v 41 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 42 http://purl.org/net/opmv/ns#Artifact
+v 43 http://purl.org/net/opmv/ns#Artifact
+v 44 http://purl.org/net/opmv/ns#Artifact
+d 1 2 wgb
+d 2 32 used
+d 2 33 used
+d 3 4 wgb
+d 4 26 used
+d 5 6 wgb
+d 6 36 used
+d 7 5 used
+d 8 9 used
+d 8 10 used
+d 10 16 wgb
+d 11 12 wgb
+d 12 15 used
+d 14 4 wgb
+d 15 7 wgb
+d 16 21 used
+d 16 22 used
+d 17 4 wgb
+d 18 12 wgb
+d 19 20 used
+d 20 24 wgb
+d 23 4 wgb
+d 24 1 used
+d 25 4 wgb
+d 26 19 wgb
+d 27 12 wgb
+d 28 12 wgb
+d 29 22 used
+d 29 30 used
+d 31 4 wgb
+d 33 29 wgb
+d 34 13 used
+d 34 35 used
+d 35 4 wgb
+d 36 8 wgb
+d 37 34 wgb
+d 38 12 wgb
+d 39 13 used
+d 39 28 used
+d 40 12 wgb
+d 41 39 wgb
+d 42 4 wgb
+d 43 12 wgb
+d 44 12 wgb

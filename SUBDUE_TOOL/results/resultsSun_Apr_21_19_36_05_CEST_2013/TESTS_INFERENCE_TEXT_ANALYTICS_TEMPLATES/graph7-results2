@@ -1,0 +1,13 @@
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 2 http://www.opmw.org/ontology/ParameterVariable
+d 1 2 use
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 1 genBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+

@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/PREPAREDATASET
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 7 http://www.opmw.org/ontology/ParameterVariable
+v 8 http://www.opmw.org/ontology/ParameterVariable
+d 1 6 igb
+d 3 5 igb
+d 4 6 igb
+d 5 2 uses
+d 5 7 uses
+d 6 3 uses
+d 6 8 uses

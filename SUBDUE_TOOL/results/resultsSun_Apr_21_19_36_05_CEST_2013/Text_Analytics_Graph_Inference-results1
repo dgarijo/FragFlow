@@ -1,0 +1,219 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://purl.org/net/opmv/ns#Artifact
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 genBy
+d 2 9 use
+d 2 10 use
+d 3 4 use
+d 4 5 genBy
+d 5 1 use
+d 6 3 genBy
+d 7 8 use
+d 10 7 genBy
+
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://purl.org/net/opmv/ns#Artifact
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://purl.org/net/opmv/ns#Artifact
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 16 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+d 3 4 genBy
+d 4 15 use
+d 5 1 use
+d 5 6 use
+d 7 5 genBy
+d 8 9 genBy
+d 9 3 use
+d 10 2 use
+d 10 11 use
+d 11 13 genBy
+d 13 6 use
+d 13 12 use
+d 14 7 use
+d 14 8 use
+d 15 10 genBy
+d 16 14 genBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 7 http://purl.org/net/opmv/ns#Artifact
+v 8 http://purl.org/net/opmv/ns#Artifact
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 15 http://purl.org/net/opmv/ns#Artifact
+v 16 http://purl.org/net/opmv/ns#Artifact
+v 17 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 18 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 19 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 20 http://purl.org/net/opmv/ns#Artifact
+v 21 http://purl.org/net/opmv/ns#Artifact
+v 22 http://purl.org/net/opmv/ns#Artifact
+v 23 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 24 http://purl.org/net/opmv/ns#Artifact
+v 25 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 26 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 27 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 28 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 29 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 1 2 genBy
+d 2 6 use
+d 2 22 use
+d 3 4 use
+d 5 6 use
+d 5 7 use
+d 7 9 genBy
+d 8 9 genBy
+d 9 13 use
+d 10 11 genBy
+d 11 6 use
+d 11 24 use
+d 12 6 use
+d 12 8 use
+d 13 3 genBy
+d 14 6 use
+d 14 15 use
+d 15 9 genBy
+d 16 9 genBy
+d 17 18 genBy
+d 18 6 use
+d 18 21 use
+d 19 6 use
+d 19 20 use
+d 20 9 genBy
+d 21 9 genBy
+d 22 9 genBy
+d 23 5 genBy
+d 24 9 genBy
+d 25 14 genBy
+d 26 27 genBy
+d 27 6 use
+d 27 16 use
+d 28 12 genBy
+d 29 19 genBy
+
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 3 2 use
+d 4 5 genBy
+d 5 1 use
+d 5 6 use
+d 6 3 genBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 3 genBy
+d 3 8 use
+d 4 5 genBy
+d 5 1 use
+d 6 7 genBy
+d 7 2 use
+d 7 4 use
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+d 1 2 use
+
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://purl.org/net/opmv/ns#Artifact
+v 4 http://purl.org/net/opmv/ns#Artifact
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://purl.org/net/opmv/ns#Artifact
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 8 http://purl.org/net/opmv/ns#Artifact
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 10 http://purl.org/net/opmv/ns#Artifact
+v 11 http://purl.org/net/opmv/ns#Artifact
+d 1 2 genBy
+d 3 2 genBy
+d 4 2 genBy
+d 5 2 genBy
+d 6 2 genBy
+d 7 5 use
+d 8 2 genBy
+d 9 7 genBy
+d 10 2 genBy
+d 11 2 genBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+d 1 2 genBy
+d 2 3 use
+
+S
+v 1 SUB_4
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+d 3 4 genBy
+d 4 1 use
+d 1 2 use
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 genBy
+d 2 3 use
+
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 1 use
+d 2 3 use
+
+S
+v 1 SUB_6
+v 2 SUB_1
+d 2 1 use
+
+S
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+d 2 1 use
+

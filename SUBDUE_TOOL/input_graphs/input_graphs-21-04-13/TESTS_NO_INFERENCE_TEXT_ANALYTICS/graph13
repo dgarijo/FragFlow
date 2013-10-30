@@ -1,0 +1,8 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621534805
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 genBy
+d 2 3 use
+d 2 4 use

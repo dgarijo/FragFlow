@@ -1,0 +1,37 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\TESTS_NO_INFERENCE_TEXT_ANALYTICS\graph10
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\TESTS_NO_INFERENCE_TEXT_ANALYTICS\graph10-results2
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 1
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 3
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 3 vertices, 2 edges, 22 bits
+5 unique labels
+
+0 initial substructures
+No substructures found.
+
+Elapsed time for iteration 1 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.00 seconds).

@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621456691
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#VocabularClass
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 use
+d 3 4 genBy
+d 4 5 use
+d 4 7 use
+d 5 6 genBy
+d 6 8 use
+d 7 1 genBy

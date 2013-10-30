@@ -1,0 +1,16 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/MULTILABEL_
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single
+d 1 8 igb
+d 2 6 igb
+d 5 7 igb
+d 6 4 uses
+d 7 1 uses
+d 7 3 uses
+d 8 2 uses

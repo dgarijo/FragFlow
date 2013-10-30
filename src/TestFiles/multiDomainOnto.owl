@@ -1,0 +1,885 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Compare_against_Common_LociClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#ResampleClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#BWA_HumanGenome_AlignmentsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#BWAComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeCentralityClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Convert_BWA_to_SAM_FormatClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#BWAComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#BadChips">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Combine_Reformat_PennCNV_CNVXClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Cluster0">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#aggloClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#InformationGainClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#rbrClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#NaiveBayesModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#BayesModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PennCNVX">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#AlignementResultMergerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#ListMergerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#ResultSorterClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Print_SNPsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#RawInteractionNetworkMergerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#BIMFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesValidatorClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#FilteredIndels">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Structured_Association_AnalysisClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeDistributionClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Indels">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#BayesClassifierClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Create_Binary_PEDFileClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#ListMergerImplClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#ListMergerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#MergerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#RawInteractionNetworkMergerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#GenesFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#ParenTDTClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#SamTools">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSimClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#RandomizeClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#StructureOutputFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#DFClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPAlignementResultMergerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#AlignementResultMergerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#FormatClutoClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#GenderFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#FormatedFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#SequenceFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeValidatorClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CentralityClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#CMHFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#PlotTopicsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#DiscretizeClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#HGAlignments">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#DeNovo2_Assess_CNV_OverlapClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#DeNovo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Merge_3_CNVsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MergeSummary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#PagerankLinkAnalysisClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#TrainTopicsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#kNNModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkVisualizationClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Generate_VisualizationClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#FormatStepToCompareDissimilarProteinStructuresClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#R_Create_Mdist_PlotClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Cluster3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#GetSMAPAlignementFolderClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#GetAlignementFolderClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MergedCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#ClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#AssocFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateLineChartClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateCharts"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARValidatorClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#LMTModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#CommonLoci">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#FinalReport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#SNPFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Reformat_QuantiCNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsImplClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Cluster1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#directClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#TDTClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsTopicsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestionsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#StructureFormatFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MAPFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MDistFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#URLCheckerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#UploadHModelsClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#TFClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterV2Class">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#ResultSorterV2Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Population_Stratification_AnalysisClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkBuilderSPARQLClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PNFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MergeCNVFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Reformat_GnosisCNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerImplClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#RemoveSignificantPairsClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#CFClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Convert_to_Structure_FormatClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#BayesModelerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquaredClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#RareMergedCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#PlotScoreClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Remove_Bad_Quality_from_PEDFileClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#testClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#MatlabComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Compress_SAM_into_BAM_FormatClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Cluster2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV2Class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#MatlabComponents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ReduceClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#FAMFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#QuantiSNP_Detect_CNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateCharts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#HitsLinkAnalysisClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#NaiveBayesClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#BayesClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerImplClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Sort_BAM_DataClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#AnnotationFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPV2Class">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV2Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#StructureParamsFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#DockingClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#graphClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PennLogX">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#AutodockVinaClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#DockingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#removePatternClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#DTClassifierClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#JPGFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Cleanup_IndelsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#QTFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#countDuplicatesClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#RemoveSigPairsFATCATClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#RemoveSignificantPairsClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#BetweennessCentralityClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMValidatorClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#DTModelerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#compareClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#BAMFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#CNVFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#baggloClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Association_AnalysisClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#DeNovo2RareMergedCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#MutualInformationClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#getSortedWordsClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#SAMFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#IDFClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#DeNovo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#kNNValidatorClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#mergeClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#FATCATURLCheckerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#URLCheckerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Find_Gender_of_FinalReportsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#ReformatLog">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#html2textClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Merge_2_CNVsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#DrugCounterClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CountDrugsClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#DeNovo_Assess_CNV_OverlapClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#DeNovo"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#General_Association_AnalysisClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#PlinkComponents"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#VocabularClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/wordbags/library.owl#pdf2textClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CompareDissimilarProteinStructuresClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#LMTClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#QuantiCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#QuantiPCFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Reformat_PennCNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Annotate_CNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#IndelsAndConsensus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelectionClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Annotated_CNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Gnosis_Detect_CNVClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Merge_Bad_ChipsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#rbClusteringClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV1Class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsHModelClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#FormatPDBToCompareProteinStructuresClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#SortedBAMFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GlobalNetworkStatisticsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#DGV_VariationFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#DeNovoRareMergedCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#BWAComponents">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#FormatStepToCompareDissimilarProteinStructuresClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#GetTanimotosClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#ResultSorterV2Class">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GephiNetworkVisualizationClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#EigenvectorCentralityClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#ResultSorterClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#J48ModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#kNNClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#FormatMalletClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesImplClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#TDTPermFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#ParameterArgument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Merge_CNVsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Merge_2_Bad_ChipsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#CountDrugsClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#ID3ClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/ontology.owl#ParameterArgument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#MergeUID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#DataArgument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Print_IndelsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkGMLClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/TextAnalytics/library.owl#SplitDatasetClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#J48ClassifierClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTClassifierClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PennLog">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#FATCATClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CompareDissimilarProteinStructuresClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVXClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#BinaryPEDFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#FormatPDBToCompareProteinStructuresClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Predict_Indels_and_ConsensusClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#SamTools"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#GetAlignementFolderClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#Thresholds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/dm/library.owl#ID3ModelerClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/dm/library.owl#DTModelerClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesClass"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#GnosisCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/genomics/library.owl#Convert_to_PN_and_QT_FormatsClass">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/genomics/library.owl#CombinedCNV"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/ac/WINGS/library.owl#SMAPV1Class">
+    <rdfs:subClassOf rdf:resource="http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV1Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PEDFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#PennCNV">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.isi.edu/dc/genomics/ontology.owl#TDTFile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

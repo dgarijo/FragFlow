@@ -1,0 +1,96 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\TESTS_INFERENCE_TEXT_ANALYTICS\graph16
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\resultsSun_Apr_21_19_36_05_CEST_2013\TESTS_INFERENCE_TEXT_ANALYTICS\graph16-results2
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 8
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 16
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 16 vertices, 16 edges, 213 bits
+10 unique labels
+
+5 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.01714, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 1 2 genBy
+
+Elapsed time for iteration 1 = 0 seconds.
+
+----- Iteration 2 -----
+
+1 positive graphs: 14 vertices, 14 edges, 187 bits
+11 unique labels
+
+4 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02222, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://purl.org/net/opmv/ns#Artifact
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+    d 2 1 use
+
+Elapsed time for iteration 2 = 0 seconds.
+
+----- Iteration 3 -----
+
+1 positive graphs: 12 vertices, 12 edges, 159 bits
+11 unique labels
+
+3 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.960853, pos instances = 2, neg instances = 0
+  Graph(1v,0e):
+    v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+
+Elapsed time for iteration 3 = 0 seconds.
+
+----- Iteration 4 -----
+
+1 positive graphs: 12 vertices, 12 edges, 159 bits
+11 unique labels
+
+3 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.96064, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_3
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+    d 2 1 use
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 4 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.02 seconds).

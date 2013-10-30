@@ -1,0 +1,65 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621500685
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 5 http://purl.org/net/opmv/ns#Artifact
+v 6 http://purl.org/net/opmv/ns#Artifact
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 10 http://purl.org/net/opmv/ns#Artifact
+v 11 http://purl.org/net/opmv/ns#Artifact
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 16 http://purl.org/net/opmv/ns#Artifact
+v 17 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 18 http://purl.org/net/opmv/ns#Artifact
+v 19 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 20 http://purl.org/net/opmv/ns#Artifact
+v 21 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 22 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 23 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 24 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 25 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+v 26 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 27 http://purl.org/net/opmv/ns#Artifact
+v 28 http://www.isi.edu/ac/TextAnalytics/library.owl#DFClass
+v 29 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 genBy
+d 2 4 use
+d 2 16 use
+d 3 4 use
+d 3 5 use
+d 5 7 genBy
+d 6 7 genBy
+d 7 17 use
+d 8 9 genBy
+d 9 4 use
+d 9 20 use
+d 10 7 genBy
+d 11 7 genBy
+d 12 4 use
+d 12 11 use
+d 13 14 genBy
+d 14 4 use
+d 14 18 use
+d 15 12 genBy
+d 16 7 genBy
+d 17 28 genBy
+d 18 7 genBy
+d 19 4 use
+d 19 6 use
+d 20 7 genBy
+d 21 22 genBy
+d 22 4 use
+d 22 10 use
+d 23 19 genBy
+d 24 25 genBy
+d 25 4 use
+d 25 27 use
+d 26 3 genBy
+d 27 7 genBy
+d 28 29 use

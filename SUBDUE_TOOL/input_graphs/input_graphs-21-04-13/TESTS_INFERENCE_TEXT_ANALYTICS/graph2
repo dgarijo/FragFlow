@@ -1,0 +1,38 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621400515
+v 1 http://purl.org/net/opmv/ns#Artifact
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Cluto
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 14 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 15 http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass
+v 16 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 17 http://purl.org/net/opmv/ns#Artifact
+v 18 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 2 3 use
+d 2 4 use
+d 5 6 genBy
+d 6 1 use
+d 6 18 use
+d 7 5 use
+d 8 7 genBy
+d 9 10 use
+d 10 13 genBy
+d 11 9 genBy
+d 12 9 genBy
+d 13 8 use
+d 14 15 genBy
+d 15 11 use
+d 15 12 use
+d 15 16 use
+d 15 17 use
+d 16 9 genBy
+d 18 2 genBy

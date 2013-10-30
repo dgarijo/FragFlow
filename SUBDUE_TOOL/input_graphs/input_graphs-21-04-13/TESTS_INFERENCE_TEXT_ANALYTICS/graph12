@@ -1,0 +1,65 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621507816
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 7 http://purl.org/net/opmv/ns#Artifact
+v 8 http://purl.org/net/opmv/ns#Artifact
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 11 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 12 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 14 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 15 http://purl.org/net/opmv/ns#Artifact
+v 16 http://purl.org/net/opmv/ns#Artifact
+v 17 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 18 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 19 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 20 http://purl.org/net/opmv/ns#Artifact
+v 21 http://purl.org/net/opmv/ns#Artifact
+v 22 http://purl.org/net/opmv/ns#Artifact
+v 23 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 24 http://purl.org/net/opmv/ns#Artifact
+v 25 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 26 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 27 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 28 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 29 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 1 2 genBy
+d 2 6 use
+d 2 22 use
+d 3 4 use
+d 5 6 use
+d 5 7 use
+d 7 9 genBy
+d 8 9 genBy
+d 9 13 use
+d 10 11 genBy
+d 11 6 use
+d 11 24 use
+d 12 6 use
+d 12 8 use
+d 13 3 genBy
+d 14 6 use
+d 14 15 use
+d 15 9 genBy
+d 16 9 genBy
+d 17 18 genBy
+d 18 6 use
+d 18 21 use
+d 19 6 use
+d 19 20 use
+d 20 9 genBy
+d 21 9 genBy
+d 22 9 genBy
+d 23 5 genBy
+d 24 9 genBy
+d 25 14 genBy
+d 26 27 genBy
+d 27 6 use
+d 27 16 use
+d 28 12 genBy
+d 29 19 genBy

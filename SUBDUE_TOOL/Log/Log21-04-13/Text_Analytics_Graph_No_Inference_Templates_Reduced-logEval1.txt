@@ -1,0 +1,174 @@
+SUBDUE 5.2.2
+
+Parameters:
+  Input file..................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\input_graphs\Text_Analytics_Graph_No_Inference_Templates_Reduced
+  Predefined substructure file... none
+  Output file.................... C:\Users\Monen\Documents\NetBeansProjects\MotifFinder\SUBDUE_TOOL\results\resultsSun_Apr_21_19_00_20_CEST_2013Text_Analytics_Graph_No_Inference_Templates_Reduced-results1
+  Beam width..................... 4
+  Compress....................... false
+  Evaluation method.............. MDL
+  'e' edges directed............. true
+  Incremental.................... false
+  Iterations..................... 4294967295
+  Limit.......................... 36
+  Minimum size of substructures.. 1
+  Maximum size of substructures.. 271
+  Number of best substructures... 1
+  Output level................... 2
+  Allow overlapping instances.... false
+  Prune.......................... false
+  Threshold...................... 0.000000
+  Value-based queue.............. false
+  Recursion...................... false
+
+Read 1 total positive graphs
+
+----- Iteration 1 -----
+
+1 positive graphs: 271 vertices, 72 edges, 2958 bits
+44 unique labels
+
+31 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.07111, pos instances = 11, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+    d 2 1 informBy
+
+Elapsed time for iteration 1 = 0 seconds.
+
+----- Iteration 2 -----
+
+1 positive graphs: 260 vertices, 61 edges, 2706 bits
+43 unique labels
+
+30 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02959, pos instances = 3, neg instances = 0
+  Graph(3v,2e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+    d 2 1 informBy
+    d 3 2 informBy
+
+Elapsed time for iteration 2 = 0 seconds.
+
+----- Iteration 3 -----
+
+1 positive graphs: 254 vertices, 55 edges, 2575 bits
+43 unique labels
+
+30 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02893, pos instances = 5, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+    d 2 1 informBy
+
+Elapsed time for iteration 3 = 0 seconds.
+
+----- Iteration 4 -----
+
+1 positive graphs: 249 vertices, 50 edges, 2477 bits
+44 unique labels
+
+31 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.02519, pos instances = 2, neg instances = 0
+  Graph(4v,3e):
+    v 1 SUB_3
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+    v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single
+    d 2 1 informBy
+    d 3 4 informBy
+    d 4 2 informBy
+
+Elapsed time for iteration 4 = 0 seconds.
+
+----- Iteration 5 -----
+
+1 positive graphs: 243 vertices, 44 edges, 2346 bits
+44 unique labels
+
+30 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.01577, pos instances = 2, neg instances = 0
+  Graph(3v,2e):
+    v 1 SUB_1
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+    v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+    d 2 3 informBy
+    d 3 1 informBy
+
+Elapsed time for iteration 5 = 0 seconds.
+
+----- Iteration 6 -----
+
+1 positive graphs: 239 vertices, 40 edges, 2259 bits
+44 unique labels
+
+29 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.00489, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_3
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+    d 2 1 informBy
+
+Elapsed time for iteration 6 = 0 seconds.
+
+----- Iteration 7 -----
+
+1 positive graphs: 237 vertices, 38 edges, 2225 bits
+45 unique labels
+
+29 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 1.0042, pos instances = 2, neg instances = 0
+  Graph(2v,1e):
+    v 1 SUB_2
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+    d 2 1 informBy
+
+Elapsed time for iteration 7 = 0 seconds.
+
+----- Iteration 8 -----
+
+1 positive graphs: 235 vertices, 36 edges, 2190 bits
+46 unique labels
+
+29 initial substructures
+
+Best 1 substructures:
+
+(1) Substructure: value = 0.995823, pos instances = 1, neg instances = 0
+  Graph(2v,1e):
+    v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestions
+    v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Similar
+    d 2 1 informBy
+
+
+The best substructure has been found in a single instance. Ending SUBDUE:
+
+Elapsed time for iteration 8 = 0 seconds.
+
+
+SUBDUE done (elapsed CPU time =    0.14 seconds).

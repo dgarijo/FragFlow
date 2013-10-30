@@ -1,0 +1,34 @@
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+d 1 2 wgb
+d 2 3 used
+d 3 4 wgb
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+d 1 2 used
+d 3 1 used
+d 4 3 wgb
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 5 http://purl.org/net/opmv/ns#Artifact
+d 2 3 wgb
+d 1 4 wgb
+d 4 2 used
+d 4 5 used
+
+S
+v 1 SUB_3
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+d 1 2 used
+

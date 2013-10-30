@@ -1,0 +1,6 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/CORRELATIONSCORE
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+d 2 3 igb
+d 3 1 uses

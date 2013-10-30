@@ -1,0 +1,22 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 11 http://www.opmw.org/ontology/ParameterVariable
+d 2 8 genBy
+d 3 10 genBy
+d 5 9 genBy
+d 6 7 genBy
+d 7 2 use
+d 8 5 use
+d 8 11 use
+d 9 1 use
+d 9 4 use
+d 10 6 use
