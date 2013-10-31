@@ -4,5 +4,3 @@ This folder contains all the related contents of the SUBDUE tools:
 * the input graphs.
 * the tests I have been doing
 * the results.
-
-Note: some of the paths of the .bats may have local paths to my computer. There are scripts for generating them appropriately in the main code.
