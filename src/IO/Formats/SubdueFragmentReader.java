@@ -1,13 +1,24 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
-package PostProcessing.Formats;
+package IO.Formats;
 
-import Graph.Graph;
-import GraphNode.GraphNode;
-import PostProcessing.FinalResult;
-import PostProcessing.GraphReader;
+import DataStructures.Graph;
+import DataStructures.GraphNode.GraphNode;
+import DataStructures.Fragment;
+import IO.FragmentReader;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -23,12 +34,12 @@ import java.util.HashMap;
  * one (dependences)
  * @author Daniel Garijo
  */
-public class SubdueGraphReader extends GraphReader {
+public class SubdueFragmentReader extends FragmentReader {
     
 //    private HashMap<String,FinalResult> finalResults;//substructureID, finalResult
 
-    public SubdueGraphReader() {
-        finalResults = new HashMap<String, FinalResult>();
+    public SubdueFragmentReader() {
+        finalResults = new HashMap<String, Fragment>();
     }    
     
     /**
@@ -48,21 +59,21 @@ public class SubdueGraphReader extends GraphReader {
             HashMap<String, GraphNode> nodes = null;
             String[][] adjacencyMatrix = null;
             String [] currLine;
-            ArrayList<FinalResult> includedSubStructures = null;
+            ArrayList<Fragment> includedSubStructures = null;
             while ((strLine = br.readLine()) != null)   {
                 if(strLine.equals("S")){
                     //new structure, we store the previous one
                     if(URIs!=null){
                         i++;
                         Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, "SUB_"+i);
-                        FinalResult currentStructure = new FinalResult("SUB_"+i, 0,auxg,includedSubStructures,isMultiStepStructure(auxg, includedSubStructures));
+                        Fragment currentStructure = new Fragment("SUB_"+i, 0,auxg,includedSubStructures,isMultiStepStructure(auxg, includedSubStructures));
                         finalResults.put("SUB_"+i, currentStructure) ;                        
                     }
                     //we reinicialize all the structures
                     URIs = new ArrayList<String>();
                     nodes = new HashMap<String, GraphNode>();
                     adjacencyMatrix = null; // we can only create it once we have all the nodes
-                    includedSubStructures = new ArrayList<FinalResult>();
+                    includedSubStructures = new ArrayList<Fragment>();
                 }
                 else{
                     //record vertex and edges.
@@ -101,7 +112,7 @@ public class SubdueGraphReader extends GraphReader {
             if(URIs!=null){
                 i++;
                 Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, "SUB_"+i);
-                FinalResult currentStructure = new FinalResult("SUB_"+i, 0,auxg,includedSubStructures,this.isMultiStepStructure(auxg, includedSubStructures));
+                Fragment currentStructure = new Fragment("SUB_"+i, 0,auxg,includedSubStructures,this.isMultiStepStructure(auxg, includedSubStructures));
                 finalResults.put("SUB_"+i, currentStructure) ;                        
             }
             in.close();                
@@ -130,7 +141,7 @@ public class SubdueGraphReader extends GraphReader {
                 String id = idAndOccurrence[0].trim();
                 int number = Integer.parseInt(idAndOccurrence[1].trim());
                 if(!finalResults.containsKey(id)){                    
-                    finalResults.put(id, new FinalResult());
+                    finalResults.put(id, new Fragment());
                 }
                 finalResults.get(id).setNumberOfOccurrences(number);
             }

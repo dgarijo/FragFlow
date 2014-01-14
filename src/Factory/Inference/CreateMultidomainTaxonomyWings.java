@@ -1,6 +1,17 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package Factory.Inference;
 
@@ -19,12 +30,12 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
 /**
+ * Class designed to create a multidomain taxonomy of the Wings component catalogue
  * Since in Wings every run is published with a domain ontology with different URI,
  * we "merge" the domains into a multidomain ontology. This is necessary to perform
  * any inferences, since the same component URIs differ in the run ontologies. Only
@@ -47,6 +58,10 @@ public class CreateMultidomainTaxonomyWings {
     //an ontmodel with the classes and subclasses of every domain ontology
     private OntModel multiDomainOntology;
 
+    /**
+     * Class creation method
+     * @param repositoryURI 
+     */
     public CreateMultidomainTaxonomyWings(String repositoryURI) {
         domains = new HashMap<String, String>();        
         this.getDomainOntologies(repositoryURI);
@@ -60,18 +75,19 @@ public class CreateMultidomainTaxonomyWings {
             modifyOntology(currentEntry.getValue(),currentEntry.getKey());//"http://www.opmw.org/datasets/resource/2/199/acdom_library.owl#", "http://www.isi.edu/ac/TextAnalytics/library.owl#");
         }
         
-        //test
-//        multiDomainOntology.write(System.out);
     }    
     
     /**
-     * Method that return a the multi domain ontology based on a Wings repository
-     * @return 
+     * Method that returns a multi domain ontology based on a Wings repository
+     * @return the model with the mutlidomain taxonomy.
      */
     public OntModel getMultiDomainOntology(){
         return this.multiDomainOntology;
     }
-    
+    /**
+     * Method that saves the mutlidomain ontology to a file.
+     * @param outFile the path of the file to save.
+     */
     public void saveMultiDomainOntologyToFile(String outFile){
         OutputStream out;
         try {
@@ -81,19 +97,26 @@ public class CreateMultidomainTaxonomyWings {
             System.out.println("Error while writing the model to file "+ex.getMessage());
         }
     }
-    
+    /**
+     * Auxiliar method for querying the SPARQL repository
+     * @param endpointURL endpoint URL
+     * @param queryIn query to be sent
+     * @return the result set after queryin the repository.
+     */
     private ResultSet queryRepository(String endpointURL, String queryIn){
         Query query = QueryFactory.create(queryIn);
         QueryExecution qe = QueryExecutionFactory.sparqlService(endpointURL, query);
         ResultSet rs = qe.execSelect();        
         return rs;
     }
+    //note: this method appears in the GraphCollector Class also. Simplify it!
     
     /**
      * Given a repository, detect how many domain ontologies are 
      * necessary to be downloaded (one per domain) plus their URI
+     * @param repositoryURI the repository URI
      */
-    public void getDomainOntologies(String repositoryURI){
+    private void getDomainOntologies(String repositoryURI){
         //retrieve all runs from a the repository
         ResultSet accs = queryRepository(repositoryURI, QueriesOPMWTraces.queryWfExecAccount());
         while(accs.hasNext()){
@@ -170,9 +193,4 @@ public class CreateMultidomainTaxonomyWings {
         
     }
     
-    
-//    public static void main(String [] args){
-//        CreateMultidomainTaxonomyWings c = new CreateMultidomainTaxonomyWings("http://wind.isi.edu:8890/sparql");
-////        c.getDomainOntologies("http://wind.isi.edu:8890/sparql");
-//    }
 }

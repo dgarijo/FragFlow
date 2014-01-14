@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,13 +14,14 @@
  *  limitations under the License.
  */
 package PostProcessing;
+import DataStructures.Fragment;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMWTemplate2GraphProcessor;
-import Graph.Graph;
-import Graph.GraphCollection;
-import GraphNode.GraphNode;
-import PostProcessing.Formats.SubdueGraphReader;
+import DataStructures.Graph;
+import DataStructures.GraphCollection;
+import DataStructures.GraphNode.GraphNode;
+import IO.Formats.SubdueFragmentReader;
 import Static.GeneralConstants;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -47,13 +44,13 @@ public class SUBDUEFragmentRecongnizer {
         indexForStructure = 0;
     }
     
-    private FinalResult getPointerToSubstructure(String substructure,  FinalResult fr){        
-        FinalResult structureToExplore = null;
+    private Fragment getPointerToSubstructure(String substructure,  Fragment fr){        
+        Fragment structureToExplore = null;
         boolean found = false;
         //get the substructure on which we are going to perform the search
-        Iterator<FinalResult> it = fr.getListOfIncludedIDs().iterator();
+        Iterator<Fragment> it = fr.getListOfIncludedIDs().iterator();
         while(!found && it.hasNext()){
-            structureToExplore = (FinalResult)it.next();
+            structureToExplore = (Fragment)it.next();
             if(substructure.equals(structureToExplore.getStructureID())){
                 found = true;
             }
@@ -75,7 +72,7 @@ public class SUBDUEFragmentRecongnizer {
      * @param biggerGraph the graph where we are looking at the template
      * @return  a list of possible bindings (to validate)
      */
-    public ArrayList<HashMap<String,String>> generateBindingsFromFragmentInGraph(FinalResult fr, Graph biggerGraph){
+    public ArrayList<HashMap<String,String>> generateBindingsFromFragmentInGraph(Fragment fr, Graph biggerGraph){
         String [][] adjMatrix = fr.getDependencyGraph().getAdjacencyMatrix();
         HashMap<String,GraphNode> graphNodes = fr.getDependencyGraph().getNodes();
         ArrayList<String> graphURIs = fr.getDependencyGraph().getURIs();
@@ -174,7 +171,7 @@ public class SUBDUEFragmentRecongnizer {
                         else{
                             if(currentTypeI.contains("SUB_")){
                                 //this bit of code is equal to the other SUB part. Make a method
-                                FinalResult subStructure = getPointerToSubstructure(currentTypeI, fr);
+                                Fragment subStructure = getPointerToSubstructure(currentTypeI, fr);
                                 ArrayList<HashMap<String,String>> bindingsFromSubStructure = this.generateBindingsFromFragmentInGraph(subStructure, biggerGraph);
                                 //in the aux bindings now we have all the possible valid bindings for the fragment
                                 //iterate over the bindings
@@ -240,7 +237,7 @@ public class SUBDUEFragmentRecongnizer {
                             }
                             if(currentTypeJ.contains("SUB_")){
                                 //first we get the substructure pointer
-                                FinalResult subStructure = getPointerToSubstructure(currentTypeJ, fr);
+                                Fragment subStructure = getPointerToSubstructure(currentTypeJ, fr);
                                 ArrayList<HashMap<String,String>> bindingsFromSubStructure = this.generateBindingsFromFragmentInGraph(subStructure, biggerGraph);
                                 //in the aux bindings now we have all the possible valid bindings for the fragment
                                 //iterate over the bindings
@@ -435,7 +432,7 @@ public class SUBDUEFragmentRecongnizer {
      * @param fragment the fragment that corresponds to the bindings
      * @return  an ArrayList  of validated bindings containing the URIs to which each fragment is bound.
      */
-    public ArrayList<HashMap<String,String>> validateBindings(ArrayList<HashMap<String,String>> bindingsToValidate, Graph g, FinalResult fragment){
+    public ArrayList<HashMap<String,String>> validateBindings(ArrayList<HashMap<String,String>> bindingsToValidate, Graph g, Fragment fragment){
         ArrayList<HashMap<String,String>> validatedBindings = new ArrayList<HashMap<String, String>>();
         Iterator<HashMap<String,String>> itBindings = bindingsToValidate.iterator();
         while(itBindings.hasNext()){
@@ -493,7 +490,7 @@ public class SUBDUEFragmentRecongnizer {
      * @param fragment the fragment from which the bindings come
      * @return 
      */
-    private boolean validateBinding(HashMap<String,String> toValidate, Graph g, FinalResult fragment){
+    private boolean validateBinding(HashMap<String,String> toValidate, Graph g, Fragment fragment){
         if(toValidate.isEmpty())return false;
         //if the size of the bindings found is smaller than the fragment itself, then it is not valid
         if((toValidate.size()/2)!=fragment.getSize())return false;
@@ -602,7 +599,7 @@ public class SUBDUEFragmentRecongnizer {
         //tests on a template
         OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
 //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
-        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+        test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
 //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
 //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
 
@@ -614,7 +611,7 @@ public class SUBDUEFragmentRecongnizer {
 //        String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
         String file = "resultsAbstractCatalog24-10-2013";
         String ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
-        HashMap<String,FinalResult> obtainedResults = new SubdueGraphReader().processResultsAndOccurrencesFiles(file, ocFile);
+        HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
         
         //with inference
        //first we get the replacement hashmap
@@ -652,7 +649,7 @@ public class SUBDUEFragmentRecongnizer {
         //it would be nice to just send the relevant fragments    
         SUBDUEFragmentRecongnizer fr = new SUBDUEFragmentRecongnizer();
         while(fragments.hasNext()){
-            FinalResult f = obtainedResults.get(fragments.next());
+            Fragment f = obtainedResults.get(fragments.next());
             System.out.println("Size of fragment "+f.getStructureID()+" is "+ f.getSize());
             if(f.isMultiStepStructure()){
                 ArrayList<HashMap<String,String>> b = fr.generateBindingsFromFragmentInGraph(f, testGraph);

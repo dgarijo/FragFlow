@@ -1,30 +1,41 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package Factory;
 
 import Static.GeneralConstants;
 import Static.Templates.QueriesOPMWTempl;
-import Graph.Graph;
-import GraphNode.GraphNode;
-import GraphNode.GraphNodeTemplatesOPMW;
+import DataStructures.Graph;
+import DataStructures.GraphNode.GraphNode;
+import DataStructures.GraphNode.GraphNodeTemplatesOPMW;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Resource;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 /**
- * Class to process OPMW templates into SUBDUE graphs
+ * Class to process OPMW templates into Graphs
  * @author Daniel Garijo
  */
 public class OPMWTemplate2GraphProcessor extends GraphCollectionCreator{
 
+    /**
+     * Creation method
+     * @param repositoryURI 
+     */
     public OPMWTemplate2GraphProcessor(String repositoryURI) {
         super(repositoryURI);
     }
@@ -41,29 +52,18 @@ public class OPMWTemplate2GraphProcessor extends GraphCollectionCreator{
 //    }
     
     @Override
-    public void transformDomainToSubdueGraph(String domain){
+    public void transformDomainToGraph(String domain){
         ResultSet rs = this.queryRepository(this.repositoryURI,QueriesOPMWTempl.getTemplatesFromSpecificDomain(domain) );        
         while (rs.hasNext()){
             QuerySolution qs = rs.next();
             Resource currentTrace = qs.getResource("?templ");
 //            System.out.println(currentTrace.getURI());
-            this.transformToSubdueGraph(currentTrace.getURI());
+            this.transformToGraph(currentTrace.getURI());
         }
-    }
-
-//    @Override
-//    public void transformToSubdueGraph(ArrayList<String> URIs, String outputFileName) {
-//        Iterator<String> it = URIs.iterator();
-//        while(it.hasNext()){
-//            String currentURI = it.next();
-//            this.transformToSubdueGraph(currentURI);
-//        }
-//        this.collection.writeFullGraphsToFile(outputFileName);
-//    }    
-    
+    }    
 
     @Override
-    public void transformToSubdueGraph(String URI) {
+    public void transformToGraph(String URI) {
         int countNodes = 1;
         System.out.println("Processing "+ URI);        
         //we store the ordered list in the arrayList. We store the types, etc in the 
@@ -88,17 +88,7 @@ public class OPMWTemplate2GraphProcessor extends GraphCollectionCreator{
                 URIs.add(currNode.getURI());
             }
         }        
-//        Iterator<String> it = URIs.iterator();
         try{
-//            FileWriter fstream = new FileWriter(this.outputGraph);
-//            BufferedWriter out = new BufferedWriter(fstream);
-//            while (it.hasNext()){
-//                String currentURI = it.next();
-//                SubdueGraphNode_TemplatesOPMW currNode = (SubdueGraphNode_TemplatesOPMW) nodes.get(currentURI);
-//                System.out.println("v "+currNode.getNumberInGraph()+" "+currNode.getType());
-//                out.write("v "+currNode.getNumberInGraph()+" "+currNode.getType());
-//                out.newLine();
-//            }
             //retrieve EDGES: uses, isGeneratedBy
             //d NUMBER NUMBER
             //creation of adjacency Matrix
@@ -123,25 +113,9 @@ public class OPMWTemplate2GraphProcessor extends GraphCollectionCreator{
                 Resource artifact = qs.getResource("?artif");
 //                System.out.println("d "+nodes.get(artifact.getURI()).getNumberInGraph()+" "+ nodes.get(process.getURI()).getNumberInGraph()+" igb");
                 adjacencyMatrix [nodes.get(artifact.getURI()).getNumberInGraph()][nodes.get(process.getURI()).getNumberInGraph()] = GeneralConstants.GENERATION_DEPENDENCY;
-//                out.write("d "+nodes.get(artifact.getURI()).getNumberInGraph()+" "+ nodes.get(process.getURI()).getNumberInGraph()+" igb");                
-//                out.newLine();
             }
-            //test
-//            for (int i = 0; i<adjacencyMatrix.length;i++){
-//                for(int j = 0; j<adjacencyMatrix.length; j++){
-//                    if(adjacencyMatrix[i][j]!=null) System.out.println("["+i+"],["+j+"]: "+adjacencyMatrix[i][j]);
-//                }
-//            }
-//            out.close();            
-            Graph graph = new Graph(URIs, nodes, adjacencyMatrix, URI);
-            
-//            *************test
-//            FileWriter fstream = new FileWriter("TEstsSimplifiedStructure");
-//            BufferedWriter out = new BufferedWriter(fstream);
-//                graph.writeSimplifiedGraphToFile(out, 0);
-//            out.close();
-//            ************end test
-            
+                       
+            Graph graph = new Graph(URIs, nodes, adjacencyMatrix, URI);            
             this.collection.addSubGraph(graph);
         }catch(Exception e){
             System.out.println("Error while writting the results: "+e.getMessage());
@@ -149,12 +123,5 @@ public class OPMWTemplate2GraphProcessor extends GraphCollectionCreator{
         
         
     }
-    
-//    public static void main(String []args){
-//        OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
-//        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/MODELTHENCLASSIFIY");
-//        //test.collection.
-//    }
-
     
 }

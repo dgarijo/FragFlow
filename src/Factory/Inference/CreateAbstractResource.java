@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,15 +15,9 @@
  */
 package Factory.Inference;
 
-import Factory.OPMWTemplate2GraphProcessor;
-import Graph.Graph;
-import Graph.GraphCollection;
-import GraphNode.GraphNode;
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileManager;
-import java.io.InputStream;
+import DataStructures.Graph;
+import DataStructures.GraphCollection;
+import DataStructures.GraphNode.GraphNode;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -36,6 +26,8 @@ import java.util.Iterator;
  * The input is a graph (typically with the reduced format), and the output
  * will be an abstract graph of the current one. Note that the URIs of the graph
  * won't change; just its types.
+ * This class is mainly used to determine whether an abstract fragment can be
+ * found in a particular instance of a template or a trace in a workflow.
  * @author Daniel Garijo
  */
 public class CreateAbstractResource {
@@ -44,9 +36,9 @@ public class CreateAbstractResource {
      * Function that given a replacement Hashmap and a Graph it returns the same
      * graph with the types of the nodes abstracted according to the taxonomy. If
      * a type is already abstracted, no changes are performed
-     * @param g
-     * @param replacements
-     * @return 
+     * @param g the input graph
+     * @param replacements a hasmap of replacements
+     * @return the abstract graph
      */
     public static Graph createAbstractGraph(Graph g, HashMap<String, String> replacements){
         HashMap<String,GraphNode> nodes = g.getNodes();
@@ -60,7 +52,12 @@ public class CreateAbstractResource {
         }
         return g;
     }
-    
+    /**
+     * Method designed to abstract a collection.
+     * @param gc the collection to abstract.
+     * @param replacements the replacement hashmap.
+     * @return the collection with abstract types.
+     */
     public static GraphCollection createAbstractCollection(GraphCollection gc, HashMap<String, String> replacements){
         Iterator<Graph> graphIterator =  gc.getGraphCollection().iterator();
         while(graphIterator.hasNext()){
@@ -69,26 +66,5 @@ public class CreateAbstractResource {
         }
         return gc;
     }
-    
-    
-    //static test
-//    public static void main(String [] args){
-//            String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
-//            String outputFilePath = "AbstractFragmentGraphCollection";
-//            //process the domain
-////            OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor(endpoint);
-////            tp.transformDomainToSubdueGraph(domain);
-//            //create the hashmap for replacements with the taxonomy
-//            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-//            InputStream in = FileManager.get().open(taxonomyFilePath);
-//            o.read(in, null);        
-//            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-//            
-//            OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
-//            test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-//            
-//            Graph a = CreateAbstractGraphFromGraph.createAbstract(test.getGraphCollection().getGraphCollection().get(0),replacements);
-//            System.out.println(a.getName()+"number of nodes "+a.getNumberOfNodes());
-//    }
     
 }

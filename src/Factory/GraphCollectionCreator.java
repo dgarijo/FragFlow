@@ -1,73 +1,73 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package Factory;
 
-import Graph.GraphCollection;
+import DataStructures.GraphCollection;
 
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.ResultSet;
-import java.io.IOException;
-import java.util.ArrayList;
 
 /**
- * Class to declare the generic operations to be extended by the specific 
- * processors
+ * Class designed to enable the main methods for creating collections of Graphs.
+ * Different repositories may be queried to create graphs to be consumed by 
+ * different algorithms, and this is the main class to be extended
  * @author Daniel Garijo
  */
 public abstract class GraphCollectionCreator {
     protected GraphCollection collection;
     protected final String repositoryURI;
 
+    /**
+     * Constructor. The repository URI is the URL of the repository (SPARQL) to
+     * query for results.
+     * @param repositoryURI URI of the repository
+     */
     public GraphCollectionCreator(String repositoryURI) {
         collection = new GraphCollection();     
         this.repositoryURI = repositoryURI;
     }
     
-    //to be implemented by the extension of the class
     /**
-     * Method that given a URI of template/trace in a repository, processes it
-     * and creates the apropriate SUBDUE Graph
-     * @param URI : ID of the template /run in the repository
+     * returns the current graph collection
+     * @return the current graph collection
      */
-    public void transformToSubdueGraph(String URI){
-        
-    }
-    
     public GraphCollection getGraphCollection(){
         return collection;
     }
     
-    //to be implemented by the different extensions of the class
     /**
-     * This method queries the repository for all the subgraphs and processes
-     * them through the transformToSubdueGraph method
+     * Method that given a URI of template/trace in a repository, processes it
+     * and creates the apropriate Graph
+     * @param URI : ID of the template /run in the repository
      */
-//    public void transformRespositoryToSubdueGraph(String outputFileName)throws IOException{
-//        
-//    }
-    
-    /**
-     * Given a domain, we extract the traces or templates form it (reduces the
-     * search space)
-     * @param domain domain form which we want to perform the extraction
-     */
-    public void transformDomainToSubdueGraph(String domain){
+    public void transformToGraph(String URI){
         
     }
     
     /**
-     * Method to transform just a set of subgraphs (templates/traces) as a subdue graph
-     * @param URIs 
+     * Given a domain, process the traces or templates form it (reduces the
+     * search space). A domain may not be needed in certain cases.
+     * @param domain domain form which we want to perform the extraction
      */
-//    public void transformToSubdueGraph(ArrayList<String> URIs, String outputFileName){
-//        
-//    }
-    
+    public void transformDomainToGraph(String domain){
+        
+    }
     
     /**
      * Method to perform a query to a repository

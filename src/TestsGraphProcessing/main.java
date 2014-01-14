@@ -1,13 +1,24 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package TestsGraphProcessing;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMWTemplate2GraphProcessor;
 import Factory.OPMWTrace2GraphProcessor;
-import Persistence.Formats.CollectionWriterSUBDUEFormat;
+import IO.Formats.CollectionWriterSUBDUEFormat;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -30,7 +41,7 @@ public class main {
             
             //TESTS FOR THE EVALUATION OF THE TEMPLATES.
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
-            tp.transformDomainToSubdueGraph("TextAnalytics");
+            tp.transformDomainToGraph("TextAnalytics");
             //write down results (no inference, no taxonomy)
 //            tp.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference_Templates");
             CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
@@ -54,7 +65,7 @@ public class main {
             //TESTS FOR EVALUATION OF THE TRACES
             //creation of the graph collection
             OPMWTrace2GraphProcessor t = new OPMWTrace2GraphProcessor("http://wind.isi.edu:8890/sparql");
-            t.transformDomainToSubdueGraph("TextAnalytics");
+            t.transformDomainToGraph("TextAnalytics");
             //write down results (no inference, no taxonomy)
 //            t.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference");
             writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_No_Inference");

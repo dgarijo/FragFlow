@@ -1,22 +1,39 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
-package PostProcessing;
-import Graph.Graph;
+package IO;
+import DataStructures.Fragment;
+import DataStructures.Graph;
 import Static.GeneralConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * Abstract class to read fragments from the results produced any algorithm
+ * to find them among a dataset (like SUBDUE).
  * @author Daniel Garijo
  */
-public abstract class GraphReader {
+public abstract class FragmentReader {
     //will be initialized on the subclasses
-    protected HashMap<String,FinalResult> finalResults;
+    protected HashMap<String,Fragment> finalResults;
     
-    
+    /**
+     * Method to process the result file with the fragments and transform them 
+     * into the hashmap
+     * @param graphFile 
+     */
     public void processResultFile(String graphFile){        
         
     }    
@@ -27,8 +44,13 @@ public abstract class GraphReader {
     public void processOccurrencesFile(String occFile){
         
     }
-    
-    public HashMap<String,FinalResult> processResultsAndOccurrencesFiles(String resultsFile, String ocFile){
+    /**
+     * Method to process the resultFile and the occurrencesFile together.
+     * @param resultsFile
+     * @param ocFile
+     * @return 
+     */
+    public HashMap<String,Fragment> processResultsAndOccurrencesFiles(String resultsFile, String ocFile){
         this.processResultFile(resultsFile);
         this.processOccurrencesFile(ocFile);
         return finalResults;
@@ -64,6 +86,12 @@ public abstract class GraphReader {
         
     }
     
+    /**
+     * Method to retrieve the number of dependencies of the current fragment on
+     * other fragments
+     * @param matrix adjacency matrix
+     * @return number of inform dependencies
+     */
     protected int getNumberOfInformDependencies(String[][] matrix){
         int dependencies = 0;
         for(int i = 0; i< matrix[0].length;i++){
@@ -75,12 +103,17 @@ public abstract class GraphReader {
         return dependencies;
     }
     
-    protected int getNumberOfDependenciesFromIncludedStructures(ArrayList<FinalResult> substructureResults){
+    /**
+     * Methos that returns the number of dependencies of its included substructures.
+     * @param substructureResults
+     * @return number of dependencies of its included substructures
+     */
+    protected int getNumberOfDependenciesFromIncludedStructures(ArrayList<Fragment> substructureResults){
         int dependencies = 0;
         for(int i=0; i<substructureResults.size();i++){
             //for each dependency, we check if it has other dependencies.
-            FinalResult currentR = substructureResults.get(i);
-            ArrayList<FinalResult> structureDependencyList = currentR.getListOfIncludedIDs();
+            Fragment currentR = substructureResults.get(i);
+            ArrayList<Fragment> structureDependencyList = currentR.getListOfIncludedIDs();
             if(!structureDependencyList.isEmpty()){
                 dependencies+=getNumberOfDependenciesFromIncludedStructures(structureDependencyList);
             }

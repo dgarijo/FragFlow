@@ -1,23 +1,42 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
-package GraphNode;
+package DataStructures.GraphNode;
 
 import Static.Templates.ConstantsOPMWTempl;
 
 /**
- *
+ * Extension of the GraphNode for modeling nodes of the templates in OPMW.
  * @author Daniel Garijo
  */
 public class GraphNodeTemplatesOPMW extends GraphNode{
     
-
+    /**
+     * Constructor
+     * @param URI
+     * @param type
+     * @param numberInGraph 
+     */
     public GraphNodeTemplatesOPMW(String URI, String type, int numberInGraph) {        
         super(URI, type, numberInGraph);
     }
 
-
+    /**
+     * Setter extension
+     * @param type new type to replace the old type.
+     */
     @Override
     public void setType(String type) {
         //if the current type belongs to a catalog ontology, then change it.

@@ -1,9 +1,21 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package PostProcessing;
 
+import DataStructures.Fragment;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -42,15 +54,16 @@ public abstract class CreateStatisticsFromResults {
     
     //A file may contain more than one substructure. For each we use the graph reader.
     public void createStatisticsFromFile(String inputFile, String occurrencesFile){
-        //to ve overriden by the different file formats.
+        //to be overriden by the different file formats.
     }    
     
     
     /**
      * Function to count the number of detected substructures.
-     * Stamdard for all the types of graphs
+     * Standard for all the types of graphs
+     * @param results results obtained when parsing the detected fragments.
      */    
-    protected void countDetectedAndMultiStepStructures(HashMap<String,FinalResult> results){
+    protected void countDetectedAndMultiStepStructures(HashMap<String,Fragment> results){
         if(results==null)return;
         Iterator<String> it = results.keySet().iterator();
         this.occurrencesOfDetectedStructures = 0;
@@ -63,12 +76,12 @@ public abstract class CreateStatisticsFromResults {
         //we assume that the number of occurrences is initialzied
         while (it.hasNext()){
             String currentString = it.next();
-            FinalResult currentResult = results.get(currentString);
+            Fragment currentResult = results.get(currentString);
             this.occurrencesOfDetectedStructures+= currentResult.getNumberOfOccurrences();
             if(currentResult.isMultiStepStructure()){
                 this.multiStepFragment++;
                 this.occurrencesOfMultiStepStructures+=currentResult.getNumberOfOccurrences();
-                ArrayList<FinalResult> includedIds = currentResult.getListOfIncludedIDs();
+                ArrayList<Fragment> includedIds = currentResult.getListOfIncludedIDs();
                 if(includedIds.isEmpty()){
                     this.numberOfMultiStepIrreducibleStructures++;
                     this.filteredMultiStepFragment++;
@@ -77,11 +90,11 @@ public abstract class CreateStatisticsFromResults {
                 else{
                 //if any of the included structures has more or less occurrences than the actual one,
                 //we count the actual as a new structure.
-                    Iterator<FinalResult> idsIterator = includedIds.iterator();
+                    Iterator<Fragment> idsIterator = includedIds.iterator();
                     boolean includeStructure = false;
                     while (idsIterator.hasNext()&&!includeStructure){
 //                        String currentIncludedId = idsIterator.next();
-                        FinalResult includedStructure = idsIterator.next();
+                        Fragment includedStructure = idsIterator.next();
                         if(includedStructure.getNumberOfOccurrences()!= currentResult.getNumberOfOccurrences()){
                             includeStructure=true;//we have found that it should be included. 
                             this.filteredMultiStepFragment++;
@@ -101,8 +114,11 @@ public abstract class CreateStatisticsFromResults {
     }
     
     
-    /*
-     * This method will print the statistics on the console plus to the specified file
+    
+    /**
+     * Method that will print the statistics on the console plus to the 
+     * specified file
+     * @param outFilePath save path file
      */
     public void printStatistics(String outFilePath){
         try{

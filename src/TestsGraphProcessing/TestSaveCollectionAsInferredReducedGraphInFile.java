@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
@@ -21,7 +18,7 @@ package TestsGraphProcessing;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMWTemplate2GraphProcessor;
-import Persistence.Formats.CollectionWriterSUBDUEFormat;
+import IO.Formats.CollectionWriterSUBDUEFormat;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -43,7 +40,7 @@ public class TestSaveCollectionAsInferredReducedGraphInFile {
             String outputFilePath = "AbstractFragmentGraphCollection";
             //process the domain
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor(endpoint);
-            tp.transformDomainToSubdueGraph(domain);
+            tp.transformDomainToGraph(domain);
             //create the hashmap for replacements with the taxonomy
             OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
             InputStream in = FileManager.get().open(taxonomyFilePath);

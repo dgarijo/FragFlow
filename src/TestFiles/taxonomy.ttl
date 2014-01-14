@@ -1,0 +1,1777 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#BetweennessCentralityClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#BetweennessCentralityClass> rdf:type owl:Class ;
+                                                                                            
+                                                                                            rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CentralityClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CentralityClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#ClusteringClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#ClusteringClass> rdf:type owl:Class ;
+                                                                                 
+                                                                                 rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateCharts
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateCharts> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateLineChartClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateLineChartClass> rdf:type owl:Class ;
+                                                                                      
+                                                                                      rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#CreateCharts> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeCentralityClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeCentralityClass> rdf:type owl:Class ;
+                                                                                       
+                                                                                       rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeDistributionClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#DegreeDistributionClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#EigenvectorCentralityClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#EigenvectorCentralityClass> rdf:type owl:Class ;
+                                                                                            
+                                                                                            rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GephiNetworkVisualizationClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GephiNetworkVisualizationClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GlobalNetworkStatisticsClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#GlobalNetworkStatisticsClass> rdf:type owl:Class ;
+                                                                                              
+                                                                                              rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#HitsLinkAnalysisClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#HitsLinkAnalysisClass> rdf:type owl:Class ;
+                                                                                       
+                                                                                       rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkBuilderSPARQLClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkBuilderSPARQLClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkVisualizationClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkVisualizationClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#PagerankLinkAnalysisClass
+
+<http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#PagerankLinkAnalysisClass> rdf:type owl:Class ;
+                                                                                           
+                                                                                           rdfs:subClassOf <http://www.isi.edu/ac/SocialContentNetworkAnalysis/library.owl#NetworkMeasures> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#CFClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#CFClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquaredClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquaredClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#DFClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#DFClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeClassifierClass> rdf:type owl:Class ;
+                                                                              
+                                                                              rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeModelerClass> rdf:type owl:Class ;
+                                                                           
+                                                                           rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#DecisionTreeValidatorClass> rdf:type owl:Class ;
+                                                                             
+                                                                             rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelectionClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelectionClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArffClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#FormatClutoClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatClutoClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#FormatMalletClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatMalletClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSimClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSimClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#IDFClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#IDFClass> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#InformationGainClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#InformationGainClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARClassifierClass> rdf:type owl:Class ;
+                                                                           
+                                                                           rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARModelerClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibLINEARValidatorClass> rdf:type owl:Class ;
+                                                                          
+                                                                          rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMClassifierClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMModelerClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LibSVMValidatorClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#LovinsStemmerClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2SingleClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#MutualInformationClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#MutualInformationClass> rdf:type owl:Class ;
+                                                                         
+                                                                         rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScoreClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesClassifierClass> rdf:type owl:Class ;
+                                                                            
+                                                                            rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesModelerClass> rdf:type owl:Class ;
+                                                                         
+                                                                         rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#NaiveBayesValidatorClass> rdf:type owl:Class ;
+                                                                           
+                                                                           rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#PlotScoreClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#PlotScoreClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#PlotTopicsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#PlotTopicsClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmerClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ReduceClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ReduceClass> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestionsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SelectQuestionsClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarClass> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsTopicsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SimilarWordsTopicsClass> rdf:type owl:Class ;
+                                                                          
+                                                                          rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWordsClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#SplitDatasetClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SplitDatasetClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#StopWordsClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#TFClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TFClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDFClass> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#TrainTopicsClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TrainTopicsClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#VocabularClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#VocabularClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#aggloClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#aggloClusteringClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#baggloClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#baggloClusteringClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#directClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#directClusteringClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#graphClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#graphClusteringClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#kNNClassifierClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#kNNClassifierClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#kNNModelerClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#kNNModelerClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#kNNValidatorClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#kNNValidatorClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ValidatorClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#rbClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#rbClusteringClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/TextAnalytics/library.owl#rbrClusteringClass
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#rbrClusteringClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/TextAnalytics/library.owl#ClusteringClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#AlignementResultMergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#AlignementResultMergerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#AutodockVinaClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#AutodockVinaClass> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#DockingClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CompareDissimilarProteinStructuresClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CompareDissimilarProteinStructuresClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV1Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV1Class> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV2Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV2Class> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CountDrugsClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CountDrugsClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesImplClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesImplClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CreateClipFilesClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsImplClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsImplClass> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CreateIdealLigandsClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#DockingClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#DockingClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#DrugCounterClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#DrugCounterClass> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CountDrugsClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#FATCATClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#FATCATClass> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CompareDissimilarProteinStructuresClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#FATCATURLCheckerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#FATCATURLCheckerClass> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#URLCheckerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#FormatPDBToCompareProteinStructuresClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#FormatPDBToCompareProteinStructuresClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#FormatStepToCompareDissimilarProteinStructuresClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#FormatStepToCompareDissimilarProteinStructuresClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#GetAlignementFolderClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#GetAlignementFolderClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#GetSMAPAlignementFolderClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#GetSMAPAlignementFolderClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#GetAlignementFolderClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#FormatStepToCompareDissimilarProteinStructuresClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsHModelClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#GetSignificantResultsHModelClass> rdf:type owl:Class ;
+                                                                           
+                                                                           rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#FormatPDBToCompareProteinStructuresClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#GetTanimotosClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#GetTanimotosClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerImplClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerImplClass> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#IdealLigandCheckerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#ListMergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#ListMergerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#ListMergerImplClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#ListMergerImplClass> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#ListMergerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkGMLClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkGMLClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#MakeGraphNetworkClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#MergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#MergerClass> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#RawInteractionNetworkMergerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#RawInteractionNetworkMergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#RawInteractionNetworkMergerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#RemoveSigPairsFATCATClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#RemoveSigPairsFATCATClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#RemoveSignificantPairsClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#RemoveSignificantPairsClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#RemoveSignificantPairsClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#ResultSorterClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#ResultSorterClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#ResultSorterV2Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#ResultSorterV2Class> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPAlignementResultMergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPAlignementResultMergerClass> rdf:type owl:Class ;
+                                                                          
+                                                                          rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#AlignementResultMergerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPClass> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterClass> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#ResultSorterClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterV2Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPResultSorterV2Class> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#ResultSorterV2Class> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPV1Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPV1Class> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV1Class> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SMAPV2Class
+
+<http://www.isi.edu/ac/WINGS/library.owl#SMAPV2Class> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#CompareLigandBindingSitesV2Class> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerImplClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerImplClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/WINGS/library.owl#SigResultMergerClass> .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#URLCheckerClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#URLCheckerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/WINGS/library.owl#UploadHModelsClass
+
+<http://www.isi.edu/ac/WINGS/library.owl#UploadHModelsClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#BayesClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#BayesClassifierClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#BayesModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#BayesModelerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#DTClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#DTClassifierClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#DTModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#DTModelerClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#DiscretizeClass
+
+<http://www.isi.edu/ac/dm/library.owl#DiscretizeClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#ID3ClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#ID3ClassifierClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#ID3ModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#ID3ModelerClass> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#J48ClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#J48ClassifierClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#J48ModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#J48ModelerClass> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#LMTClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#LMTClassifierClass> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#LMTModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#LMTModelerClass> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#DTModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#NaiveBayesClassifierClass
+
+<http://www.isi.edu/ac/dm/library.owl#NaiveBayesClassifierClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#BayesClassifierClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#NaiveBayesModelerClass
+
+<http://www.isi.edu/ac/dm/library.owl#NaiveBayesModelerClass> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://www.isi.edu/ac/dm/library.owl#BayesModelerClass> .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#RandomizeClass
+
+<http://www.isi.edu/ac/dm/library.owl#RandomizeClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/dm/library.owl#ResampleClass
+
+<http://www.isi.edu/ac/dm/library.owl#ResampleClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Annotate_CNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Annotate_CNVClass> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Association_AnalysisClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Association_AnalysisClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#BWAComponents
+
+<http://www.isi.edu/ac/genomics/library.owl#BWAComponents> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#BWA_HumanGenome_AlignmentsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#BWA_HumanGenome_AlignmentsClass> rdf:type owl:Class ;
+                                                                             
+                                                                             rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#BWAComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Cleanup_IndelsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Cleanup_IndelsClass> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Combine_Reformat_PennCNV_CNVXClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Combine_Reformat_PennCNV_CNVXClass> rdf:type owl:Class ;
+                                                                                
+                                                                                rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#CombinedCNV
+
+<http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Compare_against_Common_LociClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Compare_against_Common_LociClass> rdf:type owl:Class ;
+                                                                              
+                                                                              rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Component
+
+<http://www.isi.edu/ac/genomics/library.owl#Component> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Compress_SAM_into_BAM_FormatClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Compress_SAM_into_BAM_FormatClass> rdf:type owl:Class ;
+                                                                               
+                                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Convert_BWA_to_SAM_FormatClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Convert_BWA_to_SAM_FormatClass> rdf:type owl:Class ;
+                                                                            
+                                                                            rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#BWAComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Convert_to_PN_and_QT_FormatsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Convert_to_PN_and_QT_FormatsClass> rdf:type owl:Class ;
+                                                                               
+                                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Convert_to_Structure_FormatClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Convert_to_Structure_FormatClass> rdf:type owl:Class ;
+                                                                              
+                                                                              rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Create_Binary_PEDFileClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Create_Binary_PEDFileClass> rdf:type owl:Class ;
+                                                                        
+                                                                        rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#DataArgument
+
+<http://www.isi.edu/ac/genomics/library.owl#DataArgument> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#DeNovo
+
+<http://www.isi.edu/ac/genomics/library.owl#DeNovo> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#DeNovo2_Assess_CNV_OverlapClass
+
+<http://www.isi.edu/ac/genomics/library.owl#DeNovo2_Assess_CNV_OverlapClass> rdf:type owl:Class ;
+                                                                             
+                                                                             rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#DeNovo> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#DeNovo_Assess_CNV_OverlapClass
+
+<http://www.isi.edu/ac/genomics/library.owl#DeNovo_Assess_CNV_OverlapClass> rdf:type owl:Class ;
+                                                                            
+                                                                            rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#DeNovo> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs
+
+<http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Find_Gender_of_FinalReportsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Find_Gender_of_FinalReportsClass> rdf:type owl:Class ;
+                                                                              
+                                                                              rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#General_Association_AnalysisClass
+
+<http://www.isi.edu/ac/genomics/library.owl#General_Association_AnalysisClass> rdf:type owl:Class ;
+                                                                               
+                                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips
+
+<http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs
+
+<http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Generate_VisualizationClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Generate_VisualizationClass> rdf:type owl:Class ;
+                                                                         
+                                                                         rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Gnosis_Detect_CNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Gnosis_Detect_CNVClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#MatlabComponents
+
+<http://www.isi.edu/ac/genomics/library.owl#MatlabComponents> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Merge_2_Bad_ChipsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Merge_2_Bad_ChipsClass> rdf:type owl:Class ;
+                                                                    
+                                                                    rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Merge_2_CNVsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Merge_2_CNVsClass> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Merge_3_CNVsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Merge_3_CNVsClass> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Merge_Bad_ChipsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Merge_Bad_ChipsClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#General_Merge_Bad_Chips> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Merge_CNVsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Merge_CNVsClass> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#General_Merge_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#ParameterArgument
+
+<http://www.isi.edu/ac/genomics/library.owl#ParameterArgument> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#ParenTDTClass
+
+<http://www.isi.edu/ac/genomics/library.owl#ParenTDTClass> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVClass> rdf:type owl:Class ;
+                                                                  
+                                                                  rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVXClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Penn_Detect_CNVXClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#PlinkComponents
+
+<http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Population_Stratification_AnalysisClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Population_Stratification_AnalysisClass> rdf:type owl:Class ;
+                                                                                     
+                                                                                     rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Predict_Indels_and_ConsensusClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Predict_Indels_and_ConsensusClass> rdf:type owl:Class ;
+                                                                               
+                                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Print_IndelsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Print_IndelsClass> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Print_SNPsClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Print_SNPsClass> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#QuantiSNP_Detect_CNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#QuantiSNP_Detect_CNVClass> rdf:type owl:Class ;
+                                                                       
+                                                                       rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Detect_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#R_Create_Mdist_PlotClass
+
+<http://www.isi.edu/ac/genomics/library.owl#R_Create_Mdist_PlotClass> rdf:type owl:Class ;
+                                                                      
+                                                                      rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs
+
+<http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Reformat_GnosisCNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Reformat_GnosisCNVClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Reformat_PennCNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Reformat_PennCNVClass> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Reformat_QuantiCNVClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Reformat_QuantiCNVClass> rdf:type owl:Class ;
+                                                                     
+                                                                     rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#Reformat_CNVs> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Remove_Bad_Quality_from_PEDFileClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Remove_Bad_Quality_from_PEDFileClass> rdf:type owl:Class ;
+                                                                                  
+                                                                                  rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#CombinedCNV> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#SamTools
+
+<http://www.isi.edu/ac/genomics/library.owl#SamTools> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Sort_BAM_DataClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Sort_BAM_DataClass> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#SamTools> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Structured_Association_AnalysisClass
+
+<http://www.isi.edu/ac/genomics/library.owl#Structured_Association_AnalysisClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#TDTClass
+
+<http://www.isi.edu/ac/genomics/library.owl#TDTClass> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#PlinkComponents> .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#Thing
+
+<http://www.isi.edu/ac/genomics/library.owl#Thing> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/genomics/library.owl#testClass
+
+<http://www.isi.edu/ac/genomics/library.owl#testClass> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://www.isi.edu/ac/genomics/library.owl#MatlabComponents> .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#compareClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#compareClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#countDuplicatesClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#countDuplicatesClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#getSortedWordsClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#getSortedWordsClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#html2textClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#html2textClass> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass> .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#mergeClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#mergeClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#pdf2textClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#pdf2textClass> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass> .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#removeMarkupClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/ac/wordbags/library.owl#removePatternClass
+
+<http://www.isi.edu/ac/wordbags/library.owl#removePatternClass> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Annotated_CNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Annotated_CNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#AnnotationFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#AnnotationFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#AssocFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#AssocFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#BAMFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#BAMFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#BIMFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#BIMFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#BadChips
+
+<http://www.isi.edu/dc/genomics/ontology.owl#BadChips> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#BinaryPEDFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#BinaryPEDFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#CMHFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#CMHFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#CNVFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#CNVFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Cluster0
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Cluster0> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Cluster1
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Cluster1> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Cluster2
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Cluster2> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Cluster3
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Cluster3> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#CommonLoci
+
+<http://www.isi.edu/dc/genomics/ontology.owl#CommonLoci> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#DGV_VariationFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#DGV_VariationFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#DeNovo2RareMergedCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#DeNovo2RareMergedCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#DeNovoRareMergedCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#DeNovoRareMergedCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#FAMFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#FAMFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#FilteredIndels
+
+<http://www.isi.edu/dc/genomics/ontology.owl#FilteredIndels> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#FinalReport
+
+<http://www.isi.edu/dc/genomics/ontology.owl#FinalReport> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#FormatedFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#FormatedFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#GenderFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#GenderFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#GenesFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#GenesFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#GnosisCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#GnosisCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#HGAlignments
+
+<http://www.isi.edu/dc/genomics/ontology.owl#HGAlignments> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Indels
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Indels> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#IndelsAndConsensus
+
+<http://www.isi.edu/dc/genomics/ontology.owl#IndelsAndConsensus> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#JPGFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#JPGFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MAPFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MAPFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MDistFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MDistFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MergeCNVFormat
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MergeCNVFormat> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MergeSummary
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MergeSummary> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MergeUID
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MergeUID> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#MergedCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#MergedCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PEDFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PEDFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PNFormat
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PNFormat> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PennCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PennCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PennCNVX
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PennCNVX> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PennLog
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PennLog> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#PennLogX
+
+<http://www.isi.edu/dc/genomics/ontology.owl#PennLogX> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#QTFormat
+
+<http://www.isi.edu/dc/genomics/ontology.owl#QTFormat> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#QuantiCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#QuantiCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#QuantiPCFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#QuantiPCFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#RareMergedCNV
+
+<http://www.isi.edu/dc/genomics/ontology.owl#RareMergedCNV> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#ReformatLog
+
+<http://www.isi.edu/dc/genomics/ontology.owl#ReformatLog> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#SAMFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#SAMFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#SNPFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#SNPFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#SequenceFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#SequenceFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#SortedBAMFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#SortedBAMFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#StructureFormatFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#StructureFormatFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#StructureOutputFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#StructureOutputFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#StructureParamsFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#StructureParamsFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#TDTFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#TDTFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#TDTPermFile
+
+<http://www.isi.edu/dc/genomics/ontology.owl#TDTPermFile> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/genomics/ontology.owl#Thresholds
+
+<http://www.isi.edu/dc/genomics/ontology.owl#Thresholds> rdf:type owl:Class .
+
+
+
+###  http://www.isi.edu/dc/ontology.owl#ParameterArgument
+
+<http://www.isi.edu/dc/ontology.owl#ParameterArgument> rdf:type owl:Class .
+
+
+
+
+###  Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net
+

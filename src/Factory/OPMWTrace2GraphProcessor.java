@@ -1,31 +1,43 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 package Factory;
 
 import Static.GeneralConstants;
-import Static.Traces.ConstantsOPMWTraces;
 import Static.Traces.QueriesOPMWTraces;
-import Graph.Graph;
-import GraphNode.GraphNode;
-import GraphNode.GraphNodeTracesOPMW;
+import DataStructures.Graph;
+import DataStructures.GraphNode.GraphNode;
+import DataStructures.GraphNode.GraphNodeTracesOPMW;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Resource;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Class designed to represent graphs for the traces of a workflow
+ * Class designed to represent graphs for the traces of an OPMW workflow
  * Since we support PROV, the relationships of the graph are used
  * and wasGeneratedBy. Other relations are not meaningful
  * @author Daniel Garijo
  */
 public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
 
+    /**
+     * Constructor method
+     * @param repositoryURI 
+     */
     public OPMWTrace2GraphProcessor(String repositoryURI) {
         super(repositoryURI);
     }
@@ -49,7 +61,7 @@ public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
      * TextAnalytics.
      */
     @Override
-    public void transformDomainToSubdueGraph(String domain){
+    public void transformDomainToGraph(String domain){
         ResultSet rs = this.queryRepository(this.repositoryURI, QueriesOPMWTraces.getTracesFromSpecificDomain(domain));
 //        System.out.println(QueriesOPMWTraces.getTracesFromSpecificDomain(domain));
 //        System.out.println("Found "+rs.getRowNumber()+" results for domain "+domain);
@@ -57,26 +69,19 @@ public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
         while (rs.hasNext()){
             QuerySolution qs = rs.next();
             Resource currentTrace = qs.getResource("?acc");
-            this.transformToSubdueGraph(currentTrace.getURI());
+            this.transformToGraph(currentTrace.getURI());
         }
-    }
-
-//    @Override
-//    public void transformToSubdueGraph(ArrayList<String> URIs, String outputFileName) {
-//        /**
-//         * @@TO DO
-//         */
-//    }
-    
+    }    
 
     /**
-     * 
+     * Sometimes we need to know the domain of a component, in order to associate it
+     * with the right types and perform the right inferences. Thus this is a 
+     * necessary workaround.
      * @return String with the URI of the domain catalog
      */
     private String getComponentDomainOntologyURI(String URI){
         ResultSet sample = this.queryRepository(repositoryURI, QueriesOPMWTraces.getComponentOntologyURI(URI));
-//        System.out.println(QueriesOPMWTraces.getComponentOntologyURI(URI));
-        //we just need one
+//        System.out.println(QueriesOPMWTraces.getComponentOntologyURI(URI));        
         if(sample.hasNext()){
             QuerySolution qs = sample.next();
             return qs.getResource("?uri").getNameSpace();                   
@@ -107,7 +112,7 @@ public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
      * @param URI 
      */
     @Override
-    public void transformToSubdueGraph(String URI) {        
+    public void transformToGraph(String URI) {        
         int countNodes = 1;
         System.out.println("Processing trace "+ URI);        
         //we store the ordered list in the arrayList. We store the types, etc in the 
@@ -119,7 +124,7 @@ public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
         
         ResultSet nodesAndTypes = queryRepository(repositoryURI, QueriesOPMWTraces.getWfExecNodes(URI));        
         
-        //In Wings every run component belong to a different domain ontology, because of
+        //In Wings every run component belongs to a different domain ontology, because of
         //version control. Thus we take the type of the domain ontology
         //instead of the type of the run.
         String componentCatalogURI = getComponentDomainOntologyURI(URI);
@@ -195,26 +200,10 @@ public class OPMWTrace2GraphProcessor extends GraphCollectionCreator{
 
             }           
             Graph graph = new Graph(URIs, nodes, adjacencyMatrix, URI);
-            this.collection.addSubGraph(graph);
-            //TESTS
-//             FileWriter fstream = new FileWriter("TEstsSimplifiedStructure_traces");
-//            BufferedWriter out = new BufferedWriter(fstream);
-//            graph.writeFullGraphToFile(out, countNodes);
-//            graph.writeSimplifiedGraphToFile(out, countNodes);
-//            out.close();
-            //END TESTS
+            this.collection.addSubGraph(graph);            
         }catch(Exception e){
             System.out.println("Error while writting the results: "+e.getMessage());
         }             
         
     }
-    
-    /**
-     * Various tests
-     * @param args 
-     */
-//    public static void main(String[] args){
-//        OPMWTrace2GraphProcessor tests = new OPMWTrace2GraphProcessor("http://wind.isi.edu:8890/sparql");
-//        tests.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348703551080");
-//    }
 }

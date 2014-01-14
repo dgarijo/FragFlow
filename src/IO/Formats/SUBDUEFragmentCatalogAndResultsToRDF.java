@@ -13,16 +13,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package Persistence.Formats;
+package IO.Formats;
 
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMWTemplate2GraphProcessor;
-import Graph.Graph;
-import Graph.GraphCollection;
-import GraphNode.GraphNode;
-import PostProcessing.FinalResult;
-import PostProcessing.Formats.SubdueGraphReader;
+import DataStructures.Graph;
+import DataStructures.GraphCollection;
+import DataStructures.GraphNode.GraphNode;
+import DataStructures.Fragment;
 import PostProcessing.SUBDUEFragmentRecongnizer;
 import Static.GeneralConstants;
 import Static.WffdConstants;
@@ -47,7 +46,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * Class to transform the SUBDUE Fragment Catalog to RDF.
+ * Class to transform the SUBDUE Fragment Catalog (result from the analysis) to 
+ * RDF.
  * The model used for this is the Workflow Fragment Description Ontology.
  * Every time a new catalog is passed a new set of URIs is created.
  * For more information see http://purl.org/net/wf-fd
@@ -58,6 +58,10 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
     private OntModel repository;
     private String dateToken;
 
+    /**
+     * Default constructor
+     * @param outPath the path to save the result RDF file.
+     */
     public SUBDUEFragmentCatalogAndResultsToRDF(String outPath) {
         this.outPath = outPath;        
         repository = ModelFactory.createOntologyModel();
@@ -67,14 +71,15 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
     
     /**
      * Function that accepts a catalog of fragments and prints them in RDF
-     * @param catalog a hashmap with the name of the fragment and the FinalResult implementing it.
+     * @param catalog a hashmap with the name of the fragment and the 
+     * FinalResult implementing it.
      */
-    public void transformFragmentCollectionToRDF(HashMap<String,FinalResult> catalog){
+    public void transformFragmentCollectionToRDF(HashMap<String,Fragment> catalog){
         Iterator<String> CatalogIt = catalog.keySet().iterator();
         //we assume that the number of occurrences is initialzied
         while (CatalogIt.hasNext()){
             String currentKey = CatalogIt.next();
-            FinalResult currentFragment = catalog.get(currentKey);
+            Fragment currentFragment = catalog.get(currentKey);
             //we just annotate multistep structures
             if(currentFragment.isMultiStepStructure()){
                 //fragmentId -> URI
@@ -85,10 +90,10 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
                 addDataProperty(repository, fragmentID,new Date().toString(),WffdConstants.CREATED,XSDDatatype.XSDdate);
 //                System.out.println(fragmentID);
                 //for each of these, add the "overlapsWith" relationship
-                ArrayList<FinalResult> includedIds = currentFragment.getListOfIncludedIDs();
-                Iterator<FinalResult> includedIdsIt = includedIds.iterator();                
+                ArrayList<Fragment> includedIds = currentFragment.getListOfIncludedIDs();
+                Iterator<Fragment> includedIdsIt = includedIds.iterator();                
                 while(includedIdsIt.hasNext()){
-                    FinalResult currentIncludedId = includedIdsIt.next();
+                    Fragment currentIncludedId = includedIdsIt.next();
                     String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
 //                    addIndividual(repository, currentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
                     addIndividual(repository, currentID, WffdConstants.STEP, null);
@@ -177,8 +182,7 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
                     //if the key is a URI then we add it. Otherwise it's just the binding to the fragment, 
                     //which is not relevant here.
                     addIndividual(repository, keyfromhashmap, WffdConstants.STEP, null);
-                    addProperty(repository, keyfromhashmap, currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);
-                    
+                    addProperty(repository, keyfromhashmap, currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);                    
                 }
             }
             n++;
@@ -186,8 +190,15 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
         //the fragment is bound  to the templateID with the dcterms:isPartOf relationship
         addProperty(repository, fragID, templateID, WffdConstants.IS_PART_OF);
     }
-       
-    public void transformBindingResultsInTemplateCollection(HashMap<String,FinalResult> obtainedResults, GraphCollection templates){
+    
+    /**
+     * Given a set of fragments and a graph collection of graphs, this method 
+     * checks whether any of the fragments were found in any of the graphs in 
+     * the collection
+     * @param obtainedResults
+     * @param templates 
+     */
+    public void transformBindingResultsInTemplateCollection(HashMap<String,Fragment> obtainedResults, GraphCollection templates){
         ArrayList<Graph> temps = templates.getGraphCollection();
         Iterator<Graph> itTemps = temps.iterator();
         while(itTemps.hasNext()){
@@ -197,18 +208,30 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
         }
         
     }
-    
-    public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(HashMap<String,FinalResult> obtainedResults, Graph template){
+    /**
+     * Method which given a set of fragments and a template, checks whether 
+     * any of the fragments can be found in the template or not. The results 
+     * are exported to RDF.
+     * @param obtainedResults results obtained by a SUBDUE algorithm.
+     * @param template template in which we want to search the results.
+     */
+    public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(HashMap<String,Fragment> obtainedResults, Graph template){
         Iterator<String> fragments = obtainedResults.keySet().iterator();
         //it would be nice to just send the relevant fragments            
         while(fragments.hasNext()){
-            FinalResult f = obtainedResults.get(fragments.next());
+            Fragment f = obtainedResults.get(fragments.next());
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template);
         
         }
     }
     
-    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(FinalResult currentFragment, Graph template){        
+    /**
+     * Given a fragment and a template, this method detects where in the 
+     * template has the fragment been found and trasforms the results to RDF.
+     * @param currentFragment
+     * @param template 
+     */
+    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template){        
         if(currentFragment.isMultiStepStructure()){
             SUBDUEFragmentRecongnizer fr = new SUBDUEFragmentRecongnizer();
             ArrayList<HashMap<String,String>> b = fr.generateBindingsFromFragmentInGraph(currentFragment, template);
@@ -276,6 +299,7 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
 
     /**
      * Function to add dataProperties. Similar to addProperty
+     * @param m Ontology model where we are operating
      * @param origen Domain of the property (Id, not complete URI)
      * @param literal literal to be asserted
      * @param dataProperty URI of the data property to assign.
@@ -288,13 +312,21 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
         Resource orig = m.getResource(GeneralConstants.PREFIX_FOR_RDF_GENERATION+ encode(origen) );
         m.add(orig, propSelec, literal); 
     }
-
-    private void addDataProperty(OntModel m, String origen, String dato, String dataProperty,RDFDatatype tipo) {
+    
+    /**
+     * Function to add dataProperties. 
+     * @param m the Ontology model where we are adding the data
+     * @param source subject of the triple
+     * @param data object of the triple
+     * @param dataProperty predicate of the triple
+     * @param type datatype of the data (String, integer, etc.)
+     */
+    private void addDataProperty(OntModel m, String source, String data, String dataProperty,RDFDatatype type) {
         OntProperty propSelec;
         //lat y long son de otra ontologia, tienen otro prefijo distinto
         propSelec = m.createDatatypeProperty(dataProperty);
-        Resource orig = m.getResource(GeneralConstants.PREFIX_FOR_RDF_GENERATION+ encode(origen));
-        m.add(orig, propSelec, dato,tipo);
+        Resource orig = m.getResource(GeneralConstants.PREFIX_FOR_RDF_GENERATION+ encode(source));
+        m.add(orig, propSelec, data,type);
     }
     
     /**
@@ -341,21 +373,21 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
         return prenom+nom;
     }
     
-    //just for tests
+    //this needs to be removed and adapted into scripts
     public static void main(String[] args){
         OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
 //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
         
        //this is a test just for the workflows annotated by Idafen
-       test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
-       test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-       test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
-       test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
-       test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/MODEL");
+       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
+       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
+       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/MODEL");
        
        String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
        String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-       HashMap<String,FinalResult> obtainedResults = new SubdueGraphReader().processResultsAndOccurrencesFiles(file, ocFile);
+       HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
        
        //without inference
        SUBDUEFragmentCatalogAndResultsToRDF catalogNoInference = new SUBDUEFragmentCatalogAndResultsToRDF("out.ttl");
@@ -381,7 +413,7 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
        file = "resultsAbstractCatalog24-10-2013";
        ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
        
-       obtainedResults = new SubdueGraphReader().processResultsAndOccurrencesFiles(file, ocFile);
+       obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
        
        //without inference
        SUBDUEFragmentCatalogAndResultsToRDF abstractCatalog = new SUBDUEFragmentCatalogAndResultsToRDF("outAbstract.ttl");
