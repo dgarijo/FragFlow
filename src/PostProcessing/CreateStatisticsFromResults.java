@@ -16,6 +16,7 @@
 package PostProcessing;
 
 import DataStructures.Fragment;
+import IO.Exception.FragmentReaderException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public abstract class CreateStatisticsFromResults {
     
     
     //A file may contain more than one substructure. For each we use the graph reader.
-    public void createStatisticsFromFile(String inputFile, String occurrencesFile){
+    public void createStatisticsFromFile(String inputFile, String occurrencesFile)throws FragmentReaderException{
         //to be overriden by the different file formats.
     }    
     

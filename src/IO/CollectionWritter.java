@@ -16,6 +16,7 @@
 package IO;
 
 import DataStructures.GraphCollection;
+import IO.Exception.CollectionWriterException;
 import java.util.HashMap;
 
 /**
@@ -29,7 +30,7 @@ public class CollectionWritter {
      * @param gc graph collection to write
      * @param outputFilePath  storing path
      */
-    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath) {
+    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath) throws CollectionWriterException{
         this.writeFullGraphsToFile(gc, outputFilePath, null);
     }
     
@@ -40,9 +41,9 @@ public class CollectionWritter {
      * @param outputFilePath
      * @param replacements 
      */
-    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements){}
+    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException{}
     
-    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath){
+    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath) throws CollectionWriterException{
         this.writeFullGraphsToSeparatedFiles(gc, outputPath, null);
     }
     
@@ -50,14 +51,14 @@ public class CollectionWritter {
      * Method to write a full colelction to separated files, one per graph, and
      * replace the types according to the replacements hashmap
      */
-    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements){}
+    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements) throws CollectionWriterException{}
     
     /**
      * Method to write the reduced graph collection to a file
      * @param gc
      * @param outputFilePath 
      */
-    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath) {
+    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath) throws CollectionWriterException {
         this.writeReducedGraphsToFile(gc, outputFilePath, null);
     }
     
@@ -68,7 +69,7 @@ public class CollectionWritter {
      * @param outputFilePath
      * @param replacements 
      */
-    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements){}
+    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException{}
     
     /**
      * Method to write the full reduced collection to separated files, one per 
@@ -76,7 +77,7 @@ public class CollectionWritter {
      * @param gc
      * @param outputPath 
      */
-    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath){
+    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath) throws CollectionWriterException{
         this.writeReducedGraphsToSeparatedFiles(gc, outputPath, null);
     }
     
@@ -88,5 +89,5 @@ public class CollectionWritter {
      * @param outputPath
      * @param replacements 
      */
-    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements){}
+    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements) throws CollectionWriterException{}
 }

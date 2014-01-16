@@ -18,14 +18,27 @@ package PostProcessing.Formats;
 import IO.Formats.SubdueFragmentReader;
 import PostProcessing.CreateStatisticsFromResults;
 import DataStructures.Fragment;
+import IO.Exception.FragmentReaderException;
 import java.util.HashMap;
 
 /**
- *
+ * Class that extends CreateStatisticsFromResults to obtain those obtained from 
+ * the SUBDUE results.
  * @author Daniel Garijo
  */
 public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResults{
     
+    /**
+     * Constructos
+     * @param domain domain of the templates or traces
+     * @param evalType type of evaluation performed
+     * @param isTemplate states whether the evaluation was performed on templates
+     * or not
+     * @param hasInference states whether the evaluation was performed by applying
+     * inference or not
+     * @param isReducedGraph states if the evaluation has been performed on a 
+     * reduced graph.
+     */
     public CreateStatisticsFromResultsSUBDUE(String domain, String evalType, boolean isTemplate, boolean hasInference, boolean isReducedGraph){
         this.domain = domain;
         this.evaluationType = evalType;
@@ -35,7 +48,7 @@ public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResul
     }
     
     @Override
-    public void createStatisticsFromFile(String inputFile, String occurrencesFile){
+    public void createStatisticsFromFile(String inputFile, String occurrencesFile) throws FragmentReaderException{
         this.inputFileName = inputFile;
         HashMap<String,Fragment> structureResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(inputFile, occurrencesFile);
         //Structures found

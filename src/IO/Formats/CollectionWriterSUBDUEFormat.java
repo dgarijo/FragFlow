@@ -18,6 +18,7 @@ package IO.Formats;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import IO.CollectionWritter;
+import IO.Exception.CollectionWriterException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -33,10 +34,10 @@ import java.util.Iterator;
 public class CollectionWriterSUBDUEFormat extends CollectionWritter{
    
     @Override
-    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements){
+    public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{
         FileWriter fstream = null; 
         BufferedWriter out = null; 
-        Iterator<Graph> it = gc.getGraphCollection().iterator();
+        Iterator<Graph> it = gc.getGraphs().iterator();
         GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
         int numeration = 0;
         try {
@@ -46,16 +47,15 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
                 Graph currentGraph = it.next();
                 // keep the track of the last number of nodes
                 if(replacements==null){//i.e., no replacements
-                    //currentGraph.writeFullGraphToFile(out, numeration);
                     gw.writeFullGraphToFile(currentGraph, out, numeration);
                 }else{
-//                    currentGraph.writeFullGraphToFile(out, numeration, replacements);
                     gw.writeFullGraphToFile(currentGraph, out, numeration, replacements);
                 }
                 numeration += currentGraph.getNumberOfNodes();
             }            
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.err.println("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage());
+            throw new CollectionWriterException("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage(), ex);
         } finally {
             try {
                 if(out!=null)out.close();
@@ -68,10 +68,10 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
     
         
     @Override
-    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements){
+    public void writeFullGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements)throws CollectionWriterException{
     FileWriter fstream = null; 
         BufferedWriter out = null; 
-        Iterator<Graph> it = gc.getGraphCollection().iterator();
+        Iterator<Graph> it = gc.getGraphs().iterator();
         GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
         int i = 0;
         String graphNumber = "graph";
@@ -83,18 +83,18 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
                 Graph currentGraph = it.next();
                 // keep the track of the last number of nodes
                 if(replacements==null){//i.e., no replacements
-//                    currentGraph.writeFullGraphToFile(out, 0);
                     gw.writeFullGraphToFile(currentGraph, out, 0);
                 }else{
-//                    currentGraph.writeFullGraphToFile(out, 0, replacements);
                     gw.writeFullGraphToFile(currentGraph, out, 0, replacements);
                 }
                 i++;
                 out.close();
                 fstream.close();                
             }            
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.err.println("Exception while writing the graph:  "+i+" "+ex.getMessage());
+            throw new CollectionWriterException("Exception while writing the graph:  "+i+" "+ex.getMessage(), ex);
+        }finally{
             try {
                 if(out!=null)out.close();
                 if(fstream!=null)fstream.close();
@@ -106,11 +106,11 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
     
     
     @Override
-    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements){
+    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{
         FileWriter fstream = null; 
         BufferedWriter out = null;
         GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
-        Iterator<Graph> it = gc.getGraphCollection().iterator();
+        Iterator<Graph> it = gc.getGraphs().iterator();
         int numeration = 0;
         try {
             fstream = new FileWriter(outputFilePath);
@@ -119,16 +119,15 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
                 Graph currentGraph = it.next();
                 // keep the track of the last number of nodes
                 if(replacements==null){//i.e., no replacements
-                    //currentGraph.writeSimplifiedGraphToFile(out, numeration);
                     gw.writeReducedGraphToFile(currentGraph, out, numeration);                    
                 }else{
-                    //currentGraph.writeSimplifiedGraphToFile(out, numeration, replacements);
                     gw.writeReducedGraphToFile(currentGraph, out, numeration, replacements);
                 }
                 numeration += currentGraph.getNumberOfNodes();
             }            
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             System.err.println("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage());
+            throw new CollectionWriterException("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage(), ex);
         } finally {
             try {
                 if(out!=null)out.close();
@@ -141,10 +140,10 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
 
     
     @Override
-    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements){
+    public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements)throws CollectionWriterException{
         FileWriter fstream = null; 
         BufferedWriter out = null; 
-        Iterator<Graph> it = gc.getGraphCollection().iterator();
+        Iterator<Graph> it = gc.getGraphs().iterator();
         GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
         int i = 0;
         String graphNumber = "graph";
@@ -156,24 +155,25 @@ public class CollectionWriterSUBDUEFormat extends CollectionWritter{
                 Graph currentGraph = it.next();
                 // keep the track of the last number of nodes
                 if(replacements==null){//i.e., no replacements
-//                    currentGraph.writeSimplifiedGraphToFile(out, 0);
                     gw.writeReducedGraphToFile(currentGraph, out, 0);
                 }else{
-//                    currentGraph.writeSimplifiedGraphToFile(out, 0, replacements);
                     gw.writeReducedGraphToFile(currentGraph, out, 0, replacements);
                 }
                 i++;
                 out.close();
                 fstream.close();                
             }            
-        } catch (IOException ex) {
-            System.err.println("Exception while writing the graph:  "+i+" "+ex.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Exception while writing the graph:  "+i+" "+ex.getMessage());            
+            throw new CollectionWriterException("Exception while writing the graph:  "+i+" "+ex.getMessage(), ex);
+        }finally{
             try {
                 if(out!=null)out.close();
                 if(fstream!=null)fstream.close();
             } catch (IOException e) {
                 System.err.println("Error closing the files: "+e.getMessage());
             }
+        //throw new CollectionWriterException("", ex);
         }  
     }
 }

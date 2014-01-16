@@ -21,20 +21,42 @@ package TestsGraphProcessing;
  * @author Daniel Garijo
  */
 public class ExecuteAllTests {
+    /**
+     * Small method to print the status of the tests.
+     * @param status boolean saying whether the test was OK or not.
+     * @return 1 if test was OK, 0 if not
+     */
+    public static int printTestStatus(boolean status){
+        if(status){
+            System.out.println("----TEST OK----");
+            return 1;
+        }
+        System.out.println("----TEST FAILED----");
+        return 0;
+    }
     public static void main(String[]args){
+        int numberOfSuccessfulTests = 0;
+        int totalNumberOfTests = 18;
         //for every test, execute it. Each test should describe itself and 
         //measure wether it has been properly executed or not.
-        TestCreateMultidomainOntologyFromWINGSRepository.test();
-        TestCreateReplacementHashMap.test();
-        TestCreateStatisticsFromSUBDUEResults.test();
-        TestReadASUBDUE_Result.test();
-        TestTransformAWINGSDomainToGraphCollection.test();
-        TestTransformOPMWTemplateToGraphFromRepository.test();
-        TestTransformOPMWTraceToGraphFromRepository.test();
-        TestSaveCollectionAsFullGraphInFile.test();
-        TestSaveCollectionAsReducedGraphInFile.test();
-        TestSaveCollectionInSeparatedFilesFullGraph.test();
-        TestSaveCollectionInSeparatedFilesReducedGraph.test();
+        numberOfSuccessfulTests+=printTestStatus(TestCreateMultidomainOntologyFromWINGSRepository.test());
+        numberOfSuccessfulTests+=printTestStatus(TestCreateReplacementHashMap.test());
+        numberOfSuccessfulTests+=printTestStatus(TestCreateStatisticsFromSUBDUEResults.test());
+        numberOfSuccessfulTests+=printTestStatus(TestPostProcessing.test());
+        numberOfSuccessfulTests+=printTestStatus(TestPrintWingsAvailableDomains.test());
+        numberOfSuccessfulTests+=printTestStatus(TestReadASUBDUE_Result.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveCollectionAsFullGraphInFile.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveCollectionAsInferredReducedGraphInFile.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveCollectionAsReducedGraphInFile.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveCollectionInSeparatedFilesFullGraph.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveCollectionInSeparatedFilesReducedGraph.test());
+        numberOfSuccessfulTests+=printTestStatus(TestSaveTypesOfProcessesToFile.test());
+        numberOfSuccessfulTests+=printTestStatus(TestTransformAWINGSDomainToGraphCollection.test());
+        numberOfSuccessfulTests+=printTestStatus(TestTransformOPMWTemplateToGraphFromRepository.test());
+        numberOfSuccessfulTests+=printTestStatus(TestTransformOPMWTraceToGraphFromRepository.test());
+                
+        System.out.println("DONE\n\n Number of tests passed: "+numberOfSuccessfulTests+" out of "+totalNumberOfTests);
+                
     }
     
 }

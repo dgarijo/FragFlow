@@ -16,7 +16,6 @@
 package TestsGraphProcessing;
 
 import Factory.Inference.CreateHashMapForInference;
-import DataStructures.GraphCollection;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -30,23 +29,24 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class TestCreateReplacementHashMap {
-    public static void test(){
+    public static int testNumber = 13;
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+"  Create a replacements Hashmap from taxonomy");
         try{
-        OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-        InputStream in = FileManager.get().open("C:\\Users\\Monen\\Dropbox\\MotifFinder\\src\\Tests\\test.owl");
-        if(in!=null){
+            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+            InputStream in = FileManager.get().open("src\\TestFiles\\multiDomainOnto.owl");
             o.read(in, null);        
-            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-            System.out.println("OK!");
-        }else{
-            System.out.println("File not found");
-        }
+            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);                    
+            if (replacements.isEmpty())return false;
+            return true;
         }catch(Exception e){
             System.out.println("Error while executing test. Exception: "+e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

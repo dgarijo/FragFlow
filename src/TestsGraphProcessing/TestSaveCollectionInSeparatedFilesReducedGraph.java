@@ -17,24 +17,37 @@ package TestsGraphProcessing;
 
 import Factory.OPMWTemplate2GraphProcessor;
 import IO.Formats.CollectionWriterSUBDUEFormat;
+import java.io.File;
 
 /**
- *
+ * Test to save a collection in separated files reducing the graphs. If the test
+ * succeeds, then the files are created.
  * @author Daniel Garijo
  */
 public class TestSaveCollectionInSeparatedFilesReducedGraph {
-    public static void test(){
+    public static int testNumber = 5;
+    public static boolean test(){
         try {
+            System.out.println("\n\nExecuting test:"+testNumber+" Save collection in separated files (reduced graph)");
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
             CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
-            writer.writeReducedGraphsToSeparatedFiles(tp.getGraphCollection(), "TestSaveCollectionInSeparatedFilesReducedGraph");
+            if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
+                File f = new File("TestSaveCollectionInSeparatedFilesReducedGraph");
+                f.mkdir();
+                writer.writeReducedGraphsToSeparatedFiles(tp.getGraphCollection(), "TestSaveCollectionInSeparatedFilesReducedGraph");
+                return true;
+            }
+            return false;
+            
         }catch(Exception e){
             System.out.println("Test TestSaveCollectionInSeparatedFilesReducedGraph case failed: "+ e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

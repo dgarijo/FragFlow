@@ -25,18 +25,24 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class TestReadASUBDUE_Result {
-    public static void test(){
+    public static int testNumber = 10;
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+" Checking whether a SUBDUE result file can be read.");
         try{
-            String file = "C:\\Users\\Monen\\Dropbox\\MotifFinder\\SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
-            String ocFile = "C:\\Users\\Monen\\Dropbox\\MotifFinder\\SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
+            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
+            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
             HashMap<String,Fragment> structureResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
+            if(structureResults.isEmpty())return false;
+            return true;
         }catch(Exception e){
             System.out.println("Error executing test. Exception: "+e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
      
 }

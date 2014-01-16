@@ -23,18 +23,22 @@ import Factory.Inference.CreateMultidomainTaxonomyWings;
  * @author Daniel Garijo
  */
 public class TestCreateMultidomainOntologyFromWINGSRepository {
-    public static void test(){
-        System.out.println("Testing create a multidomain ontology");
+    public static int testNumber = 14;
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+" create a multidomain taxonomy and print it to a file");
         try{
             CreateMultidomainTaxonomyWings c = new CreateMultidomainTaxonomyWings("http://wind.isi.edu:8890/sparql");
-            c.saveMultiDomainOntologyToFile("testOntology.owl");
+            c.saveMultiDomainOntologyToFile("testMultiDomainTaxonomy.owl");
+            return true;
         }catch(Exception e){
             System.out.println("Error in test. Exception: "+e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
     
 }

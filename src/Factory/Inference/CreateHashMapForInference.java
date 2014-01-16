@@ -49,7 +49,7 @@ public class CreateHashMapForInference {
             OntClass currentClass = it.next();
             //get the most generic class that is not owl:Thing
             OntClass generic = retrieveMostGenericSuperclass(currentClass);
-            System.out.println("replace "+currentClass.getLocalName()+" with "+ generic.getLocalName());
+            System.out.println("replace "+currentClass.getLocalName()+" with "+ generic.getLocalName().replace("Class", ""));
             replacements.put(currentClass.getURI(),generic.getURI().replace("Class", ""));
             //for the sake of simplifying things (some of them end up with class,
             //some of them don't, I add a duplicate key without "class"

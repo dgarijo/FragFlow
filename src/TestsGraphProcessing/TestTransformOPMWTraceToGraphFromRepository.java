@@ -15,23 +15,31 @@
  */
 package TestsGraphProcessing;
 
+import DataStructures.Graph;
 import Factory.OPMWTrace2GraphProcessor;
 
 /**
- *
+ * Test that given an OPMW trace URI, transforms it to a Graph.
  * @author Daniel Garijo
  */
 public class TestTransformOPMWTraceToGraphFromRepository {
-    public static void test(){
+    public static int testNumber = 1;
+    public static boolean test(){
         try{
-            System.out.println("Testing: transformation of an OPMW trace to graph from the Wings repository");
+            System.out.println("\n\nExecuting test:"+testNumber+" Transformation of an OPMW trace to graph from the Wings repository");
             OPMWTrace2GraphProcessor tests = new OPMWTrace2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tests.transformToGraph("http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348703551080");
+            Graph trace = tests.getGraphCollection().getGraphs().get(0);
+            if(trace.getName().equals("http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348703551080"))
+                return true;
+            else return false;
         }catch(Exception e){
             System.out.println("Error executing test. Exception: "+e.getMessage());
+            return false;
         }
     }
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

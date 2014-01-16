@@ -59,7 +59,7 @@ public class CreateAbstractResource {
      * @return the collection with abstract types.
      */
     public static GraphCollection createAbstractCollection(GraphCollection gc, HashMap<String, String> replacements){
-        Iterator<Graph> graphIterator =  gc.getGraphCollection().iterator();
+        Iterator<Graph> graphIterator =  gc.getGraphs().iterator();
         while(graphIterator.hasNext()){
             Graph currentGraph = graphIterator.next();
             currentGraph = createAbstractGraph(currentGraph, replacements);

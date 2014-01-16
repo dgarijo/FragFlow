@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package TestsGraphProcessing;
+package MainGraphProcessingScripts;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMWTemplate2GraphProcessor;
@@ -27,13 +27,14 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 /**
- *
+ * Script holding the main functionality of the project.
  * @author Daniel Garijo
  */
-public class main {
+public class RetrieveTemplatesFromServerAndTransformThemToSUBDUEFiles {
     //Metod to test the different functionality of templates. It can be 
     //separated in several main methods if necessary
     public static void main(String [] args){
+        try{
             //templates
 //            OPMWTemplateProcessor p = new OPMWTemplateProcessor("http://wind.isi.edu:8890/sparql");
 //            p.transformRespositoryToSubdueGraph("c");
@@ -87,6 +88,9 @@ public class main {
             writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_Inference", replacements);
 //            t.getGraphCollection().writeFullGraphsToSeparatedFiles("TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
             writer.writeFullGraphsToSeparatedFiles(t.getGraphCollection(),"TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
+        }catch(Exception e){
+            System.err.println("Error while executing main method "+e.getMessage());
+        }
        
     }
     

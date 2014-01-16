@@ -16,7 +16,6 @@
  */
 package TestsGraphProcessing;
 
-import Static.Traces.ConstantsOPMWTraces;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -37,8 +36,10 @@ import java.io.OutputStream;
  * @author Daniel Garijo
  */
 public class TestSaveTypesOfProcessesToFile {
+    public static int testNumber = 4;
     
-    public static void test(){
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+" Save Types of Processes to File");
         String queryIn="select distinct ?process ?type where {\n"+
                 "?process a <http://www.opmw.org/ontology/WorkflowTemplateProcess>.\n"+
                 "?process a ?type.\n"+
@@ -53,22 +54,25 @@ public class TestSaveTypesOfProcessesToFile {
         OntModel o = ModelFactory.createOntologyModel();
         while (rs.hasNext()){
             QuerySolution qs = rs.next();
-//            System.out.print("p: "+qs.getResource("?process"));
-//            System.out.println("; t: "+qs.getResource("?type"));
             o.createIndividual(qs.getResource("?process").getURI(), qs.getResource("?type"));
         }
         OutputStream out;
         try {
             out = new FileOutputStream(destination);
             o.write(out,"TURTLE");
+            //No additional validation is required; if the test has been executed
+            //to this point then it has succeeded.
+            return true;
         } catch (FileNotFoundException ex) {
             System.out.println("Error while writing the model to file "+ex.getMessage());
+            return false;
         }
     }
     
 
 public static void main(String[] args){
-    test();
+    if(test())System.out.println("Test "+testNumber+" OK");
+    else System.out.println("Test "+testNumber+" FAILED");
 }
 
 }

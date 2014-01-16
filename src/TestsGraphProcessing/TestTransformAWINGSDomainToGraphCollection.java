@@ -24,18 +24,23 @@ import Factory.OPMWTemplate2GraphProcessor;
  * @author Daniel Garijo
  */
 public class TestTransformAWINGSDomainToGraphCollection {
-    public static void test(){
+    public static int testNumber = 3;
+    public static boolean test(){
         try{
-            System.out.println("Executing test: Transform a Wings Domain To Graph Collection");
+            System.out.println("\n\nExecuting test:"+testNumber+" Transform a Wings Domain To Graph Collection");
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
-//            tp.getGraphCollection();
-            System.out.println("Test Ok");
+            tp.getGraphCollection().getGraphs().size();
+            //as a fact, we know there are 22 templates in this particular domain.
+            if(tp.getGraphCollection().getNumberOfSubGraphs()>1) return true;
+            else return false;
         }catch(Exception e){
             System.out.println("Error while executing test: " +e.getMessage());
+            return false;
         }
     }
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

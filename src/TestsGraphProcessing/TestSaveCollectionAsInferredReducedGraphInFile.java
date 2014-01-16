@@ -32,29 +32,40 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class TestSaveCollectionAsInferredReducedGraphInFile {
-    public static void test(){
+    public static int testNumber = 8;
+    public static boolean test(){        
         try{
+            System.out.println("\n\nExecuting test:"+testNumber+" Get a full collection of graphs from a "
+                    + "domain, reduce it and apply inference to produce the full collection inferred");
             String endpoint = "http://wind.isi.edu:8890/sparql" ;
             String domain = "TextAnalytics";
             String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
-            String outputFilePath = "AbstractFragmentGraphCollection";
+            String outputFilePath = "TestAbstractFragmentGraphCollection";
             //process the domain
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor(endpoint);
             tp.transformDomainToGraph(domain);
-            //create the hashmap for replacements with the taxonomy
-            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-            InputStream in = FileManager.get().open(taxonomyFilePath);
-            o.read(in, null);        
-            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-            //write the full file abstracted.
-            CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
-            writer.writeReducedGraphsToFile(tp.getGraphCollection(),outputFilePath ,replacements);
+            if(tp.getGraphCollection().getNumberOfSubGraphs()>1){
+                //create the hashmap for replacements with the taxonomy
+                OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+                InputStream in = FileManager.get().open(taxonomyFilePath);
+                o.read(in, null);        
+                HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+                if(replacements.isEmpty()) return false;
+                //write the full file abstracted.
+                CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(),outputFilePath ,replacements);
+                //if the writes the collection and that collection is not empty, then the test is OK
+                return true;
+            }
+            return false;
         }catch(Exception e){
             System.out.println("Test TestSaveCollectionAsReducedlGraphInFile case failed: "+ e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

@@ -53,7 +53,7 @@ import java.util.Iterator;
  * For more information see http://purl.org/net/wf-fd
  * @author Daniel Garijo
  */
-public class SUBDUEFragmentCatalogAndResultsToRDF {
+public class FragmentCatalogAndResultsToRDF {
     private String outPath;
     private OntModel repository;
     private String dateToken;
@@ -62,7 +62,7 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
      * Default constructor
      * @param outPath the path to save the result RDF file.
      */
-    public SUBDUEFragmentCatalogAndResultsToRDF(String outPath) {
+    public FragmentCatalogAndResultsToRDF(String outPath) {
         this.outPath = outPath;        
         repository = ModelFactory.createOntologyModel();
         //initialization of the date, which will determine the URIs
@@ -199,7 +199,7 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
      * @param templates 
      */
     public void transformBindingResultsInTemplateCollection(HashMap<String,Fragment> obtainedResults, GraphCollection templates){
-        ArrayList<Graph> temps = templates.getGraphCollection();
+        ArrayList<Graph> temps = templates.getGraphs();
         Iterator<Graph> itTemps = temps.iterator();
         while(itTemps.hasNext()){
             Graph currentTemplate = itTemps.next();
@@ -375,54 +375,58 @@ public class SUBDUEFragmentCatalogAndResultsToRDF {
     
     //this needs to be removed and adapted into scripts
     public static void main(String[] args){
-        OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
-//        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
-        
-       //this is a test just for the workflows annotated by Idafen
-       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
-       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
-       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
-       test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/MODEL");
-       
-       String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
-       String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-       HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
-       
-       //without inference
-       SUBDUEFragmentCatalogAndResultsToRDF catalogNoInference = new SUBDUEFragmentCatalogAndResultsToRDF("out.ttl");
-       
-       catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
-       catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());
-       //test1.transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, testGraph);
-       
-       catalogNoInference.exportToRDFFile("TURTLE");
-       
-       //with inference
-       //first we get the replacement hashmap
-       String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
-       OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-       InputStream in = FileManager.get().open(taxonomyFilePath);
-       o.read(in, null);        
-       HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-       
-       //we create the abstract collection
-       GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(test.getGraphCollection(), replacements);
-       
-       //we load the new files
-       file = "resultsAbstractCatalog24-10-2013";
-       ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
-       
-       obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
-       
-       //without inference
-       SUBDUEFragmentCatalogAndResultsToRDF abstractCatalog = new SUBDUEFragmentCatalogAndResultsToRDF("outAbstract.ttl");
-       
-       abstractCatalog.transformFragmentCollectionToRDF(obtainedResults);
-       abstractCatalog.transformBindingResultsInTemplateCollection(obtainedResults, abstractCollection);
-       //test1.transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, testGraph);
-       
-       abstractCatalog.exportToRDFFile("TURTLE");
+        try{
+            OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
+    //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
+
+           //this is a test just for the workflows annotated by Idafen. TO DO FOR ALL wf in the domain!
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/MODEL");
+
+           String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
+           String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
+           HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
+
+           //without inference
+           FragmentCatalogAndResultsToRDF catalogNoInference = new FragmentCatalogAndResultsToRDF("out.ttl");
+
+           catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
+           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());
+           //test1.transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, testGraph);
+
+           catalogNoInference.exportToRDFFile("TURTLE");
+
+           //with inference
+           //first we get the replacement hashmap
+           String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
+           OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+           InputStream in = FileManager.get().open(taxonomyFilePath);
+           o.read(in, null);        
+           HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+
+           //we create the abstract collection
+           GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(test.getGraphCollection(), replacements);
+
+           //we load the new files
+           file = "resultsAbstractCatalog24-10-2013";
+           ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
+
+           obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
+
+           //without inference
+           FragmentCatalogAndResultsToRDF abstractCatalog = new FragmentCatalogAndResultsToRDF("outAbstract.ttl");
+
+           abstractCatalog.transformFragmentCollectionToRDF(obtainedResults);
+           abstractCatalog.transformBindingResultsInTemplateCollection(obtainedResults, abstractCollection);
+           //test1.transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, testGraph);
+
+           abstractCatalog.exportToRDFFile("TURTLE");
+        }catch(Exception e){
+            System.err.println("Error while saving the catalog to RDF "+e.getMessage());
+        }
        
     }
 }

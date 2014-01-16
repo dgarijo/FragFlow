@@ -25,13 +25,15 @@ import com.hp.hpl.jena.query.ResultSet;
 import java.util.HashMap;
 
 /**
- *
+ * Test designed to retrieve and print the available domains.
  * @author Daniel Garijo
  */
 public class TestPrintWingsAvailableDomains {
     //this class actually repeats a bit of the code of the others, so it is not a good practice, but it works.
-    public static void test(){
+    public static int testNumber = 11;
+    public static boolean test(){
         String repositoryURI="http://wind.isi.edu:8890/sparql";
+        System.out.println("\n\nExecuting test:"+testNumber+" Retrieve and print available domains.");
         try{
             HashMap<String, String> domains = new HashMap<String, String>();
             ResultSet accs = queryRepository(repositoryURI, QueriesOPMWTraces.queryWfExecAccount());
@@ -55,9 +57,11 @@ public class TestPrintWingsAvailableDomains {
                         }
                     }
                 }            
-        } 
+            }
+            return true;
         }catch(Exception e){
             System.out.println("Error in test TestPrintWingsAvailableDomains. Exception: "+e.getMessage());
+            return false;
         }
     }
     
@@ -69,7 +73,8 @@ public class TestPrintWingsAvailableDomains {
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
     
 }

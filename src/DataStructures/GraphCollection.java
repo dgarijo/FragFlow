@@ -68,7 +68,7 @@ public class GraphCollection {
      * Getter of the collection
      * @return returns the whole collection.
      */
-    public ArrayList<Graph> getGraphCollection() {
+    public ArrayList<Graph> getGraphs() {
         return graphCollection;
     }
     

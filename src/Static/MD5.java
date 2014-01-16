@@ -26,8 +26,13 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
 
+    /**
+     * Auxiliar method to convert data to hexadecimal
+     * @param data
+     * @return 
+     */
     private static String convertToHex(byte[] data) {
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         for (int i = 0; i < data.length; i++) {
             int halfbyte = (data[i] >>> 4) & 0x0F;
             int two_halfs = 0;
@@ -42,6 +47,13 @@ public class MD5 {
         return buf.toString();
     }
 
+    /**
+     * Method to create MD5 codifications of the input data
+     * @param text text to convert to MD5
+     * @return the String in MD5
+     * @throws NoSuchAlgorithmException
+     * @throws UnsupportedEncodingException 
+     */
     public static String MD5(String text)
     throws NoSuchAlgorithmException, UnsupportedEncodingException  {
         MessageDigest md;

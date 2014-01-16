@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package SubdueInvocation;
+package MainGraphProcessingScripts;
 
 
 import Static.Configuration;
@@ -23,14 +23,23 @@ import java.io.FileWriter;
 import java.util.Date;
 
 /**
- * This class writes a .bat with the invocations to subdue
+ * This class writes a .bat with the invocations to SUBDUE. It is only for 
+ * SUBDUE algorithm in a Windows machine.
  * @author Daniel Garijo
  */
 public class WriteSubdueExecutionFile {
 
+    /**
+     * Default creator
+     */
     public WriteSubdueExecutionFile() {
     }
     
+    /**
+     * Main program for creating the .BAT. All the paths are taken from the 
+     * configuration file of the project.
+     * @param args 
+     */
     public static void main(String[] args){
         FileWriter fstream = null; 
         BufferedWriter out = null;             

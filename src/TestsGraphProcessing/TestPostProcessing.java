@@ -18,23 +18,29 @@ package TestsGraphProcessing;
 import PostProcessing.Formats.CreateStatisticsFromResultsSUBDUE;
 
 /**
- *
+ * Test to check whether the statistics are created properly or not.
  * @author Daniel Garijo
  */
-public class PostProcessing {
-    public static void test(){
+public class TestPostProcessing {
+    public static int testNumber = 15;
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+" Statistics creation");
         try{
             CreateStatisticsFromResultsSUBDUE test = new CreateStatisticsFromResultsSUBDUE("text analytics",
                     "MDL", true, false, true);
-            String file = "C:\\Users\\Monen\\Dropbox\\NetBeansProjects\\MotifFinder\\SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
-            String ocFile = "C:\\Users\\Monen\\Dropbox\\NetBeansProjects\\MotifFinder\\SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
+            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
+            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
             test.createStatisticsFromFile(file, ocFile);
             test.printStatistics("testStatistics");
+            //if the file is found, the statistics are created
+            return true;
         }catch(Exception e){
             System.out.println("Error in test PostProcessing. Exception: "+e.getMessage());
+            return false;
         }
     }
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

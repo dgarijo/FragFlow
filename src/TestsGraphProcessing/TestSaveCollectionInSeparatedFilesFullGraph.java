@@ -17,24 +17,36 @@ package TestsGraphProcessing;
 
 import Factory.OPMWTemplate2GraphProcessor;
 import IO.Formats.CollectionWriterSUBDUEFormat;
+import java.io.File;
 
 /**
- *
+ * Test to save a collection in separated files. If the test doesn't fail then 
+ * a set of files are created successfully.
  * @author Daniel Garijo
  */
 public class TestSaveCollectionInSeparatedFilesFullGraph {
-    public static void test(){
+    public static int testNumber = 6;
+    public static boolean test(){
         try {
+            System.out.println("\n\nExecuting test:"+testNumber+" Save collection in separated files (full graph)");
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
             CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
-            writer.writeFullGraphsToSeparatedFiles(tp.getGraphCollection(), "TestSaveCollectionInSeparatedFilesFullGraph");
+            if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
+                File f = new File("TestSaveCollectionInSeparatedFilesFullGraph");
+                f.mkdir();
+                writer.writeFullGraphsToSeparatedFiles(tp.getGraphCollection(), "TestSaveCollectionInSeparatedFilesFullGraph");
+                return true;
+            }
+            return false;            
         }catch(Exception e){
             System.out.println("Test TestSaveCollectionInSeparatedFilesFullGraph case failed: "+ e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

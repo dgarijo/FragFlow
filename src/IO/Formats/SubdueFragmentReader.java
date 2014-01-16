@@ -18,6 +18,7 @@ package IO.Formats;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.Fragment;
+import IO.Exception.FragmentReaderException;
 import IO.FragmentReader;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -48,7 +49,7 @@ public class SubdueFragmentReader extends FragmentReader {
      * @param graphFile 
      */
     @Override
-    public void processResultFile(String graphFile){
+    public void processResultFile(String graphFile)throws FragmentReaderException{
         try{
             FileInputStream fstream = new FileInputStream(graphFile);            
             DataInputStream in = new DataInputStream(fstream);
@@ -118,6 +119,7 @@ public class SubdueFragmentReader extends FragmentReader {
             in.close();                
         }catch(Exception e){
             System.err.println("Error while reading the file "+e.getMessage());
+            throw new FragmentReaderException("Error while reading the file "+e.getMessage(), e);
         }
         
     }
@@ -128,7 +130,7 @@ public class SubdueFragmentReader extends FragmentReader {
      * @param occFile 
      */
     @Override
-    public void processOccurrencesFile(String occFile){
+    public void processOccurrencesFile(String occFile) throws FragmentReaderException{
         FileInputStream fstream =null;
         DataInputStream in = null;
         try{
@@ -149,6 +151,7 @@ public class SubdueFragmentReader extends FragmentReader {
             fstream.close();
         }catch(Exception e){
             System.err.println("Error while processing the file "+e.getMessage());
+            throw new FragmentReaderException("Error while reading the file "+e.getMessage(), e);
         }
     }
     

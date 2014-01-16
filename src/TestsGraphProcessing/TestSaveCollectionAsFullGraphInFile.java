@@ -19,23 +19,32 @@ import Factory.OPMWTemplate2GraphProcessor;
 import IO.Formats.CollectionWriterSUBDUEFormat;
 
 /**
- *
+ * Test designed to save a collection as a full graph file. If the test does not
+ * fail, the collection is retrieved and saved properly.
  * @author Daniel Garijo
  */
 public class TestSaveCollectionAsFullGraphInFile {
-    public static void test(){
+    public static int testNumber = 9;
+    public static boolean test(){
+        System.out.println("\n\nExecuting test:"+testNumber+" Saving a collection as a full graph file.");
         try{
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
-            writer.writeFullGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsFullGraphInFile");
+            if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
+                writer.writeFullGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsFullGraphInFile");
+                return true;
+            }
+            return false;
         }catch(Exception e){
             System.out.println("Test TestSaveCollectionAsFullGraphInFile case failed: "+ e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
     
 }

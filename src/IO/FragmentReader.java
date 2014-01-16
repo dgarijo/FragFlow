@@ -16,6 +16,7 @@
 package IO;
 import DataStructures.Fragment;
 import DataStructures.Graph;
+import IO.Exception.FragmentReaderException;
 import Static.GeneralConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,14 +35,14 @@ public abstract class FragmentReader {
      * into the hashmap
      * @param graphFile 
      */
-    public void processResultFile(String graphFile){        
+    public void processResultFile(String graphFile)throws FragmentReaderException{        
         
     }    
     /**
      * Method that given a file it looks for the occurrences of each substructure.
      * @param occFile 
      */
-    public void processOccurrencesFile(String occFile){
+    public void processOccurrencesFile(String occFile)throws FragmentReaderException{
         
     }
     /**
@@ -50,7 +51,7 @@ public abstract class FragmentReader {
      * @param ocFile
      * @return 
      */
-    public HashMap<String,Fragment> processResultsAndOccurrencesFiles(String resultsFile, String ocFile){
+    public HashMap<String,Fragment> processResultsAndOccurrencesFiles(String resultsFile, String ocFile)throws FragmentReaderException{
         this.processResultFile(resultsFile);
         this.processOccurrencesFile(ocFile);
         return finalResults;

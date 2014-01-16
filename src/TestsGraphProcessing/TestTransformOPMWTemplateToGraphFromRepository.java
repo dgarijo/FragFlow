@@ -15,25 +15,33 @@
  */
 package TestsGraphProcessing;
 
+import DataStructures.Graph;
 import Factory.OPMWTemplate2GraphProcessor;
 
 /**
- *
+ * Test that given an OPMW template URI, retrieves it and transforms it into 
+ * graph mode.
  * @author Daniel Garijo
  */
 public class TestTransformOPMWTemplateToGraphFromRepository {
+    public static int testNumber = 2;
     
-    public static void test(){
+    public static boolean test(){
         try{
-            System.out.println("Testing: transformation of an OPMW template to graph from the Wings repository");
+            System.out.println("\n\nExecuting test:"+testNumber+" Transformation of an OPMW template to graph from the Wings repository");
             OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+            Graph template = test.getGraphCollection().getGraphs().get(0);
+            if(template.getName().equals("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION")) return true;
+            else return false;
         }catch(Exception e){
             System.out.println("Error executing test. Exception: "+e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

@@ -19,22 +19,32 @@ import Factory.OPMWTemplate2GraphProcessor;
 import IO.Formats.CollectionWriterSUBDUEFormat;
 
 /**
- *
+ * Test to save a collection as a reduced graph in a file. If the test succeeds 
+ * then the file is created successfully.
  * @author Daniel Garijo
  */
 public class TestSaveCollectionAsReducedGraphInFile {
-    public static void test(){
+    public static int testNumber = 7;
+    public static boolean test(){
         try{
+            System.out.println("\n\nExecuting test:"+testNumber+" Save collection in one file (reduced graph)");
             OPMWTemplate2GraphProcessor tp = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
             CollectionWriterSUBDUEFormat writer = new CollectionWriterSUBDUEFormat();
             writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
+            if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
+                return true;
+            }
+            return false;
         }catch(Exception e){
             System.out.println("Test TestSaveCollectionAsReducedlGraphInFile case failed: "+ e.getMessage());
+            return false;
         }
     }
     
     public static void main(String[] args){
-        test();
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");
     }
 }

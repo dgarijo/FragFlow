@@ -32,18 +32,30 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 /**
- *
+ * Class that given a fragment and a template, states whether the fragment appears
+ * in the template or not. 
  * @author Daniel Garijo
  */
 public class SUBDUEFragmentRecongnizer {
     private int indexForStructure;//auxiliar pointer to avoid problems regarding the repetition of substructures
     //they use the same uri sometimes.
 //     private ArrayList<FinalResult> listOfPointersToIncludedStructures;
-
+    
+    /**
+     * Default constructor
+     */
     public SUBDUEFragmentRecongnizer() {
         indexForStructure = 0;
     }
     
+    /**
+     * Given the name of a substructure, this method restrieves it from a 
+     * fragment. This is used for searching in fragments linked by others.
+     * @param substructure the name of the substructure you are looking into,
+     * e.g., SUB_1
+     * @param fr fragment on which we are going to search the substructure
+     * @return pointer to the substructure object
+     */
     private Fragment getPointerToSubstructure(String substructure,  Fragment fr){        
         Fragment structureToExplore = null;
         boolean found = false;
@@ -58,6 +70,11 @@ public class SUBDUEFragmentRecongnizer {
         return structureToExplore;
     }
     
+    /**
+     * Next index for the substructure. This is used to generate different bindings
+     * to the different parts of the template.
+     * @return 
+     */
     private int getNextIndex(){
         return indexForStructure++;
     }
@@ -65,9 +82,9 @@ public class SUBDUEFragmentRecongnizer {
     /**
      * Function that given a fragment generates possible bindings to the structure.
      * Many validations are performed. However, the results must be validated 
-     * (to see whether it is a connected graph). 
+     * afterwards (to see whether it is a connected graph or not). 
      * Note that if there is no adjacency matrix, it is considered a non relevant substructure
-     * and the binding is not returned
+     * and the binding is not returned.
      * @param fr the fragment itself
      * @param biggerGraph the graph where we are looking at the template
      * @return  a list of possible bindings (to validate)
@@ -595,68 +612,72 @@ public class SUBDUEFragmentRecongnizer {
     
     //Just for tests. Will have to do a proper invocation script later.
     public static void main(String[] args){
-        //get one graph from the workflow collection
-        //tests on a template
-        OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
-//        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
-        test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
-//        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
-//        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
+        try{
+            //get one graph from the workflow collection
+            //tests on a template
+            OPMWTemplate2GraphProcessor test = new OPMWTemplate2GraphProcessor("http://wind.isi.edu:8890/sparql");
+    //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
+            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+    //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING");
+    //        test.transformToSubdueGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION");
 
-        Graph testGraph = test.getGraphCollection().getGraphCollection().get(0);
-        testGraph.putReducedNodesInAdjacencyMatrix();
-        //get one final result (or more)
-//        String file = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake";
-//        String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
-//        String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-        String file = "resultsAbstractCatalog24-10-2013";
-        String ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
-        HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
-        
-        //with inference
-       //first we get the replacement hashmap
-       String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
-       OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-       InputStream in = FileManager.get().open(taxonomyFilePath);
-       o.read(in, null);        
-       HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-       
-       //we create the abstract collection
-       GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(test.getGraphCollection(), replacements);
-        //check whether the fragment is found properly or not.
-        //we ask for the first one (which is included)
-//        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_1").isPartOfGraph(testGraph));
-        //then we try with another one that is composed and also included
-//        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_2").isPartOfGraph(testGraph));
-        //then we try with another one which is even more complex to see wheter it's included
-//        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_8").isPartOfGraph(testGraph));
-        //then we get one that overlaps partly but one of the subparts is not included.
-//        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_3").isPartOfGraph(testGraph));
-//        //then we try the same with one where the core parts are not even included
-//        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_4").isPartOfGraph(testGraph));
-        
-//        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_6").isPartOfGraph(testGraph));
-        //should do a test where the fragment is included but not in the same sequence.
-        
-        //tests on a sequence.
-//        FinalResult f = obtainedResults.get("SUB_7");//SUB_3
-////        FinalResult f = obtainedResults.get("SUB_7");
-//        ArrayList<HashMap<String,String>> b = f.generateBindingsFromFragmentInGraph(f, testGraph);
-//        b = f.validateBindings(b, testGraph);
-//        System.out.println("Bindings size (number of occurrences of fragment in graph): "+b.size());
-        
-        Iterator<String> fragments = obtainedResults.keySet().iterator();
-        //it would be nice to just send the relevant fragments    
-        SUBDUEFragmentRecongnizer fr = new SUBDUEFragmentRecongnizer();
-        while(fragments.hasNext()){
-            Fragment f = obtainedResults.get(fragments.next());
-            System.out.println("Size of fragment "+f.getStructureID()+" is "+ f.getSize());
-            if(f.isMultiStepStructure()){
-                ArrayList<HashMap<String,String>> b = fr.generateBindingsFromFragmentInGraph(f, testGraph);
-                b = fr.validateBindings(b, testGraph, f);
-                //step here to delete duplicated bindings (in some remote cases it could happen)
-                System.out.println("Number of occurrences of fragment "+f.getStructureID()+" in graph: "+b.size());
+            Graph testGraph = test.getGraphCollection().getGraphs().get(0);
+            testGraph.putReducedNodesInAdjacencyMatrix();
+            //get one final result (or more)
+    //        String file = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake";
+    //        String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
+    //        String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
+            String file = "resultsAbstractCatalog24-10-2013";
+            String ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
+            HashMap<String,Fragment> obtainedResults = new SubdueFragmentReader().processResultsAndOccurrencesFiles(file, ocFile);
+
+            //with inference
+           //first we get the replacement hashmap
+           String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
+           OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+           InputStream in = FileManager.get().open(taxonomyFilePath);
+           o.read(in, null);        
+           HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+
+           //we create the abstract collection
+           GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(test.getGraphCollection(), replacements);
+            //check whether the fragment is found properly or not.
+            //we ask for the first one (which is included)
+    //        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_1").isPartOfGraph(testGraph));
+            //then we try with another one that is composed and also included
+    //        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_2").isPartOfGraph(testGraph));
+            //then we try with another one which is even more complex to see wheter it's included
+    //        System.out.println("This test should be true: .... "+obtainedResults.get("SUB_8").isPartOfGraph(testGraph));
+            //then we get one that overlaps partly but one of the subparts is not included.
+    //        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_3").isPartOfGraph(testGraph));
+    //        //then we try the same with one where the core parts are not even included
+    //        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_4").isPartOfGraph(testGraph));
+
+    //        System.out.println("This test should be false: .... "+obtainedResults.get("SUB_6").isPartOfGraph(testGraph));
+            //should do a test where the fragment is included but not in the same sequence.
+
+            //tests on a sequence.
+    //        FinalResult f = obtainedResults.get("SUB_7");//SUB_3
+    ////        FinalResult f = obtainedResults.get("SUB_7");
+    //        ArrayList<HashMap<String,String>> b = f.generateBindingsFromFragmentInGraph(f, testGraph);
+    //        b = f.validateBindings(b, testGraph);
+    //        System.out.println("Bindings size (number of occurrences of fragment in graph): "+b.size());
+
+            Iterator<String> fragments = obtainedResults.keySet().iterator();
+            //it would be nice to just send the relevant fragments    
+            SUBDUEFragmentRecongnizer fr = new SUBDUEFragmentRecongnizer();
+            while(fragments.hasNext()){
+                Fragment f = obtainedResults.get(fragments.next());
+                System.out.println("Size of fragment "+f.getStructureID()+" is "+ f.getSize());
+                if(f.isMultiStepStructure()){
+                    ArrayList<HashMap<String,String>> b = fr.generateBindingsFromFragmentInGraph(f, testGraph);
+                    b = fr.validateBindings(b, testGraph, f);
+                    //step here to delete duplicated bindings (in some remote cases it could happen)
+                    System.out.println("Number of occurrences of fragment "+f.getStructureID()+" in graph: "+b.size());
+                }
             }
+        }catch(Exception e){
+            System.out.println("Error while recognizing fragments. "+e.getMessage());
         }
         
 //        if(!b.isEmpty())System.out.println("FOUND");        
