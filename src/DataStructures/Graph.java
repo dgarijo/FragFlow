@@ -36,7 +36,7 @@ public class Graph {
     //it is an String adjacency Matrix so we know the type of relationship
     //that is connecting 2 nodes. No more than 1 relation connects 2 nodes.
     private String [][] adjacencyMatrix;
-    private String name;
+    private String name;//note: the name is often the URI.
 
     /**
      * Basic constructor

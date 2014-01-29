@@ -15,14 +15,11 @@
  */
 package Factory.Inference;
 
-import Static.Traces.QueriesOPMWTraces;
+import Static.GeneralMethods;
+import Static.OPMW.Traces.QueriesOPMWTraces;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -97,19 +94,6 @@ public class CreateMultidomainTaxonomyWings {
             System.out.println("Error while writing the model to file "+ex.getMessage());
         }
     }
-    /**
-     * Auxiliar method for querying the SPARQL repository
-     * @param endpointURL endpoint URL
-     * @param queryIn query to be sent
-     * @return the result set after queryin the repository.
-     */
-    private ResultSet queryRepository(String endpointURL, String queryIn){
-        Query query = QueryFactory.create(queryIn);
-        QueryExecution qe = QueryExecutionFactory.sparqlService(endpointURL, query);
-        ResultSet rs = qe.execSelect();        
-        return rs;
-    }
-    //note: this method appears in the GraphCollector Class also. Simplify it!
     
     /**
      * Given a repository, detect how many domain ontologies are 
@@ -118,19 +102,19 @@ public class CreateMultidomainTaxonomyWings {
      */
     private void getDomainOntologies(String repositoryURI){
         //retrieve all runs from a the repository
-        ResultSet accs = queryRepository(repositoryURI, QueriesOPMWTraces.queryWfExecAccount());
+        ResultSet accs = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTraces.queryWfExecAccount());
         while(accs.hasNext()){
             QuerySolution qs = accs.next();
             String accURI = qs.getResource("?acc").getURI();
             //for each run, analyze whether the ontology belongs to a new domain or not
             //System.out.println(accURI);            
-            ResultSet uri = queryRepository(repositoryURI, QueriesOPMWTraces.getComponentOntologyURI(accURI));
+            ResultSet uri = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTraces.getComponentOntologyURI(accURI));
             if(uri.hasNext()){
                 QuerySolution qs1 = uri.next();
                 String ontologyURI = qs1.getResource("?uri").getNameSpace();
                 if(!domains.containsKey(ontologyURI)){
                     //we aim to retrieve the uri for download just if the domain is new
-                    ResultSet localOntoURI = queryRepository(repositoryURI, QueriesOPMWTraces.getLocalComponentOntologyURI(accURI));
+                    ResultSet localOntoURI = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTraces.getLocalComponentOntologyURI(accURI));
                     //if the domain does not exist in the hashmap, add the URI of the ontology.
                     if(localOntoURI.hasNext()){
                         QuerySolution qsOnto = localOntoURI.next();

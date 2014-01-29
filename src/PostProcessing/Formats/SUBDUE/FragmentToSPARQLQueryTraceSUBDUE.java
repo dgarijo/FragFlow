@@ -1,4 +1,8 @@
 /*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,20 +17,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package Static;
+package PostProcessing.Formats.SUBDUE;
 
-import java.io.File;
+import DataStructures.Fragment;
 
 /**
- * General constants used through the project.
+ * Class to see if a fragment has been found in a OPMW trace. 
+ * The query is basically the same as in the templates.
  * @author Daniel Garijo
  */
-public class GeneralConstants {     
-    
-    //unify traces and templates under the same nomenclature.
-    public static final String USAGE_DEPENDENCY = "use";
-    public static final String GENERATION_DEPENDENCY = "genBy";
-    public static final String INFORM_DEPENDENCY = "informBy";
-    public static final String PROP_FILE = "config"+File.separator+"config.properties";
-    public static final String PREFIX_FOR_RDF_GENERATION = "http://vocab.linkeddata.es/resource/";
+public class FragmentToSPARQLQueryTraceSUBDUE extends FragmentToSPARQLQueryTemplateSUBDUE{
+
+    @Override
+    public String createQueryFromFragment(Fragment f, String templateURI) {
+        //TO DO
+        return super.createQueryFromFragment(f, templateURI);
+    }
+   
 }

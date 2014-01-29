@@ -17,12 +17,6 @@ package Factory;
 
 import DataStructures.GraphCollection;
 
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.ResultSet;
-
 /**
  * Class designed to enable the main methods for creating collections of Graphs.
  * Different repositories may be queried to create graphs to be consumed by 
@@ -69,17 +63,4 @@ public abstract class GraphCollectionCreator {
         
     }
     
-    /**
-     * Method to perform a query to a repository
-     * @param endpointURL URL of the endpoint
-     * @param queryIn SPARQL query to do to the endpoint
-     * @return 
-     */
-    protected ResultSet queryRepository(String endpointURL, String queryIn){
-        Query query = QueryFactory.create(queryIn);
-        //System.out.println(queryIn);
-        QueryExecution qe = QueryExecutionFactory.sparqlService(endpointURL, query);
-        ResultSet rs = qe.execSelect();        
-        return rs;
-    }
 }
