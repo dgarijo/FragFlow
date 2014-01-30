@@ -19,25 +19,81 @@
  */
 package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
+import Factory.OPMW.OPMWTemplate2Graph;
+import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import Static.GeneralMethods;
+import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.ResultSet;
 import java.util.HashMap;
 import java.util.Iterator;
 /**
- *
+ * Test to check that the fragments that only have connections within fragments
+ * work (for example, SUB_3 = SUB_2 was informed by SUB_1).
+ * 
+ * This test is created from artificial results, as we haven't obtained yet such
+ * results with the reduced mode.
  * @author Daniel Garijo
  */
 public class Test20ValidateFoundFragments4 {
     public static int testNumber = 20;
-    to do
-//    este test tiene que coger los fragmentos SUB-SUB y probarlos.
-//            
-//    tambien el que tengas un fragmento dependiendo de un paso (SUB was informed)
+     public static boolean test(){
+        System.out.println("\n\nExecuting test: "+testNumber+". Validator of a particular set"
+                + "of fragment results and templates, by manual inspection. In this case the "
+                + "test is designed to cover SUB-SUB fragment compatibility");
+        //If any of the tests give results that are not okay, then we have a problem
+        //with the detection and binding of fragments.
+        try{
+            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake2";
+            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake2_occurrences";
+            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
+            Iterator<String> fragments = obtainedResults.keySet().iterator();
+            //it would be nice to just send the relevant fragments    
+            FragmentToSPARQLQueryTemplateSUBDUE qr = new FragmentToSPARQLQueryTemplateSUBDUE();
+            OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(test.getGraphCollection().getGraphs().get(0));   
+            while(fragments.hasNext()){
+                Fragment f = obtainedResults.get(fragments.next());
+                if(f.isMultiStepStructure()){//to ensure it is a meaningful fragment
+                    String currentQuery = qr.createQueryFromFragment(f, "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+                    ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
+//                    System.out.println(currentQuery);
+                    int numberOfTimes = 0;
+                    while(rs.hasNext()){
+                        rs.nextSolution();
+                        numberOfTimes++;
+                    }
+                    //step here to delete duplicated bindings (in some remote cases it could happen)
+                    System.out.println("Number of occurrences of fragment "+f.getStructureID()+" in graph: "+numberOfTimes);
+                    /* In this template:
+                     * SUB_1 must be found 2 times
+                     * SUB_2 must be found 2 times
+                     * SUB_3 must be found 2 times
+                     * SUB_4 must be found 2 time
+                     * SUB_5 must be found 2 times
+                     * SUB_6 must be found 0 times
+                     * If all this is true, then the test is right
+                     */
+                    if(f.getStructureID().equals("SUB_1")&&numberOfTimes!=2)return false;
+                    if(f.getStructureID().equals("SUB_2")&&numberOfTimes!=2)return false;
+                    if(f.getStructureID().equals("SUB_3")&&numberOfTimes!=2)return false;
+                    if(f.getStructureID().equals("SUB_4")&&numberOfTimes!=2)return false;
+                    if(f.getStructureID().equals("SUB_5")&&numberOfTimes!=2)return false;
+                    if(f.getStructureID().equals("SUB_6")&&numberOfTimes!=0)return false;
+                }
+            }        
+            return true;
+        }catch(Exception e){
+            System.out.println("Error executing test. Exception: "+e.getMessage());
+            return false;
+        }
+    }
+    public static void main(String[] args){
+        if(test())System.out.println("Test "+testNumber+" OK");
+        else System.out.println("Test "+testNumber+" FAILED");        
+    }
     
-//tb un fragmento que este dentro de otro fragmento
-    
-//tb hay que probar que si un fragment tiene 2 SUBS que son el mismo, los bindings
-//se hacen bien (no contemplado ahora mismo)
+
 }

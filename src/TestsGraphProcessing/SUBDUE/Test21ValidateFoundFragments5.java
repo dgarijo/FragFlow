@@ -29,5 +29,6 @@ public class Test21ValidateFoundFragments5 {
     public static int testNumber = 21;
     
     to do
-    
+    //probar que si un fragment tiene 2 SUBS que son el mismo, los bindings
+    //se hacen bien (no contemplado ahora mismo)
 }

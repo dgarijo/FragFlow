@@ -15,9 +15,6 @@
  */
 package IO.Formats.SUBDUE;
 
-import Factory.Inference.CreateAbstractResource;
-import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import DataStructures.GraphNode.GraphNode;
@@ -30,13 +27,9 @@ import Static.GeneralMethods;
 import Static.WffdConstants;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.util.FileManager;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -242,9 +235,6 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                     String currentBindingURI = "binding"+new Date().getTime()+n;
                     GeneralMethods.addIndividual(repository, currentBindingURI, WffdConstants.TIED_RESULT, null);
                     GeneralMethods.addProperty(repository, fragID, currentBindingURI, WffdConstants.FOUND_AS);
-
-                    //NOTA: SI QUEREMOS ANADIR EL TIPO, PODEMOS HAER UNA QUERY AL REPO LOCAL DONDE HEMOS CARGADO LA PLANTILLA :D
-
                     //System.out.println(currentBindingURI);
                     //for all currentBindings, add their URIs as part of the tied result
                     Iterator<String> iteratorCurrentBinding = qs.varNames();
@@ -253,7 +243,8 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                         Resource currentResourceURI = qs.getResource(currentvar);
                         GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), WffdConstants.STEP, null);
                         GeneralMethods.addProperty(repository, currentResourceURI.getURI(), currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);                    
-
+                        //NOTA: SI QUEREMOS ANADIR EL TIPO, PODEMOS HAER UNA QUERY AL REPO LOCAL DONDE HEMOS CARGADO LA PLANTILLA :D
+                        GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), o2.getOntResource(currentResourceURI).getRDFType().getURI(), null);
                     }
                     n++;
                 } 

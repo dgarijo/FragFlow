@@ -182,15 +182,19 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         Iterator<String> itI = auxListI.iterator();                        
                         while(itI.hasNext()){
                             Iterator<String> itJ = auxListJ.iterator();
+                            String currentI = itI.next();
                             innerQuery+="{\n"                                      
-                                      +bindingsToVariables.get(itI.next())+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
+                                      +bindingsToVariables.get(currentI)+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
                                       +"?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(itJ.next())+".\n";
                             innerQuery+="}\n";
                             while(itJ.hasNext()){
                                 innerQuery+="UNION\n{\n"                                      
-                                      +bindingsToVariables.get(itI.next())+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
+                                      +bindingsToVariables.get(currentI)+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
                                       +"?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(itJ.next())+".\n";
                                 innerQuery+="}\n";
+                            }
+                            if(itI.hasNext()){
+                                innerQuery+="UNION\n";
                             }
                         }
                         
@@ -206,11 +210,11 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
                         //to the current variable. The first UNION is outside, so we process it first.
-                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
+                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?gen"+currentVarNumber+".\n";
                             innerQuery+="}\n";
                             while(it.hasNext()){
                                 innerQuery+="UNION\n{\n";
-                                innerQuery+=bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
+                                innerQuery+=bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?gen"+currentVarNumber+".\n";
                                 innerQuery+="}\n";
                             }
                         }
