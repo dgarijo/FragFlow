@@ -37,13 +37,15 @@ import java.util.Iterator;
 public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
     int currentVariable;//counter to determine which binding are we dealing with
     HashMap<String, String> bindingsToVariables;//hashmap to know to which 
+    String context; //String used to assign variables to types in the query.
     //variable we referr to.
     
     /**
      * Default Constructor
      */
     public FragmentToSPARQLQueryTemplateSUBDUE() {
-        currentVariable = 0;        
+        currentVariable = 0;
+        context ="";
     }
 
     /**
@@ -80,6 +82,14 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
     }
     
     /**
+     * Method to return the current context
+     * @return the context String
+     */
+    private String getContext(){
+        return context;
+    }
+    
+    /**
      * Recursive method to determine which variable are assigned to which URIs.
      * @param f input fragment
      * @return Hashmap with the bindings (URI/varname)
@@ -89,12 +99,15 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
         HashMap<String,GraphNode> nodes = f.getDependencyGraph().getNodes();
         Iterator it = uris.iterator();
         HashMap<String,String> bindingForVars = new HashMap<String, String>();
+        String oldContext = context;
+        context+=f.getStructureID()+"_";
         while(it.hasNext()){
             //get type. If SUB, get hashmap and copy it. Other wise just add
             //the types to the current hashmap
             String currentURI = (String)it.next();
             String currentType = nodes.get(currentURI).getType();
-            if(currentType.contains("SUB_")){
+            context+=currentURI;
+            if(currentType.contains("SUB_")){                
                 HashMap<String,String> aux = createBindingsForVariables(getPointerToSubstructure(currentType, f));
                 Iterator<String> it2 = aux.keySet().iterator();
                 while(it2.hasNext()){
@@ -102,9 +115,11 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     bindingForVars.put(nextKey, aux.get(nextKey));
                 }
             }else{
-                bindingForVars.put(f.getStructureID()+"_"+currentURI, "?x"+getNextVariable());
+                bindingForVars.put(context, "?x"+getNextVariable());
             }
+            context = context.substring(0, context.length()-currentURI.length());
         }
+        context = oldContext;
         return bindingForVars;        
     }
     
@@ -163,7 +178,10 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
         ArrayList<String> graphURIs = f.getDependencyGraph().getURIs();
         ArrayList <String> uris = f.getDependencyGraph().getURIs();
         String innerQuery="";
-        int currentVarNumber;        
+        int currentVarNumber;
+        String oldContext = context;
+        context+=f.getStructureID()+"_";
+        
         for (int i=1;i< adjMatrix.length;i++){
             for(int j=1;j<adjMatrix.length;j++){
                 if(adjMatrix[i][j]!=null && adjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){ 
@@ -174,11 +192,14 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         //2 bucles for con las vars como se ha hecho abajo
                         Fragment substructureI = getPointerToSubstructure(currentTypeI, f);        
                         Fragment substructureJ = getPointerToSubstructure(currentTypeJ, f);
+                        context+=uris.get(i-1);
                         innerQuery+= transformDependencyMatrixToQuery(substructureI, templateURI);
-                        innerQuery+= transformDependencyMatrixToQuery(substructureJ, templateURI);
-                        
                         ArrayList<String> auxListI = getListOfURIsToConnectFragment(substructureI);
+                        context = context.substring(0, context.length()-uris.get(i-1).length());
+                        context+=uris.get(j-1);
+                        innerQuery+= transformDependencyMatrixToQuery(substructureJ, templateURI);
                         ArrayList<String> auxListJ = getListOfURIsToConnectFragment(substructureJ);
+                        context = context.substring(0, context.length()-uris.get(j-1).length());
                         Iterator<String> itI = auxListI.iterator();                        
                         while(itI.hasNext()){
                             Iterator<String> itJ = auxListJ.iterator();
@@ -201,11 +222,12 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     }else 
                     if (currentTypeI.contains("SUB_")){         
                         Fragment subStructure = getPointerToSubstructure(currentTypeJ, f);        
-                        innerQuery+= transformDependencyMatrixToQuery(subStructure, templateURI);
-                        innerQuery+= addStep(bindingsToVariables.get(f.getStructureID()+"_"+uris.get(j-1)), currentTypeJ, templateURI);
-                        innerQuery+= "?gen"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(f.getStructureID()+"_"+uris.get(j-1))+".\n";
-                        
+                        context+=uris.get(i-1);
                         ArrayList<String> auxList = getListOfURIsToConnectFragment(subStructure);
+                        innerQuery+= transformDependencyMatrixToQuery(subStructure, templateURI);
+                        context = context.substring(0, context.length()-uris.get(i-1).length());
+                        innerQuery+= addStep(bindingsToVariables.get(context+uris.get(j-1)), currentTypeJ, templateURI);
+                        innerQuery+= "?gen"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
@@ -222,11 +244,13 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     if (currentTypeJ.contains("SUB_")){
                         Fragment subStructure = getPointerToSubstructure(currentTypeJ, f);        
 //                        int oldVarNumber = currentVarNumber+1;
+                        context+=uris.get(j-1);
                         innerQuery+= transformDependencyMatrixToQuery(subStructure, templateURI);
-                        innerQuery+= addStep(bindingsToVariables.get(f.getStructureID()+"_"+uris.get(i-1)), currentTypeI, templateURI);
-                        innerQuery+= bindingsToVariables.get(f.getStructureID()+"_"+uris.get(i-1))+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
-                        
                         ArrayList<String> auxList = getListOfURIsToConnectFragment(subStructure);
+                        context = context.substring(0, context.length()-uris.get(j-1).length());
+                        innerQuery+= addStep(bindingsToVariables.get(context+uris.get(i-1)), currentTypeI, templateURI);
+                        innerQuery+= bindingsToVariables.get(context+uris.get(i-1))+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
+                        
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
@@ -240,14 +264,15 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                             }
                         }
                     }else{
-                        innerQuery+=addStep(bindingsToVariables.get(f.getStructureID()+"_"+uris.get(i-1)),currentTypeI, templateURI);
-                        innerQuery+=bindingsToVariables.get(f.getStructureID()+"_"+uris.get(i-1)) +" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
-                        innerQuery+="?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(f.getStructureID()+"_"+uris.get(j-1))+".\n";                        
-                        innerQuery+=addStep(bindingsToVariables.get(f.getStructureID()+"_"+uris.get(j-1)),currentTypeJ, templateURI);
+                        innerQuery+=addStep(bindingsToVariables.get(context+uris.get(i-1)),currentTypeI, templateURI);
+                        innerQuery+=bindingsToVariables.get(context+uris.get(i-1)) +" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
+                        innerQuery+="?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";                        
+                        innerQuery+=addStep(bindingsToVariables.get(context+uris.get(j-1)),currentTypeJ, templateURI);
                     }
                 }
             }
         }
+        context = oldContext;
         return innerQuery;
     }
     
@@ -264,11 +289,14 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
         HashMap<String,GraphNode> nodes = f.getDependencyGraph().getNodes();
         Iterator it = uris.iterator();
         ArrayList<String> uriList= new ArrayList<String>();
+        String oldContext = context;
+        context+=f.getStructureID()+"_";
         while(it.hasNext()){
             //get type. If SUB, get hashmap and copy it. Other wise just add
             //the types to the current hashmap
             String currentURI = (String)it.next();
             String currentType = nodes.get(currentURI).getType();
+            context += currentURI ;
             if(currentType.contains("SUB_")){
                 ArrayList<String> aux = getListOfURIsToConnectFragment(getPointerToSubstructure(currentType, f));
                 Iterator<String> it2 = aux.iterator();
@@ -277,9 +305,11 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     uriList.add(it2.next());
                 }
             }else{
-                uriList.add(f.getStructureID()+"_"+currentURI);
+                uriList.add(context);
             }
+            context = context.substring(0, context.length()-currentURI.length());
         }
+        context=oldContext;
         return uriList;
     }
     

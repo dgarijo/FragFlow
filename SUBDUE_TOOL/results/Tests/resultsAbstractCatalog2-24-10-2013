@@ -1,0 +1,114 @@
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 1 2 informBy
+d 2 4 informBy
+d 4 3 informBy
+d 5 1 informBy
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 1 2 informBy
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+d 3 5 informBy
+d 4 2 informBy
+d 4 3 informBy
+d 5 1 informBy
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+d 1 2 informBy
+
+S
+v 1 SUB_4
+v 2 SUB_1
+d 1 2 informBy
+d 1 2 informBy
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+d 2 1 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 2 1 informBy
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+
+S
+v 1 http://www.opmw.org/ontology/ParameterVariable
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Model
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ifier
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Modeler
+
+S
+v 1 http://www.opmw.org/ontology/DataVariable
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Ranking
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Picture
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Visualize
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+
+S
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Topics
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+

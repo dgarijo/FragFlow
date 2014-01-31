@@ -242,8 +242,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                         String currentvar = iteratorCurrentBinding.next();
                         Resource currentResourceURI = qs.getResource(currentvar);
                         GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), WffdConstants.STEP, null);
-                        GeneralMethods.addProperty(repository, currentResourceURI.getURI(), currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);                    
-                        //NOTA: SI QUEREMOS ANADIR EL TIPO, PODEMOS HAER UNA QUERY AL REPO LOCAL DONDE HEMOS CARGADO LA PLANTILLA :D
+                        GeneralMethods.addProperty(repository, currentResourceURI.getURI(), currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);
                         GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), o2.getOntResource(currentResourceURI).getRDFType().getURI(), null);
                     }
                     n++;

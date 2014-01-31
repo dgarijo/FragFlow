@@ -94,7 +94,11 @@ public class FragmentReaderSUBDUE extends FragmentReader {
                         //System.out.println("v "+id+",type "+type);
                         URIs.add(id);
                         //if it is a substructure, save it
-                        if (type.contains("SUB_")&&!includedSubStructures.contains(finalResults.get(type))){
+                        if (type.contains("SUB_")){
+                            //&&!includedSubStructures.contains(finalResults.get(type))
+                            //I commented the sentence above because a substructure may contain
+                            //2 pointers to the same substructure. In that case
+                            //we must take it into consideration for its size.
                             includedSubStructures.add(finalResults.get(type));                            
                         }
                         nodes.put(id, new GraphNode(id, type, Integer.parseInt(id)));

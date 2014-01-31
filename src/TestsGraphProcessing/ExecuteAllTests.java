@@ -38,6 +38,7 @@ import TestsGraphProcessing.SUBDUE.Test19ValidateFoundFragmentsAbstract;
 import TestsGraphProcessing.SUBDUE.Test20ValidateFoundFragments4;
 import TestsGraphProcessing.SUBDUE.Test21ValidateFoundFragments5;
 import TestsGraphProcessing.SUBDUE.Test23CreateRDFFromFragments;
+import TestsGraphProcessing.SUBDUE.Test24ValidateRDFWFFDFragments;
 
 /**
  * Main class to execute all the tests.
@@ -63,6 +64,7 @@ public class ExecuteAllTests {
         int totalNumberOfTests = 18;
         //for every test, execute it. Each test should describe itself and 
         //measure wether it has been properly executed or not.
+        numberOfSuccessfulTests+=printTestStatus(Test24ValidateRDFWFFDFragments.test());        
         numberOfSuccessfulTests+=printTestStatus(Test23CreateRDFFromFragments.test());
         numberOfSuccessfulTests+=printTestStatus(Test22Graph2OPMWTemplate.test());
         numberOfSuccessfulTests+=printTestStatus(Test21ValidateFoundFragments5.test());
@@ -87,6 +89,7 @@ public class ExecuteAllTests {
         numberOfSuccessfulTests+=printTestStatus(Test03TransformAWINGSDomainToGraphCollection.test());
         numberOfSuccessfulTests+=printTestStatus(Test02TransformOPMWTemplateToGraphFromRepository.test());
         numberOfSuccessfulTests+=printTestStatus(Test01TransformOPMWTraceToGraphFromRepository.test());        
+        
                 
         System.out.println("DONE\n\n Number of tests passed: "+numberOfSuccessfulTests+" out of "+totalNumberOfTests);
                 

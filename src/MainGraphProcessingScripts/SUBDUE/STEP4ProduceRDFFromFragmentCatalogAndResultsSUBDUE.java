@@ -45,7 +45,7 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
 
            //without inference
-           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("out29-01-2014.ttl");
+           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("out30-01-2014.ttl");
 
            catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
            catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());
@@ -71,7 +71,7 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
 
            //without inference
-           FragmentCatalogAndResultsToRDFSUBDUE abstractCatalog = new FragmentCatalogAndResultsToRDFSUBDUE("outAbstract29-01-2014.ttl");
+           FragmentCatalogAndResultsToRDFSUBDUE abstractCatalog = new FragmentCatalogAndResultsToRDFSUBDUE("outAbstract30-01-2014.ttl");
 
            abstractCatalog.transformFragmentCollectionToRDF(obtainedResults);
            abstractCatalog.transformBindingResultsInTemplateCollection(obtainedResults, abstractCollection);
