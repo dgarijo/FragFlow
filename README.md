@@ -5,7 +5,7 @@ Project designed for finding internal macro and composite workflow motifs in sci
 
  http://purl.org/net/wf-motifs#InternalMacro and http://purl.org/net/wf-motifs#CompositeWorkflow.
  
-The project finds a set of workflow fragments from workflow specifications and/or workflow workflow executions and links 
+The project finds a set of workflow fragments from workflow specifications and/or workflow executions and links 
 the results to the corpus. The results are linked according to the Workflow Fragment Description Ontology: http://purl.org/net/wf-fd
 
 In order to achieve the results, this project defines diverse operations for graph manipulation and formatting. In particular:
