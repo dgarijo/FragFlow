@@ -1,7 +1,7 @@
 MotifGraphProcessor
 ===================
 
-Project desinged for finding internal macro and composite workflow motifs in scientific workflow, defined according to 
+Project designed for finding internal macro and composite workflow motifs in scientific workflow, defined according to 
 
  http://purl.org/net/wf-motifs#InternalMacro and http://purl.org/net/wf-motifs#CompositeWorkflow.
  
