@@ -1,0 +1,64 @@
+t #Processing: http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_
+v 0 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Score
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://www.isi.edu/dc/TextAnalytics/ontology.owl#CorrelationScore
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 10 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 13 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 14 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 16 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 17 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 18 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 19 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 20 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+v 21 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 22 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 23 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 24 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 25 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 26 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 27 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 28 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 29 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 30 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 31 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 32 http://www.opmw.org/ontology/ParameterVariable
+v 33 http://www.opmw.org/ontology/ParameterVariable
+v 34 http://www.opmw.org/ontology/ParameterVariable
+u 19 27 informBy
+u 19 23 informBy
+u 20 26 informBy
+u 20 30 informBy
+u 20 21 informBy
+u 21 25 informBy
+u 22 24 informBy
+u 22 25 informBy
+u 23 30 informBy
+u 24 28 informBy
+u 26 30 informBy
+u 27 29 informBy
+u 28 31 informBy
+t #Processing: http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION
+v 0 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 1 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 8 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 9 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 10 http://www.opmw.org/ontology/ParameterVariable
+u 6 7 informBy
+u 6 9 informBy
+u 7 8 informBy

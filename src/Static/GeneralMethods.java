@@ -92,12 +92,31 @@ public class GeneralMethods {
         return rs;
     }
     
+    /**
+     * Method to perform a SELECT query to a local repository
+     * @param model which we want to query
+     * @param queryIn query to be launched at the model
+     * @return results
+     */
     public static ResultSet queryLocalRepository(OntModel model, String queryIn){
         Query query = QueryFactory.create(queryIn);
         //System.out.println(queryIn);
         QueryExecution qe = QueryExecutionFactory.create(query, model);
         ResultSet rs = qe.execSelect();        
         return rs;
+    }
+    
+    /**
+     * Method to perform an ASK query to a local repository 
+     * @param model which we want to query
+     * @param queryIn query to be launched at the model
+     * @return results
+     */
+    public static boolean askLocalRepository(OntModel model, String queryIn){
+        Query query = QueryFactory.create(queryIn);
+        //System.out.println(queryIn);
+        QueryExecution qe = QueryExecutionFactory.create(query, model);
+        return qe.execAsk();                
     }
     
     /**

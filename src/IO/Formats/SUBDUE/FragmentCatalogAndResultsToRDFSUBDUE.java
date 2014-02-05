@@ -96,11 +96,17 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                 while (urisOfFragmentIt.hasNext()){
                     String currentURI = urisOfFragmentIt.next();
                     String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                    if(!currentURItype.contains("SUB_")){
-                        GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
+                    GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
+                    GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                    if(currentURItype.contains("SUB_")){
+                        //add owl:sameAs
+                        //WHY ore:proxyFor? because if we add the precedence step in the fragments directly,
+                        //we may create inconsistencies (e.g. a fragment preceeded by 2 different steps
+                        //that are from different fragments. In order to avoid that, we create a phantom node
+                        //and we add the ore:proxyFor with the template (as basically the proxy acts as the former)
+                        GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, currentURItype+"_"+dateToken, "http://www.openarchives.org/ore/terms/proxyFor");
+                    }else{
                         GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);
-                        GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
-//                        System.out.println(fragmentID+"_NODE"+currentURI);
                     }
                 }
                 //for each dependency, create the p-plan:ispreceededBy
@@ -110,19 +116,20 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                         if(currentFragmentAdjMatrix[i][j]!=null && currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
                             String uriI = urisOfFragment.get(i-1);
                             String typeI = currentFragmentNodes.get(uriI).getType();
-                            if(typeI.contains("SUB_")){
-                                uriI = typeI+"_"+dateToken;
-                            }else{
-                                uriI = fragmentID+"_NODE"+uriI;
-                            }
-                            
+//                            if(typeI.contains("SUB_")){
+//                                uriI = typeI+"_"+dateToken;
+//                            }else{
+//                                uriI = fragmentID+"_NODE"+uriI;
+//                            }
+                            uriI = fragmentID+"_NODE"+uriI;
                             String uriJ = urisOfFragment.get(j-1);
                             String typeJ = currentFragmentNodes.get(uriJ).getType();
-                            if(typeJ.contains("SUB_I")){
-                                uriJ = typeJ+"_"+dateToken;
-                            }else{
-                                uriJ = fragmentID+"_NODE"+uriJ;
-                            }
+//                            if(typeJ.contains("SUB_")){
+//                                uriJ = typeJ+"_"+dateToken;
+//                            }else{
+//                                uriJ = fragmentID+"_NODE"+uriJ;
+//                            }
+                            uriJ = fragmentID+"_NODE"+uriJ;
                             GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
                         }
                     }

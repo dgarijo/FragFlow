@@ -53,6 +53,16 @@ public abstract class FragmentCatalogAndResultsToRDF {
         //initialization of the date, which will determine the URIs
         dateToken=""+new Date().getTime();
     }
+
+    /**
+     * Getter of the repository, in case someone wants to query the model.
+     * 
+     * @return the repository (OntModel)
+     */
+    public OntModel getRepository() {
+        return repository;
+    }
+    
     
     /**
      * Function that accepts a catalog of fragments and prints them in RDF
