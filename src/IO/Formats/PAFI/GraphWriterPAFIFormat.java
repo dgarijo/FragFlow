@@ -21,11 +21,9 @@ package IO.Formats.PAFI;
 
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
-import Factory.OPMW.OPMWTemplate2Graph;
 import IO.GraphWritter;
 import Static.GeneralConstants;
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -106,25 +104,25 @@ public class GraphWriterPAFIFormat extends GraphWritter{
         return false;
     }
     
-    public static void main(String[] args){
-        try {
+//    public static void main(String[] args){
+//        try {
+////            GraphWriterPAFIFormat g = new GraphWriterPAFIFormat();
+////            g.writeReducedGraphToFile(null, null, 0);
+//            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+//            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+//            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
+//            Graph template = test.getGraphCollection().getGraphs().get(0);
 //            GraphWriterPAFIFormat g = new GraphWriterPAFIFormat();
-//            g.writeReducedGraphToFile(null, null, 0);
-            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
-            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
-            Graph template = test.getGraphCollection().getGraphs().get(0);
-            GraphWriterPAFIFormat g = new GraphWriterPAFIFormat();
-            FileWriter fstream = new FileWriter("PAFI_TESTS");
-            BufferedWriter out = new BufferedWriter(fstream);
-            g.writeReducedGraphToFile(template, out, 0, null);
-            template = test.getGraphCollection().getGraphs().get(1);
-            g.writeReducedGraphToFile(template, out, 0, null);
-            out.close();
-//            g.writeReducedGraphToFile(null, null, 0, null);
-        } catch (IOException ex) {
-            System.out.println("Error");
-        }
-    }
+//            FileWriter fstream = new FileWriter("PAFI_TESTS");
+//            BufferedWriter out = new BufferedWriter(fstream);
+//            g.writeReducedGraphToFile(template, out, 0, null);
+//            template = test.getGraphCollection().getGraphs().get(1);
+//            g.writeReducedGraphToFile(template, out, 0, null);
+//            out.close();
+////            g.writeReducedGraphToFile(null, null, 0, null);
+//        } catch (IOException ex) {
+//            System.out.println("Error");
+//        }
+//    }
     
 }

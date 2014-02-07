@@ -31,7 +31,7 @@ public class Test07SaveCollectionAsReducedGraphInFile {
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
             CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
-            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
+//            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
                 return true;

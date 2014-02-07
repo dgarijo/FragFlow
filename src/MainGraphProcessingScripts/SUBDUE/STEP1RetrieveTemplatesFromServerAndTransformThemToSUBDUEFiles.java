@@ -58,7 +58,7 @@ public class STEP1RetrieveTemplatesFromServerAndTransformThemToSUBDUEFiles {
             //INFERENCE
             //reading the taxonomy (already created)
             OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-            InputStream in = FileManager.get().open("C:\\Users\\Monen\\Dropbox\\NetBeansProjects\\MotifFinder\\src\\Tests\\multiDomainOnto.owl");
+            InputStream in = FileManager.get().open("src\\Tests\\multiDomainOnto.owl");
             // read the RDF/XML file
             o.read(in, null);
             HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);

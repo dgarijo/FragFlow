@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="79">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="src" root=".">
+      <in>avl.c</in>
+      <in>avl.h</in>
+      <in>compress.c</in>
+      <in>cvtest_main.c</in>
+      <in>discover.c</in>
+      <in>dot.c</in>
+      <in>evaluate.c</in>
+      <in>extend.c</in>
+      <in>gendata.c</in>
+      <in>gm_main.c</in>
+      <in>gprune_main.c</in>
+      <in>graph2dot_main.c</in>
+      <in>graphmatch.c</in>
+      <in>graphops.c</in>
+      <in>incboundary.c</in>
+      <in>inccomp.c</in>
+      <in>incextend.c</in>
+      <in>incgraphops.c</in>
+      <in>incutil.c</in>
+      <in>labels.c</in>
+      <in>main.c</in>
+      <in>mdl_main.c</in>
+      <in>mpi.c</in>
+      <in>mpi_main.c</in>
+      <in>sgiso.c</in>
+      <in>sgiso2_main.c</in>
+      <in>sgiso_main.c</in>
+      <in>subdue.h</in>
+      <in>subops.c</in>
+      <in>subs2dot_main.c</in>
+      <in>test.c</in>
+      <in>test_main.c</in>
+      <in>utility.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath>subdue.exe</executablePath>
+          <cTool>
+            <incDir>
+              <pElem></pElem>
+            </incDir>
+          </cTool>
+        </makeTool>
+      </makefileType>
+      <item path="mpi.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="mpi_main.c" ex="true" tool="0" flavor="0">
+      </item>
+      <item path="sgiso2_main.c" ex="true" tool="0" flavor="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

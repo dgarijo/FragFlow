@@ -88,8 +88,8 @@ public abstract class FragmentReader {
     }
     
     /**
-     * Method to retrieve the number of dependencies of the current fragment on
-     * other fragments
+     * Method to retrieve the number of inform dependencies in the current 
+     * fragment. 
      * @param matrix adjacency matrix
      * @return number of inform dependencies
      */

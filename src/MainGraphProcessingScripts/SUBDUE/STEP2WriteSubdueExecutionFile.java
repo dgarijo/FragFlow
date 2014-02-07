@@ -47,14 +47,14 @@ public class STEP2WriteSubdueExecutionFile {
             fstream = new FileWriter(Configuration.getSubdueExecutableOutputPath()+"SUBDUE_exec_file.bat");
             out = new BufferedWriter(fstream);
             
-            File inputFileFolder = new File(Configuration.getInputFolderPath());
+            File inputFileFolder = new File(Configuration.getSUBDUEInputFolderPath());
             File [] inputFiles = inputFileFolder.listFiles();            
             String toExecuteEval1, toExecuteEval2;
             
             //for each execution we create a new results folder, under the results path
             //that is already specified.
             Date d = new Date();
-            File folderResults = new File(Configuration.getOutputFolderPath()+File.separator+"results"+d.toString().replace(":", "_").replace(" ","_"));
+            File folderResults = new File(Configuration.getSUBDUEOutputFolderPath()+File.separator+"results"+d.toString().replace(":", "_").replace(" ","_"));
             folderResults.mkdir();
             
             for (int i = 0; i<inputFiles.length; i++){
@@ -69,7 +69,7 @@ public class STEP2WriteSubdueExecutionFile {
                         File cFile = dirFiles[j];
                         toExecuteEval1 = Configuration.getSubdueToolPath()+"subdue -iterations 0 -nsubs 1 -eval 1 "
                             + "-out "+customResultsFolder.getAbsolutePath()+File.separator+cFile.getName()+"-results1 "+
-                                cFile.getAbsolutePath()+">"+Configuration.getLogFilePath()+
+                                cFile.getAbsolutePath()+">"+Configuration.getSUBDUELogFilePath()+
                                     customResultsFolder.getName()+cFile.getName()+"-logEval1.txt";
                         toExecuteEval2 = toExecuteEval1.replace("-eval 1", "-eval 2");
                         toExecuteEval2 = toExecuteEval1.replace("-results1", "-results2");
@@ -83,7 +83,7 @@ public class STEP2WriteSubdueExecutionFile {
                     //for each file in the input_graph folder, apply subdue
                     toExecuteEval1 = Configuration.getSubdueToolPath()+"subdue -iterations 0 -nsubs 1 -eval 1 "
                             + "-out "+folderResults.getAbsolutePath()+File.separator+currentFile.getName()+"-results1 "+
-                                currentFile.getAbsolutePath()+">"+Configuration.getLogFilePath()+
+                                currentFile.getAbsolutePath()+">"+Configuration.getSUBDUELogFilePath()+
                                     currentFile.getName()+"-logEval1.txt";
                     
                     toExecuteEval2 = toExecuteEval1.replace("-eval 1", "-eval 2");

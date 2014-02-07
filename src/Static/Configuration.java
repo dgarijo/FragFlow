@@ -66,24 +66,24 @@ public class Configuration {
      * Getter of the SUBDUE input folder path
      * @return input folder path
      */
-    public static String getInputFolderPath(){
-        return getConfigurationFile().config.getProperty("inputFolderPath");
+    public static String getSUBDUEInputFolderPath(){
+        return getConfigurationFile().config.getProperty("subdueInputFolderPath");
     }
     
     /**
      * Getter of the SUBDUE output folder path (for creating scripts)
      * @return 
      */
-    public static String getOutputFolderPath(){
-        return getConfigurationFile().config.getProperty("outputFolderPath");
+    public static String getSUBDUEOutputFolderPath(){
+        return getConfigurationFile().config.getProperty("subdueOutputFolderPath");
     }
     
     /**
      * Getter of the log file path (for creating scripts)
      * @return the log file path
      */
-    public static String getLogFilePath(){
-        return getConfigurationFile().config.getProperty("logFilePath");
+    public static String getSUBDUELogFilePath(){
+        return getConfigurationFile().config.getProperty("subdueLogFilePath");
     }
     
     /**
@@ -91,6 +91,22 @@ public class Configuration {
      * @return the executable output path
      */
     public static String getSubdueExecutableOutputPath(){
-        return getConfigurationFile().config.getProperty("executableSUEBDUEScriptPath");
+        return getConfigurationFile().config.getProperty("subdueExecutableScriptPath");
+    }
+    
+    /**
+     * PAFI executable path
+     * @return the executable output path
+     */
+    public static String getPAFIExecutablePath(){
+        return getConfigurationFile().config.getProperty("pafiExecutableBinaryPath");
+    }
+    
+    /**
+     * PAFI input path folder
+     * @return the executable output path
+     */
+    public static String getPAFIInputPath(){
+        return getConfigurationFile().config.getProperty("pafiInputFolderPath");
     }
 }
