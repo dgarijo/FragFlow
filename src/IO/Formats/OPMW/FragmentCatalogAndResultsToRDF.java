@@ -23,6 +23,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -69,7 +70,7 @@ public abstract class FragmentCatalogAndResultsToRDF {
      * @param catalog a hashmap with the name of the fragment and the 
      * FinalResult implementing it.
      */
-    public abstract void transformFragmentCollectionToRDF(HashMap<String,Fragment> catalog);
+    public abstract void transformFragmentCollectionToRDF(ArrayList<Fragment> catalog);
     
     /**
      * Given a set of fragments and a graph collection of graphs, this method 
@@ -78,7 +79,7 @@ public abstract class FragmentCatalogAndResultsToRDF {
      * @param obtainedResults
      * @param templates 
      */
-    public abstract void transformBindingResultsInTemplateCollection(HashMap<String,Fragment> obtainedResults, GraphCollection templates);
+    public abstract void transformBindingResultsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates);
     
     /**
      * Method which given a set of fragments and a template, checks whether 
@@ -87,7 +88,7 @@ public abstract class FragmentCatalogAndResultsToRDF {
      * @param obtainedResults results obtained by a SUBDUE algorithm.
      * @param template template in which we want to search the results.
      */
-    public abstract void transformBindingResultsOfFragmentCollectionInTemplateToRDF(HashMap<String,Fragment> obtainedResults, Graph template);
+    public abstract void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template);
     
     /**
      * Given a fragment and a template, this method detects where in the 

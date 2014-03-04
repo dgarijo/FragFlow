@@ -22,11 +22,13 @@ import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
 import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
+import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.FileManager;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -42,8 +44,11 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            test.transformDomainToGraph("TextAnalytics");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-           HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
-
+           CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("text analytics",
+                    "MDL", true, false,file, ocFile);
+           ArrayList<Fragment> obtainedResults = aux.getFilteredMultiStepFragments();
+           
+           //filter those fragments that are irrelevant
            //without inference
            FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("out30-01-2014.ttl");
 
@@ -68,7 +73,9 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            file = "resultsAbstractCatalog24-10-2013";
            ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
 
-           obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
+           aux = new CreateStatisticsFromResultsSUBDUE("text analytics",
+                    "MDL", true, false,file, ocFile);
+           obtainedResults = aux.getFilteredMultiStepFragments();
 
            //without inference
            FragmentCatalogAndResultsToRDFSUBDUE abstractCatalog = new FragmentCatalogAndResultsToRDFSUBDUE("outAbstract30-01-2014.ttl");

@@ -79,6 +79,39 @@ public abstract class CreateStatisticsFromResults {
         //here each method will invoke the fragment reader, etc. to initialize 
         //the fragment catalogue        
     }
+
+    /**
+     * Default getter to retrieve the filtered multi step fragments
+     * @return 
+     */
+    public ArrayList<Fragment> getFilteredMultiStepFragments() {
+        return filteredMultiStepFragments;
+    }
+
+    /**
+     * Default getter to retrieve the  irreducible fragments
+     * @return 
+     */
+    public ArrayList<Fragment> getIrreducibleFragments() {
+        return irreducibleFragments;
+    }
+
+    /**
+     * Default getter to retrieve the multi step fragments
+     * @return 
+     */
+    public ArrayList<Fragment> getMultiStepFragments() {
+        return multiStepFragments;
+    }
+
+    /**
+     * Default getter to retrieve the multi step irreducible fragments
+     * @return 
+     */
+    public ArrayList<Fragment> getMultiStepIrreducibleFragments() {
+        return multiStepIrreducibleFragments;
+    }
+    
     
     /**
      * Returns the number of original found fragments

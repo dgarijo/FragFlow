@@ -54,85 +54,81 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
     }
     
     /**
-     * Function that accepts a catalog of fragments and prints them in RDF
+     * Function that accepts a catalog of fragments and prints them in RDF. We assume 
+     * that the catalog to be published has been simplified (filtered)
      * @param catalog a hashmap with the name of the fragment and the 
      * FinalResult implementing it.
      */
     @Override
-    public void transformFragmentCollectionToRDF(HashMap<String,Fragment> catalog){
-        Iterator<String> CatalogIt = catalog.keySet().iterator();
+    public void transformFragmentCollectionToRDF(ArrayList<Fragment> catalog){
+        Iterator<Fragment> catalogIt = catalog.iterator();
         //we assume that the number of occurrences is initialzied
-        while (CatalogIt.hasNext()){
-            String currentKey = CatalogIt.next();
-            Fragment currentFragment = catalog.get(currentKey);
-            //we just annotate multistep structures
-            //here we should take relevant structures (removing those that are repeated)
-            if(currentFragment.isMultiStepStructure()){
-                //fragmentId -> URI
-                String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                
-                GeneralMethods.addIndividual(repository, fragmentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
-                //add date and title
-                GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),WffdConstants.TITLE,XSDDatatype.XSDstring);
-                GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),WffdConstants.CREATED,XSDDatatype.XSDdate);
+        while (catalogIt.hasNext()){
+            Fragment currentFragment = catalogIt.next();
+            //fragmentId -> URI
+            String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                
+            GeneralMethods.addIndividual(repository, fragmentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
+            //add date and title
+            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),WffdConstants.TITLE,XSDDatatype.XSDstring);
+            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),WffdConstants.CREATED,XSDDatatype.XSDdate);
 //                System.out.println(fragmentID);
-                //for each of these, add the "overlapsWith" relationship
-                ArrayList<Fragment> includedIds = currentFragment.getListOfIncludedIDs();
-                Iterator<Fragment> includedIdsIt = includedIds.iterator();                
-                while(includedIdsIt.hasNext()){
-                    Fragment currentIncludedId = includedIdsIt.next();
-                    String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
+            //for each of these, add the "overlapsWith" relationship
+            ArrayList<Fragment> includedIds = currentFragment.getListOfIncludedIDs();
+            Iterator<Fragment> includedIdsIt = includedIds.iterator();                
+            while(includedIdsIt.hasNext()){
+                Fragment currentIncludedId = includedIdsIt.next();
+                String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
 //                    addIndividual(repository, currentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
-                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.STEP, null);
-                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
-                    GeneralMethods.addProperty(repository, fragmentID, currentID, WffdConstants.OVERLAPS_WITH);                    
-                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.OVERLAPS_WITH);
-                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                GeneralMethods.addIndividual(repository, currentID, WffdConstants.STEP, null);
+                GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
+                GeneralMethods.addProperty(repository, fragmentID, currentID, WffdConstants.OVERLAPS_WITH);                    
+                GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.OVERLAPS_WITH);
+                GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+            }
+            //each of these are p-plan:Steps, and are "stepsOfPlan" of the fragment
+            ArrayList<String> urisOfFragment = currentFragment.getDependencyGraph().getURIs();
+            HashMap<String,GraphNode> currentFragmentNodes = currentFragment.getDependencyGraph().getNodes();
+            //for each dependency, create the appropriate URI (SUB_X_1, SUB_X_2, etc)
+            //if the URI is a fragment, we don't create a new URI, since it has already been created in the previous stepp
+            Iterator<String> urisOfFragmentIt = urisOfFragment.iterator();
+            while (urisOfFragmentIt.hasNext()){
+                String currentURI = urisOfFragmentIt.next();
+                String currentURItype = currentFragmentNodes.get(currentURI).getType();
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
+                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                if(currentURItype.contains("SUB_")){
+                    //add owl:sameAs
+                    //WHY ore:proxyFor? because if we add the precedence step in the fragments directly,
+                    //we may create inconsistencies (e.g. a fragment preceeded by 2 different steps
+                    //that are from different fragments. In order to avoid that, we create a phantom node
+                    //and we add the ore:proxyFor with the template (as basically the proxy acts as the former)
+                    GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, currentURItype+"_"+dateToken, "http://www.openarchives.org/ore/terms/proxyFor");
+                }else{
+                    GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);
                 }
-                //each of these are p-plan:Steps, and are "stepsOfPlan" of the fragment
-                ArrayList<String> urisOfFragment = currentFragment.getDependencyGraph().getURIs();
-                HashMap<String,GraphNode> currentFragmentNodes = currentFragment.getDependencyGraph().getNodes();
-                //for each dependency, create the appropriate URI (SUB_X_1, SUB_X_2, etc)
-                //if the URI is a fragment, we don't create a new URI, since it has already been created in the previous stepp
-                Iterator<String> urisOfFragmentIt = urisOfFragment.iterator();
-                while (urisOfFragmentIt.hasNext()){
-                    String currentURI = urisOfFragmentIt.next();
-                    String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                    GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
-                    GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
-                    if(currentURItype.contains("SUB_")){
-                        //add owl:sameAs
-                        //WHY ore:proxyFor? because if we add the precedence step in the fragments directly,
-                        //we may create inconsistencies (e.g. a fragment preceeded by 2 different steps
-                        //that are from different fragments. In order to avoid that, we create a phantom node
-                        //and we add the ore:proxyFor with the template (as basically the proxy acts as the former)
-                        GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, currentURItype+"_"+dateToken, "http://www.openarchives.org/ore/terms/proxyFor");
-                    }else{
-                        GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);
-                    }
-                }
-                //for each dependency, create the p-plan:ispreceededBy
-                String[][] currentFragmentAdjMatrix = currentFragment.getDependencyGraph().getAdjacencyMatrix();
-                for(int i = 1;i<currentFragmentAdjMatrix.length;i++){
-                    for(int j=1 ; j<currentFragmentAdjMatrix.length;j++){
-                        if(currentFragmentAdjMatrix[i][j]!=null && currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
-                            String uriI = urisOfFragment.get(i-1);
-                            String typeI = currentFragmentNodes.get(uriI).getType();
+            }
+            //for each dependency, create the p-plan:ispreceededBy
+            String[][] currentFragmentAdjMatrix = currentFragment.getDependencyGraph().getAdjacencyMatrix();
+            for(int i = 1;i<currentFragmentAdjMatrix.length;i++){
+                for(int j=1 ; j<currentFragmentAdjMatrix.length;j++){
+                    if(currentFragmentAdjMatrix[i][j]!=null && currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
+                        String uriI = urisOfFragment.get(i-1);
+                        String typeI = currentFragmentNodes.get(uriI).getType();
 //                            if(typeI.contains("SUB_")){
 //                                uriI = typeI+"_"+dateToken;
 //                            }else{
 //                                uriI = fragmentID+"_NODE"+uriI;
 //                            }
-                            uriI = fragmentID+"_NODE"+uriI;
-                            String uriJ = urisOfFragment.get(j-1);
-                            String typeJ = currentFragmentNodes.get(uriJ).getType();
+                        uriI = fragmentID+"_NODE"+uriI;
+                        String uriJ = urisOfFragment.get(j-1);
+                        String typeJ = currentFragmentNodes.get(uriJ).getType();
 //                            if(typeJ.contains("SUB_")){
 //                                uriJ = typeJ+"_"+dateToken;
 //                            }else{
 //                                uriJ = fragmentID+"_NODE"+uriJ;
 //                            }
-                            uriJ = fragmentID+"_NODE"+uriJ;
-                            GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
-                        }
+                        uriJ = fragmentID+"_NODE"+uriJ;
+                        GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
                     }
                 }
             }
@@ -192,7 +188,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
      * @param templates 
      */
     @Override
-    public void transformBindingResultsInTemplateCollection(HashMap<String,Fragment> obtainedResults, GraphCollection templates){
+    public void transformBindingResultsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates){
         ArrayList<Graph> temps = templates.getGraphs();
         Iterator<Graph> itTemps = temps.iterator();
         while(itTemps.hasNext()){
@@ -210,11 +206,11 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
      * @param template template in which we want to search the results.
      */
     @Override
-    public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(HashMap<String,Fragment> obtainedResults, Graph template){
-        Iterator<String> fragments = obtainedResults.keySet().iterator();
+    public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template){
+        Iterator<Fragment> fragments = obtainedResults.iterator();
         //it would be nice to just send the relevant fragments            
         while(fragments.hasNext()){
-            Fragment f = obtainedResults.get(fragments.next());
+            Fragment f = fragments.next();
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template);
         
         }
