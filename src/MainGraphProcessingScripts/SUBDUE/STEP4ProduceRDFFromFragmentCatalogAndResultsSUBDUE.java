@@ -42,7 +42,7 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            test.transformDomainToGraph("TextAnalytics");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-           HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
+           HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
 
            //without inference
            FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("out30-01-2014.ttl");
@@ -68,7 +68,7 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            file = "resultsAbstractCatalog24-10-2013";
            ocFile = "resultsAbstractCatalog24-10-2013_occurrences";
 
-           obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
+           obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
 
            //without inference
            FragmentCatalogAndResultsToRDFSUBDUE abstractCatalog = new FragmentCatalogAndResultsToRDFSUBDUE("outAbstract30-01-2014.ttl");

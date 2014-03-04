@@ -19,6 +19,6 @@ package MainGraphProcessingScripts.PAFI;
  *
  * @author Daniel garijo
  */
-public class STEP4ProduceRDFFromResultsPAFI {
+public class STEP4ProduceRDFFromResultsPAFI{
     
 }

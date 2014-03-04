@@ -13,12 +13,12 @@ In order to achieve the results, this project defines diverse operations for gra
 * Generic readers and writers that can read and write different workflow specifications and traces (currently supported: OPMW, OPM)
 * Inference and abstraction of a workfow collection or individual workflows.
 * Remote querying and adaptation to process RDF workflows exposed as Linked Data.
-* Formatting output to be read by the SUBDUE tool, a too which does hierarchical clustering on the graph inputs.
+* Formatting output to be read by the SUBDUE and PAFI tools.
 * Capability of saving the results as RDF.
-* Computation of statistics on the results obtained, and binding the fragments proposed by SUDUE to the results.
+* Computation of statistics on the results obtained, and binding the fragments proposed by the tools to the results.
 
 The project is configured as a Netbeans project right now. All the libraries and dependencies are jar files contained in the /lib folder.
 
 Current ongoing work:
-* Adapt the framework to different types of graph mining algorithms. Currently supported: SUBDUE
+* Adapt the framework to different types of graph mining algorithms. Currently supported: SUBDUE, PAFI
 * Adapt the framework to read from different types of workflows. Currently supported: OPMW

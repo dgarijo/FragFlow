@@ -26,12 +26,12 @@ public class Test15PostProcessingStatistics {
     public static boolean test(){
         System.out.println("\n\nExecuting test:"+testNumber+" Statistics creation");
         try{
-            CreateStatisticsFromResultsSUBDUE test = new CreateStatisticsFromResultsSUBDUE("text analytics",
-                    "MDL", true, false, true);
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-            test.createStatisticsFromFile(file, ocFile);
-            test.printStatistics("testStatistics");
+            CreateStatisticsFromResultsSUBDUE test = new CreateStatisticsFromResultsSUBDUE("text analytics",
+                    "MDL", true, false,file, ocFile);           
+//            test.createStatistics();
+            test.printStatistics("testStatisticsSUBDUE");
             //if the file is found, the statistics are created
             return true;
         }catch(Exception e){

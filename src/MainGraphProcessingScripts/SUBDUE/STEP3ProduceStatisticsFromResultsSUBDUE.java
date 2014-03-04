@@ -20,6 +20,7 @@
 package MainGraphProcessingScripts.SUBDUE;
 
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
+import java.util.ArrayList;
 
 /**
  * Small script to produce statistics from the SUBDUE results. The statistics 
@@ -41,61 +42,61 @@ public class STEP3ProduceStatisticsFromResultsSUBDUE {
              * Templ (inf)
              */
             //eval 1
-            CreateStatisticsFromResultsSUBDUE test1 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", true, true, false);
             String file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference_Templates-results1";
             String ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference_Templates-results1_occurrences";
-            test1.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test1 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", true, true, file, ocFile);
+//            test1.createStatistics();
             test1.printStatistics("STATISTICS-Text_Analytics_Graph_Inference_Templates-results1");
             //eval 2
-            CreateStatisticsFromResultsSUBDUE test2 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", true, true, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference_Templates-results2";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference_Templates-results2_occurrences";
-            test2.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test2 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", true, true,file, ocFile);
+//            test2.createStatistics();
             test2.printStatistics("STATISTICS-Text_Analytics_Graph_Inference_Templates-results2");
             /**
              * Templ (no-inf)
              */
             //eval 1
-            CreateStatisticsFromResultsSUBDUE test3 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", true, false, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference_Templates-results1";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference_Templates-results1_occurrences";
-            test3.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test3 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", true, false,file, ocFile);
+//            test3.createStatistics();
             test3.printStatistics("STATISTICS-Text_Analytics_Graph_No_Inference_Templates-results1");
             //eval 2
-            CreateStatisticsFromResultsSUBDUE test4 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", true, false, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference_Templates-results2";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference_Templates-results2_occurrences";
-            test4.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test4 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", true, false,file, ocFile);
+//            test4.createStatistics();
             test4.printStatistics("STATISTICS-Text_Analytics_Graph_No_Inference_Templates-results2");
             /**
              * Traces (inf)
              */
             //eval 1
-            CreateStatisticsFromResultsSUBDUE test5 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", false, true, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference-results1";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference-results1_occurrences";
-            test5.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test5 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", false, true,file, ocFile);
+//            test5.createStatistics();
             test5.printStatistics("STATISTICS-Text_Analytics_Graph_Inference-results1");
             //eval 2
-            CreateStatisticsFromResultsSUBDUE test6 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", false, true, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference-results2";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_Inference-results2_occurrences";
-            test6.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test6 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", false, true,file, ocFile);
+//            test6.createStatistics();
             test6.printStatistics("STATISTICS-Text_Analytics_Graph_Inference-results2");
             /**
              * Traces (no-inf)
              */
             //eval 1
-            CreateStatisticsFromResultsSUBDUE test7 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", false, false, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference-results1";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference-results1_occurrences";
-            test7.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test7 = new CreateStatisticsFromResultsSUBDUE("text analytics","MDL", false, false,file, ocFile);
+//            test7.createStatistics();
             test7.printStatistics("STATISTICS-Text_Analytics_Graph_No_Inference-results1");
             //eval 2
-            CreateStatisticsFromResultsSUBDUE test8 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", false, false, false);
             file = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference-results2";
             ocFile = "SUBDUE_TOOL\\results\\resultsSun_Apr_21_19_36_05_CEST_2013\\Text_Analytics_Graph_No_Inference-results2_occurrences";
-            test8.createStatisticsFromFile(file, ocFile);
+            CreateStatisticsFromResultsSUBDUE test8 = new CreateStatisticsFromResultsSUBDUE("text analytics","size", false, false,file, ocFile);
+//            test8.createStatistics();
             test8.printStatistics("STATISTICS-Text_Analytics_Graph_No_Inference-results2");
         }catch(Exception e){
             System.err.println("Error while executing the script "+e.getMessage());

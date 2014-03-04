@@ -36,16 +36,20 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class FragmentReaderSUBDUE extends FragmentReader {
-    
+    private String occurrencesFile;
+
 
     /**
      * Main constructor method. Initialized the fragment hashmap.
      * The key is the substructure name (e.g., SUB_1 and the value is the 
      * fragment itself
      */
-    public FragmentReaderSUBDUE() {
+    public FragmentReaderSUBDUE(String resultFile,String occurrencesFile) {
+        this.occurrencesFile = occurrencesFile;
+        this.resultFile = resultFile;
         this.finalResults = new HashMap<String, Fragment>();
-    }    
+    }
+    
     
     /**
      * Method that given a file with subdue graphs, processes it and represents
@@ -137,7 +141,6 @@ public class FragmentReaderSUBDUE extends FragmentReader {
      * The file identifies substructures like this: SUB_n -> number
      * @param occFile 
      */
-    @Override
     public void processOccurrencesFile(String occFile) throws FragmentReaderException{
         FileInputStream fstream =null;
         DataInputStream in = null;
@@ -161,6 +164,15 @@ public class FragmentReaderSUBDUE extends FragmentReader {
             System.err.println("Error while processing the file "+e.getMessage());
             throw new FragmentReaderException("Error while reading the file "+e.getMessage(), e);
         }
+    }
+
+    @Override
+    public HashMap<String, Fragment> getFragmentCatalogFromAlgorithmResultFiles() throws FragmentReaderException {
+        if(resultFile==null || occurrencesFile==null)
+            throw  new FragmentReaderException("Result file or occurrences file not provided");
+        processResultFile(resultFile);
+        processOccurrencesFile(occurrencesFile);
+        return finalResults;
     }
     
 

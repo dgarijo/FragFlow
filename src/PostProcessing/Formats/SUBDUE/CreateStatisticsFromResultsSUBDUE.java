@@ -17,9 +17,7 @@ package PostProcessing.Formats.SUBDUE;
 
 import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
 import PostProcessing.CreateStatisticsFromResults;
-import DataStructures.Fragment;
 import IO.Exception.FragmentReaderException;
-import java.util.HashMap;
 
 /**
  * Class that extends CreateStatisticsFromResults to obtain those obtained from 
@@ -27,9 +25,11 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResults{
+    private String occurrencesFile;
+    
     
     /**
-     * Constructos
+     * Constructor
      * @param domain domain of the templates or traces
      * @param evalType type of evaluation performed
      * @param isTemplate states whether the evaluation was performed on templates
@@ -38,23 +38,15 @@ public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResul
      * inference or not
      * @param isReducedGraph states if the evaluation has been performed on a 
      * reduced graph.
+     * @param inputFile SUBDUE result file
+     * @param ocFile SUBDUE occurrences file
+     * @throws FragmentReaderException
      */
-    public CreateStatisticsFromResultsSUBDUE(String domain, String evalType, boolean isTemplate, boolean hasInference, boolean isReducedGraph){
-        this.domain = domain;
-        this.evaluationType = evalType;
-        this.isTemplate = isTemplate;
-        this.hasInference = hasInference;
-        this.isReducedGraph = isReducedGraph;
-    }
-    
-    @Override
-    public void createStatisticsFromFile(String inputFile, String occurrencesFile) throws FragmentReaderException{
-        this.inputFileName = inputFile;
-        HashMap<String,Fragment> structureResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(inputFile, occurrencesFile);
-        //Structures found
-        structuresFound = structureResults.size();
-        countDetectedAndMultiStepStructures(structureResults);        
-        //We coulod add the structures as templates/traces found as well.
+    public CreateStatisticsFromResultsSUBDUE(String domain, String evalType, boolean isTemplate, boolean hasInference, String inputFile, String ocFile) throws FragmentReaderException{
+        super(domain, evalType, "SUBDUE", isTemplate, hasInference, null);        
+        this.originalFragmentCatalog = new FragmentReaderSUBDUE(inputFile,ocFile).getFragmentCatalogFromAlgorithmResultFiles();
+        this.occurrencesFile = ocFile;
+        initializeStatistics();
     }
     
 }

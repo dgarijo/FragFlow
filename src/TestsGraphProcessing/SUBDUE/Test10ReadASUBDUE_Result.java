@@ -31,7 +31,7 @@ public class Test10ReadASUBDUE_Result {
         try{
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-            HashMap<String,Fragment> structureResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
+            HashMap<String,Fragment> structureResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
             if(structureResults.isEmpty())return false;
             return true;
         }catch(Exception e){

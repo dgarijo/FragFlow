@@ -22,7 +22,7 @@ public class Test26ReadAPAFIResult {
             String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
             String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
             String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-            HashMap<String,Fragment> structureResults = new FragmentReaderPAFI().processResultFiles(fpfile,pcFile,tidFile);
+            HashMap<String,Fragment> structureResults = new FragmentReaderPAFI(fpfile,pcFile,tidFile).getFragmentCatalogFromAlgorithmResultFiles();
             if(structureResults.isEmpty())return false;
             return true;
         }catch(Exception e){

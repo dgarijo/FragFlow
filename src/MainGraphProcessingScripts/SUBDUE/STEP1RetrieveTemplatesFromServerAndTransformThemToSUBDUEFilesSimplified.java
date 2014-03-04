@@ -17,9 +17,13 @@ package MainGraphProcessingScripts.SUBDUE;
 
 /**
  * Script that retrieves the templates from a repository and transforms them to 
- * SUBDUE diles
+ * SUBDUE files
  * @author Daniel Garijo
  */
 public class STEP1RetrieveTemplatesFromServerAndTransformThemToSUBDUEFilesSimplified {
+    
+    //create the script here, which will be similar but only taking the 
+    //templates without any separated folders. Generalization should be applied too.
+    //just the reduced files!
     
 }

@@ -19,8 +19,16 @@
  */
 package MainGraphProcessingScripts.PAFI;
 
+import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.PAFI.CollectionWriterPAFI;
+import Static.Configuration;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileManager;
+import java.io.InputStream;
+import java.util.HashMap;
 
 /**
  * Script that retrieves the templates from the server and transforms it to PAFI 
@@ -34,17 +42,20 @@ public class STEP1RetrieveTemplatesFromServerAndTransformThemToPAFIFiles {
             tp.transformDomainToGraph("TextAnalytics");        
             CollectionWriterPAFI writer = new CollectionWriterPAFI();            
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
-                writer.writeReducedGraphsToFile(tp.getGraphCollection(), "CollectionInPAFIFormat");
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(), Configuration.getPAFIInputPath()+"CollectionInPAFIFormat");
                 System.out.println("Regular collection retrieved successfully");
+                //abstract collection
+                OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+                InputStream in = FileManager.get().open("src\\TestFiles\\multiDomainOnto.owl");
+                // read the RDF/XML file
+                o.read(in, null);
+                HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(),Configuration.getPAFIInputPath()+"CollectionInPAFIFormatABSTRACT", replacements);
+                System.out.println("Abstract collection retrieved successfully");
             }
-            //abstract collection
-            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-            InputStream in = FileManager.get().open("src\\Tests\\multiDomainOnto.owl");
-            // read the RDF/XML file
-            o.read(in, null);
-            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+                
             
-            writer.writeFullGraphsToFile(tp.getGraphCollection(),"Text_Analytics_Graph_Inference_Templates", replacements);
         }catch(Exception e){
             System.out.println("Error: "+ e.getMessage());
             

@@ -44,7 +44,7 @@ public class Test17ValidateFoundFragments2 {
     
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE().processResultsAndOccurrencesFiles(file, ocFile);
+            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
             Iterator<String> fragments = obtainedResults.keySet().iterator();
             //it would be nice to just send the relevant fragments    
             FragmentToSPARQLQueryTemplateSUBDUE qr = new FragmentToSPARQLQueryTemplateSUBDUE();

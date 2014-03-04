@@ -50,14 +50,37 @@ public class FragmentReaderPAFI extends FragmentReader {
     //0, 1 and 5 of the input file. We store this information in this hashmap.
     //it will be used later on the RDF generation.
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
+    private String depFile, tidFile;
 
     public FragmentReaderPAFI() {
         this.finalResults = new HashMap<String, Fragment>();
     }
 
+    public FragmentReaderPAFI(String resultFile, String depFile, String tidFile) {        
+        this.resultFile = resultFile;
+        this.depFile = depFile;
+        this.tidFile = tidFile;
+        this.finalResults = new HashMap<String, Fragment>();
+    }
+    
+    
+
+    /**
+     * Support of the different fragments in the different transactions
+     * @return fragmentID, set of transactions where it appears.
+     */
     public HashMap<String, ArrayList<String>> getOccurrencesOfFragmentInTransaction() {
         return occurrencesOfFragmentInTransaction;
     }
+
+    /**
+     * Final results getter.
+     * @return 
+     */
+    public HashMap<String, Fragment> getFinalResults() {
+        return finalResults;
+    }
+    
     
     /**
      * Main method to process the 3 files produced by PAFI.
@@ -67,8 +90,11 @@ public class FragmentReaderPAFI extends FragmentReader {
      * @return
      * @throws FragmentReaderException 
      */
-    public HashMap<String,Fragment> processResultFiles(String resultsFile, String depFile, String tidFile)throws FragmentReaderException{
-        this.processResultFile(resultsFile);
+    @Override
+    public HashMap<String,Fragment> getFragmentCatalogFromAlgorithmResultFiles()throws FragmentReaderException{
+        if(resultFile==null||depFile==null||tidFile==null)
+            throw new FragmentReaderException("pc file, fp File or tid file not provided");
+        this.processResultFile(resultFile);
         this.processPCFile(depFile);
         this.processTIDFile(tidFile);
         return finalResults;
@@ -232,5 +258,7 @@ public class FragmentReaderPAFI extends FragmentReader {
 //            System.out.println("Error while parsing FAPI result file");            
 //        }
 //    }
+
+
     
 }

@@ -66,6 +66,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             String currentKey = CatalogIt.next();
             Fragment currentFragment = catalog.get(currentKey);
             //we just annotate multistep structures
+            //here we should take relevant structures (removing those that are repeated)
             if(currentFragment.isMultiStepStructure()){
                 //fragmentId -> URI
                 String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                

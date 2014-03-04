@@ -29,33 +29,22 @@ import java.util.HashMap;
 public abstract class FragmentReader {
     //will be initialized on the subclasses
     protected HashMap<String,Fragment> finalResults;
+    protected String resultFile;
     
     /**
      * Method to process the result file with the fragments and transform them 
      * into the hashmap
      * @param graphFile 
      */
-    public void processResultFile(String graphFile)throws FragmentReaderException{        
-        
-    }    
-    /**
-     * Method that given a file it looks for the occurrences of each substructure.
-     * @param occFile 
-     */
-    public void processOccurrencesFile(String occFile)throws FragmentReaderException{
-        
-    }
+    public abstract void processResultFile(String graphFile)throws FragmentReaderException;
+    
     /**
      * Method to process the resultFile and the occurrencesFile together.
      * @param resultsFile
      * @param ocFile
      * @return 
      */
-    public HashMap<String,Fragment> processResultsAndOccurrencesFiles(String resultsFile, String ocFile)throws FragmentReaderException{
-        this.processResultFile(resultsFile);
-        this.processOccurrencesFile(ocFile);
-        return finalResults;
-    }
+    public abstract HashMap<String,Fragment> getFragmentCatalogFromAlgorithmResultFiles()throws FragmentReaderException;
     
     /**
      * Method to determine whether a structure is multi step or not.
@@ -84,6 +73,10 @@ public abstract class FragmentReader {
         numberOfDependencies += getNumberOfDependenciesFromIncludedStructures(includedSubstructures);
 //        System.out.println("number of dependencies: "+numberOfDependencies);
         return (numberOfDependencies>0);
+        
+        //TO DO (ISSUE 50), If this fragment appears the same number of times as
+        //a fragment that includes it, then this is not a meaningful fragment.
+        //The meaningful fragment would be the bigger one.
         
     }
     

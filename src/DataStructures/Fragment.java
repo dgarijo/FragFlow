@@ -30,7 +30,7 @@ public class Fragment {
     private Graph dependencyGraph;
     private ArrayList<Fragment> listOfPointersToIncludedStructures;
     
-    private boolean isMultiStepStructure;//a meaningful structure is a structure with at least two steps.
+    private boolean isMultiStepStructure;//a multi step structure is a structure with at least two steps.
     
     /**
      * Default constructor
@@ -130,7 +130,7 @@ public class Fragment {
     }
 
     /**
-     * isMeaningfulStructure setter
+     * isMultiStepStructure setter
      * @param isMeaningfulStructure 
      */
     public void setIsMultiStepStructure(boolean isMeaningfulStructure) {
@@ -165,5 +165,17 @@ public class Fragment {
         }
         return size;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) return false;
+        if (other == this) return true;
+        if (!(other instanceof Fragment))return false;
+        Fragment otherFragment = (Fragment)other;
+        if (otherFragment.getStructureID().equals(this.structureID)) return true;
+        return false;
+    }
+    
+    
         
 }
