@@ -25,7 +25,6 @@ import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;

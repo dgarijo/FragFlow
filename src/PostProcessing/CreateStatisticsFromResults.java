@@ -16,8 +16,7 @@
 package PostProcessing;
 
 import DataStructures.Fragment;
-import IO.Exception.FragmentReaderException;
-import IO.Formats.PAFI.FragmentReaderPAFI;
+import Static.FragmentGeneralMethods;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -162,34 +161,6 @@ public abstract class CreateStatisticsFromResults {
     }
     
     /**
-     * Method that returns all the dependencies of a fragment. That is, not only
-     * those dependencies included directly, but also those dependencies found
-     * recursively.
-     * @param f the fragment from which we want to find the dependencies.
-     * @return All the fragments that depend directly or indirectly on f
-     */
-    private ArrayList<Fragment> getFullDependenciesOfFragment(Fragment f){
-        ArrayList<Fragment> result = new ArrayList<Fragment>();
-        addDependencies(result, f);
-        return result;
-    }
-    /**
-     * Method to add the fragment dependencies recursively to a given array.
-     * @param results the full dependencies
-     * @param f fragment to be explored.
-     */
-    private void addDependencies(ArrayList<Fragment> results, Fragment f){
-        ArrayList<Fragment> aux = f.getListOfIncludedIDs();
-        if(aux == null || aux.isEmpty())return;
-        Iterator<Fragment> it = aux.iterator();
-        while(it.hasNext()){
-            Fragment currentDependency = it.next();
-            results.add(currentDependency);
-            addDependencies(results, currentDependency);
-        }
-    }
-    
-    /**
      * Generic constructor to be implemented by each of the statistic creators
      * It depends on the algorithm and the output it provides.
      */
@@ -241,7 +212,7 @@ public abstract class CreateStatisticsFromResults {
         ArrayList<Fragment> elementsToRemove = new ArrayList<Fragment>();
         while(it.hasNext()){
             Fragment currentFragment = it.next();
-            ArrayList<Fragment> includedFragments = this.getFullDependenciesOfFragment(currentFragment);
+            ArrayList<Fragment> includedFragments = FragmentGeneralMethods.getFullDependenciesOfFragment(currentFragment);
             //if any of the included structures has the same occurrences as the actual one,
             //we count the actual as the relevant structure and remove the others from the filtered 
             //multi step fragments

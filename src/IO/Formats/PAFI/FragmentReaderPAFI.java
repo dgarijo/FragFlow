@@ -131,7 +131,7 @@ public class FragmentReaderPAFI extends FragmentReader {
                         fragmentID = idAndOcc[0];
                         numOcc = idAndOcc[1];
                         //new fragment
-                        System.out.println("fragment "+fragmentID+","+numOcc);
+//                        System.out.println("fragment "+fragmentID+","+numOcc);
                         URIs = new ArrayList<String>();
                         nodes = new HashMap<String, GraphNode>();
                         adjacencyMatrix = null; // we can only create it once we have all the nodes
@@ -145,19 +145,19 @@ public class FragmentReaderPAFI extends FragmentReader {
                         currLine = strLine.split(" ");
                         String id = currLine[1].trim();
                         String type = currLine[2].trim();
-                        System.out.println("v "+id+",type "+type);
+//                        System.out.println("v "+id+",type "+type);
                         URIs.add(id);                        
                         nodes.put(id, new GraphNode(id, type, Integer.parseInt(id)));
                     }else if (strLine.startsWith("u")){
                         //add dependences.
                         if(adjacencyMatrix == null){
-                            adjacencyMatrix = new String[URIs.size()+1][URIs.size()+1];//we ignore the [0][0] lines
+                            adjacencyMatrix = new String[URIs.size()][URIs.size()];
                         }
                         //retrieve positions: d row column relation
                         currLine = strLine.split(" ");
                         adjacencyMatrix[Integer.parseInt(currLine[1])][Integer.parseInt(currLine[2])] = currLine[3];
                         //it is not necessary, but in PAFI the edges are UNDIRECTED. Therefore the matrix would be in both directions.
-                        System.out.println(nodes.get(currLine[1]).getType()+" "+currLine[3]+" "+nodes.get(currLine[2]).getType());
+//                        System.out.println(nodes.get(currLine[1]).getType()+" "+currLine[3]+" "+nodes.get(currLine[2]).getType());
                                                 
                         }
                     }
@@ -199,10 +199,10 @@ public class FragmentReaderPAFI extends FragmentReader {
                 if(idAndDep.length>1){
                     String fragID = idAndDep[0].trim();                
                     ArrayList<Fragment> includedFragments = new ArrayList();
-                    System.out.println("fragment "+fragID+" contains:");
+//                    System.out.println("fragment "+fragID+" contains:");
                     for(int i=1; i<idAndDep.length;i++){
                         includedFragments.add(finalResults.get(idAndDep[i]));
-                        System.out.println("\t"+finalResults.get(idAndDep[i]).getStructureID());
+//                        System.out.println("\t"+finalResults.get(idAndDep[i]).getStructureID());
                     }
                     Fragment currentFragment = finalResults.get(fragID);
                     currentFragment.setListOfIncludedIDs(includedFragments);
@@ -233,10 +233,10 @@ public class FragmentReaderPAFI extends FragmentReader {
                 String[] idAndOccurrences = strLine.split(" ");
                 String fragID = idAndOccurrences[0].trim();
                 ArrayList<String> supportedTransactions = new ArrayList();
-                System.out.println("Fragment "+fragID+" appears "+(idAndOccurrences.length-1)+" times. In structures: ");
+//                System.out.println("Fragment "+fragID+" appears "+(idAndOccurrences.length-1)+" times. In structures: ");
                 for(int i=1; i<idAndOccurrences.length;i++){
                     supportedTransactions.add(idAndOccurrences[i]);
-                    System.out.println("\t"+idAndOccurrences[i]);
+//                    System.out.println("\t"+idAndOccurrences[i]);
                 }
                 finalResults.get(fragID).setNumberOfOccurrences(idAndOccurrences.length-1);
                 occurrencesOfFragmentInTransaction.put(fragID, supportedTransactions);

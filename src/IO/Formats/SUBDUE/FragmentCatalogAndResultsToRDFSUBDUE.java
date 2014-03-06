@@ -19,7 +19,7 @@ import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.Fragment;
-import IO.Formats.OPMW.FragmentCatalogAndResultsToRDF;
+import IO.FragmentCatalogAndResultsToRDF;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import Static.GeneralConstants;
@@ -74,16 +74,18 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
 //                System.out.println(fragmentID);
             //for each of these, add the "overlapsWith" relationship
             ArrayList<Fragment> includedIds = currentFragment.getListOfIncludedIDs();
-            Iterator<Fragment> includedIdsIt = includedIds.iterator();                
-            while(includedIdsIt.hasNext()){
-                Fragment currentIncludedId = includedIdsIt.next();
-                String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
-//                    addIndividual(repository, currentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
-                GeneralMethods.addIndividual(repository, currentID, WffdConstants.STEP, null);
-                GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
-                GeneralMethods.addProperty(repository, fragmentID, currentID, WffdConstants.OVERLAPS_WITH);                    
-                GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.OVERLAPS_WITH);
-                GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+            if(includedIds!=null){
+                Iterator<Fragment> includedIdsIt = includedIds.iterator();                
+                while(includedIdsIt.hasNext()){
+                    Fragment currentIncludedId = includedIdsIt.next();
+                    String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
+    //                    addIndividual(repository, currentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
+                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.STEP, null);
+                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
+                    GeneralMethods.addProperty(repository, fragmentID, currentID, WffdConstants.OVERLAPS_WITH);                    
+                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.OVERLAPS_WITH);
+                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                }
             }
             //each of these are p-plan:Steps, and are "stepsOfPlan" of the fragment
             ArrayList<String> urisOfFragment = currentFragment.getDependencyGraph().getURIs();

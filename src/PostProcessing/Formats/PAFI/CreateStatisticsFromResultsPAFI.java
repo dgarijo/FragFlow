@@ -22,6 +22,8 @@ package PostProcessing.Formats.PAFI;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PAFI.FragmentReaderPAFI;
 import PostProcessing.CreateStatisticsFromResults;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Class designed to create the statistics from 
@@ -30,6 +32,7 @@ import PostProcessing.CreateStatisticsFromResults;
 public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults{
     private String pcFile;
     private String tidFile;
+    private HashMap<String,ArrayList<String>> fragmentsInTransactions;
 
 
     /**
@@ -45,11 +48,20 @@ public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults
     public CreateStatisticsFromResultsPAFI(String domain, 
              boolean isTemplate, boolean hasInference, 
                 String resultFile, String pcFile, String tidFile) throws FragmentReaderException {                        
-        super(domain, "-", "PAFI", isTemplate, hasInference, null);        
-        this.originalFragmentCatalog = new FragmentReaderPAFI(resultFile,pcFile,tidFile).getFragmentCatalogFromAlgorithmResultFiles();
+        super(domain, "-", "PAFI", isTemplate, hasInference, null);
+        FragmentReaderPAFI reader = new FragmentReaderPAFI(resultFile,pcFile,tidFile);
+        this.originalFragmentCatalog = reader.getFragmentCatalogFromAlgorithmResultFiles();
+        this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();
         this.pcFile = pcFile;
         this.tidFile = tidFile;        
         initializeStatistics();
+    }
+
+    /**
+     * Returns in which transactions has the fragment in the first argument been found
+     */
+    public HashMap<String, ArrayList<String>> getFragmentsInTransactions() {
+        return fragmentsInTransactions;
     }
     
 }

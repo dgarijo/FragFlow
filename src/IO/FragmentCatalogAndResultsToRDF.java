@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package IO.Formats.OPMW;
+package IO;
 
 import DataStructures.Fragment;
 import DataStructures.Graph;

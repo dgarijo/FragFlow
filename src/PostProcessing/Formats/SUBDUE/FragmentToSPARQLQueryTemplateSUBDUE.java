@@ -35,9 +35,9 @@ import java.util.Iterator;
  * @author Daniel Garijo
  */
 public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
-    int currentVariable;//counter to determine which binding are we dealing with
-    HashMap<String, String> bindingsToVariables;//hashmap to know to which 
-    String context; //String used to assign variables to types in the query.
+    private int currentVariable;//counter to determine which binding are we dealing with
+    private HashMap<String, String> bindingsToVariables;//hashmap to know to which 
+    private String context; //String used to assign variables to types in the query.
     //variable we referr to.
     
     /**
@@ -85,9 +85,9 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
      * Method to return the current context
      * @return the context String
      */
-    private String getContext(){
-        return context;
-    }
+//    private String getContext(){
+//        return context;
+//    }
     
     /**
      * Recursive method to determine which variable are assigned to which URIs.

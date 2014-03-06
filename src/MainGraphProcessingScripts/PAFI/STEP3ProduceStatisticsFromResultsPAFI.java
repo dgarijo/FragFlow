@@ -15,10 +15,29 @@
  */
 package MainGraphProcessingScripts.PAFI;
 
+import IO.Exception.FragmentReaderException;
+import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
+
 /**
  *
  * @author Daniel Garijo
  */
 public class STEP3ProduceStatisticsFromResultsPAFI {
-    
+    public static void main(String[] args){
+        try {
+            String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
+            String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
+            String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
+            CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
+            c.printStatistics("testStatisticsPafi");
+            //Abstract Collection
+            fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.fp";
+            pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.pc";
+            tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.tid";
+            c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
+            c.printStatistics("testStatisticsPafiAbstract");
+        } catch (FragmentReaderException ex) {
+            System.out.println("Error while executing test "+ex.getMessage());
+        }
+    }
 }
