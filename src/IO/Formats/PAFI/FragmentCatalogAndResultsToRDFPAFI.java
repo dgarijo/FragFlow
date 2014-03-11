@@ -23,14 +23,23 @@ import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import DataStructures.GraphNode.GraphNode;
+import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Exception.FragmentReaderException;
+import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import IO.FragmentCatalogAndResultsToRDF;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
+import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
+import PostProcessing.Formats.PAFI.FragmentToSPARQLQueryTemplatePAFI;
+import PostProcessing.FragmentToSPARQLQuery;
+import Static.Configuration;
 import Static.FragmentGeneralMethods;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
 import Static.WffdConstants;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -98,15 +107,14 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
             //for each dependency, create the wf-fd:isConnectedTo (graph is not directed)
             //PAFI STARTS FROM 0 DUE TO THE NODE NUMBERING
             for(int i = 0;i<currentFragmentAdjMatrix.length;i++){
-                for(int j=i ; j<currentFragmentAdjMatrix.length;j++){
+                for(int j=0 ; j<currentFragmentAdjMatrix.length;j++){
                     if(currentFragmentAdjMatrix[i][j]!=null && 
                             (currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY))){
                         String uriI = urisOfFragment.get(i);
                         uriI = fragmentID+"_NODE"+uriI;
                         String uriJ = urisOfFragment.get(j);
                         uriJ = fragmentID+"_NODE"+uriJ;
-                        GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.CONNECTED_TO);
-                        GeneralMethods.addProperty(repository, uriJ, uriI, WffdConstants.CONNECTED_TO);
+                        GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
                     }
                 }
             }
@@ -115,18 +123,39 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
 
     @Override
     public void transformBindingResultsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ArrayList<Graph> temps = templates.getGraphs();
+        Iterator<Graph> itTemps = temps.iterator();
+        while(itTemps.hasNext()){
+            Graph currentTemplate = itTemps.next();
+            currentTemplate.putReducedNodesInAdjacencyMatrix();
+            transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
+        }
     }
 
     @Override
     public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Iterator<Fragment> fragments = obtainedResults.iterator();
+        //it would be nice to just send the relevant fragments            
+        while(fragments.hasNext()){
+            Fragment f = fragments.next();
+            transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplatePAFI());
+        
+        }
     }
 
-    @Override
-    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+//    @Override
+//    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template) {
+//        FragmentToSPARQLQueryTemplatePAFI qr = new FragmentToSPARQLQueryTemplatePAFI();
+//        OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(template);
+//        String currentQuery = qr.createQueryFromFragment(currentFragment, template.getName());
+//        ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
+//        while(rs.hasNext()){
+//            QuerySolution qs = rs.next();
+//            //each result corresponds to one binding found in the template.
+//            
+//        }
+        
+//    }
     
     
     public static void main (String[] args) throws FragmentReaderException{
@@ -135,7 +164,16 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
         String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
         CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
         FragmentCatalogAndResultsToRDFPAFI aux = new FragmentCatalogAndResultsToRDFPAFI("testPafiRDF.ttl");
-        aux.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
+        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+        aux.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
+        OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+        test.transformDomainToGraph("TextAnalytics");
+        aux.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, test.getGraphCollection());
         aux.exportToRDFFile("TURTLE");
+        //test
+//        FragmentToSPARQLQueryTemplatePAFI test = new FragmentToSPARQLQueryTemplatePAFI();
+//        String testQuery = test.createQueryFromFragment(filteredFixedFragmentCatalog.get(5), "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
+//        System.out.println(testQuery);
+//        aux.exportToRDFFile("TURTLE");
     }
 }

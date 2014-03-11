@@ -38,7 +38,7 @@ public class CollectionWriterSUBDUE extends CollectionWritter{
         FileWriter fstream = null; 
         BufferedWriter out = null; 
         Iterator<Graph> it = gc.getGraphs().iterator();
-        GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
+        GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         int numeration = 0;
         try {
             fstream = new FileWriter(outputFilePath);
@@ -72,7 +72,7 @@ public class CollectionWriterSUBDUE extends CollectionWritter{
     FileWriter fstream = null; 
         BufferedWriter out = null; 
         Iterator<Graph> it = gc.getGraphs().iterator();
-        GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
+        GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         int i = 0;
         String graphNumber = "graph";
         try {
@@ -109,7 +109,7 @@ public class CollectionWriterSUBDUE extends CollectionWritter{
     public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{
         FileWriter fstream = null; 
         BufferedWriter out = null;
-        GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
+        GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         Iterator<Graph> it = gc.getGraphs().iterator();
         int numeration = 0;
         try {
@@ -144,7 +144,7 @@ public class CollectionWriterSUBDUE extends CollectionWritter{
         FileWriter fstream = null; 
         BufferedWriter out = null; 
         Iterator<Graph> it = gc.getGraphs().iterator();
-        GraphWriterSUBDUEFormat gw = new GraphWriterSUBDUEFormat();
+        GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         int i = 0;
         String graphNumber = "graph";
         try {

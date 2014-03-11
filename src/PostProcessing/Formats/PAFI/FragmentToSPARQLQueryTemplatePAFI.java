@@ -34,8 +34,30 @@ public class FragmentToSPARQLQueryTemplatePAFI extends FragmentToSPARQLQuery {
 
     @Override
     public String createQueryFromFragment(Fragment f, String structureURI) {
-        //to do
-        throw new UnsupportedOperationException("Not supported yet.");
+        String query = "SELECT distinct ";
+        String[][] depMatrix = f.getDependencyGraph().getAdjacencyMatrix();
+        ArrayList<String> graphURIs = f.getDependencyGraph().getURIs();
+        HashMap<String,GraphNode> graphNodes = f.getDependencyGraph().getNodes();
+        String steps = "";
+        for(int i=0; i<graphURIs.size();i++){
+            query+=" ?node"+i;
+            steps+="?node"+i+" a <"+graphNodes.get(graphURIs.get(i)).getType()+">.\n";
+            steps+="?node"+i+" <http://www.opmw.org/ontology/isStepOfTemplate> <"+structureURI+">.\n";
+        }        
+        query+=" WHERE{\n";
+        query+=steps;
+        //we just have to look to the adjacency matrix for performing the right query
+        for(int i=0; i < depMatrix.length;i++){
+            for(int j=0; j < depMatrix.length; j++){
+                if(depMatrix[i][j]!=null && 
+                    (depMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY))){
+                    query+="?node"+i+" <http://www.opmw.org/ontology/uses> ?i_"+i+"_"+j+".\n";
+                    query+="?i_"+i+"_"+j+" <http://www.opmw.org/ontology/isGeneratedBy> ?node"+j+".\n";
+                }
+            }
+        }
+        query+="}";
+        return query;
     }
     
     public String createQueryForDirectionalityFromFragment(Fragment f, String structureURI){
@@ -74,24 +96,4 @@ public class FragmentToSPARQLQueryTemplatePAFI extends FragmentToSPARQLQuery {
         query+="}LIMIT 1";        
         return query;
     }
-    
-    /**
-     * Method to determine how many variables we need. The number corresponds
-     * to the number of edges we can find in the matrix.
-     * @return 
-     */
-//    private int getNumberOfVariablesForDirectionality(Fragment f){
-//        String[][] depMatrix = f.getDependencyGraph().getAdjacencyMatrix();
-//        int numDeps = 0;
-//        for(int i=0; i < depMatrix.length;i++){
-//            for(int j=i; j < depMatrix.length; j++){
-//                if(depMatrix[i][j]!=null && 
-//                            (depMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY))){
-//                    numDeps ++;
-//                }
-//            }
-//        }
-//        return numDeps;
-//    }
-    
 }

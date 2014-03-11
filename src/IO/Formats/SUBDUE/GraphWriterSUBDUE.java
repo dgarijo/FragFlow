@@ -31,7 +31,7 @@ import java.util.Iterator;
  *          d 1 2 used (1 used 2)
  * @author Daniel Garijo
  */
-public class GraphWriterSUBDUEFormat extends GraphWritter{
+public class GraphWriterSUBDUE extends GraphWritter{
     
     /**
     ** @@TO DO: unify both writtings. The nodes are written in a very similar way for both

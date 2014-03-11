@@ -46,8 +46,8 @@ public class WffdConstants {
     
     public static final String OVERLAPS_WITH= WFFD_PREFIX+"overlapsWithWorkflowFragment";
     public static final String FOUND_AS= WFFD_PREFIX+"foundAs";
+    public static final String FOUND_IN= WFFD_PREFIX+"foundIn";
     
     //properties to review
     public static final String PART_OF_FRAGMENT= WFFD_PREFIX+"partOfFragment";
-    public static final String CONNECTED_TO= WFFD_PREFIX+"isConnectedTo";
 }

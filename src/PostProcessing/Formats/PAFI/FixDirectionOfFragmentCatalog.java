@@ -44,7 +44,8 @@ public class FixDirectionOfFragmentCatalog {
     
     /**
      * Given a Fragment Catalog, this method fixed the directionality of the 
-     * fragments. 
+     * fragments. Note that a copy of the catalog is NOT returned. The input catalog
+     * is modified.
      * @return 
      */
     public static ArrayList<Fragment> fixDirectionOfCatalog(String pathFileWrittenCollection,
@@ -74,7 +75,7 @@ public class FixDirectionOfFragmentCatalog {
         Iterator<Fragment> itFragments = filteredCatalog.iterator();
         while(itFragments.hasNext()){
             Fragment currF = itFragments.next();
-            System.out.println("Fragment "+currF.getStructureID());
+//            System.out.println("Fragment "+currF.getStructureID());
             String fragmentFoundIn = occurrencesOfFragments.get(currF.getStructureID()).get(0); 
             //we just query the first structure where it appears (no need for more for fixing the direction of the fragments)
             OPMWTemplate2Graph downloadedTemplate = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
@@ -89,7 +90,7 @@ public class FixDirectionOfFragmentCatalog {
                 while(varNamesIterator.hasNext()){
                     String currentVar = varNamesIterator.next();
                     if(qs.get(currentVar)!=null){
-                        System.out.println(currentVar);
+//                        System.out.println(currentVar);
                         String[][] fragmentDepMatrix = currF.getDependencyGraph().getAdjacencyMatrix();
                         //fix the adjacency matrix of each fragment here
                         currentVar = currentVar.replace("dep_", "");//we remove the prefix
@@ -108,12 +109,12 @@ public class FixDirectionOfFragmentCatalog {
         return filteredCatalog;
     }
     
-    public static void main(String[] args) throws FragmentReaderException{
-        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
-        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
-        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
-        fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
-    }
+//    public static void main(String[] args) throws FragmentReaderException{
+//        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
+//        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
+//        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
+//        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
+//        fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+//    }
     
 }

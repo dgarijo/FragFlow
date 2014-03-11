@@ -18,14 +18,23 @@ package IO;
 import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
+import IO.Formats.OPMW.Graph2OPMWRDFModel;
+import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
+import PostProcessing.FragmentToSPARQLQuery;
+import Static.GeneralMethods;
+import Static.WffdConstants;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Abstract Class designed to declare the general methods to transform a 
@@ -93,10 +102,40 @@ public abstract class FragmentCatalogAndResultsToRDF {
     /**
      * Given a fragment and a template, this method detects where in the 
      * template has the fragment been found and trasforms the results to RDF.
-     * @param currentFragment
-     * @param template 
+     * @param currentFragment fragment to test in the template
+     * @param template template on which we will try to find the fragment
+     * @param qr object to transform the fragment to the appropriate query 
      */
-    public abstract void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template);        
+    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template, FragmentToSPARQLQuery qr){
+        {        
+        OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(template);
+        String currentQuery = qr.createQueryFromFragment(currentFragment, template.getName());
+        ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
+        if(rs.hasNext()){
+            String fragID= currentFragment.getStructureID()+"_"+dateToken;                
+            GeneralMethods.addIndividual(repository, fragID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragID);
+            int n = 0;
+            GeneralMethods.addProperty(repository, fragID, template.getName(), WffdConstants.FOUND_IN);//WffdConstants.IS_PART_OF);
+            while(rs.hasNext()){
+                QuerySolution qs = rs.nextSolution();
+                String currentBindingURI = "binding"+new Date().getTime()+n;
+                GeneralMethods.addIndividual(repository, currentBindingURI, WffdConstants.TIED_RESULT, null);
+                GeneralMethods.addProperty(repository, fragID, currentBindingURI, WffdConstants.FOUND_AS);
+                //System.out.println(currentBindingURI);
+                //for all currentBindings, add their URIs as part of the tied result
+                Iterator<String> iteratorCurrentBinding = qs.varNames();
+                while (iteratorCurrentBinding.hasNext()){
+                    String currentvar = iteratorCurrentBinding.next();
+                    Resource currentResourceURI = qs.getResource(currentvar);
+                    GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), WffdConstants.STEP, null);
+                    GeneralMethods.addProperty(repository, currentResourceURI.getURI(), currentBindingURI, WffdConstants.IS_STEP_OF_PLAN);
+                    GeneralMethods.addIndividual(repository, currentResourceURI.getURI(), o2.getOntResource(currentResourceURI).getRDFType().getURI(), null);
+                }
+                n++;
+            } 
+        }
+    }
+    }        
     
     
     /**

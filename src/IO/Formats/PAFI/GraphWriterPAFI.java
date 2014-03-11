@@ -39,7 +39,7 @@ import java.util.Iterator;
  * 
  * @author Daniel Garijo
  */
-public class GraphWriterPAFIFormat extends GraphWritter{
+public class GraphWriterPAFI extends GraphWritter{
 
     //write reducedFraphToFile with the 3 ones will result in the call to the specialization
 

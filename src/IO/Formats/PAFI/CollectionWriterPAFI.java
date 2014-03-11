@@ -23,7 +23,7 @@ import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import IO.CollectionWritter;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.SUBDUE.GraphWriterSUBDUEFormat;
+import IO.Formats.SUBDUE.GraphWriterSUBDUE;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class CollectionWriterPAFI extends CollectionWritter{
     public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException {
         FileWriter fstream = null; 
         BufferedWriter out = null;
-        GraphWriterPAFIFormat gw = new GraphWriterPAFIFormat();
+        GraphWriterPAFI gw = new GraphWriterPAFI();
         Iterator<Graph> it = gc.getGraphs().iterator();        
         try {
             fstream = new FileWriter(outputFilePath);

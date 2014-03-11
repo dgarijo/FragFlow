@@ -20,5 +20,5 @@ In order to achieve the results, this project defines diverse operations for gra
 The project is configured as a Netbeans project right now. All the libraries and dependencies are jar files contained in the /lib folder.
 
 Current ongoing work:
-* Adapt the framework to different types of graph mining algorithms. Currently supported: SUBDUE, PAFI
+* Adapt the framework to different types of graph mining algorithms. Currently supported: SUBDUE, PAFI, Parsemis (gSpan, Gaston, Dagma)
 * Adapt the framework to read from different types of workflows. Currently supported: OPMW
