@@ -1,0 +1,4439 @@
+t # Graph00
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 288
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 288
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 144
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 288
+t # Graph01 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 19
+e 7 20 node.addSymbol_node.matchsymbol 850
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 125
+e 6 8 Diff.printout_Diff.showinsert 5
+e 1 8 Diff.newconsume_Diff.showinsert 695
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 3
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 2
+e 2 7 Diff.storeline_node.addSymbol 850
+e 6 5 Diff.printout_Diff.showdelete 125
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 850
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 19
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 6
+e 8 9 Diff.showinsert_node.showSymbol 700
+t # Graph02 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 8
+e 12 17 Diff.main_Diff.doDiff 1
+e 6 10 Diff.showdelete_node.showSymbol 34
+e 17 7 Diff.doDiff_Diff.printout 1
+e 8 19 node.addSymbol_node.matchsymbol 275
+e 7 9 Diff.printout_Diff.showinsert 21
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 275
+e 6 18 Diff.showdelete_Diff.println 15
+e 14 16 Diff.transform_Diff.scanunique 1
+e 17 14 Diff.doDiff_Diff.transform 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 131
+e 14 13 Diff.transform_Diff.scanafter 1
+e 7 1 Diff.printout_Diff.showsame 16
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 275
+e 7 6 Diff.printout_Diff.showdelete 34
+e 9 10 Diff.showinsert_node.showSymbol 21
+t # Graph03
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 144
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 440
+e 1 7 Diff.newconsume_Diff.showinsert 296
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 440
+e 17 8 Diff.showchange_node.showSymbol 144
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 296
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 440
+e 7 8 Diff.showinsert_node.showSymbol 296
+t # Graph04
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 144
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 438
+e 1 7 Diff.newconsume_Diff.showinsert 294
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 438
+e 17 8 Diff.showchange_node.showSymbol 144
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 294
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 438
+e 7 8 Diff.showinsert_node.showSymbol 294
+t # Graph05 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 144
+e 6 19 node.addSymbol_node.matchsymbol 1207
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 1062
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1207
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1207
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 144
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 1063
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 1062
+t # Graph06 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 144
+e 6 19 node.addSymbol_node.matchsymbol 1211
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 1066
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1211
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1211
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 144
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 1067
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 1066
+t # Graph07
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 144
+e 6 16 node.addSymbol_node.matchsymbol 144
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 144
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 144
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 144
+t # Graph08 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 144
+e 6 19 node.addSymbol_node.matchsymbol 1044
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 899
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1044
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1044
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 144
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 900
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 899
+t # Graph09 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 19
+e 7 20 node.addSymbol_node.matchsymbol 850
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 125
+e 6 8 Diff.printout_Diff.showinsert 5
+e 1 8 Diff.newconsume_Diff.showinsert 695
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 3
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 2
+e 2 7 Diff.storeline_node.addSymbol 850
+e 6 5 Diff.printout_Diff.showdelete 125
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 850
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 19
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 6
+e 8 9 Diff.showinsert_node.showSymbol 700
+t # Graph10 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 124
+e 8 20 node.addSymbol_node.matchsymbol 850
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 577
+e 7 9 Diff.printout_Diff.showinsert 139
+e 6 18 Diff.showdelete_Diff.println 3
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 850
+e 7 6 Diff.printout_Diff.showdelete 577
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 850
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 124
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 144
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 3
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 139
+t # Graph11
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 1412
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 1412
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 706
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 1412
+t # Graph12 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 111
+e 8 20 node.addSymbol_node.matchsymbol 837
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 590
+e 7 9 Diff.printout_Diff.showinsert 126
+e 6 18 Diff.showdelete_Diff.println 3
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 837
+e 7 6 Diff.printout_Diff.showdelete 590
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 837
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 111
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 131
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 3
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 126
+t # Graph13 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 296
+e 7 19 node.addSymbol_node.matchsymbol 1002
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 410
+e 6 8 Diff.printout_Diff.showinsert 296
+e 3 5 Diff.oldconsume_Diff.showdelete 410
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1002
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1002
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 296
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 296
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 296
+t # Graph14 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 294
+e 7 19 node.addSymbol_node.matchsymbol 1000
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 412
+e 6 8 Diff.printout_Diff.showinsert 294
+e 3 5 Diff.oldconsume_Diff.showdelete 412
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1000
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1000
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 294
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 294
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 294
+t # Graph15 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 548
+e 8 20 node.addSymbol_node.matchsymbol 1769
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 157
+e 7 9 Diff.printout_Diff.showinsert 548
+e 2 9 Diff.newconsume_Diff.showinsert 514
+e 6 18 Diff.showdelete_Diff.println 1
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 1769
+e 7 6 Diff.printout_Diff.showdelete 157
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1769
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 548
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 1063
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 1062
+t # Graph16 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 548
+e 8 20 node.addSymbol_node.matchsymbol 1773
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 157
+e 7 9 Diff.printout_Diff.showinsert 548
+e 2 9 Diff.newconsume_Diff.showinsert 518
+e 6 18 Diff.showdelete_Diff.println 1
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 1773
+e 7 6 Diff.printout_Diff.showdelete 157
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1773
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 548
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 1067
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 1066
+t # Graph17
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 706
+e 6 16 node.addSymbol_node.matchsymbol 706
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 706
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 706
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 706
+t # Graph18 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 469
+e 7 20 node.addSymbol_node.matchsymbol 1606
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 237
+e 6 8 Diff.printout_Diff.showinsert 468
+e 1 8 Diff.newconsume_Diff.showinsert 430
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 2
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 2 7 Diff.storeline_node.addSymbol 1606
+e 6 5 Diff.printout_Diff.showdelete 237
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 1606
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 469
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 900
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 2
+e 8 9 Diff.showinsert_node.showSymbol 898
+t # Graph19
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 2
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 2
+e 16 6 Diff.doDiff_Diff.printout 1
+e 7 19 node.addSymbol_node.matchsymbol 1412
+e 6 8 Diff.printout_Diff.showinsert 2
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 16 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 1412
+e 18 9 Diff.showchange_node.showSymbol 2
+e 13 15 Diff.transform_Diff.scanunique 1
+e 16 13 Diff.doDiff_Diff.transform 1
+e 15 4 Diff.scanunique_node.symbolIsUnique 706
+e 13 12 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 3
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 18 17 Diff.showchange_Diff.println 2
+e 3 7 Diff.storeline_node.addSymbol 1412
+e 8 9 Diff.showinsert_node.showSymbol 2
+t # Graph20 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.skipold
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 3
+e 6 11 Diff.showdelete_node.showSymbol 21
+e 9 22 node.addSymbol_node.matchsymbol 275
+e 19 8 Diff.doDiff_Diff.printout 1
+e 8 10 Diff.printout_Diff.showinsert 34
+e 6 20 Diff.showdelete_Diff.println 8
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 4
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 3 9 Diff.storeline_node.addSymbol 275
+e 8 6 Diff.printout_Diff.showdelete 21
+e 17 7 Diff.showmove_Diff.skipold 4
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 15
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 8
+e 5 3 Diff.inputscan_Diff.storeline 275
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 3
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 144
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 12
+e 21 20 Diff.showchange_Diff.println 3
+e 17 11 Diff.showmove_node.showSymbol 10
+e 10 11 Diff.showinsert_node.showSymbol 34
+t # Graph21 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 19
+e 7 20 node.addSymbol_node.matchsymbol 837
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 112
+e 6 8 Diff.printout_Diff.showinsert 5
+e 1 8 Diff.newconsume_Diff.showinsert 695
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 3
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 2
+e 2 7 Diff.storeline_node.addSymbol 837
+e 6 5 Diff.printout_Diff.showdelete 112
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 837
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 19
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 6
+e 8 9 Diff.showinsert_node.showSymbol 700
+t # Graph22
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 262
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 262
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 131
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 262
+t # Graph23
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 131
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 427
+e 1 7 Diff.newconsume_Diff.showinsert 296
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 427
+e 17 8 Diff.showchange_node.showSymbol 131
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 296
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 427
+e 7 8 Diff.showinsert_node.showSymbol 296
+t # Graph24
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 131
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 425
+e 1 7 Diff.newconsume_Diff.showinsert 294
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 425
+e 17 8 Diff.showchange_node.showSymbol 131
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 294
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 425
+e 7 8 Diff.showinsert_node.showSymbol 294
+t # Graph25 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 131
+e 6 19 node.addSymbol_node.matchsymbol 1194
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 1062
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1194
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1194
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 131
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 1063
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 1062
+t # Graph26 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 131
+e 6 19 node.addSymbol_node.matchsymbol 1198
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 1066
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1198
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1198
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 131
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 1067
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 1066
+t # Graph27
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 131
+e 6 16 node.addSymbol_node.matchsymbol 131
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 131
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 131
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 131
+t # Graph28 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.showmove
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 10 16 Diff.main_Diff.doDiff 1
+e 5 18 Diff.printout_Diff.showchange 131
+e 6 19 node.addSymbol_node.matchsymbol 1031
+e 16 5 Diff.doDiff_Diff.printout 1
+e 1 7 Diff.newconsume_Diff.showinsert 899
+e 12 15 Diff.transform_Diff.scanunique 1
+e 14 17 Diff.showmove_Diff.println 1
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1031
+e 1 14 Diff.newconsume_Diff.showmove 1
+e 5 17 Diff.printout_Diff.println 1
+e 7 17 Diff.showinsert_Diff.println 2
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1031
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 8 Diff.showchange_node.showSymbol 131
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 3 Diff.scanunique_node.symbolIsUnique 900
+e 16 12 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 14 8 Diff.showmove_node.showSymbol 1
+e 7 8 Diff.showinsert_node.showSymbol 899
+t # Graph29 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 19
+e 7 20 node.addSymbol_node.matchsymbol 837
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 112
+e 6 8 Diff.printout_Diff.showinsert 5
+e 1 8 Diff.newconsume_Diff.showinsert 695
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 3
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 2
+e 2 7 Diff.storeline_node.addSymbol 837
+e 6 5 Diff.printout_Diff.showdelete 112
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 837
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 19
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 6
+e 8 9 Diff.showinsert_node.showSymbol 700
+t # Graph30 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 144
+e 7 19 node.addSymbol_node.matchsymbol 440
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 152
+e 6 8 Diff.printout_Diff.showinsert 144
+e 3 5 Diff.oldconsume_Diff.showdelete 152
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 440
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 440
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 144
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 144
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 144
+t # Graph31
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 296
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1002
+e 1 7 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1002
+e 17 8 Diff.showchange_node.showSymbol 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1002
+e 7 8 Diff.showinsert_node.showSymbol 706
+t # Graph32 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 131
+e 7 19 node.addSymbol_node.matchsymbol 427
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 165
+e 6 8 Diff.printout_Diff.showinsert 131
+e 3 5 Diff.oldconsume_Diff.showdelete 165
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 427
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 427
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 131
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 131
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 131
+t # Graph33
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 592
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 592
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 296
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 592
+t # Graph34 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.showmove
+v 17 Diff.scanunique
+v 18 Diff.doDiff
+v 19 Diff.println
+v 20 Diff.showchange
+v 21 node.matchsymbol
+e 18 19 Diff.doDiff_Diff.println 1
+e 12 18 Diff.main_Diff.doDiff 1
+e 7 20 Diff.printout_Diff.showchange 17
+e 8 21 node.addSymbol_node.matchsymbol 590
+e 18 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 6
+e 7 9 Diff.printout_Diff.showinsert 20
+e 4 6 Diff.oldconsume_Diff.showdelete 2
+e 6 19 Diff.showdelete_Diff.println 5
+e 14 17 Diff.transform_Diff.scanunique 1
+e 16 19 Diff.showmove_Diff.println 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 590
+e 7 6 Diff.printout_Diff.showdelete 4
+e 7 19 Diff.printout_Diff.println 1
+e 9 19 Diff.showinsert_Diff.println 9
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 16 Diff.printout_Diff.showmove 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 590
+e 18 5 Diff.doDiff_Diff.inputscan 2
+e 20 10 Diff.showchange_node.showSymbol 17
+e 14 13 Diff.transform_Diff.scanafter 1
+e 17 3 Diff.scanunique_node.symbolIsUnique 294
+e 18 14 Diff.doDiff_Diff.transform 1
+e 18 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 10
+e 20 19 Diff.showchange_Diff.println 7
+e 16 10 Diff.showmove_node.showSymbol 1
+e 9 10 Diff.showinsert_node.showSymbol 20
+t # Graph35
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 296
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1359
+e 1 7 Diff.newconsume_Diff.showinsert 1063
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1359
+e 17 8 Diff.showchange_node.showSymbol 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1063
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1359
+e 7 8 Diff.showinsert_node.showSymbol 1063
+t # Graph36
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 296
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1363
+e 1 7 Diff.newconsume_Diff.showinsert 1067
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1363
+e 17 8 Diff.showchange_node.showSymbol 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1067
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1363
+e 7 8 Diff.showinsert_node.showSymbol 1067
+t # Graph37
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 296
+e 6 16 node.addSymbol_node.matchsymbol 296
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 296
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 296
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 296
+t # Graph38
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 296
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1196
+e 1 7 Diff.newconsume_Diff.showinsert 900
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1196
+e 17 8 Diff.showchange_node.showSymbol 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 900
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1196
+e 7 8 Diff.showinsert_node.showSymbol 900
+t # Graph39
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 296
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1002
+e 1 7 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1002
+e 17 8 Diff.showchange_node.showSymbol 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1002
+e 7 8 Diff.showinsert_node.showSymbol 706
+t # Graph40 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 144
+e 7 19 node.addSymbol_node.matchsymbol 438
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 150
+e 6 8 Diff.printout_Diff.showinsert 144
+e 3 5 Diff.oldconsume_Diff.showdelete 150
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 438
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 438
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 144
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 144
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 144
+t # Graph41
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 294
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1000
+e 1 7 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1000
+e 17 8 Diff.showchange_node.showSymbol 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1000
+e 7 8 Diff.showinsert_node.showSymbol 706
+t # Graph42 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 131
+e 7 19 node.addSymbol_node.matchsymbol 425
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 163
+e 6 8 Diff.printout_Diff.showinsert 131
+e 3 5 Diff.oldconsume_Diff.showdelete 163
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 425
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 425
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 131
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 131
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 131
+t # Graph43 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.skipold
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 17
+e 6 11 Diff.showdelete_node.showSymbol 4
+e 9 22 node.addSymbol_node.matchsymbol 590
+e 19 8 Diff.doDiff_Diff.printout 1
+e 8 10 Diff.printout_Diff.showinsert 20
+e 2 10 Diff.newconsume_Diff.showinsert 2
+e 6 20 Diff.showdelete_Diff.println 3
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 3
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 3 9 Diff.storeline_node.addSymbol 590
+e 8 6 Diff.printout_Diff.showdelete 4
+e 17 7 Diff.showmove_Diff.skipold 3
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 10
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 6
+e 5 3 Diff.inputscan_Diff.storeline 590
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 17
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 296
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 8
+e 21 20 Diff.showchange_Diff.println 6
+e 17 11 Diff.showmove_node.showSymbol 20
+e 10 11 Diff.showinsert_node.showSymbol 22
+t # Graph44
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 588
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 588
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 294
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 588
+t # Graph45
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 294
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1357
+e 1 7 Diff.newconsume_Diff.showinsert 1063
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1357
+e 17 8 Diff.showchange_node.showSymbol 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1063
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1357
+e 7 8 Diff.showinsert_node.showSymbol 1063
+t # Graph46
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 294
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1361
+e 1 7 Diff.newconsume_Diff.showinsert 1067
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1361
+e 17 8 Diff.showchange_node.showSymbol 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1067
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1361
+e 7 8 Diff.showinsert_node.showSymbol 1067
+t # Graph47
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 294
+e 6 16 node.addSymbol_node.matchsymbol 294
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 294
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 294
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 294
+t # Graph48
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 294
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1194
+e 1 7 Diff.newconsume_Diff.showinsert 900
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1194
+e 17 8 Diff.showchange_node.showSymbol 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 900
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1194
+e 7 8 Diff.showinsert_node.showSymbol 900
+t # Graph49
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 Diff.showinsert
+v 8 node.showSymbol
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 Diff.showchange
+v 18 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 7 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 5 17 Diff.printout_Diff.showchange 294
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 18 node.addSymbol_node.matchsymbol 1000
+e 1 7 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1000
+e 17 8 Diff.showchange_node.showSymbol 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 17 16 Diff.showchange_Diff.println 1
+e 2 6 Diff.storeline_node.addSymbol 1000
+e 7 8 Diff.showinsert_node.showSymbol 706
+t # Graph50 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 143
+e 8 20 node.addSymbol_node.matchsymbol 1207
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 919
+e 7 9 Diff.printout_Diff.showinsert 143
+e 4 6 Diff.oldconsume_Diff.showdelete 514
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1207
+e 7 6 Diff.printout_Diff.showdelete 405
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1207
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 143
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 144
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 143
+t # Graph51 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 705
+e 7 20 node.addSymbol_node.matchsymbol 1769
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 358
+e 6 8 Diff.printout_Diff.showinsert 705
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 2 7 Diff.storeline_node.addSymbol 1769
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 6 5 Diff.printout_Diff.showdelete 358
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1769
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 705
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 1
+e 15 9 Diff.showmove_node.showSymbol 1
+e 8 9 Diff.showinsert_node.showSymbol 705
+t # Graph52 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 130
+e 8 20 node.addSymbol_node.matchsymbol 1194
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 932
+e 7 9 Diff.printout_Diff.showinsert 130
+e 4 6 Diff.oldconsume_Diff.showdelete 514
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1194
+e 7 6 Diff.printout_Diff.showdelete 418
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1194
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 130
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 131
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 130
+t # Graph53 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 296
+e 7 19 node.addSymbol_node.matchsymbol 1359
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 767
+e 6 8 Diff.printout_Diff.showinsert 296
+e 3 5 Diff.oldconsume_Diff.showdelete 767
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1359
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1359
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 296
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 296
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 296
+t # Graph54 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 294
+e 7 19 node.addSymbol_node.matchsymbol 1357
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 769
+e 6 8 Diff.printout_Diff.showinsert 294
+e 3 5 Diff.oldconsume_Diff.showdelete 769
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1357
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1357
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 294
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 294
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 294
+t # Graph55
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 2126
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 2126
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 1063
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 2126
+t # Graph56 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.skipold
+v 7 Diff.showdelete
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 38
+e 9 22 node.addSymbol_node.matchsymbol 2130
+e 19 8 Diff.doDiff_Diff.printout 1
+e 7 11 Diff.showdelete_node.showSymbol 25
+e 8 10 Diff.printout_Diff.showinsert 63
+e 7 20 Diff.showdelete_Diff.println 10
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 3
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 3 9 Diff.storeline_node.addSymbol 2130
+e 8 7 Diff.printout_Diff.showdelete 25
+e 17 6 Diff.showmove_Diff.skipold 3
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 31
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 6
+e 5 3 Diff.inputscan_Diff.storeline 2130
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 38
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 1067
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 29
+e 21 20 Diff.showchange_Diff.println 21
+e 17 11 Diff.showmove_node.showSymbol 27
+e 10 11 Diff.showinsert_node.showSymbol 63
+t # Graph57
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 1063
+e 6 16 node.addSymbol_node.matchsymbol 1063
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 1063
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 1063
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 1063
+t # Graph58 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.skipold
+v 7 Diff.showdelete
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 95
+e 9 22 node.addSymbol_node.matchsymbol 1963
+e 19 8 Diff.doDiff_Diff.printout 1
+e 7 11 Diff.showdelete_node.showSymbol 462
+e 8 10 Diff.printout_Diff.showinsert 189
+e 2 10 Diff.newconsume_Diff.showinsert 147
+e 7 20 Diff.showdelete_Diff.println 36
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 25
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 2 17 Diff.newconsume_Diff.showmove 8
+e 3 9 Diff.storeline_node.addSymbol 1963
+e 8 7 Diff.printout_Diff.showdelete 462
+e 17 6 Diff.showmove_Diff.skipold 17
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 49
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 34
+e 5 3 Diff.inputscan_Diff.storeline 1963
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 95
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 900
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 37
+e 21 20 Diff.showchange_Diff.println 15
+e 17 11 Diff.showmove_node.showSymbol 188
+e 10 11 Diff.showinsert_node.showSymbol 336
+t # Graph59 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 705
+e 7 20 node.addSymbol_node.matchsymbol 1769
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 358
+e 6 8 Diff.printout_Diff.showinsert 705
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 2 7 Diff.storeline_node.addSymbol 1769
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 6 5 Diff.printout_Diff.showdelete 358
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1769
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 705
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 1
+e 15 9 Diff.showmove_node.showSymbol 1
+e 8 9 Diff.showinsert_node.showSymbol 705
+t # Graph60 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 143
+e 8 20 node.addSymbol_node.matchsymbol 1211
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 923
+e 7 9 Diff.printout_Diff.showinsert 143
+e 4 6 Diff.oldconsume_Diff.showdelete 518
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1211
+e 7 6 Diff.printout_Diff.showdelete 405
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1211
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 143
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 144
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 143
+t # Graph61 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 705
+e 7 20 node.addSymbol_node.matchsymbol 1773
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 362
+e 6 8 Diff.printout_Diff.showinsert 705
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 2 7 Diff.storeline_node.addSymbol 1773
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 6 5 Diff.printout_Diff.showdelete 362
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1773
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 705
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 1
+e 15 9 Diff.showmove_node.showSymbol 1
+e 8 9 Diff.showinsert_node.showSymbol 705
+t # Graph62 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 130
+e 8 20 node.addSymbol_node.matchsymbol 1198
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 936
+e 7 9 Diff.printout_Diff.showinsert 130
+e 4 6 Diff.oldconsume_Diff.showdelete 518
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1198
+e 7 6 Diff.printout_Diff.showdelete 418
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1198
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 130
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 131
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 130
+t # Graph63 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 296
+e 7 19 node.addSymbol_node.matchsymbol 1363
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 771
+e 6 8 Diff.printout_Diff.showinsert 296
+e 3 5 Diff.oldconsume_Diff.showdelete 771
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1363
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1363
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 296
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 296
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 296
+t # Graph64 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 294
+e 7 19 node.addSymbol_node.matchsymbol 1361
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 773
+e 6 8 Diff.printout_Diff.showinsert 294
+e 3 5 Diff.oldconsume_Diff.showdelete 773
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1361
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1361
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 294
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 294
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 294
+t # Graph65 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.skipold
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 42
+e 6 11 Diff.showdelete_node.showSymbol 24
+e 9 22 node.addSymbol_node.matchsymbol 2130
+e 19 8 Diff.doDiff_Diff.printout 1
+e 8 10 Diff.printout_Diff.showinsert 59
+e 6 20 Diff.showdelete_Diff.println 12
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 2
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 3 9 Diff.storeline_node.addSymbol 2130
+e 8 6 Diff.printout_Diff.showdelete 24
+e 17 7 Diff.showmove_Diff.skipold 2
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 28
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 4
+e 5 3 Diff.inputscan_Diff.storeline 2130
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 42
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 1063
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 30
+e 21 20 Diff.showchange_Diff.println 21
+e 17 11 Diff.showmove_node.showSymbol 6
+e 10 11 Diff.showinsert_node.showSymbol 59
+t # Graph66
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 2134
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 2134
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 1067
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 2134
+t # Graph67
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 1067
+e 6 16 node.addSymbol_node.matchsymbol 1067
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 1067
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 1067
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 1067
+t # Graph68 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.skipold
+v 7 Diff.showdelete
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 89
+e 9 22 node.addSymbol_node.matchsymbol 1967
+e 19 8 Diff.doDiff_Diff.printout 1
+e 7 11 Diff.showdelete_node.showSymbol 470
+e 8 10 Diff.printout_Diff.showinsert 191
+e 2 10 Diff.newconsume_Diff.showinsert 146
+e 7 20 Diff.showdelete_Diff.println 37
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 29
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 2 17 Diff.newconsume_Diff.showmove 8
+e 3 9 Diff.storeline_node.addSymbol 1967
+e 8 7 Diff.printout_Diff.showdelete 470
+e 17 6 Diff.showmove_Diff.skipold 20
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 50
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 41
+e 5 3 Diff.inputscan_Diff.storeline 1967
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 89
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 900
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 34
+e 21 20 Diff.showchange_Diff.println 15
+e 17 11 Diff.showmove_node.showSymbol 194
+e 10 11 Diff.showinsert_node.showSymbol 337
+t # Graph69 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 705
+e 7 20 node.addSymbol_node.matchsymbol 1773
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 362
+e 6 8 Diff.printout_Diff.showinsert 705
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 2 7 Diff.storeline_node.addSymbol 1773
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 6 5 Diff.printout_Diff.showdelete 362
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 4 2 Diff.inputscan_Diff.storeline 1773
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 705
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 706
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 1
+e 15 9 Diff.showmove_node.showSymbol 1
+e 8 9 Diff.showinsert_node.showSymbol 705
+t # Graph70
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 144
+e 1 8 Diff.newconsume_Diff.showinsert 144
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 144
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 144
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 144
+e 8 7 Diff.showinsert_node.showSymbol 144
+t # Graph71
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 706
+e 1 8 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 706
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 706
+e 8 7 Diff.showinsert_node.showSymbol 706
+t # Graph72
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 131
+e 1 8 Diff.newconsume_Diff.showinsert 131
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 131
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 131
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 131
+e 8 7 Diff.showinsert_node.showSymbol 131
+t # Graph73
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 296
+e 1 8 Diff.newconsume_Diff.showinsert 296
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 296
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 296
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 296
+e 8 7 Diff.showinsert_node.showSymbol 296
+t # Graph74
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 294
+e 1 8 Diff.newconsume_Diff.showinsert 294
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 294
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 294
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 294
+e 8 7 Diff.showinsert_node.showSymbol 294
+t # Graph75
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 1063
+e 1 8 Diff.newconsume_Diff.showinsert 1063
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1063
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1063
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1063
+e 8 7 Diff.showinsert_node.showSymbol 1063
+t # Graph76
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 1067
+e 1 8 Diff.newconsume_Diff.showinsert 1067
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 1067
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 1067
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 1067
+e 8 7 Diff.showinsert_node.showSymbol 1067
+t # Graph77
+v 0 fileInfo.alloc
+v 1 Diff.scanblocks
+v 2 Diff.scanafter
+v 3 Diff.main
+v 4 Diff.scanbefore
+v 5 Diff.transform
+v 6 Diff.newconsume
+v 7 Diff.scanunique
+v 8 Diff.println
+v 9 Diff.doDiff
+v 10 Diff.inputscan
+v 11 Diff.printout
+e 9 10 Diff.doDiff_Diff.inputscan 2
+e 9 8 Diff.doDiff_Diff.println 1
+e 11 8 Diff.printout_Diff.println 1
+e 5 7 Diff.transform_Diff.scanunique 1
+e 5 2 Diff.transform_Diff.scanafter 1
+e 9 5 Diff.doDiff_Diff.transform 1
+e 9 0 Diff.doDiff_fileInfo.alloc 2
+e 3 9 Diff.main_Diff.doDiff 1
+e 5 4 Diff.transform_Diff.scanbefore 1
+e 11 6 Diff.printout_Diff.newconsume 1
+e 9 11 Diff.doDiff_Diff.printout 1
+e 5 1 Diff.transform_Diff.scanblocks 1
+t # Graph78
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 900
+e 1 8 Diff.newconsume_Diff.showinsert 900
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 900
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 900
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 900
+e 8 7 Diff.showinsert_node.showSymbol 900
+t # Graph79
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.showinsert
+v 9 Diff.scanblocks
+v 10 Diff.main
+v 11 Diff.scanafter
+v 12 Diff.transform
+v 13 Diff.scanbefore
+v 14 Diff.scanunique
+v 15 Diff.doDiff
+v 16 Diff.println
+v 17 node.matchsymbol
+e 15 16 Diff.doDiff_Diff.println 1
+e 5 16 Diff.printout_Diff.println 1
+e 8 16 Diff.showinsert_Diff.println 1
+e 10 15 Diff.main_Diff.doDiff 1
+e 15 5 Diff.doDiff_Diff.printout 1
+e 6 17 node.addSymbol_node.matchsymbol 706
+e 1 8 Diff.newconsume_Diff.showinsert 706
+e 12 9 Diff.transform_Diff.scanblocks 1
+e 15 4 Diff.doDiff_Diff.inputscan 2
+e 4 2 Diff.inputscan_Diff.storeline 706
+e 12 14 Diff.transform_Diff.scanunique 1
+e 15 12 Diff.doDiff_Diff.transform 1
+e 14 3 Diff.scanunique_node.symbolIsUnique 706
+e 12 11 Diff.transform_Diff.scanafter 1
+e 15 0 Diff.doDiff_fileInfo.alloc 2
+e 12 13 Diff.transform_Diff.scanbefore 1
+e 5 1 Diff.printout_Diff.newconsume 1
+e 2 6 Diff.storeline_node.addSymbol 706
+e 8 7 Diff.showinsert_node.showSymbol 706
+t # Graph80 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 143
+e 8 20 node.addSymbol_node.matchsymbol 1044
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 756
+e 7 9 Diff.printout_Diff.showinsert 143
+e 4 6 Diff.oldconsume_Diff.showdelete 312
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1044
+e 7 6 Diff.printout_Diff.showdelete 444
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1044
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 143
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 144
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 143
+t # Graph81 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.showmove
+v 17 Diff.scanunique
+v 18 Diff.doDiff
+v 19 Diff.println
+v 20 Diff.showchange
+v 21 node.matchsymbol
+e 18 19 Diff.doDiff_Diff.println 1
+e 12 18 Diff.main_Diff.doDiff 1
+e 7 20 Diff.printout_Diff.showchange 595
+e 8 21 node.addSymbol_node.matchsymbol 1606
+e 18 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 304
+e 7 9 Diff.printout_Diff.showinsert 704
+e 6 19 Diff.showdelete_Diff.println 2
+e 14 17 Diff.transform_Diff.scanunique 1
+e 16 19 Diff.showmove_Diff.println 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 2 16 Diff.newconsume_Diff.showmove 1
+e 3 8 Diff.storeline_node.addSymbol 1606
+e 7 6 Diff.printout_Diff.showdelete 304
+e 7 19 Diff.printout_Diff.println 1
+e 9 19 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1606
+e 18 5 Diff.doDiff_Diff.inputscan 2
+e 20 10 Diff.showchange_node.showSymbol 595
+e 14 13 Diff.transform_Diff.scanafter 1
+e 17 4 Diff.scanunique_node.symbolIsUnique 706
+e 18 14 Diff.doDiff_Diff.transform 1
+e 18 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 20 19 Diff.showchange_Diff.println 2
+e 16 10 Diff.showmove_node.showSymbol 1
+e 9 10 Diff.showinsert_node.showSymbol 704
+t # Graph82 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.oldconsume
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 130
+e 8 20 node.addSymbol_node.matchsymbol 1031
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 769
+e 7 9 Diff.printout_Diff.showinsert 130
+e 4 6 Diff.oldconsume_Diff.showdelete 312
+e 6 18 Diff.showdelete_Diff.println 2
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 2 8 Diff.storeline_node.addSymbol 1031
+e 7 6 Diff.printout_Diff.showdelete 457
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 1
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 7 4 Diff.printout_Diff.oldconsume 1
+e 5 2 Diff.inputscan_Diff.storeline 1031
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 130
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 131
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 130
+t # Graph83 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 296
+e 7 19 node.addSymbol_node.matchsymbol 1196
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 604
+e 6 8 Diff.printout_Diff.showinsert 296
+e 3 5 Diff.oldconsume_Diff.showdelete 604
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1196
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1196
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 296
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 296
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 296
+t # Graph84 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 294
+e 7 19 node.addSymbol_node.matchsymbol 1194
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 606
+e 6 8 Diff.printout_Diff.showinsert 294
+e 3 5 Diff.oldconsume_Diff.showdelete 606
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1194
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1194
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 294
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 294
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 294
+t # Graph85 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.skipold
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 210
+e 6 11 Diff.showdelete_node.showSymbol 181
+e 9 22 node.addSymbol_node.matchsymbol 1963
+e 19 8 Diff.doDiff_Diff.printout 1
+e 8 10 Diff.printout_Diff.showinsert 120
+e 2 10 Diff.newconsume_Diff.showinsert 374
+e 6 20 Diff.showdelete_Diff.println 40
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 43
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 2 17 Diff.newconsume_Diff.showmove 7
+e 3 9 Diff.storeline_node.addSymbol 1963
+e 8 6 Diff.printout_Diff.showdelete 181
+e 17 7 Diff.showmove_Diff.skipold 36
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 43
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 72
+e 5 3 Diff.inputscan_Diff.storeline 1963
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 210
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 1063
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 19
+e 21 20 Diff.showchange_Diff.println 6
+e 17 11 Diff.showmove_node.showSymbol 253
+e 10 11 Diff.showinsert_node.showSymbol 494
+t # Graph86 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.skipold
+v 8 Diff.printout
+v 9 node.addSymbol
+v 10 Diff.showinsert
+v 11 node.showSymbol
+v 12 Diff.scanblocks
+v 13 Diff.main
+v 14 Diff.scanafter
+v 15 Diff.transform
+v 16 Diff.scanbefore
+v 17 Diff.showmove
+v 18 Diff.scanunique
+v 19 Diff.doDiff
+v 20 Diff.println
+v 21 Diff.showchange
+v 22 node.matchsymbol
+e 19 20 Diff.doDiff_Diff.println 1
+e 13 19 Diff.main_Diff.doDiff 1
+e 8 21 Diff.printout_Diff.showchange 219
+e 6 11 Diff.showdelete_node.showSymbol 184
+e 9 22 node.addSymbol_node.matchsymbol 1967
+e 19 8 Diff.doDiff_Diff.printout 1
+e 8 10 Diff.printout_Diff.showinsert 124
+e 2 10 Diff.newconsume_Diff.showinsert 373
+e 6 20 Diff.showdelete_Diff.println 42
+e 15 18 Diff.transform_Diff.scanunique 1
+e 17 20 Diff.showmove_Diff.println 45
+e 15 16 Diff.transform_Diff.scanbefore 1
+e 8 2 Diff.printout_Diff.newconsume 1
+e 2 17 Diff.newconsume_Diff.showmove 7
+e 3 9 Diff.storeline_node.addSymbol 1967
+e 8 6 Diff.printout_Diff.showdelete 184
+e 17 7 Diff.showmove_Diff.skipold 37
+e 8 20 Diff.printout_Diff.println 1
+e 10 20 Diff.showinsert_Diff.println 43
+e 15 12 Diff.transform_Diff.scanblocks 1
+e 8 17 Diff.printout_Diff.showmove 75
+e 5 3 Diff.inputscan_Diff.storeline 1967
+e 19 5 Diff.doDiff_Diff.inputscan 2
+e 21 11 Diff.showchange_node.showSymbol 219
+e 15 14 Diff.transform_Diff.scanafter 1
+e 18 4 Diff.scanunique_node.symbolIsUnique 1067
+e 19 15 Diff.doDiff_Diff.transform 1
+e 19 0 Diff.doDiff_fileInfo.alloc 2
+e 8 1 Diff.printout_Diff.showsame 18
+e 21 20 Diff.showchange_Diff.println 7
+e 17 11 Diff.showmove_node.showSymbol 266
+e 10 11 Diff.showinsert_node.showSymbol 497
+t # Graph87
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 900
+e 6 16 node.addSymbol_node.matchsymbol 900
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 900
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 900
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 900
+t # Graph88
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 1800
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 1800
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 900
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 1800
+t # Graph89 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.showmove
+v 17 Diff.scanunique
+v 18 Diff.doDiff
+v 19 Diff.println
+v 20 Diff.showchange
+v 21 node.matchsymbol
+e 18 19 Diff.doDiff_Diff.println 1
+e 12 18 Diff.main_Diff.doDiff 1
+e 7 20 Diff.printout_Diff.showchange 595
+e 8 21 node.addSymbol_node.matchsymbol 1606
+e 18 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 304
+e 7 9 Diff.printout_Diff.showinsert 704
+e 6 19 Diff.showdelete_Diff.println 2
+e 14 17 Diff.transform_Diff.scanunique 1
+e 16 19 Diff.showmove_Diff.println 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 2 16 Diff.newconsume_Diff.showmove 1
+e 3 8 Diff.storeline_node.addSymbol 1606
+e 7 6 Diff.printout_Diff.showdelete 304
+e 7 19 Diff.printout_Diff.println 1
+e 9 19 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1606
+e 18 5 Diff.doDiff_Diff.inputscan 2
+e 20 10 Diff.showchange_node.showSymbol 595
+e 14 13 Diff.transform_Diff.scanafter 1
+e 17 4 Diff.scanunique_node.symbolIsUnique 706
+e 18 14 Diff.doDiff_Diff.transform 1
+e 18 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 20 19 Diff.showchange_Diff.println 2
+e 16 10 Diff.showmove_node.showSymbol 1
+e 9 10 Diff.showinsert_node.showSymbol 704
+t # Graph90 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 124
+e 8 20 node.addSymbol_node.matchsymbol 850
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 577
+e 7 9 Diff.printout_Diff.showinsert 139
+e 6 18 Diff.showdelete_Diff.println 3
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 850
+e 7 6 Diff.printout_Diff.showdelete 577
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 850
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 124
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 144
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 3
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 139
+t # Graph91
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 2
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 2
+e 16 6 Diff.doDiff_Diff.printout 1
+e 7 19 node.addSymbol_node.matchsymbol 1412
+e 6 8 Diff.printout_Diff.showinsert 2
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 16 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 1412
+e 18 9 Diff.showchange_node.showSymbol 2
+e 13 15 Diff.transform_Diff.scanunique 1
+e 16 13 Diff.doDiff_Diff.transform 1
+e 15 4 Diff.scanunique_node.symbolIsUnique 706
+e 13 12 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 3
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 18 17 Diff.showchange_Diff.println 2
+e 3 7 Diff.storeline_node.addSymbol 1412
+e 8 9 Diff.showinsert_node.showSymbol 2
+t # Graph92 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 111
+e 8 20 node.addSymbol_node.matchsymbol 837
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 590
+e 7 9 Diff.printout_Diff.showinsert 126
+e 6 18 Diff.showdelete_Diff.println 3
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 837
+e 7 6 Diff.printout_Diff.showdelete 590
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 837
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 111
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 131
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 3
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 126
+t # Graph93 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 296
+e 7 19 node.addSymbol_node.matchsymbol 1002
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 410
+e 6 8 Diff.printout_Diff.showinsert 296
+e 3 5 Diff.oldconsume_Diff.showdelete 410
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1002
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1002
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 296
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 296
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 296
+t # Graph94 1
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 node.symbolIsUnique
+v 3 Diff.oldconsume
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.scanunique
+v 16 Diff.doDiff
+v 17 Diff.println
+v 18 Diff.showchange
+v 19 node.matchsymbol
+e 16 17 Diff.doDiff_Diff.println 1
+e 11 16 Diff.main_Diff.doDiff 1
+e 6 18 Diff.printout_Diff.showchange 294
+e 7 19 node.addSymbol_node.matchsymbol 1000
+e 16 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 412
+e 6 8 Diff.printout_Diff.showinsert 294
+e 3 5 Diff.oldconsume_Diff.showdelete 412
+e 5 17 Diff.showdelete_Diff.println 1
+e 13 15 Diff.transform_Diff.scanunique 1
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 1 7 Diff.storeline_node.addSymbol 1000
+e 6 17 Diff.printout_Diff.println 1
+e 8 17 Diff.showinsert_Diff.println 1
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 3 Diff.printout_Diff.oldconsume 1
+e 4 1 Diff.inputscan_Diff.storeline 1000
+e 16 4 Diff.doDiff_Diff.inputscan 2
+e 18 9 Diff.showchange_node.showSymbol 294
+e 13 12 Diff.transform_Diff.scanafter 1
+e 15 2 Diff.scanunique_node.symbolIsUnique 294
+e 16 13 Diff.doDiff_Diff.transform 1
+e 16 0 Diff.doDiff_fileInfo.alloc 2
+e 18 17 Diff.showchange_Diff.println 1
+e 8 9 Diff.showinsert_node.showSymbol 294
+t # Graph95 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 548
+e 8 20 node.addSymbol_node.matchsymbol 1769
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 157
+e 7 9 Diff.printout_Diff.showinsert 548
+e 2 9 Diff.newconsume_Diff.showinsert 514
+e 6 18 Diff.showdelete_Diff.println 1
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 1769
+e 7 6 Diff.printout_Diff.showdelete 157
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1769
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 548
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 1063
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 1062
+t # Graph96 1
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.showdelete
+v 7 Diff.printout
+v 8 node.addSymbol
+v 9 Diff.showinsert
+v 10 node.showSymbol
+v 11 Diff.scanblocks
+v 12 Diff.main
+v 13 Diff.scanafter
+v 14 Diff.transform
+v 15 Diff.scanbefore
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 12 17 Diff.main_Diff.doDiff 1
+e 7 19 Diff.printout_Diff.showchange 548
+e 8 20 node.addSymbol_node.matchsymbol 1773
+e 17 7 Diff.doDiff_Diff.printout 1
+e 6 10 Diff.showdelete_node.showSymbol 157
+e 7 9 Diff.printout_Diff.showinsert 548
+e 2 9 Diff.newconsume_Diff.showinsert 518
+e 6 18 Diff.showdelete_Diff.println 1
+e 14 16 Diff.transform_Diff.scanunique 1
+e 14 15 Diff.transform_Diff.scanbefore 1
+e 7 2 Diff.printout_Diff.newconsume 1
+e 3 8 Diff.storeline_node.addSymbol 1773
+e 7 6 Diff.printout_Diff.showdelete 157
+e 7 18 Diff.printout_Diff.println 1
+e 9 18 Diff.showinsert_Diff.println 2
+e 14 11 Diff.transform_Diff.scanblocks 1
+e 5 3 Diff.inputscan_Diff.storeline 1773
+e 17 5 Diff.doDiff_Diff.inputscan 2
+e 19 10 Diff.showchange_node.showSymbol 548
+e 14 13 Diff.transform_Diff.scanafter 1
+e 16 4 Diff.scanunique_node.symbolIsUnique 1067
+e 17 14 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 7 1 Diff.printout_Diff.showsame 1
+e 19 18 Diff.showchange_Diff.println 1
+e 9 10 Diff.showinsert_node.showSymbol 1066
+t # Graph97
+v 0 fileInfo.alloc
+v 1 Diff.storeline
+v 2 Diff.oldconsume
+v 3 Diff.inputscan
+v 4 Diff.showdelete
+v 5 Diff.printout
+v 6 node.addSymbol
+v 7 node.showSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 5 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 4 7 Diff.showdelete_node.showSymbol 706
+e 6 16 node.addSymbol_node.matchsymbol 706
+e 14 5 Diff.doDiff_Diff.printout 1
+e 2 4 Diff.oldconsume_Diff.showdelete 706
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 5 2 Diff.printout_Diff.oldconsume 1
+e 14 3 Diff.doDiff_Diff.inputscan 2
+e 3 1 Diff.inputscan_Diff.storeline 706
+e 4 15 Diff.showdelete_Diff.println 1
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 11 10 Diff.transform_Diff.scanafter 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 1 6 Diff.storeline_node.addSymbol 706
+t # Graph98 1
+v 0 fileInfo.alloc
+v 1 Diff.newconsume
+v 2 Diff.storeline
+v 3 node.symbolIsUnique
+v 4 Diff.inputscan
+v 5 Diff.showdelete
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.showinsert
+v 9 node.showSymbol
+v 10 Diff.scanblocks
+v 11 Diff.main
+v 12 Diff.scanafter
+v 13 Diff.transform
+v 14 Diff.scanbefore
+v 15 Diff.showmove
+v 16 Diff.scanunique
+v 17 Diff.doDiff
+v 18 Diff.println
+v 19 Diff.showchange
+v 20 node.matchsymbol
+e 17 18 Diff.doDiff_Diff.println 1
+e 11 17 Diff.main_Diff.doDiff 1
+e 6 19 Diff.printout_Diff.showchange 469
+e 7 20 node.addSymbol_node.matchsymbol 1606
+e 17 6 Diff.doDiff_Diff.printout 1
+e 5 9 Diff.showdelete_node.showSymbol 237
+e 6 8 Diff.printout_Diff.showinsert 468
+e 1 8 Diff.newconsume_Diff.showinsert 430
+e 5 18 Diff.showdelete_Diff.println 1
+e 13 16 Diff.transform_Diff.scanunique 1
+e 15 18 Diff.showmove_Diff.println 2
+e 13 14 Diff.transform_Diff.scanbefore 1
+e 6 1 Diff.printout_Diff.newconsume 1
+e 1 15 Diff.newconsume_Diff.showmove 1
+e 2 7 Diff.storeline_node.addSymbol 1606
+e 6 5 Diff.printout_Diff.showdelete 237
+e 6 18 Diff.printout_Diff.println 1
+e 8 18 Diff.showinsert_Diff.println 3
+e 13 10 Diff.transform_Diff.scanblocks 1
+e 6 15 Diff.printout_Diff.showmove 1
+e 4 2 Diff.inputscan_Diff.storeline 1606
+e 17 4 Diff.doDiff_Diff.inputscan 2
+e 19 9 Diff.showchange_node.showSymbol 469
+e 13 12 Diff.transform_Diff.scanafter 1
+e 16 3 Diff.scanunique_node.symbolIsUnique 900
+e 17 13 Diff.doDiff_Diff.transform 1
+e 17 0 Diff.doDiff_fileInfo.alloc 2
+e 19 18 Diff.showchange_Diff.println 2
+e 15 9 Diff.showmove_node.showSymbol 2
+e 8 9 Diff.showinsert_node.showSymbol 898
+t # Graph99
+v 0 fileInfo.alloc
+v 1 Diff.showsame
+v 2 Diff.newconsume
+v 3 Diff.storeline
+v 4 node.symbolIsUnique
+v 5 Diff.inputscan
+v 6 Diff.printout
+v 7 node.addSymbol
+v 8 Diff.scanblocks
+v 9 Diff.main
+v 10 Diff.scanafter
+v 11 Diff.transform
+v 12 Diff.scanbefore
+v 13 Diff.scanunique
+v 14 Diff.doDiff
+v 15 Diff.println
+v 16 node.matchsymbol
+e 14 15 Diff.doDiff_Diff.println 1
+e 6 15 Diff.printout_Diff.println 1
+e 9 14 Diff.main_Diff.doDiff 1
+e 14 6 Diff.doDiff_Diff.printout 1
+e 7 16 node.addSymbol_node.matchsymbol 1412
+e 11 8 Diff.transform_Diff.scanblocks 1
+e 14 5 Diff.doDiff_Diff.inputscan 2
+e 5 3 Diff.inputscan_Diff.storeline 1412
+e 11 13 Diff.transform_Diff.scanunique 1
+e 14 11 Diff.doDiff_Diff.transform 1
+e 13 4 Diff.scanunique_node.symbolIsUnique 706
+e 11 10 Diff.transform_Diff.scanafter 1
+e 6 1 Diff.printout_Diff.showsame 1
+e 14 0 Diff.doDiff_fileInfo.alloc 2
+e 11 12 Diff.transform_Diff.scanbefore 1
+e 6 2 Diff.printout_Diff.newconsume 1
+e 3 7 Diff.storeline_node.addSymbol 1412
+

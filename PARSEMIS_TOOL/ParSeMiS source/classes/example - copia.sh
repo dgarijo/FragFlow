@@ -1,0 +1,1 @@
+java -Xmx1024m -classpath .:../lib/antlr.jar de.parsemis.Miner --graphFile=graph1 --minimumFrequency=15 --closeGraph=true --storeEmbeddings=true --nodeRanker=infoGain  --nodeRankerUpperBound=0.01 --outputFile=fragments1.txt

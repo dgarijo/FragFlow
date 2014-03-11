@@ -1,0 +1,35 @@
+additional classes
+
+de.parsemis.miner.chain.InfoGainRankerPruningStep
+de.parsemis.miner.chain.PearsonCorrelationRankerPruningStep
+de.parsemis.miner.chain.VarianceRankerPruningStep
+
+
+modified classes
+
+de.parsemis.algorithms.dagminer.DAGFragment
+de.parsemis.algorithms.dagminer.DAGmSearchLatticeNode
+de.parsemis.algorithms.gaston.GastonCycle
+de.parsemis.algorithms.gaston.GastonFragment
+de.parsemis.algorithms.gaston.GastonPath
+de.parsemis.algorithms.gaston.GastonTree
+
+de.parsemis.algorithms.gSpan.Algorithm
+de.parsemis.algorithms.gSpan.DFSCode
+
+de.parsemis.graph.HPListGraph
+de.parsemis.graph.HPWrapper
+de.parsemis.graph.Listgraph
+
+de.parsemis.miner.chain.SearchLatticeNode
+
+de.parsemis.miner.environment.LocalEnvironment
+de.parsemis.miner.environment.Settings
+
+de.parsemis.miner.general.ArrayFragment
+de.parsemis.miner.general.HPFragmentWrapper
+
+de.parsemis.parser.LineGraphParser
+
+
+

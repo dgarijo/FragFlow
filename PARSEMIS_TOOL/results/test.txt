@@ -1,0 +1,22 @@
+t # 6
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 6 8 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENT_CLASSIFICATION_SINLGE_ 19 29 27
+t # 7
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 8 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENT_CLASSIFICATION_SINLGE_ 29 27
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENT_CLASSIFICATION_SINLGE_ 31 28
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/WHATEVER 8 7
+t # 8
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 7 6
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENT_CLASSIFICATION_SINLGE_ 27 19

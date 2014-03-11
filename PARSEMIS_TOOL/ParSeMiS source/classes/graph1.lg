@@ -1,0 +1,53 @@
+%Processing: http://www.opmw.org/export/resource/WorkflowExecutionAccount/ACCOUNT1348621318629
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 2 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 3 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 5 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 6 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 7 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 8 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vocabular
+v 9 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 10 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 11 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 12 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Vector
+v 13 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeightingClass
+v 14 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 15 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 16 http://www.isi.edu/ac/TextAnalytics/library.owl#StemmerClass
+v 17 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 18 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Dataset
+v 19 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 20 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 21 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 22 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 23 http://www.isi.edu/dc/TextAnalytics/ontology.owl#Arff
+v 24 http://www.isi.edu/dc/TextAnalytics/ontology.owl#StopWords
+v 25 http://purl.org/net/opmv/ns#Artifact
+v 26 http://purl.org/net/opmv/ns#Artifact
+d 1 2 used
+d 1 25 used
+d 2 17 wgb
+d 3 4 wgb
+d 4 11 used
+d 6 7 wgb
+d 7 5 used
+d 7 24 used
+d 9 10 wgb
+d 10 3 used
+d 11 22 wgb
+d 12 13 wgb
+d 13 15 used
+d 15 16 wgb
+d 16 18 used
+d 17 14 used
+d 17 24 used
+d 18 1 wgb
+d 19 20 wgb
+d 20 8 used
+d 20 9 used
+d 21 8 used
+d 21 12 used
+d 22 6 used
+d 22 26 used
+d 23 21 wgb

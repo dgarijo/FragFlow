@@ -1,0 +1,1 @@
+ java -jar parsemis-2008-09-04.jar --graphFile=input_graphs\example1.lg --minimumFrequency=2 --outputFile=results\test.txt --storeEmbeddings=true --minimumNodeCount=2 
