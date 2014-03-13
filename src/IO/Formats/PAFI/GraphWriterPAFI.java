@@ -21,7 +21,7 @@ package IO.Formats.PAFI;
 
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
-import IO.GraphWritter;
+import IO.GraphWriter;
 import Static.GeneralConstants;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -39,7 +39,7 @@ import java.util.Iterator;
  * 
  * @author Daniel Garijo
  */
-public class GraphWriterPAFI extends GraphWritter{
+public class GraphWriterPAFI extends GraphWriter{
 
     //write reducedFraphToFile with the 3 ones will result in the call to the specialization
 
@@ -83,7 +83,7 @@ public class GraphWriterPAFI extends GraphWritter{
             }
         }
         //write down the dependencies (adjacency matrix)
-        //FAPI does not care about the direction, so if (i,j) or (j,i) has a dependency,
+        //PAFI does not care about the direction, so if (i,j) or (j,i) has a dependency,
         //it has to be added as i,j        
         for (int i = 0; i<adjacencyMatrix.length;i++){
             for(int j = i; j<adjacencyMatrix.length; j++){

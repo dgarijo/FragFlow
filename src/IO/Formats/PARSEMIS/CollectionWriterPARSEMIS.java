@@ -15,10 +15,69 @@
  */
 package IO.Formats.PARSEMIS;
 
+import DataStructures.Graph;
+import DataStructures.GraphCollection;
+import Factory.OPMW.OPMWTemplate2Graph;
+import IO.CollectionWriter;
+import IO.Exception.CollectionWriterException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+
 /**
- *
+ * PARSEMIS collection writer
  * @author Daniel Garijo
  */
-public class CollectionWriterPARSEMIS {
+public class CollectionWriterPARSEMIS extends CollectionWriter{
+
+    /**
+     * Parsemis collection writer. Very similar to the PAFI Collection writer. 
+     * The main difference is when writing the graphs themselves.
+     * @param gc graph collection
+     * @param outputFilePath output file path
+     * @param replacements replacement hashmap (if any)
+     * @throws CollectionWriterException  exception when reading the input.
+     */
+    @Override
+    public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException {
+        FileWriter fstream = null; 
+        BufferedWriter out = null;
+        GraphWriterPARSEMIS gw = new GraphWriterPARSEMIS();
+        Iterator<Graph> it = gc.getGraphs().iterator();        
+        try {
+            fstream = new FileWriter(outputFilePath);
+            out = new BufferedWriter(fstream);
+            while (it.hasNext()){
+                Graph currentGraph = it.next();
+                if(replacements==null){//i.e., no replacements
+                    gw.writeReducedGraphToFile(currentGraph, out, 0);                    
+                }else{
+                    gw.writeReducedGraphToFile(currentGraph, out, 0, replacements);
+                }
+            }            
+        } catch (Exception ex) {
+            System.err.println("Exception while writing the graph: "+ex.getMessage());
+            throw new CollectionWriterException("Exception while writing the graph: "+ex.getMessage(), ex);
+        } finally {
+            try {
+                if(out!=null)out.close();
+                if(fstream!=null)fstream.close();
+            } catch (IOException ex) {
+                System.err.println("Error closing the files: "+ex.getMessage());
+            }
+        }
+    }
+    
+    public static void main(String[] args) throws CollectionWriterException{
+        OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            tp.transformDomainToGraph("TextAnalytics");        
+//        tp.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
+//            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
+        writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testParsemis.lg");
+               
+    }
     
 }

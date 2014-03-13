@@ -1,4 +1,5 @@
-==Binaries for the parsemis tool (java binary).==
+Binaries for the parsemis tool (java binary).
+===================
 
 Parsemis is a quite complete tool with 3 different algorithms for sub-graph matching: gSpan, Gaston and Dagma.
 Parsemis incorporates methods to filter by frequency and the minimum number of nodes which we want the fragments to be.

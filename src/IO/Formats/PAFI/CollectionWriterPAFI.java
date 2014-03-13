@@ -21,9 +21,8 @@ package IO.Formats.PAFI;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import IO.CollectionWritter;
+import IO.CollectionWriter;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.SUBDUE.GraphWriterSUBDUE;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,10 +36,9 @@ import java.util.Iterator;
  * (substructure). For example, if a pattern appears twice in a graph, it will 
  * only count as one.
  * 
- * The full graphToFile method is not extended because it will be deprecated.
  * @author Daniel Garijo
  */
-public class CollectionWriterPAFI extends CollectionWritter{
+public class CollectionWriterPAFI extends CollectionWriter{
 
     @Override
     public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException {
@@ -53,7 +51,6 @@ public class CollectionWriterPAFI extends CollectionWritter{
             out = new BufferedWriter(fstream);
             while (it.hasNext()){
                 Graph currentGraph = it.next();
-                // keep the track of the last number of nodes
                 if(replacements==null){//i.e., no replacements
                     gw.writeReducedGraphToFile(currentGraph, out, 0);                    
                 }else{

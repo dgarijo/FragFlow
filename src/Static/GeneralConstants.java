@@ -27,6 +27,7 @@ public class GeneralConstants {
     public static final String USAGE_DEPENDENCY = "use";
     public static final String GENERATION_DEPENDENCY = "genBy";
     public static final String INFORM_DEPENDENCY = "informBy";
+    public static final int INFORM_EGDE = 1; //needed for algorithms admitting numbered edges.
     public static final String PROP_FILE = "config"+File.separator+"config.properties";
     public static final String PREFIX_FOR_RDF_GENERATION = "http://vocab.linkeddata.es/resource/";
 }

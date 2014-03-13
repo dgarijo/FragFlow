@@ -17,7 +17,7 @@ package IO.Formats.SUBDUE;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import IO.CollectionWritter;
+import IO.CollectionWriter;
 import IO.Exception.CollectionWriterException;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -31,7 +31,7 @@ import java.util.Iterator;
  * format.
  * @author Daniel Garijo
  */
-public class CollectionWriterSUBDUE extends CollectionWritter{
+public class CollectionWriterSUBDUE extends CollectionWriter{
    
     @Override
     public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{

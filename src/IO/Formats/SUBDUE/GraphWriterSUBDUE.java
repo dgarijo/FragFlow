@@ -17,7 +17,7 @@ package IO.Formats.SUBDUE;
 
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
-import IO.GraphWritter;
+import IO.GraphWriter;
 import Static.GeneralConstants;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -31,7 +31,7 @@ import java.util.Iterator;
  *          d 1 2 used (1 used 2)
  * @author Daniel Garijo
  */
-public class GraphWriterSUBDUE extends GraphWritter{
+public class GraphWriterSUBDUE extends GraphWriter{
     
     /**
     ** @@TO DO: unify both writtings. The nodes are written in a very similar way for both
