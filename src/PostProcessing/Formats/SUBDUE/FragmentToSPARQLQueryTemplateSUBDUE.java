@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +18,7 @@ import DataStructures.Fragment;
 import DataStructures.GraphNode.GraphNode;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.GeneralConstants;
+import Static.OPMW.Templates.ConstantsOPMWTempl;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -107,7 +104,7 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
             String currentURI = (String)it.next();
             String currentType = nodes.get(currentURI).getType();
             context+=currentURI;
-            if(currentType.contains("SUB_")){                
+            if(currentType.contains(GeneralConstants.SUBDUE_SUB_)){                
                 HashMap<String,String> aux = createBindingsForVariables(getPointerToSubstructure(currentType, f));
                 Iterator<String> it2 = aux.keySet().iterator();
                 while(it2.hasNext()){
@@ -188,7 +185,7 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     String currentTypeI = graphNodes.get(graphURIs.get(i-1)).getType();
                     String currentTypeJ = graphNodes.get(graphURIs.get(j-1)).getType();
                     currentVarNumber = getNextVariable();
-                    if(currentTypeI.contains("SUB_")&&(currentTypeJ.contains("SUB_"))){                        
+                    if(currentTypeI.contains(GeneralConstants.SUBDUE_SUB_)&&(currentTypeJ.contains(GeneralConstants.SUBDUE_SUB_))){                        
                         //2 bucles for con las vars como se ha hecho abajo
                         Fragment substructureI = getPointerToSubstructure(currentTypeI, f);        
                         Fragment substructureJ = getPointerToSubstructure(currentTypeJ, f);
@@ -205,13 +202,13 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                             Iterator<String> itJ = auxListJ.iterator();
                             String currentI = itI.next();
                             innerQuery+="{\n"                                      
-                                      +bindingsToVariables.get(currentI)+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
-                                      +"?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(itJ.next())+".\n";
+                                      +bindingsToVariables.get(currentI)+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n"
+                                      +"?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
                             innerQuery+="}\n";
                             while(itJ.hasNext()){
                                 innerQuery+="UNION\n{\n"                                      
-                                      +bindingsToVariables.get(currentI)+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n"
-                                      +"?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(itJ.next())+".\n";
+                                      +bindingsToVariables.get(currentI)+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n"
+                                      +"?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
                                 innerQuery+="}\n";
                             }
                             if(itI.hasNext()){
@@ -220,28 +217,28 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         }
                         
                     }else 
-                    if (currentTypeI.contains("SUB_")){         
+                    if (currentTypeI.contains(GeneralConstants.SUBDUE_SUB_)){         
                         Fragment subStructure = getPointerToSubstructure(currentTypeJ, f);        
                         context+=uris.get(i-1);
                         ArrayList<String> auxList = getListOfURIsToConnectFragment(subStructure);
                         innerQuery+= transformDependencyMatrixToQuery(subStructure, templateURI);
                         context = context.substring(0, context.length()-uris.get(i-1).length());
                         innerQuery+= addStep(bindingsToVariables.get(context+uris.get(j-1)), currentTypeJ, templateURI);
-                        innerQuery+= "?gen"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";
+                        innerQuery+= "?gen"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
                         //to the current variable. The first UNION is outside, so we process it first.
-                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?gen"+currentVarNumber+".\n";
+                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <"+ConstantsOPMWTempl.USES+"> ?gen"+currentVarNumber+".\n";
                             innerQuery+="}\n";
                             while(it.hasNext()){
                                 innerQuery+="UNION\n{\n";
-                                innerQuery+=bindingsToVariables.get(it.next())+" <http://www.opmw.org/ontology/uses> ?gen"+currentVarNumber+".\n";
+                                innerQuery+=bindingsToVariables.get(it.next())+" <"+ConstantsOPMWTempl.USES+"> ?gen"+currentVarNumber+".\n";
                                 innerQuery+="}\n";
                             }
                         }
                     }else
-                    if (currentTypeJ.contains("SUB_")){
+                    if (currentTypeJ.contains(GeneralConstants.SUBDUE_SUB_)){
                         Fragment subStructure = getPointerToSubstructure(currentTypeJ, f);        
 //                        int oldVarNumber = currentVarNumber+1;
                         context+=uris.get(j-1);
@@ -249,24 +246,24 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         ArrayList<String> auxList = getListOfURIsToConnectFragment(subStructure);
                         context = context.substring(0, context.length()-uris.get(j-1).length());
                         innerQuery+= addStep(bindingsToVariables.get(context+uris.get(i-1)), currentTypeI, templateURI);
-                        innerQuery+= bindingsToVariables.get(context+uris.get(i-1))+" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
+                        innerQuery+= bindingsToVariables.get(context+uris.get(i-1))+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n";
                         
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
                         //to the current variable. The first UNION is outside, so we process it first.
-                            innerQuery+="{\n?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(it.next())+".\n";
+                            innerQuery+="{\n?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
                             innerQuery+="}\n";
                             while(it.hasNext()){
                                 innerQuery+="UNION\n{\n";
-                                innerQuery+="?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(it.next())+".\n";
+                                innerQuery+="?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
                                 innerQuery+="}\n";
                             }
                         }
                     }else{
                         innerQuery+=addStep(bindingsToVariables.get(context+uris.get(i-1)),currentTypeI, templateURI);
-                        innerQuery+=bindingsToVariables.get(context+uris.get(i-1)) +" <http://www.opmw.org/ontology/uses> ?use"+currentVarNumber+".\n";
-                        innerQuery+="?use"+currentVarNumber+" <http://www.opmw.org/ontology/isGeneratedBy> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";                        
+                        innerQuery+=bindingsToVariables.get(context+uris.get(i-1)) +" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n";
+                        innerQuery+="?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";                        
                         innerQuery+=addStep(bindingsToVariables.get(context+uris.get(j-1)),currentTypeJ, templateURI);
                     }
                 }
@@ -297,7 +294,7 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
             String currentURI = (String)it.next();
             String currentType = nodes.get(currentURI).getType();
             context += currentURI ;
-            if(currentType.contains("SUB_")){
+            if(currentType.contains(GeneralConstants.SUBDUE_SUB_)){
                 ArrayList<String> aux = getListOfURIsToConnectFragment(getPointerToSubstructure(currentType, f));
                 Iterator<String> it2 = aux.iterator();
                 //copy the values from the substructure within
@@ -322,7 +319,7 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
      */
     private String addStep(String varNumber, String type, String templateURI){
         return varNumber+" a <"+type+">.\n"
-               +varNumber+" <http://www.opmw.org/ontology/isStepOfTemplate> <"+templateURI+">.\n";
+               +varNumber+" <"+ConstantsOPMWTempl.IS_STEP_OF_TEMPL+"> <"+templateURI+">.\n";
     }
     
     /**

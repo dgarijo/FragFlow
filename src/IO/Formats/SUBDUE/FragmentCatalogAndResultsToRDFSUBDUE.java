@@ -20,17 +20,11 @@ import DataStructures.GraphCollection;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.Fragment;
 import IO.FragmentCatalogAndResultsToRDF;
-import IO.Formats.OPMW.Graph2OPMWRDFModel;
-import PostProcessing.Formats.PAFI.FragmentToSPARQLQueryTemplatePAFI;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
 import Static.WffdConstants;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -99,7 +93,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                 String currentURItype = currentFragmentNodes.get(currentURI).getType();
                 GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
                 GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
-                if(currentURItype.contains("SUB_")){
+                if(currentURItype.contains(GeneralConstants.SUBDUE_SUB_)){
                     //add owl:sameAs
                     //WHY ore:proxyFor? because if we add the precedence step in the fragments directly,
                     //we may create inconsistencies (e.g. a fragment preceeded by 2 different steps
@@ -116,7 +110,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
                 for(int j=1 ; j<currentFragmentAdjMatrix.length;j++){
                     if(currentFragmentAdjMatrix[i][j]!=null && currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
                         String uriI = urisOfFragment.get(i-1);
-                        String typeI = currentFragmentNodes.get(uriI).getType();
+//                        String typeI = currentFragmentNodes.get(uriI).getType();
 //                            if(typeI.contains("SUB_")){
 //                                uriI = typeI+"_"+dateToken;
 //                            }else{
@@ -124,7 +118,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
 //                            }
                         uriI = fragmentID+"_NODE"+uriI;
                         String uriJ = urisOfFragment.get(j-1);
-                        String typeJ = currentFragmentNodes.get(uriJ).getType();
+//                        String typeJ = currentFragmentNodes.get(uriJ).getType();
 //                            if(typeJ.contains("SUB_")){
 //                                uriJ = typeJ+"_"+dateToken;
 //                            }else{

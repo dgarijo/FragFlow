@@ -30,4 +30,5 @@ public class GeneralConstants {
     public static final int INFORM_EGDE = 1; //needed for algorithms admitting numbered edges.
     public static final String PROP_FILE = "config"+File.separator+"config.properties";
     public static final String PREFIX_FOR_RDF_GENERATION = "http://vocab.linkeddata.es/resource/";
+    public static final String SUBDUE_SUB_="SUB_";//identifier for substructures.
 }

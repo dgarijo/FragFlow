@@ -20,6 +20,7 @@ import DataStructures.GraphNode.GraphNode;
 import DataStructures.Fragment;
 import IO.Exception.FragmentReaderException;
 import IO.FragmentReader;
+import Static.GeneralConstants;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -74,9 +75,9 @@ public class FragmentReaderSUBDUE extends FragmentReader {
                     //new structure, we store the previous one
                     if(URIs!=null){
                         i++;
-                        Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, "SUB_"+i);
-                        Fragment currentStructure = new Fragment("SUB_"+i, 0,auxg,includedSubStructures,isMultiStepStructure(auxg, includedSubStructures));
-                        finalResults.put("SUB_"+i, currentStructure) ;                        
+                        Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, GeneralConstants.SUBDUE_SUB_+i);
+                        Fragment currentStructure = new Fragment(GeneralConstants.SUBDUE_SUB_+i, 0,auxg,includedSubStructures,isMultiStepStructure(auxg, includedSubStructures));
+                        finalResults.put(GeneralConstants.SUBDUE_SUB_+i, currentStructure) ;                        
                     }
                     //we reinicialize all the structures
                     URIs = new ArrayList<String>();
@@ -98,7 +99,7 @@ public class FragmentReaderSUBDUE extends FragmentReader {
                         //System.out.println("v "+id+",type "+type);
                         URIs.add(id);
                         //if it is a substructure, save it
-                        if (type.contains("SUB_")){
+                        if (type.contains(GeneralConstants.SUBDUE_SUB_)){
                             //&&!includedSubStructures.contains(finalResults.get(type))
                             //I commented the sentence above because a substructure may contain
                             //2 pointers to the same substructure. In that case
@@ -124,9 +125,9 @@ public class FragmentReaderSUBDUE extends FragmentReader {
             //the last result must be added as well.
             if(URIs!=null){
                 i++;
-                Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, "SUB_"+i);
-                Fragment currentStructure = new Fragment("SUB_"+i, 0,auxg,includedSubStructures,this.isMultiStepStructure(auxg, includedSubStructures));
-                finalResults.put("SUB_"+i, currentStructure) ;                        
+                Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, GeneralConstants.SUBDUE_SUB_+i);
+                Fragment currentStructure = new Fragment(GeneralConstants.SUBDUE_SUB_+i, 0,auxg,includedSubStructures,this.isMultiStepStructure(auxg, includedSubStructures));
+                finalResults.put(GeneralConstants.SUBDUE_SUB_+i, currentStructure) ;                        
             }
             in.close();                
         }catch(Exception e){
