@@ -38,9 +38,8 @@ import java.util.HashMap;
  * The result file with the number of templates in which the fragment appears
  * (once per template) (.tid file)
  * 
- * NOTE THAT THE FRAGMENTS IN PAFI ARE NOT DIRECTED. WE DON'T ASSERT TWICE 
- * THE INFORMATION IN THE DEP MATRIX TO AVOID POSSIBLE CYCLES, BUT IT IS 
- * SOMETHING TO TAKE INTO ACCOUNT
+ * NOTE THAT THE FRAGMENTS IN PAFI ARE NOT DIRECTED. They have to be "fixed" by 
+ * calling the FixDirectionOfFragments Class.
  * 
  * @author Daniel Garijo
  */
@@ -52,15 +51,11 @@ public class FragmentReaderPAFI extends FragmentReader {
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
     private String depFile, tidFile;
 
-//    public FragmentReaderPAFI() {
-//        this.finalResults = new HashMap<String, Fragment>();
-//    }
-
     public FragmentReaderPAFI(String resultFile, String depFile, String tidFile) {        
         this.resultFile = resultFile;
         this.depFile = depFile;
         this.tidFile = tidFile;
-        this.finalResults = new HashMap<String, Fragment>();        
+        this.finalResults = new HashMap<String, Fragment>(); 
     }
     
     
@@ -71,14 +66,6 @@ public class FragmentReaderPAFI extends FragmentReader {
      */
     public HashMap<String, ArrayList<String>> getOccurrencesOfFragmentInTransaction() {
         return occurrencesOfFragmentInTransaction;
-    }
-
-    /**
-     * Final results getter.
-     * @return 
-     */
-    public HashMap<String, Fragment> getFinalResults() {
-        return finalResults;
     }
     
     
@@ -91,7 +78,8 @@ public class FragmentReaderPAFI extends FragmentReader {
      * @throws FragmentReaderException 
      */
     @Override
-    public HashMap<String,Fragment> getFragmentCatalogFromAlgorithmResultFiles()throws FragmentReaderException{
+    public HashMap<String,Fragment> getFragmentCatalogAsHashMap()throws FragmentReaderException{
+        if(!finalResults.isEmpty())return finalResults;
         if(resultFile==null||depFile==null||tidFile==null)
             throw new FragmentReaderException("pc file, fp File or tid file not provided");
         this.processResultFile(resultFile);
@@ -101,7 +89,7 @@ public class FragmentReaderPAFI extends FragmentReader {
     }
 
     @Override
-    public void processResultFile(String graphFile) throws FragmentReaderException {
+    protected void processResultFile(String graphFile) throws FragmentReaderException {
         FileInputStream fstream =null;
         DataInputStream in = null;
         try{
@@ -248,17 +236,5 @@ public class FragmentReaderPAFI extends FragmentReader {
             throw new FragmentReaderException("Error while reading the file "+e.getMessage(), e);
         }
     }
-    
-    
-//    public static void main(String[] args){
-//        try {
-//            FragmentReaderPAFI p = new FragmentReaderPAFI();
-//            p.processResultFiles("PAFI_TOOL\\results\\CollectionInPAFIFormat.fp", "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc", "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid");
-//        } catch (FragmentReaderException ex) {
-//            System.out.println("Error while parsing FAPI result file");            
-//        }
-//    }
-
-
     
 }

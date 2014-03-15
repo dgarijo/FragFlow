@@ -44,7 +44,7 @@ public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResul
      */
     public CreateStatisticsFromResultsSUBDUE(String domain, String evalType, boolean isTemplate, boolean hasInference, String inputFile, String ocFile) throws FragmentReaderException{
         super(domain, evalType, "SUBDUE", isTemplate, hasInference, null);        
-        this.originalFragmentCatalog = new FragmentReaderSUBDUE(inputFile,ocFile).getFragmentCatalogFromAlgorithmResultFiles();
+        this.originalFragmentCatalog = new FragmentReaderSUBDUE(inputFile,ocFile).getFragmentCatalogAsHashMap();
         this.occurrencesFile = ocFile;
         initializeStatistics();
     }

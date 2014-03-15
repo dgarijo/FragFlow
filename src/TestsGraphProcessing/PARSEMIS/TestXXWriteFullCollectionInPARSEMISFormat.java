@@ -23,7 +23,7 @@ import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
  * @author Daniel Garijo
  */
 public class TestXXWriteFullCollectionInPARSEMISFormat {
-    public static int testNumber = -1;
+    public static int testNumber = -1;//not given a number until we complete the previous ones.
     public static boolean test(){
         try{
             System.out.println("\n\nExecuting test:"+testNumber+" Save collection in PAFI format");

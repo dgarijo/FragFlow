@@ -62,7 +62,7 @@ public class Test19ValidateFoundFragmentsAbstract {
 
             String file = "SUBDUE_TOOL\\results\\Tests\\resultsAbstractCatalog24-10-2013";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\resultsAbstractCatalog2-24-10-2013_occurrences";
-            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
+            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogAsHashMap();
             Iterator<String> fragments = obtainedResults.keySet().iterator();
             
             //with inference

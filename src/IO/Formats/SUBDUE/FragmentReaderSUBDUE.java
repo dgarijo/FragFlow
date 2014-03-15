@@ -58,7 +58,7 @@ public class FragmentReaderSUBDUE extends FragmentReader {
      * @param graphFile 
      */
     @Override
-    public void processResultFile(String graphFile)throws FragmentReaderException{
+    protected void processResultFile(String graphFile)throws FragmentReaderException{
         try{
             FileInputStream fstream = new FileInputStream(graphFile);            
             DataInputStream in = new DataInputStream(fstream);
@@ -142,7 +142,7 @@ public class FragmentReaderSUBDUE extends FragmentReader {
      * The file identifies substructures like this: SUB_n -> number
      * @param occFile 
      */
-    public void processOccurrencesFile(String occFile) throws FragmentReaderException{
+    private void processOccurrencesFile(String occFile) throws FragmentReaderException{
         FileInputStream fstream =null;
         DataInputStream in = null;
         try{
@@ -168,7 +168,7 @@ public class FragmentReaderSUBDUE extends FragmentReader {
     }
 
     @Override
-    public HashMap<String, Fragment> getFragmentCatalogFromAlgorithmResultFiles() throws FragmentReaderException {
+    public HashMap<String, Fragment> getFragmentCatalogAsHashMap() throws FragmentReaderException {
         if(resultFile==null || occurrencesFile==null)
             throw  new FragmentReaderException("Result file or occurrences file not provided");
         processResultFile(resultFile);

@@ -36,15 +36,26 @@ public abstract class FragmentReader {
      * into the hashmap
      * @param graphFile 
      */
-    public abstract void processResultFile(String graphFile)throws FragmentReaderException;
+    protected abstract void processResultFile(String graphFile)throws FragmentReaderException;
     
     /**
      * Method to process the resultFile and the occurrencesFile together.
-     * @param resultsFile
-     * @param ocFile
      * @return 
      */
-    public abstract HashMap<String,Fragment> getFragmentCatalogFromAlgorithmResultFiles()throws FragmentReaderException;
+    public abstract HashMap<String,Fragment> getFragmentCatalogAsHashMap()throws FragmentReaderException;
+    
+    /**
+     * Method to obtain the fragment results as a hashmap
+     * @return
+     */
+    public ArrayList<Fragment> getFragmentCatalogAsAnArrayList() throws FragmentReaderException{
+        if(finalResults==null || finalResults.isEmpty()){
+           finalResults =  getFragmentCatalogAsHashMap();
+        }
+        //transform the hashmap to an arrayList of fragments and return it.
+        return new ArrayList<Fragment>(finalResults.values());
+        
+    }
     
     /**
      * Method to determine whether a structure is multi step or not.
@@ -72,12 +83,7 @@ public abstract class FragmentReader {
         int numberOfDependencies = getNumberOfInformDependencies(g.getAdjacencyMatrix());
         numberOfDependencies += getNumberOfDependenciesFromIncludedStructures(includedSubstructures);
 //        System.out.println("number of dependencies: "+numberOfDependencies);
-        return (numberOfDependencies>0);
-        
-        //TO DO (ISSUE 50), If this fragment appears the same number of times as
-        //a fragment that includes it, then this is not a meaningful fragment.
-        //The meaningful fragment would be the bigger one.
-        
+        return (numberOfDependencies>0);        
     }
     
     /**

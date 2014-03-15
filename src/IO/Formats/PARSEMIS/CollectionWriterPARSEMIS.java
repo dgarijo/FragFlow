@@ -70,14 +70,14 @@ public class CollectionWriterPARSEMIS extends CollectionWriter{
         }
     }
     
-    public static void main(String[] args) throws CollectionWriterException{
-        OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
-            tp.transformDomainToGraph("TextAnalytics");        
-//        tp.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-//            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
-        writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testParsemis.lg");
-               
-    }
+//    public static void main(String[] args) throws CollectionWriterException{
+//        OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+//            tp.transformDomainToGraph("TextAnalytics");        
+////        tp.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
+//        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
+////            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
+//        writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testParsemis.lg");
+//               
+//    }
     
 }

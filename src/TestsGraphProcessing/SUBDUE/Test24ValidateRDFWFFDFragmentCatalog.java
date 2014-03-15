@@ -36,9 +36,9 @@ public class Test24ValidateRDFWFFDFragmentCatalog {
     public static boolean test(){        
        try{
            System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog");
-//           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
-//           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
 //           HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
@@ -50,7 +50,7 @@ public class Test24ValidateRDFWFFDFragmentCatalog {
            FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outTEST.ttl");
 
            catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
-//           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());           
+           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());           
 
            OntModel repo = catalogNoInference.getRepository();
            //Question 1: Fragment 1 must have stopwords followed by smallwords.

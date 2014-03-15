@@ -50,7 +50,7 @@ public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults
                 String resultFile, String pcFile, String tidFile) throws FragmentReaderException {                        
         super(domain, "-", "PAFI", isTemplate, hasInference, null);
         FragmentReaderPAFI reader = new FragmentReaderPAFI(resultFile,pcFile,tidFile);
-        this.originalFragmentCatalog = reader.getFragmentCatalogFromAlgorithmResultFiles();
+        this.originalFragmentCatalog = reader.getFragmentCatalogAsHashMap();
         this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();
         this.pcFile = pcFile;
         this.tidFile = tidFile;        

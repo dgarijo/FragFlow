@@ -142,22 +142,22 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
     }
     
     
-    public static void main (String[] args) throws FragmentReaderException{
-        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
-        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
-        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
-        FragmentCatalogAndResultsToRDFPAFI aux = new FragmentCatalogAndResultsToRDFPAFI("testPafiRDF.ttl");
-        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
-        aux.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
-        OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
-        test.transformDomainToGraph("TextAnalytics");
-        aux.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, test.getGraphCollection());
-        aux.exportToRDFFile("TURTLE");
-        //test
-//        FragmentToSPARQLQueryTemplatePAFI test = new FragmentToSPARQLQueryTemplatePAFI();
-//        String testQuery = test.createQueryFromFragment(filteredFixedFragmentCatalog.get(5), "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
-//        System.out.println(testQuery);
+//    public static void main (String[] args) throws FragmentReaderException{
+//        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
+//        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
+//        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
+//        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
+//        FragmentCatalogAndResultsToRDFPAFI aux = new FragmentCatalogAndResultsToRDFPAFI("testPafiRDF.ttl");
+//        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+//        aux.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
+//        OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+//        test.transformDomainToGraph("TextAnalytics");
+//        aux.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, test.getGraphCollection());
 //        aux.exportToRDFFile("TURTLE");
-    }
+//        //test
+////        FragmentToSPARQLQueryTemplatePAFI test = new FragmentToSPARQLQueryTemplatePAFI();
+////        String testQuery = test.createQueryFromFragment(filteredFixedFragmentCatalog.get(5), "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_");
+////        System.out.println(testQuery);
+////        aux.exportToRDFFile("TURTLE");
+//    }
 }
