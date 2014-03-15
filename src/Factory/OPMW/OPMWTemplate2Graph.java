@@ -16,7 +16,7 @@
 package Factory.OPMW;
 
 import Static.GeneralConstants;
-import Static.OPMW.Templates.QueriesOPMWTempl;
+import Static.Query.QueriesOPMWTempl;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.GraphNode.OPMW.GraphNodeTemplatesOPMW;

@@ -27,7 +27,7 @@ import java.util.Iterator;
  *
  * @author Daniel Garijo
  */
-public class FragmentGeneralMethods {
+public class GeneralMethodsFragments {
     /**
      * Method that returns all the dependencies of a fragment. That is, not only
      * those dependencies included directly, but also those dependencies found

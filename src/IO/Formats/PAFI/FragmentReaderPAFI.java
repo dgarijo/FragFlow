@@ -52,15 +52,15 @@ public class FragmentReaderPAFI extends FragmentReader {
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
     private String depFile, tidFile;
 
-    public FragmentReaderPAFI() {
-        this.finalResults = new HashMap<String, Fragment>();
-    }
+//    public FragmentReaderPAFI() {
+//        this.finalResults = new HashMap<String, Fragment>();
+//    }
 
     public FragmentReaderPAFI(String resultFile, String depFile, String tidFile) {        
         this.resultFile = resultFile;
         this.depFile = depFile;
         this.tidFile = tidFile;
-        this.finalResults = new HashMap<String, Fragment>();
+        this.finalResults = new HashMap<String, Fragment>();        
     }
     
     

@@ -16,7 +16,7 @@
 package Factory.Inference;
 
 import Static.GeneralMethods;
-import Static.OPMW.Traces.QueriesOPMWTraces;
+import Static.Query.QueriesOPMWTraces;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;

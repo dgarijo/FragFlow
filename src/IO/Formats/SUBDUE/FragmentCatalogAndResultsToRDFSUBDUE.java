@@ -23,7 +23,10 @@ import IO.FragmentCatalogAndResultsToRDF;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
-import Static.WffdConstants;
+import Static.GeneralMethodsFragments;
+import Static.Vocabularies.DCTerms;
+import Static.Vocabularies.PPlan;
+import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,27 +65,21 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             Fragment currentFragment = catalogIt.next();
             //fragmentId -> URI
             String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                
-            GeneralMethods.addIndividual(repository, fragmentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
+            GeneralMethods.addIndividual(repository, fragmentID, Wffd.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
             //add date and title
-            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),WffdConstants.TITLE,XSDDatatype.XSDstring);
-            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),WffdConstants.CREATED,XSDDatatype.XSDdate);
-//                System.out.println(fragmentID);
-            //for each of these, add the "overlapsWith" relationship
-            ArrayList<Fragment> includedIds = currentFragment.getListOfIncludedIDs();
+            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),DCTerms.TITLE,XSDDatatype.XSDstring);
+            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),DCTerms.CREATED,XSDDatatype.XSDdate);
+            //for each of these, add the "partOfWorkflowFragment" relationship
+            ArrayList<Fragment> includedIds = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
             if(includedIds!=null){
                 Iterator<Fragment> includedIdsIt = includedIds.iterator();                
                 while(includedIdsIt.hasNext()){
                     Fragment currentIncludedId = includedIdsIt.next();
                     String currentID= currentIncludedId.getStructureID()+"_"+dateToken;
-    //                    addIndividual(repository, currentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
-                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.STEP, null);
-                    GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
-                    GeneralMethods.addProperty(repository, fragmentID, currentID, WffdConstants.OVERLAPS_WITH);                    
-                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.OVERLAPS_WITH);
-                    GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                    GeneralMethods.addIndividual(repository, currentID, PPlan.PLAN, null);//for redundancy and interoperability
+                    GeneralMethods.addProperty(repository, currentID, fragmentID, Wffd.PART_OF_WORKFLOW_FRAGMENT);
                 }
             }
-            //each of these are p-plan:Steps, and are "stepsOfPlan" of the fragment
             ArrayList<String> urisOfFragment = currentFragment.getDependencyGraph().getURIs();
             HashMap<String,GraphNode> currentFragmentNodes = currentFragment.getDependencyGraph().getNodes();
             //for each dependency, create the appropriate URI (SUB_X_1, SUB_X_2, etc)
@@ -91,15 +88,12 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             while (urisOfFragmentIt.hasNext()){
                 String currentURI = urisOfFragmentIt.next();
                 String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
-                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID);
+                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, PPlan.IS_STEP_OF_PLAN);
                 if(currentURItype.contains(GeneralConstants.SUBDUE_SUB_)){
-                    //add owl:sameAs
-                    //WHY ore:proxyFor? because if we add the precedence step in the fragments directly,
-                    //we may create inconsistencies (e.g. a fragment preceeded by 2 different steps
-                    //that are from different fragments. In order to avoid that, we create a phantom node
-                    //and we add the ore:proxyFor with the template (as basically the proxy acts as the former)
-                    GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, currentURItype+"_"+dateToken, "http://www.openarchives.org/ore/terms/proxyFor");
+                    String multiStepURI = fragmentID+"_NODE"+currentURI;
+                    GeneralMethods.addIndividual(repository, multiStepURI, PPlan.MUTLISTEP, "MultiStep form plan "+currentURI);
+                    GeneralMethods.addProperty(repository,multiStepURI, currentURItype+"_"+dateToken, PPlan.IS_DECOMPOSED_AS_PLAN);
                 }else{
                     GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);
                 }
@@ -109,23 +103,11 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             for(int i = 1;i<currentFragmentAdjMatrix.length;i++){
                 for(int j=1 ; j<currentFragmentAdjMatrix.length;j++){
                     if(currentFragmentAdjMatrix[i][j]!=null && currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
-                        String uriI = urisOfFragment.get(i-1);
-//                        String typeI = currentFragmentNodes.get(uriI).getType();
-//                            if(typeI.contains("SUB_")){
-//                                uriI = typeI+"_"+dateToken;
-//                            }else{
-//                                uriI = fragmentID+"_NODE"+uriI;
-//                            }
+                        String uriI = urisOfFragment.get(i-1);//                      
                         uriI = fragmentID+"_NODE"+uriI;
                         String uriJ = urisOfFragment.get(j-1);
-//                        String typeJ = currentFragmentNodes.get(uriJ).getType();
-//                            if(typeJ.contains("SUB_")){
-//                                uriJ = typeJ+"_"+dateToken;
-//                            }else{
-//                                uriJ = fragmentID+"_NODE"+uriJ;
-//                            }
                         uriJ = fragmentID+"_NODE"+uriJ;
-                        GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
+                        GeneralMethods.addProperty(repository, uriI, uriJ, PPlan.IS_PRECEEDED_BY);
                     }
                 }
             }

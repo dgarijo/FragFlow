@@ -17,12 +17,13 @@ package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralMethods;
+import Static.Vocabularies.DCTerms;
+import Static.Vocabularies.PPlan;
+import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.ontology.OntModel;
 import java.util.ArrayList;
-import java.util.HashMap;
 /**
  * Test designed to check whether the RDF generated in Wf-fd from a fragment 
  * catalog is correct or not. In order to achieve this, we have to generate 
@@ -35,9 +36,9 @@ public class Test24ValidateRDFWFFDFragmentCatalog {
     public static boolean test(){        
        try{
            System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog");
-           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+//           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
-           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
+//           test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
 //           HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogFromAlgorithmResultFiles();
@@ -49,47 +50,47 @@ public class Test24ValidateRDFWFFDFragmentCatalog {
            FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outTEST.ttl");
 
            catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
-           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());           
+//           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, test.getGraphCollection());           
 
            OntModel repo = catalogNoInference.getRepository();
            //Question 1: Fragment 1 must have stopwords followed by smallwords.
            String queryTemplates1 = 
                    "ASK {"
-                   + "?frag1 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag1 <http://purl.org/dc/terms/title> \"SUB_1\"."
+                   + "?frag1 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag1 <"+DCTerms.TITLE+"> \"SUB_1\"."
                    + "?stop a <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords>."
-                   + "?stop <http://purl.org/net/p-plan#isStepOfPlan> ?frag1."
+                   + "?stop <"+PPlan.IS_STEP_OF_PLAN+"> ?frag1."
                    + "?small a <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords>."
-                   + "?small <http://purl.org/net/p-plan#isStepOfPlan> ?frag1."
-                   + "?small <http://purl.org/net/p-plan#isPreceededBy> ?stop."
+                   + "?small <"+PPlan.IS_STEP_OF_PLAN+"> ?frag1."
+                   + "?small <"+PPlan.IS_PRECEEDED_BY+"> ?stop."
                    + "}";
            //Fragment 2 must have SUB_1 and then a stemmer.
            //Remember that when a fragment appea
            String queryTemplates2 = 
                    "ASK {"
-                   + "?frag2 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag2 <http://purl.org/dc/terms/title> \"SUB_2\"."
-                   + "?node1 <http://purl.org/net/p-plan#isStepOfPlan> ?frag2."
-                   + "?node1 <http://www.openarchives.org/ore/terms/proxyFor> ?sub1."
-                   + "?sub1 <http://purl.org/dc/terms/title> \"SUB_1\"."
+                   + "?frag2 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag2 <"+DCTerms.TITLE+"> \"SUB_2\"."
+                   + "?node1 <"+PPlan.IS_STEP_OF_PLAN+"> ?frag2."
+                   + "?node1 <"+PPlan.IS_DECOMPOSED_AS_PLAN+"> ?sub1."
+                   + "?sub1 <"+DCTerms.TITLE+"> \"SUB_1\"."
                    + "?stem a <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer>."
-                   + "?stem <http://purl.org/net/p-plan#isStepOfPlan> ?frag2."
-                   + "?stem <http://purl.org/net/p-plan#isPreceededBy> ?node1."
+                   + "?stem <"+PPlan.IS_STEP_OF_PLAN+"> ?frag2."
+                   + "?stem <"+PPlan.IS_PRECEEDED_BY+"> ?node1."
                    + "}";
            //Fragment 5 must have mult2Single preceededBy TF_IDF and then preceededBy SUB_2
            String queryTemplates3 = 
                    "ASK {"
-                   + "?frag5 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag5 <http://purl.org/dc/terms/title> \"SUB_5\"."
+                   + "?frag5 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag5 <"+DCTerms.TITLE+"> \"SUB_5\"."
                    + "?multi a <http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single>."
-                   + "?multi <http://purl.org/net/p-plan#isStepOfPlan> ?frag5."
+                   + "?multi <"+PPlan.IS_STEP_OF_PLAN+"> ?frag5."
                    + "?tf a <http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF>."
-                   + "?tf <http://purl.org/net/p-plan#isStepOfPlan> ?frag5."
-                   + "?multi <http://purl.org/net/p-plan#isPreceededBy> ?tf."
-                   + "?tf <http://purl.org/net/p-plan#isPreceededBy> ?node1."
-                   + "?node1 <http://purl.org/net/p-plan#isStepOfPlan> ?frag5."
-                   + "?node1 <http://www.openarchives.org/ore/terms/proxyFor> ?sub2."
-                   + "?sub2 <http://purl.org/dc/terms/title> \"SUB_2\"."
+                   + "?tf <"+PPlan.IS_STEP_OF_PLAN+"> ?frag5."
+                   + "?multi <"+PPlan.IS_PRECEEDED_BY+"> ?tf."
+                   + "?tf <"+PPlan.IS_PRECEEDED_BY+"> ?node1."
+                   + "?node1 <"+PPlan.IS_STEP_OF_PLAN+"> ?frag5."
+                   + "?node1 <"+PPlan.IS_DECOMPOSED_AS_PLAN+"> ?sub2."
+                   + "?sub2 <"+DCTerms.TITLE+"> \"SUB_2\"."
                    + "}";
            
             if (!GeneralMethods.askLocalRepository(repo, queryTemplates1)) return false;

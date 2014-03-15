@@ -26,7 +26,7 @@ import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
  * Test to check whether the statistics from a PAFI result can be obtained.
  * @author Daniel Garijo
  */
-public class Test27ProduceStatisticsForAPAFIResult {
+public class Test27CreateAndValidateStatisticsForAPAFIResult {
     public static int testNumber = 27;
     public static boolean test(){
          try {
@@ -37,8 +37,9 @@ public class Test27ProduceStatisticsForAPAFIResult {
             CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
             c.printStatistics("testStatisticsPafi");
             //this has been checked manually. The number of fragments must be 11 in this case.
-            if(c.getNumberOfFilteredMultiStepFragments()==11) return true;
-            return false;
+            if(c.getNumberOfFilteredMultiStepFragments()!=11) return false;
+            if(c.getOccurrencesOfFilteredMultiStepStructures()!=33) return false;
+            return true;
         } catch (FragmentReaderException ex) {
             System.out.println("Error while executing test "+ex.getMessage());
             return false;

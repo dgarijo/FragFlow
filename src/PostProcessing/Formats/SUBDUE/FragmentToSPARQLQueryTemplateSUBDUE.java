@@ -18,7 +18,7 @@ import DataStructures.Fragment;
 import DataStructures.GraphNode.GraphNode;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.GeneralConstants;
-import Static.OPMW.Templates.ConstantsOPMWTempl;
+import Static.Vocabularies.OPMWTemplate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -202,13 +202,13 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                             Iterator<String> itJ = auxListJ.iterator();
                             String currentI = itI.next();
                             innerQuery+="{\n"                                      
-                                      +bindingsToVariables.get(currentI)+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n"
-                                      +"?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
+                                      +bindingsToVariables.get(currentI)+" <"+OPMWTemplate.USES+"> ?use"+currentVarNumber+".\n"
+                                      +"?use"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
                             innerQuery+="}\n";
                             while(itJ.hasNext()){
                                 innerQuery+="UNION\n{\n"                                      
-                                      +bindingsToVariables.get(currentI)+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n"
-                                      +"?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
+                                      +bindingsToVariables.get(currentI)+" <"+OPMWTemplate.USES+"> ?use"+currentVarNumber+".\n"
+                                      +"?use"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(itJ.next())+".\n";
                                 innerQuery+="}\n";
                             }
                             if(itI.hasNext()){
@@ -224,16 +224,16 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         innerQuery+= transformDependencyMatrixToQuery(subStructure, templateURI);
                         context = context.substring(0, context.length()-uris.get(i-1).length());
                         innerQuery+= addStep(bindingsToVariables.get(context+uris.get(j-1)), currentTypeJ, templateURI);
-                        innerQuery+= "?gen"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";
+                        innerQuery+= "?gen"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
                         //to the current variable. The first UNION is outside, so we process it first.
-                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <"+ConstantsOPMWTempl.USES+"> ?gen"+currentVarNumber+".\n";
+                            innerQuery+="{\n"+bindingsToVariables.get(it.next())+" <"+OPMWTemplate.USES+"> ?gen"+currentVarNumber+".\n";
                             innerQuery+="}\n";
                             while(it.hasNext()){
                                 innerQuery+="UNION\n{\n";
-                                innerQuery+=bindingsToVariables.get(it.next())+" <"+ConstantsOPMWTempl.USES+"> ?gen"+currentVarNumber+".\n";
+                                innerQuery+=bindingsToVariables.get(it.next())+" <"+OPMWTemplate.USES+"> ?gen"+currentVarNumber+".\n";
                                 innerQuery+="}\n";
                             }
                         }
@@ -246,24 +246,24 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                         ArrayList<String> auxList = getListOfURIsToConnectFragment(subStructure);
                         context = context.substring(0, context.length()-uris.get(j-1).length());
                         innerQuery+= addStep(bindingsToVariables.get(context+uris.get(i-1)), currentTypeI, templateURI);
-                        innerQuery+= bindingsToVariables.get(context+uris.get(i-1))+" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n";
+                        innerQuery+= bindingsToVariables.get(context+uris.get(i-1))+" <"+OPMWTemplate.USES+"> ?use"+currentVarNumber+".\n";
                         
                         Iterator<String> it = auxList.iterator();
                         if(it.hasNext()){
                         //for every possible processor in the subfragment, we ask if it is connected
                         //to the current variable. The first UNION is outside, so we process it first.
-                            innerQuery+="{\n?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
+                            innerQuery+="{\n?use"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
                             innerQuery+="}\n";
                             while(it.hasNext()){
                                 innerQuery+="UNION\n{\n";
-                                innerQuery+="?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
+                                innerQuery+="?use"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(it.next())+".\n";
                                 innerQuery+="}\n";
                             }
                         }
                     }else{
                         innerQuery+=addStep(bindingsToVariables.get(context+uris.get(i-1)),currentTypeI, templateURI);
-                        innerQuery+=bindingsToVariables.get(context+uris.get(i-1)) +" <"+ConstantsOPMWTempl.USES+"> ?use"+currentVarNumber+".\n";
-                        innerQuery+="?use"+currentVarNumber+" <"+ConstantsOPMWTempl.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";                        
+                        innerQuery+=bindingsToVariables.get(context+uris.get(i-1)) +" <"+OPMWTemplate.USES+"> ?use"+currentVarNumber+".\n";
+                        innerQuery+="?use"+currentVarNumber+" <"+OPMWTemplate.IS_GEN_BY+"> "+bindingsToVariables.get(context+uris.get(j-1))+".\n";                        
                         innerQuery+=addStep(bindingsToVariables.get(context+uris.get(j-1)),currentTypeJ, templateURI);
                     }
                 }
@@ -319,7 +319,7 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
      */
     private String addStep(String varNumber, String type, String templateURI){
         return varNumber+" a <"+type+">.\n"
-               +varNumber+" <"+ConstantsOPMWTempl.IS_STEP_OF_TEMPL+"> <"+templateURI+">.\n";
+               +varNumber+" <"+OPMWTemplate.IS_STEP_OF_TEMPL+"> <"+templateURI+">.\n";
     }
     
     /**

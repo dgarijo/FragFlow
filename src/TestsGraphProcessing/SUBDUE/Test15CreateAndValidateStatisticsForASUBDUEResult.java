@@ -21,7 +21,7 @@ import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
  * Test to check whether the statistics are created properly or not.
  * @author Daniel Garijo
  */
-public class Test15PostProcessingStatistics {
+public class Test15CreateAndValidateStatisticsForASUBDUEResult {
     public static int testNumber = 15;
     public static boolean test(){
         System.out.println("\n\nExecuting test:"+testNumber+" Statistics creation");
@@ -33,6 +33,8 @@ public class Test15PostProcessingStatistics {
 //            test.createStatistics();
             test.printStatistics("testStatisticsSUBDUE");
             //if the file is found, the statistics are created
+            if(test.getNumberOfFilteredMultiStepFragments()!=8) return false;
+            if(test.getOccurrencesOfFilteredMultiStepStructures()!=29)return false;
             return true;
         }catch(Exception e){
             System.out.println("Error in test PostProcessing. Exception: "+e.getMessage());

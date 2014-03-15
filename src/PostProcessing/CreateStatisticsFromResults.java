@@ -16,7 +16,7 @@
 package PostProcessing;
 
 import DataStructures.Fragment;
-import Static.FragmentGeneralMethods;
+import Static.GeneralMethodsFragments;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ public abstract class CreateStatisticsFromResults {
 
     /**
      * Default getter to retrieve the filtered multi step fragments
-     * @return 
+     * @return number of filtered multi step fragments
      */
     public ArrayList<Fragment> getFilteredMultiStepFragments() {
         return filteredMultiStepFragments;
@@ -89,7 +89,7 @@ public abstract class CreateStatisticsFromResults {
 
     /**
      * Default getter to retrieve the  irreducible fragments
-     * @return 
+     * @return irreducible fragments
      */
     public ArrayList<Fragment> getIrreducibleFragments() {
         return irreducibleFragments;
@@ -97,7 +97,7 @@ public abstract class CreateStatisticsFromResults {
 
     /**
      * Default getter to retrieve the multi step fragments
-     * @return 
+     * @return multistep fragments
      */
     public ArrayList<Fragment> getMultiStepFragments() {
         return multiStepFragments;
@@ -105,7 +105,7 @@ public abstract class CreateStatisticsFromResults {
 
     /**
      * Default getter to retrieve the multi step irreducible fragments
-     * @return 
+     * @return multistep irreducible fragments
      */
     public ArrayList<Fragment> getMultiStepIrreducibleFragments() {
         return multiStepIrreducibleFragments;
@@ -114,7 +114,7 @@ public abstract class CreateStatisticsFromResults {
     
     /**
      * Returns the number of original found fragments
-     * @return 
+     * @return number of original fragments
      */
     public int getNumberOfOriginalFoundFragments(){
         return this.originalFragmentCatalog.size();
@@ -122,7 +122,7 @@ public abstract class CreateStatisticsFromResults {
     
     /**
      * Returns the number of the multi step fragments
-     * @return 
+     * @return number of multi step fragments
      */
     public int getNumberOfMultiStepFragments(){
         return this.multiStepFragments.size();
@@ -130,7 +130,7 @@ public abstract class CreateStatisticsFromResults {
     
     /**
      * Returns the number of the multi step filtered fragments
-     * @return 
+     * @return number of filtered multi step fragments
      */
     public int getNumberOfFilteredMultiStepFragments(){
         return this.filteredMultiStepFragments.size();
@@ -138,7 +138,7 @@ public abstract class CreateStatisticsFromResults {
     
     /**
      * Returns the number of irreducible fragments
-     * @return 
+     * @return number of irreducible fragments
      */
     public int getNumberOfIrreducibleFragments(){
         return this.irreducibleFragments.size();
@@ -154,10 +154,34 @@ public abstract class CreateStatisticsFromResults {
     
     /**
      * Returns the number of multi step irreducible fragments
-     * @return 
+     * @return number of multi step irreducible fragments
      */
     public int getNumberOfMultiStepIrreducibleFragments(){
         return this.multiStepIrreducibleFragments.size();
+    }
+
+    /**
+     * Returns the occurrences of the detected structures
+     * @return occurrences of detected structures
+     */
+    public int getOccurrencesOfDetectedStructures() {
+        return occurrencesOfDetectedStructures;
+    }
+
+    /**
+     * Returns the occurrences of filtered multi step structures
+     * @return occurrences of filtered multi step structures
+     */
+    public int getOccurrencesOfFilteredMultiStepStructures() {
+        return occurrencesOfFilteredMultiStepStructures;
+    }
+
+    /**
+     * Returns the occurrences of multi step structures
+     * @return occurrences of multi step structures
+     */
+    public int getOccurrencesOfMultiStepStructures() {
+        return occurrencesOfMultiStepStructures;
     }
     
     /**
@@ -191,7 +215,7 @@ public abstract class CreateStatisticsFromResults {
                 irreducibleFragments.add(currentResult);
             }
         }
-        this.filterMultiStepFragments();
+        occurrencesOfFilteredMultiStepStructures = FragmentCatalogFilter.filterFragmentCatalog(filteredMultiStepFragments, occurrencesOfMultiStepStructures);
     }
     
     /**
@@ -207,35 +231,34 @@ public abstract class CreateStatisticsFromResults {
      * removed, as has occurred more times (it means that it has been found outside 
      * fragment 4).
      */
-    private void filterMultiStepFragments(){
-        Iterator<Fragment> it = filteredMultiStepFragments.iterator();
-        ArrayList<Fragment> elementsToRemove = new ArrayList<Fragment>();
-        while(it.hasNext()){
-            Fragment currentFragment = it.next();
-            ArrayList<Fragment> includedFragments = FragmentGeneralMethods.getFullDependenciesOfFragment(currentFragment);
-            //if any of the included structures has the same occurrences as the actual one,
-            //we count the actual as the relevant structure and remove the others from the filtered 
-            //multi step fragments
-            Iterator<Fragment>includedFragmentsIt = includedFragments.iterator();
-            while(includedFragmentsIt.hasNext()){
-                Fragment currentIncludedFragment = includedFragmentsIt.next();                
-                if(filteredMultiStepFragments.contains(currentIncludedFragment) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
-                    if(!elementsToRemove.contains(currentIncludedFragment))
-                        elementsToRemove.add(currentIncludedFragment);
-                }
-            }
-        }
-        //now that we know the elements to remove, we remove them
-        Iterator<Fragment> itRemove = elementsToRemove.iterator();
-        occurrencesOfFilteredMultiStepStructures = occurrencesOfMultiStepStructures;
-        while(itRemove.hasNext()){
-            Fragment fragmentToRemove = itRemove.next();
-            //while we remove, calculate the occurrences of filteredmultistep fragments here.
-            occurrencesOfFilteredMultiStepStructures-=fragmentToRemove.getNumberOfOccurrences();
-            filteredMultiStepFragments.remove(fragmentToRemove);            
-        }
-        
-    }
+//    private void filterMultiStepFragments(){
+//        Iterator<Fragment> it = filteredMultiStepFragments.iterator();
+//        ArrayList<Fragment> elementsToRemove = new ArrayList<Fragment>();
+//        while(it.hasNext()){
+//            Fragment currentFragment = it.next();
+//            ArrayList<Fragment> includedFragments = FragmentGeneralMethods.getFullDependenciesOfFragment(currentFragment);
+//            //if any of the included structures has the same occurrences as the actual one,
+//            //we count the actual as the relevant structure and remove the others from the filtered 
+//            //multi step fragments
+//            Iterator<Fragment>includedFragmentsIt = includedFragments.iterator();
+//            while(includedFragmentsIt.hasNext()){
+//                Fragment currentIncludedFragment = includedFragmentsIt.next();                
+//                if(filteredMultiStepFragments.contains(currentIncludedFragment) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
+//                    if(!elementsToRemove.contains(currentIncludedFragment))
+//                        elementsToRemove.add(currentIncludedFragment);
+//                }
+//            }
+//        }
+//        //now that we know the elements to remove, we remove them
+//        Iterator<Fragment> itRemove = elementsToRemove.iterator();
+//        occurrencesOfFilteredMultiStepStructures = occurrencesOfMultiStepStructures;
+//        while(itRemove.hasNext()){
+//            Fragment fragmentToRemove = itRemove.next();
+//            //while we remove, calculate the occurrences of filteredmultistep fragments here.
+//            occurrencesOfFilteredMultiStepStructures-=fragmentToRemove.getNumberOfOccurrences();
+//            filteredMultiStepFragments.remove(fragmentToRemove);            
+//        }
+//    }
     
     /**
      * Method that given a fragment, it answers whether it is included in the 

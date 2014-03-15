@@ -41,6 +41,7 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
         GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         int numeration = 0;
         try {
+            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
             fstream = new FileWriter(outputFilePath);
             out = new BufferedWriter(fstream);
             while (it.hasNext()){
@@ -78,6 +79,7 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
         try {
             
             while (it.hasNext()){
+                if(!outputPath.endsWith(".g"))outputPath+=".g";
                 fstream = new FileWriter(outputPath+File.separator+graphNumber+i);
                 out = new BufferedWriter(fstream);
                 Graph currentGraph = it.next();
@@ -108,11 +110,12 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
     @Override
     public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{
         FileWriter fstream = null; 
-        BufferedWriter out = null;
+        BufferedWriter out = null;        
         GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         Iterator<Graph> it = gc.getGraphs().iterator();
         int numeration = 0;
         try {
+            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
             fstream = new FileWriter(outputFilePath);
             out = new BufferedWriter(fstream);
             while (it.hasNext()){
@@ -150,6 +153,7 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
         try {
             
             while (it.hasNext()){
+                if(!outputPath.endsWith(".g"))outputPath+=".g";
                 fstream = new FileWriter(outputPath+File.separator+graphNumber+i);
                 out = new BufferedWriter(fstream);
                 Graph currentGraph = it.next();

@@ -17,6 +17,7 @@
 package Static;
 
 
+import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.ontology.Individual;
 import com.hp.hpl.jena.ontology.OntClass;
@@ -133,7 +134,7 @@ public class GeneralMethods {
             c.createIndividual(GeneralConstants.PREFIX_FOR_RDF_GENERATION+nombreIndividuoEnc);
         }
         if(label!=null){
-            addDataProperty(m,nombreIndividuoEnc,label,WffdConstants.RDFS_SCHEMA_PREFIX+"label");
+            addDataProperty(m,nombreIndividuoEnc,label,Wffd.RDFS_SCHEMA_PREFIX+"label");
         }
     }
 

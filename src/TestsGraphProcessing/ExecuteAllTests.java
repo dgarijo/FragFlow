@@ -17,7 +17,7 @@ package TestsGraphProcessing;
 
 import TestsGraphProcessing.OPMWWings.Test11PrintWingsAvailableDomains;
 import TestsGraphProcessing.OPMWWings.Test13CreateReplacementHashMap;
-import TestsGraphProcessing.SUBDUE.Test15PostProcessingStatistics;
+import TestsGraphProcessing.SUBDUE.Test15CreateAndValidateStatisticsForASUBDUEResult;
 import TestsGraphProcessing.SUBDUE.Test07SaveCollectionAsReducedGraphInFile;
 import TestsGraphProcessing.SUBDUE.Test08SaveCollectionAsInferredReducedGraphInFile;
 import TestsGraphProcessing.SUBDUE.Test06SaveCollectionInSeparatedFilesFullGraph;
@@ -73,11 +73,11 @@ public class ExecuteAllTests {
         numberOfSuccessfulTests+=printTestStatus(Test18ValidateFoundFragments3.test());
         numberOfSuccessfulTests+=printTestStatus(Test17ValidateFoundFragments2.test());
         numberOfSuccessfulTests+=printTestStatus(Test16ValidateFoundFragments1.test());
-        numberOfSuccessfulTests+=printTestStatus(Test15PostProcessingStatistics.test());
+        numberOfSuccessfulTests+=printTestStatus(Test15CreateAndValidateStatisticsForASUBDUEResult.test());
         numberOfSuccessfulTests+=printTestStatus(Test14CreateMultidomainOntologyFromWINGSRepository.test());
         numberOfSuccessfulTests+=printTestStatus(Test13CreateReplacementHashMap.test());
         numberOfSuccessfulTests+=printTestStatus(Test12CreateStatisticsFromSUBDUEResults.test());
-        numberOfSuccessfulTests+=printTestStatus(Test15PostProcessingStatistics.test());
+        numberOfSuccessfulTests+=printTestStatus(Test15CreateAndValidateStatisticsForASUBDUEResult.test());
         numberOfSuccessfulTests+=printTestStatus(Test11PrintWingsAvailableDomains.test());
         numberOfSuccessfulTests+=printTestStatus(Test10ReadASUBDUE_Result.test());
         numberOfSuccessfulTests+=printTestStatus(Test09SaveCollectionAsFullGraphInFile.test());

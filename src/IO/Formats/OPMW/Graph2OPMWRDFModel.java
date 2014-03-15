@@ -19,8 +19,8 @@ import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
-import Static.OPMW.Templates.ConstantsOPMWTempl;
-import Static.OPMW.Traces.ConstantsOPMWTraces;
+import Static.Vocabularies.OPMWTemplate;
+import Static.Vocabularies.OPMWTrace;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -47,7 +47,7 @@ public class Graph2OPMWRDFModel {
      * @return the Jena model with the graph loaded.
      */
     public static OntModel graph2OPMWTemplate(Graph template){
-        return generateModel(ConstantsOPMWTempl.USES, ConstantsOPMWTempl.IS_GEN_BY, template, true);
+        return generateModel(OPMWTemplate.USES, OPMWTemplate.IS_GEN_BY, template, true);
     }
     
     /**
@@ -58,7 +58,7 @@ public class Graph2OPMWRDFModel {
      * @return the Jena model with the graph loaded.
      */
     public static OntModel graph2OPMWTrace(Graph trace){
-        return generateModel(ConstantsOPMWTraces.USED, ConstantsOPMWTraces.WAS_GEN_BY, trace, false);
+        return generateModel(OPMWTrace.USED, OPMWTrace.WAS_GEN_BY, trace, false);
     }
     
     /**
@@ -84,9 +84,9 @@ public class Graph2OPMWRDFModel {
             GeneralMethods.addIndividual(m, currentURI,nodes.get(currentURI).getType(), null);
             if(isTemplate){
                 //all the nodes in a fragment are steps (if it is reduced)
-                GeneralMethods.addProperty(m, currentURI, structure.getName(), ConstantsOPMWTempl.IS_STEP_OF_TEMPL);
+                GeneralMethods.addProperty(m, currentURI, structure.getName(), OPMWTemplate.IS_STEP_OF_TEMPL);
             }else{
-                GeneralMethods.addProperty(m, currentURI, structure.getName(), ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT);
+                GeneralMethods.addProperty(m, currentURI, structure.getName(), OPMWTrace.WORKFLOW_OPMO_ACCOUNT);
             }
             for(int j=1; j<matrix.length;j++){
                 if(matrix[i][j]!=null && matrix[i][j].equals(GeneralConstants.GENERATION_DEPENDENCY)){ 

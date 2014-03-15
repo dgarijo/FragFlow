@@ -24,6 +24,8 @@ import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
 import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralMethods;
+import Static.Vocabularies.DCTerms;
+import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.ontology.OntModel;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,33 +60,33 @@ public class Test25ValidateRDFWFFDFragmentInstances {
            //Question 1: SUB_1, SUB_2 and SUB_5 must be part of the template  
            String queryInstances1 = 
                    "ASK {"
-                   + "?frag1 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag1 <http://purl.org/dc/terms/title> \"SUB_1\"."
-                   + "?frag1 <http://purl.org/dc/terms/isPartOf> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
-                   + "?frag2 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag2 <http://purl.org/dc/terms/title> \"SUB_2\"."
-                   + "?frag2 <http://purl.org/dc/terms/isPartOf> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
-                   + "?frag5 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag5 <http://purl.org/dc/terms/title> \"SUB_5\"."
-                   + "?frag5 <http://purl.org/dc/terms/isPartOf> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
+                   + "?frag1 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag1 <"+DCTerms.TITLE+"> \"SUB_1\"."
+                   + "?frag1 <"+Wffd.FOUND_IN+"> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
+                   + "?frag2 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag2 <"+DCTerms.TITLE+"> \"SUB_2\"."
+                   + "?frag2 <"+Wffd.FOUND_IN+"> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
+                   + "?frag5 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag5 <"+DCTerms.TITLE+"> \"SUB_5\"."
+                   + "?frag5 <"+Wffd.FOUND_IN+"> <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI>."
                    + "}";           
            //Question 2: SUB_1, SUB_2 and SUB_5 must have 2 bindings each to the template.
            String queryInstances2 = 
                    "ASK {"
-                   + "?frag2 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag2 <http://purl.org/dc/terms/title> \"SUB_2\"."
-                   + "?frag2 <http://purl.org/net/wf-fd#foundAs> ?binding1."
-                   + "?frag2 <http://purl.org/net/wf-fd#foundAs> ?binding2."
+                   + "?frag2 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag2 <"+DCTerms.TITLE+"> \"SUB_2\"."
+                   + "?frag2 <"+Wffd.FOUND_AS+"> ?binding1."
+                   + "?frag2 <"+Wffd.FOUND_AS+"> ?binding2."
                    + "FILTER (?binding1!=?binding2)."
-                   + "?frag1 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag1 <http://purl.org/dc/terms/title> \"SUB_1\"."
-                   + "?frag1 <http://purl.org/net/wf-fd#foundAs> ?binding3."
-                   + "?frag1 <http://purl.org/net/wf-fd#foundAs> ?binding4."
+                   + "?frag1 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag1 <"+DCTerms.TITLE+"> \"SUB_1\"."
+                   + "?frag1 <"+Wffd.FOUND_AS+"> ?binding3."
+                   + "?frag1 <"+Wffd.FOUND_AS+"> ?binding4."
                    + "FILTER (?binding3!=?binding4)."
-                   + "?frag5 a <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>."
-                   + "?frag5 <http://purl.org/dc/terms/title> \"SUB_5\"."
-                   + "?frag5 <http://purl.org/net/wf-fd#foundAs> ?binding5."
-                   + "?frag5 <http://purl.org/net/wf-fd#foundAs> ?binding6."
+                   + "?frag5 a <"+Wffd.DETECTED_RESULT+">."
+                   + "?frag5 <"+DCTerms.TITLE+"> \"SUB_5\"."
+                   + "?frag5 <"+Wffd.FOUND_AS+"> ?binding5."
+                   + "?frag5 <"+Wffd.FOUND_AS+"> ?binding6."
                    + "FILTER (?binding5!=?binding6)."
                    + "}";
            

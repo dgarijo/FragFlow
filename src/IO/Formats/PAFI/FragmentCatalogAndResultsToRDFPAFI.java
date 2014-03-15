@@ -32,10 +32,12 @@ import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
 import PostProcessing.Formats.PAFI.FragmentToSPARQLQueryTemplatePAFI;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.Configuration;
-import Static.FragmentGeneralMethods;
+import Static.GeneralMethodsFragments;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
-import Static.WffdConstants;
+import Static.Vocabularies.DCTerms;
+import Static.Vocabularies.PPlan;
+import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.QuerySolution;
@@ -70,16 +72,15 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
     public void transformFragmentCollectionToRDF(ArrayList<Fragment> filteredCatalog) {
         Iterator<Fragment> catalogIt = filteredCatalog.iterator();        
         //in PAFI no fragment includes directly another.
-        //in PAFI the connections are not directed.
         while (catalogIt.hasNext()){
             Fragment currentFragment = catalogIt.next();
             //fragmentId -> URI
             String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                
-            GeneralMethods.addIndividual(repository, fragmentID, WffdConstants.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
+            GeneralMethods.addIndividual(repository, fragmentID, Wffd.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
             //add date and title
-            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),WffdConstants.TITLE,XSDDatatype.XSDstring);
-            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),WffdConstants.CREATED,XSDDatatype.XSDdate);
-            ArrayList<Fragment> includedIds = FragmentGeneralMethods.getFullDependenciesOfFragment(currentFragment);
+            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),DCTerms.TITLE,XSDDatatype.XSDstring);
+            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),DCTerms.CREATED,XSDDatatype.XSDdate);
+            ArrayList<Fragment> includedIds = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
             if(includedIds!=null){
                 Iterator<Fragment> includedIdsIt = includedIds.iterator();                
                 while(includedIdsIt.hasNext()){
@@ -87,8 +88,8 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
                     //we just include the fragment if it also belongs to the catalog
                     if(filteredCatalog.contains(currentIncludedId)){
                         String currentID = currentIncludedId.getStructureID()+"_"+dateToken;               
-                        GeneralMethods.addIndividual(repository, currentID, WffdConstants.PLAN, null);//for redundancy and interoperability
-                        GeneralMethods.addProperty(repository, currentID, fragmentID, WffdConstants.PART_OF_FRAGMENT);
+                        GeneralMethods.addIndividual(repository, currentID, PPlan.PLAN, null);//for redundancy and interoperability
+                        GeneralMethods.addProperty(repository, currentID, fragmentID, Wffd.PART_OF_WORKFLOW_FRAGMENT);
                     }
                 }
             }
@@ -100,11 +101,10 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
             while (urisOfFragmentIt.hasNext()){
                 String currentURI = urisOfFragmentIt.next();
                 String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, WffdConstants.STEP, "Step "+fragmentID);
-                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, WffdConstants.IS_STEP_OF_PLAN);
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID);
+                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, PPlan.IS_STEP_OF_PLAN);
                 GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);                
             }
-            //for each dependency, create the wf-fd:isConnectedTo (graph is not directed)
             //PAFI STARTS FROM 0 DUE TO THE NODE NUMBERING
             for(int i = 0;i<currentFragmentAdjMatrix.length;i++){
                 for(int j=0 ; j<currentFragmentAdjMatrix.length;j++){
@@ -114,7 +114,7 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
                         uriI = fragmentID+"_NODE"+uriI;
                         String uriJ = urisOfFragment.get(j);
                         uriJ = fragmentID+"_NODE"+uriJ;
-                        GeneralMethods.addProperty(repository, uriI, uriJ, WffdConstants.IS_PRECEEDED_BY);
+                        GeneralMethods.addProperty(repository, uriI, uriJ, PPlan.IS_PRECEEDED_BY);
                     }
                 }
             }
@@ -134,28 +134,12 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
 
     @Override
     public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
-        Iterator<Fragment> fragments = obtainedResults.iterator();
-        //it would be nice to just send the relevant fragments            
+        Iterator<Fragment> fragments = obtainedResults.iterator();         
         while(fragments.hasNext()){
             Fragment f = fragments.next();
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplatePAFI());
-        
         }
     }
-
-//    @Override
-//    public void transformBindingResultsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template) {
-//        FragmentToSPARQLQueryTemplatePAFI qr = new FragmentToSPARQLQueryTemplatePAFI();
-//        OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(template);
-//        String currentQuery = qr.createQueryFromFragment(currentFragment, template.getName());
-//        ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
-//        while(rs.hasNext()){
-//            QuerySolution qs = rs.next();
-//            //each result corresponds to one binding found in the template.
-//            
-//        }
-        
-//    }
     
     
     public static void main (String[] args) throws FragmentReaderException{

@@ -13,9 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package Static.OPMW.Traces;
+package Static.Query;
 
-import Static.OPMW.Templates.ConstantsOPMWTempl;
+import Static.Vocabularies.OPMWTrace;
+import Static.Vocabularies.OPMWTemplate;
+import Static.Vocabularies.OPMWTemplate;
 
 
 /**
@@ -29,7 +31,7 @@ public class QueriesOPMWTraces {
      * @return
      */
     public static String queryWfExecAccount(){
-        String query = "SELECT distinct ?acc WHERE{?acc a <"+ConstantsOPMWTraces.WORKFLOW_EXECUTION_ACCOUNT+">.}";                
+        String query = "SELECT distinct ?acc WHERE{?acc a <"+OPMWTrace.WORKFLOW_EXECUTION_ACCOUNT+">.}";                
         return query;
     }
     
@@ -41,7 +43,7 @@ public class QueriesOPMWTraces {
      */
     public static String getWfExecNodes(String traceURI){
         String query = "SELECT distinct ?node ?type WHERE{"
-                + "?node <"+ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
+                + "?node <"+OPMWTrace.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
                 + "?node a ?type}";                
         return query;
     }
@@ -53,24 +55,24 @@ public class QueriesOPMWTraces {
      */
     public static String getTypesOfWfExecProcesses(String traceURI){
         String query = "SELECT distinct ?process ?type WHERE{"
-                + "?process <"+ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
-                + "?process <"+ConstantsOPMWTraces.HAS_EXECUTABLE_COMPONENT+"> ?comp."
+                + "?process <"+OPMWTrace.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
+                + "?process <"+OPMWTrace.HAS_EXECUTABLE_COMPONENT+"> ?comp."
                 + "?comp a ?type}";
         return query;
     }
     
     public static String getUsagesOfTrace(String traceURI){
         String query = "SELECT distinct ?process ?artif WHERE{"
-                + "?process <"+ConstantsOPMWTraces.USED+"> ?artif."
-                + "?process <"+ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
+                + "?process <"+OPMWTrace.USED+"> ?artif."
+                + "?process <"+OPMWTrace.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
                 + "}";                
         return query;
     }
     
     public static String getGenerationsOfTrace(String traceURI){
         String query = "SELECT distinct ?artif ?process WHERE{"
-                + "?artif <"+ConstantsOPMWTraces.WAS_GEN_BY+"> ?process."
-                + "?artif <"+ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
+                + "?artif <"+OPMWTrace.WAS_GEN_BY+"> ?process."
+                + "?artif <"+OPMWTrace.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
                 + "}";                
         return query;
     }
@@ -78,8 +80,8 @@ public class QueriesOPMWTraces {
     //from the result of this query we will return just the namespace
     public static String getComponentOntologyURI(String accURI){
         String query = "SELECT distinct ?uri WHERE{"
-                + "<"+accURI+"> <"+ConstantsOPMWTraces.CORRESPONDS_TO_TEMPLATE+"> ?template."
-                + "?node <"+ConstantsOPMWTempl.IS_STEP_OF_TEMPL+"> ?template."
+                + "<"+accURI+"> <"+OPMWTrace.CORRESPONDS_TO_TEMPLATE+"> ?template."
+                + "?node <"+OPMWTemplate.IS_STEP_OF_TEMPL+"> ?template."
                 + "?node a ?uri."
                 + "FILTER regex(?uri,\"library\")}";
         return query;
@@ -89,8 +91,8 @@ public class QueriesOPMWTraces {
     //system's traces, we will have to adapt the types to that ontology
     public static String getDataOntologyURI(String templateURI){
         String query = "SELECT distinct ?uri WHERE{"
-                + "<"+templateURI+"> <"+ConstantsOPMWTraces.CORRESPONDS_TO_TEMPLATE+"> ?template."
-                + "?node <"+ConstantsOPMWTempl.IS_VAR_OF_TEMPL+"> ?template."
+                + "<"+templateURI+"> <"+OPMWTrace.CORRESPONDS_TO_TEMPLATE+"> ?template."
+                + "?node <"+OPMWTemplate.IS_VAR_OF_TEMPL+"> ?template."
                 + "?node a ?uri."
                 + "FILTER regex(?uri,\"ontology.owl#\")}";
         return query;
@@ -104,8 +106,8 @@ public class QueriesOPMWTraces {
      */
     public static String getLocalComponentOntologyURI(String traceURI){
         String query = "SELECT distinct ?localOntoURI WHERE{"
-                + "?process <"+ConstantsOPMWTraces.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
-                + "?process <"+ConstantsOPMWTraces.HAS_EXECUTABLE_COMPONENT+"> ?comp."
+                + "?process <"+OPMWTrace.WORKFLOW_OPMO_ACCOUNT+"> <"+traceURI+">."
+                + "?process <"+OPMWTrace.HAS_EXECUTABLE_COMPONENT+"> ?comp."
                 + "?comp a ?localOntoURI}";
         return query;
     }

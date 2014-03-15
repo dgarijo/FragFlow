@@ -21,6 +21,7 @@ package TestsGraphProcessing.PAFI;
 
 import DataStructures.Fragment;
 import IO.Exception.FragmentReaderException;
+import IO.Formats.PAFI.FragmentReaderPAFI;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
 import Static.Configuration;
@@ -40,7 +41,7 @@ public class Test28FixDirectionalityOfPAFIFRagments {
             String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
             String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
             String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-            CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
+            CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);                        
             ArrayList<Fragment> fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
             //for these parameters, the first fragment has to have the following matrix:
             //[0,3]=[1,0]=[2,1]=wasInformedBy dependency. This is different from the original one which was:

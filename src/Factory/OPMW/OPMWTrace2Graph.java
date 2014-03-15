@@ -16,7 +16,7 @@
 package Factory.OPMW;
 
 import Static.GeneralConstants;
-import Static.OPMW.Traces.QueriesOPMWTraces;
+import Static.Query.QueriesOPMWTraces;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.GraphNode.OPMW.GraphNodeTracesOPMW;

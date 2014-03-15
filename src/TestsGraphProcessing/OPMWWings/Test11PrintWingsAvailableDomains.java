@@ -16,7 +16,7 @@
 package TestsGraphProcessing.OPMWWings;
 
 import Static.GeneralMethods;
-import Static.OPMW.Traces.QueriesOPMWTraces;
+import Static.Query.QueriesOPMWTraces;
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
