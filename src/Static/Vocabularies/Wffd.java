@@ -35,5 +35,5 @@ public class Wffd {
     public static final String PART_OF_WORKFLOW_FRAGMENT= WFFD_PREFIX+"partOfWorkflowFragment";
     public static final String FOUND_AS= WFFD_PREFIX+"foundAs";
     public static final String FOUND_IN= WFFD_PREFIX+"foundIn";
-//    public static final String PART_OF_FRAGMENT= WFFD_PREFIX+"partOfFragment";
+    public static final String DETECTED_BY_ALGORITHM= WFFD_PREFIX+"detectedByAlgorithm";
 }

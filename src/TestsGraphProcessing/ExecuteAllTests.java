@@ -31,6 +31,12 @@ import TestsGraphProcessing.OPMWWings.Test03TransformAWINGSDomainToGraphCollecti
 import TestsGraphProcessing.OPMWWings.Test01TransformOPMWTraceToGraphFromRepository;
 import TestsGraphProcessing.OPMWWings.Test02TransformOPMWTemplateToGraphFromRepository;
 import TestsGraphProcessing.OPMWWings.Test22Graph2OPMWTemplate;
+import TestsGraphProcessing.PAFI.Test26ReadAPAFIResult;
+import TestsGraphProcessing.PAFI.Test27CreateAndValidateStatisticsForAPAFIResult;
+import TestsGraphProcessing.PAFI.Test28FixDirectionalityOfPAFIFRagments;
+import TestsGraphProcessing.PAFI.Test29ValidateRDFWFFDFragmentCatalog;
+import TestsGraphProcessing.PAFI.Test30ValidateRDFWFFDFragmentInstances;
+import TestsGraphProcessing.PAFI.Test31WriteFullCollectionInPAFIFormat;
 import TestsGraphProcessing.SUBDUE.Test16ValidateFoundFragments1;
 import TestsGraphProcessing.SUBDUE.Test17ValidateFoundFragments2;
 import TestsGraphProcessing.SUBDUE.Test18ValidateFoundFragments3;
@@ -39,6 +45,7 @@ import TestsGraphProcessing.SUBDUE.Test20ValidateFoundFragments4;
 import TestsGraphProcessing.SUBDUE.Test21ValidateFoundFragments5;
 import TestsGraphProcessing.SUBDUE.Test23CreateRDFFromFragments;
 import TestsGraphProcessing.SUBDUE.Test24ValidateRDFWFFDFragmentCatalog;
+import TestsGraphProcessing.SUBDUE.Test25ValidateRDFWFFDFragmentInstances;
 
 /**
  * Main class to execute all the tests.
@@ -64,6 +71,13 @@ public class ExecuteAllTests {
         int totalNumberOfTests = 18;
         //for every test, execute it. Each test should describe itself and 
         //measure wether it has been properly executed or not.
+        numberOfSuccessfulTests+=printTestStatus(Test31WriteFullCollectionInPAFIFormat.test());
+        numberOfSuccessfulTests+=printTestStatus(Test30ValidateRDFWFFDFragmentInstances.test());
+        numberOfSuccessfulTests+=printTestStatus(Test29ValidateRDFWFFDFragmentCatalog.test());
+        numberOfSuccessfulTests+=printTestStatus(Test28FixDirectionalityOfPAFIFRagments.test());
+        numberOfSuccessfulTests+=printTestStatus(Test27CreateAndValidateStatisticsForAPAFIResult.test());
+        numberOfSuccessfulTests+=printTestStatus(Test26ReadAPAFIResult.test());
+        numberOfSuccessfulTests+=printTestStatus(Test25ValidateRDFWFFDFragmentInstances.test());
         numberOfSuccessfulTests+=printTestStatus(Test24ValidateRDFWFFDFragmentCatalog.test());        
         numberOfSuccessfulTests+=printTestStatus(Test23CreateRDFFromFragments.test());
         numberOfSuccessfulTests+=printTestStatus(Test22Graph2OPMWTemplate.test());

@@ -23,6 +23,8 @@ import DataStructures.Fragment;
 import DataStructures.GraphNode.GraphNode;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.GeneralConstants;
+import Static.Vocabularies.OPMWTemplate;
+import Static.Vocabularies.PPlan;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -42,7 +44,7 @@ public class FragmentToSPARQLQueryTemplatePAFI extends FragmentToSPARQLQuery {
         for(int i=0; i<graphURIs.size();i++){
             query+=" ?node"+i;
             steps+="?node"+i+" a <"+graphNodes.get(graphURIs.get(i)).getType()+">.\n";
-            steps+="?node"+i+" <http://www.opmw.org/ontology/isStepOfTemplate> <"+structureURI+">.\n";
+            steps+="?node"+i+" <"+OPMWTemplate.IS_STEP_OF_TEMPL+"> <"+structureURI+">.\n";
         }        
         query+=" WHERE{\n";
         query+=steps;
@@ -51,8 +53,8 @@ public class FragmentToSPARQLQueryTemplatePAFI extends FragmentToSPARQLQuery {
             for(int j=0; j < depMatrix.length; j++){
                 if(depMatrix[i][j]!=null && 
                     (depMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY))){
-                    query+="?node"+i+" <http://www.opmw.org/ontology/uses> ?i_"+i+"_"+j+".\n";
-                    query+="?i_"+i+"_"+j+" <http://www.opmw.org/ontology/isGeneratedBy> ?node"+j+".\n";
+                    query+="?node"+i+" <"+OPMWTemplate.USES+"> ?i_"+i+"_"+j+".\n";
+                    query+="?i_"+i+"_"+j+" <"+OPMWTemplate.IS_GEN_BY+"> ?node"+j+".\n";
                 }
             }
         }

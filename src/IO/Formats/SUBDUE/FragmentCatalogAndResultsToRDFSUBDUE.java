@@ -69,6 +69,8 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             //add date and title
             GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),DCTerms.TITLE,XSDDatatype.XSDstring);
             GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),DCTerms.CREATED,XSDDatatype.XSDdate);
+            //add the detected by algorithm property
+            GeneralMethods.addDataProperty(repository, fragmentID,"SUBDUE",Wffd.DETECTED_BY_ALGORITHM,XSDDatatype.XSDstring);
             //for each of these, add the "partOfWorkflowFragment" relationship
             ArrayList<Fragment> includedIds = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
             if(includedIds!=null){

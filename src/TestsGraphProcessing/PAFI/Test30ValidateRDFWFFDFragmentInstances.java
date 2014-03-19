@@ -39,7 +39,7 @@ public class Test30ValidateRDFWFFDFragmentInstances {
     public static int testNumber = 29;
     public static boolean test(){
     try{
-            System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog (Parsemis)");
+            System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog (PAFI)");
            String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
            String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
            String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
