@@ -15,10 +15,26 @@
  */
 package PostProcessing.Formats.PARSEMIS;
 
+import DataStructures.Fragment;
+import IO.Exception.FragmentReaderException;
+import PostProcessing.Formats.PAFI.FragmentToSPARQLQueryTemplatePAFI;
+import PostProcessing.FragmentToSPARQLQuery;
+
 /**
- * TO DO
+ * Fragment to SPARQL query. As it is the same as in PAFI, we return an instance
+ * of that class.
  * @author Daniel Garijo
  */
-public class FragmentToSPARQLQueryTemplateParsemis {
+public class FragmentToSPARQLQueryTemplateParsemis extends FragmentToSPARQLQuery {
+
+    @Override
+    public String createQueryFromFragment(Fragment f, String structureURI) {
+        return new FragmentToSPARQLQueryTemplatePAFI().createQueryFromFragment(f, structureURI);
+    }
     
+//    public static void main(String[] args) throws FragmentReaderException{
+//        CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("TextAnalytics", true, false, "PARSEMIS_TOOL\\results\\run11-03-2014.txt");
+//        Fragment f = c.getFilteredMultiStepFragments().get(10);
+//        System.out.println(new FragmentToSPARQLQueryTemplateParsemis().createQueryFromFragment(f, "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI"));
+//    }
 }

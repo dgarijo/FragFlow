@@ -15,10 +15,34 @@
  */
 package MainGraphProcessingScripts.PARSEMIS;
 
+import Factory.OPMW.OPMWTemplate2Graph;
+import IO.Exception.FragmentReaderException;
+import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
+import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
+
 /**
- *
+ * Main step to produce the RDF from the PAFI results.
+ * This includes: creating the fragment collection, filtering it, fix the 
+ * directionality of the fragments and publish it as rdf.
  * @author Daniel Garijo
  */
 public class STEP4ProduceRDFFromResultsPARSEMIS {
-    
+    public static void main(String[] args) throws FragmentReaderException{
+        String inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormat.lg";
+        CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("Text analytics", true, false, inputFile); 
+        FragmentCatalogAndResultsToRDFPARSEMIS aux = new FragmentCatalogAndResultsToRDFPARSEMIS("ParsemisRDFFragmentCatalog.ttl");           
+        //transformation of the fragment catalog to RDF.
+        aux.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
+
+        OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+        fullCollection.transformDomainToGraph("TextAnalytics");
+        aux.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), fullCollection.getGraphCollection());            
+        
+        //pero animal, si sabes en que templates sale cada fragmento, no le pases la coleccion entera...
+        //TO FIX
+        aux.exportToRDFFile("TURTLE");
+        
+        //what about the abstract collection? (missing completely)
+        //TO DO
+    }
 }

@@ -22,11 +22,23 @@ package IO.Formats.PARSEMIS;
 import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
+import DataStructures.GraphNode.GraphNode;
 import IO.FragmentCatalogAndResultsToRDF;
+import PostProcessing.Formats.PAFI.FragmentToSPARQLQueryTemplatePAFI;
+import Static.GeneralMethodsFragments;
+import Static.GeneralConstants;
+import Static.GeneralMethods;
+import Static.Vocabularies.DCTerms;
+import Static.Vocabularies.PPlan;
+import Static.Vocabularies.Wffd;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
- *
+ * Class for publishing the a filtered catalog in RDF following the wffd model.
  * @author Daniel Garijo
  */
 public class FragmentCatalogAndResultsToRDFPARSEMIS extends FragmentCatalogAndResultsToRDF{
@@ -37,18 +49,78 @@ public class FragmentCatalogAndResultsToRDFPARSEMIS extends FragmentCatalogAndRe
     
 
     @Override
-    public void transformFragmentCollectionToRDF(ArrayList<Fragment> catalog) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void transformFragmentCollectionToRDF(ArrayList<Fragment> filteredCatalog) {
+        Iterator<Fragment> catalogIt = filteredCatalog.iterator();        
+        //in PAFI no fragment includes directly another.
+        while (catalogIt.hasNext()){
+            Fragment currentFragment = catalogIt.next();
+            //fragmentId -> URI
+            String fragmentID= currentFragment.getStructureID()+"_"+dateToken;                
+            GeneralMethods.addIndividual(repository, fragmentID, Wffd.DETECTED_RESULT, "Detected Result Workflow fragment "+fragmentID);
+            //add date and title
+            GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),DCTerms.TITLE,XSDDatatype.XSDstring);
+            GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),DCTerms.CREATED,XSDDatatype.XSDdate);
+            //add which algorithm found the result (in this case, PAFI).
+            GeneralMethods.addDataProperty(repository, fragmentID, "PAFI", Wffd.DETECTED_BY_ALGORITHM,XSDDatatype.XSDstring);
+            ArrayList<Fragment> includedIds = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
+            if(includedIds!=null){
+                Iterator<Fragment> includedIdsIt = includedIds.iterator();                
+                while(includedIdsIt.hasNext()){
+                    Fragment currentIncludedId = includedIdsIt.next();
+                    //we just include the fragment if it also belongs to the catalog
+                    if(filteredCatalog.contains(currentIncludedId)){
+                        String currentID = currentIncludedId.getStructureID()+"_"+dateToken;               
+                        GeneralMethods.addIndividual(repository, currentID, PPlan.PLAN, null);//for redundancy and interoperability
+                        GeneralMethods.addProperty(repository, currentID, fragmentID, Wffd.PART_OF_WORKFLOW_FRAGMENT);
+                    }
+                }
+            }
+            ArrayList<String> urisOfFragment = currentFragment.getDependencyGraph().getURIs();
+            HashMap<String,GraphNode> currentFragmentNodes = currentFragment.getDependencyGraph().getNodes();
+            String[][] currentFragmentAdjMatrix = currentFragment.getDependencyGraph().getAdjacencyMatrix();
+            //for each dependency, create the appropriate URI 
+            Iterator<String> urisOfFragmentIt = urisOfFragment.iterator();
+            while (urisOfFragmentIt.hasNext()){
+                String currentURI = urisOfFragmentIt.next();
+                String currentURItype = currentFragmentNodes.get(currentURI).getType();
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID);
+                GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, PPlan.IS_STEP_OF_PLAN);
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);                
+            }
+            //PARSEMIS STARTS FROM 0 DUE TO THE NODE NUMBERING
+            for(int i = 0;i<currentFragmentAdjMatrix.length;i++){
+                for(int j=0 ; j<currentFragmentAdjMatrix.length;j++){
+                    if(currentFragmentAdjMatrix[i][j]!=null && 
+                            (currentFragmentAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY))){
+                        String uriI = urisOfFragment.get(i);
+                        uriI = fragmentID+"_NODE"+uriI;
+                        String uriJ = urisOfFragment.get(j);
+                        uriJ = fragmentID+"_NODE"+uriJ;
+                        GeneralMethods.addProperty(repository, uriI, uriJ, PPlan.IS_PRECEEDED_BY);
+                    }
+                }
+            }
+        }
     }
 
     @Override
     public void transformBindingResultsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ArrayList<Graph> temps = templates.getGraphs();
+        Iterator<Graph> itTemps = temps.iterator();
+        while(itTemps.hasNext()){
+            Graph currentTemplate = itTemps.next();
+            currentTemplate.putReducedNodesInAdjacencyMatrix();
+            transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
+        }
     }
 
     @Override
     public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Iterator<Fragment> fragments = obtainedResults.iterator();         
+        while(fragments.hasNext()){
+            Fragment f = fragments.next();
+            transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplatePAFI());
+        }
     }
     
 }

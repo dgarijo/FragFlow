@@ -15,29 +15,28 @@
  */
 package TestsGraphProcessing.PARSEMIS;
 
-import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
+import DataStructures.Fragment;
+import IO.Formats.PARSEMIS.Gspan.FragmentReaderPARSEMISGspan;
+import java.util.HashMap;
 
 /**
- * Test designed to write the graph collection in the parsemis format.
+ * Test to read a Parsemis Result
  * @author Daniel Garijo
  */
-public class TestXXWriteFullCollectionInPARSEMISFormat {
-    public static int testNumber = -1;//not given a number until we complete the previous ones.
+public class Test33ReadAParsemisResult {
+    public static int testNumber = 33;//not given a number until we complete the previous ones.
     public static boolean test(){
-        try{
-            System.out.println("\n\nExecuting test:"+testNumber+" Save collection in PAFI format");
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
-            tp.transformDomainToGraph("TextAnalytics");
-            CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-//          writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
-            if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
-                writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testSaveCollectionAsPARSEMISFile.lg");
+         try{
+            System.out.println("\n\nExecuting test:"+testNumber+" Read Parsemis results");
+            String file = "PARSEMIS_TOOL\\results\\run11-03-2014.txt";
+            HashMap<String,Fragment> structureResults = new FragmentReaderPARSEMISGspan(file).getFragmentCatalogAsHashMap();
+            //this particular set of results has 41.
+            if(structureResults.size()==41){
                 return true;
             }
             return false;
         }catch(Exception e){
-            System.out.println("Test TestSaveCollectionAsPARSEMIS File case failed: "+ e.getMessage());
+            System.out.println("Error executing test. Exception: "+e.getMessage());
             return false;
         }
     }
@@ -46,4 +45,5 @@ public class TestXXWriteFullCollectionInPARSEMISFormat {
         if(test())System.out.println("Test "+testNumber+" OK");
         else System.out.println("Test "+testNumber+" FAILED");
     }
+    
 }

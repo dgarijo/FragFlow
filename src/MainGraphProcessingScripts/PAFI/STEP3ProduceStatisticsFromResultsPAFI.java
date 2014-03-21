@@ -17,6 +17,8 @@ package MainGraphProcessingScripts.PAFI;
 
 import IO.Exception.FragmentReaderException;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -25,17 +27,18 @@ import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 public class STEP3ProduceStatisticsFromResultsPAFI {
     public static void main(String[] args){
         try {
+            String d = new SimpleDateFormat("dd-M-yyyy_hh-mm-ss").format(new Date());
             String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
             String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
             String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
             CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
-            c.printStatistics("testStatisticsPafi");
+            c.printStatistics("statisticsPafi"+d);
             //Abstract Collection
             fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.fp";
             pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.pc";
             tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.tid";
-            c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
-            c.printStatistics("testStatisticsPafiAbstract");
+            c = new CreateStatisticsFromResultsPAFI("Text analytics", true, true, fpfile, pcFile, tidFile);            
+            c.printStatistics("statisticsPafiAbstract"+d);
         } catch (FragmentReaderException ex) {
             System.out.println("Error while executing test "+ex.getMessage());
         }

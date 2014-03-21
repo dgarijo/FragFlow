@@ -1,0 +1,358 @@
+t # 44
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+e 1 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 9 6 8 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 14 13 12 16
+t # 45
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 6 8 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING 7 6 5
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 13 12 16
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 28 30 22
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 24 25 26
+t # 47
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF_http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+e 1 3 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 23 19 29 27
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 22 24 31 28
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 13 11 15 14
+t # 48
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 19 29 27
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 24 31 28
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 11 15 14
+t # 50
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim_http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+e 1 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 11 14 12 10
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 12 15 13 11
+t # 51
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 14 12 10
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 15 13 11
+t # 52
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords_http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 8 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 29 27
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 31 28
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 12 10
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING 6 5
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 15 14
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 12 16
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/TOPICMODELING 12 14
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 13 11
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 30 22
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 25 26
+t # 54
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 9 7 6
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 14 16 13
+t # 55
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 7 6
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING 5 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 16 13
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 26 24
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 22 28
+t # 59
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff_http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/MULTILABEL_ 7 6
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 29 27
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 32 31
+t # 60
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION 6 9
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 13 14
+t # 62
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim_http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 11 10 14
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 12 11 15
+t # 63
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 10 14
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 11 15
+t # 65
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF_http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 28 24 22
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 27 19 23
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 14 11 13
+t # 66
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF_http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 24 22
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 19 23
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 11 13
+t # 76
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 4 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 2 3 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 4 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 33 31 35
+t # 77
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 3 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 1 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 33 31 35
+t # 78
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 0 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 33 31 35
+t # 80
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 3 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 4 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 33 31 35
+t # 81
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 33 31 35
+t # 82
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 33 31 35
+t # 86
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 4 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 4 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 33 31 35
+t # 87
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 3 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 33 31 35
+t # 88
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 26 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 33 31 35
+t # 92
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 31 35
+t # 93
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 31 35
+t # 94
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 30 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 15 11
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 31 35
+t # 99
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 4 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 30 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 31 33 35
+t # 100
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 30 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 31 33 35
+t # 101
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 30 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 31 33 35
+t # 103
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 1 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 3 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34 33 35
+t # 104
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 0 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 21 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 34 33 35
+t # 105
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 26 20
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 33 35
+t # 107
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection_http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 10 11
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/MODEL 5 4
+t # 108
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/PLOTCORRELATIONSCORE 5 7
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION 15 10
+t # 110
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+e 2 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+e 2 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 20 21
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 35 34
+t # 111
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 20 21
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/VALIDATE 5 6
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 35 34
+t # 112
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#Validator_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 25 21
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 27 34
+t # 113
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer_http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 27 19
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 28 24
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING 14 11
+t # 114
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim_http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS 14 11
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS 15 12
+t # 115
+v 0 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared
+e 1 0 http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared_http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_ 30 26
+#=> http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI 31 33

@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 /**
  * Test designed to check that a fragment containing 2 substructures of the same 
- * subfragment work. For example, 
+ * subfragment works. For example, 
  * v 1 SUB_1
  * v 2 SUB_1
  * v 3 process

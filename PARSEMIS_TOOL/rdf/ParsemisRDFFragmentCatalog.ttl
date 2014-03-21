@@ -1,0 +1,900 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Validator>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/59_1395366095847_NODE0>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single> ;
+      rdfs:label "Step 59_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/59_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_MULTI2SINGLE1>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011561> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661004020>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDS_TERMWEIGHTING>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661006470> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/MODEL_FEATURESELECTION>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012500> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011820>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/44_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 44_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/44_1395366095847_NODE3> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/44_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_TERMWEIGHTING>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661009090> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_STEMMER1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011900> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__TF_IDF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003040> .
+
+<http://vocab.linkeddata.es/resource/94_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 94_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/94_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/94_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDSTOPICS_TERMWEIGHTING>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011450> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/TOPICMODELING_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661010460> .
+
+<http://vocab.linkeddata.es/resource/59_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 59_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/59_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/59_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003040> , <http://vocab.linkeddata.es/resource/BINDING13953661003351> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661001860>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661009030> , <http://vocab.linkeddata.es/resource/BINDING13953661009090> , <http://vocab.linkeddata.es/resource/BINDING13953661009990> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661007210>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_MULTI2SINGLE>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011550> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661008850>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__PORTERSTEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003040> .
+
+<http://purl.org/net/p-plan#Plan>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__FEATURESELECTION>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> , <http://vocab.linkeddata.es/resource/BINDING13953661002330> , <http://vocab.linkeddata.es/resource/BINDING13953661002670> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLUSTERING_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007900> , <http://vocab.linkeddata.es/resource/BINDING13953661007960> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661012500>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661010460>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661006410>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/94_1395366095847>
+      a       <http://purl.org/net/p-plan#Plan> , <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 94_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "94"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011820> , <http://vocab.linkeddata.es/resource/BINDING13953661008980> , <http://vocab.linkeddata.es/resource/BINDING13953661002670> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_> ;
+      <http://purl.org/net/wf-fd#partOfWorkflowFragment>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://purl.org/dc/terms/created>
+      a       owl:DatatypeProperty .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/TOPICMODELING_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661010460> .
+
+<http://vocab.linkeddata.es/resource/44_1395366095847_NODE2>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 44_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/44_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_FORMATARFF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012320> , <http://vocab.linkeddata.es/resource/BINDING13953661011561> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661006470>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661012100>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/45_1395366095847>
+      a       <http://purl.org/net/p-plan#Plan> , <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 45_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "45"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011900> , <http://vocab.linkeddata.es/resource/BINDING13953661009030> , <http://vocab.linkeddata.es/resource/BINDING13953661011921> , <http://vocab.linkeddata.es/resource/BINDING13953661007060> , <http://vocab.linkeddata.es/resource/BINDING13953661001700> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> , <http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING> ;
+      <http://purl.org/net/wf-fd#partOfWorkflowFragment>
+              <http://vocab.linkeddata.es/resource/44_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/52_1395366095847>
+      a       <http://purl.org/net/p-plan#Plan> , <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 52_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "52"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001990> , <http://vocab.linkeddata.es/resource/BINDING13953661007210> , <http://vocab.linkeddata.es/resource/BINDING13953661007960> , <http://vocab.linkeddata.es/resource/BINDING13953661012171> , <http://vocab.linkeddata.es/resource/BINDING13953661003300> , <http://vocab.linkeddata.es/resource/BINDING13953661011400> , <http://vocab.linkeddata.es/resource/BINDING13953661012100> , <http://vocab.linkeddata.es/resource/BINDING13953661010460> , <http://vocab.linkeddata.es/resource/BINDING13953661006410> , <http://vocab.linkeddata.es/resource/BINDING13953661003351> , <http://vocab.linkeddata.es/resource/BINDING13953661009990> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> , <http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING> , <http://www.opmw.org/export/resource/WorkflowTemplate/STEMMING> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_> , <http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS> , <http://www.opmw.org/export/resource/WorkflowTemplate/TOPICMODELING> ;
+      <http://purl.org/net/wf-fd#partOfWorkflowFragment>
+              <http://vocab.linkeddata.es/resource/47_1395366095847> , <http://vocab.linkeddata.es/resource/50_1395366095847> , <http://vocab.linkeddata.es/resource/44_1395366095847> , <http://vocab.linkeddata.es/resource/45_1395366095847> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_STEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011921> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/STEMMING_STEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007060> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661003900>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/108_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 108_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:35 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "108"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008150> , <http://vocab.linkeddata.es/resource/BINDING13953661008850> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> , <http://www.opmw.org/export/resource/WorkflowTemplate/PLOTCORRELATIONSCORE> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011900> , <http://vocab.linkeddata.es/resource/BINDING13953661012100> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661007900>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661009030> , <http://vocab.linkeddata.es/resource/BINDING13953661009090> , <http://vocab.linkeddata.es/resource/BINDING13953661009990> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDS_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661006470> , <http://vocab.linkeddata.es/resource/BINDING13953661006410> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__FORMATARFF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> , <http://vocab.linkeddata.es/resource/BINDING13953661002670> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__STOPWORDS1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003081> , <http://vocab.linkeddata.es/resource/BINDING13953661003300> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__CHISQUARED>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011450>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://purl.org/net/wf-fd#detectedByAlgorithm>
+      a       owl:DatatypeProperty .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661003351>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATUREGENERATION_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001860> , <http://vocab.linkeddata.es/resource/BINDING13953661001990> , <http://vocab.linkeddata.es/resource/BINDING13953661001700> .
+
+<http://purl.org/net/wf-fd#DetectedResultWorkflowFragment>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/44_1395366095847_NODE3>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 44_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/44_1395366095847_NODE2> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/44_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_STEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661009030> , <http://vocab.linkeddata.es/resource/BINDING13953661009090> .
+
+<http://purl.org/net/wf-fd#partOfWorkflowFragment>
+      a       rdf:Property .
+
+<http://vocab.linkeddata.es/resource/52_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 52_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/52_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/47_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 47_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/47_1395366095847_NODE1> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/47_1395366095847> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/108_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 108_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/108_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_FEATURESELECTION>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011820> , <http://vocab.linkeddata.es/resource/BINDING13953661012320> , <http://vocab.linkeddata.es/resource/BINDING13953661011640> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__PORTERSTEMMER1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003081> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_FORMATARFF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008980> , <http://vocab.linkeddata.es/resource/BINDING13953661008850> .
+
+<http://purl.org/net/wf-fd#TiedResultWorkflowFragment>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011561>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011400>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011921>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/107_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 107_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:35 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "107"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008920> , <http://vocab.linkeddata.es/resource/BINDING13953661012500> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/MODEL> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDS_FORMATSIM>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661006470> .
+
+<http://vocab.linkeddata.es/resource/50_1395366095847_NODE3>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 50_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/50_1395366095847_NODE2> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/50_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/VALIDATE_FEATURESELECTION>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661010590> .
+
+<http://vocab.linkeddata.es/resource/111_1395366095847>
+      a       <http://purl.org/net/p-plan#Plan> , <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 111_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:35 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "111"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011640> , <http://vocab.linkeddata.es/resource/BINDING13953661010590> , <http://vocab.linkeddata.es/resource/BINDING13953661002330> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/VALIDATE> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_> ;
+      <http://purl.org/net/wf-fd#partOfWorkflowFragment>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_CORRELATIONSCORE>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008850> , <http://vocab.linkeddata.es/resource/BINDING13953661008920> .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 76_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011900>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/47_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 47_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/47_1395366095847_NODE3> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/47_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/108_1395366095847_NODE1>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore> ;
+      rdfs:label "Step 108_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/108_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/108_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/94_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 94_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/94_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATUREGENERATION_STEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001860> , <http://vocab.linkeddata.es/resource/BINDING13953661001700> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661008980>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Validator> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 76_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/76_1395366095847_NODE4> , <http://vocab.linkeddata.es/resource/76_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661012320>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661001990>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/50_1395366095847_NODE2>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 50_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/50_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661003040>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/PLOTCORRELATIONSCORE_FORMATARFF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008150> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLUSTERING_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007900> , <http://vocab.linkeddata.es/resource/BINDING13953661007960> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661007960>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/111_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Validator> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 111_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/111_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/111_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_FORMATARFF1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011820> , <http://vocab.linkeddata.es/resource/BINDING13953661012320> , <http://vocab.linkeddata.es/resource/BINDING13953661011550> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661003300>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661002330>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011900> , <http://vocab.linkeddata.es/resource/BINDING13953661012100> .
+
+rdfs:label
+      a       owl:DatatypeProperty .
+
+<http://purl.org/net/wf-fd#foundAs>
+      a       rdf:Property .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661009030>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/47_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 47_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "47"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007900> , <http://vocab.linkeddata.es/resource/BINDING13953661003040> , <http://vocab.linkeddata.es/resource/BINDING13953661003081> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLUSTERING> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_> .
+
+<http://purl.org/net/p-plan#isPreceededBy>
+      a       rdf:Property .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATUREGENERATION_TERMWEIGHTING>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001860> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__FORMATARFF1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> .
+
+<http://vocab.linkeddata.es/resource/47_1395366095847_NODE2>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 47_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/47_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661009090>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDSTOPICS_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011400> , <http://vocab.linkeddata.es/resource/BINDING13953661011450> .
+
+<http://purl.org/net/p-plan#Step>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847_NODE2>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 76_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/76_1395366095847_NODE3> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDS_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661006470> , <http://vocab.linkeddata.es/resource/BINDING13953661006410> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLUSTERING_PORTERSTEMMER>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007900> .
+
+<http://vocab.linkeddata.es/resource/50_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 50_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/50_1395366095847_NODE3> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/50_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/107_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 107_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/107_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/107_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011640>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 76_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "76"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> , <http://vocab.linkeddata.es/resource/BINDING13953661012320> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_SINGLE_> .
+
+<http://vocab.linkeddata.es/resource/44_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 44_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "44"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001860> , <http://vocab.linkeddata.es/resource/BINDING13953661009090> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION> , <http://www.opmw.org/export/resource/WorkflowTemplate/FEATURESELECTION> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_CHISQUARED>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012320> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATURESELECTION_FEATURESELECTION>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008980> , <http://vocab.linkeddata.es/resource/BINDING13953661008920> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDSTOPICS_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011400> , <http://vocab.linkeddata.es/resource/BINDING13953661011450> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/MODEL_CORRELATIONSCORE>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012500> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/52_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 52_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/52_1395366095847_NODE0> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/52_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__TF_IDF1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003081> .
+
+<http://vocab.linkeddata.es/resource/45_1395366095847_NODE2>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 45_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/45_1395366095847_NODE1> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/45_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/47_1395366095847_NODE3>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 47_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/47_1395366095847_NODE2> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/47_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661002670>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/FEATUREGENERATION_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661001860> , <http://vocab.linkeddata.es/resource/BINDING13953661001990> , <http://vocab.linkeddata.es/resource/BINDING13953661001700> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661008150>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/50_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 50_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/50_1395366095847_NODE1> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/50_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/50_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 50_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:36 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "50"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661006470> , <http://vocab.linkeddata.es/resource/BINDING13953661011450> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDSTOPICS> , <http://www.opmw.org/export/resource/WorkflowTemplate/SIMILARWORDS> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661012171>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/107_1395366095847_NODE0>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore> ;
+      rdfs:label "Step 107_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/107_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/59_1395366095847>
+      a       <http://purl.org/net/wf-fd#DetectedResultWorkflowFragment> ;
+      rdfs:label "Detected Result Workflow fragment 59_1395366095847" ;
+      <http://purl.org/dc/terms/created>
+              "Fri Mar 21 02:41:35 CET 2014"^^xsd:date ;
+      <http://purl.org/dc/terms/title>
+              "59"^^xsd:string ;
+      <http://purl.org/net/wf-fd#detectedByAlgorithm>
+              "PAFI"^^xsd:string ;
+      <http://purl.org/net/wf-fd#foundAs>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011550> , <http://vocab.linkeddata.es/resource/BINDING13953661004020> , <http://vocab.linkeddata.es/resource/BINDING13953661011561> ;
+      <http://purl.org/net/wf-fd#foundIn>
+              <http://www.opmw.org/export/resource/WorkflowTemplate/MULTILABEL_> , <http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__VALIDATOR>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Validator> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003900> , <http://vocab.linkeddata.es/resource/BINDING13953661002330> .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847_NODE3>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 76_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_VALIDATOR>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Validator> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012320> , <http://vocab.linkeddata.es/resource/BINDING13953661011640> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/SIMILARWORDSTOPICS_FORMATSIM>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661011450> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_STOPWORDS1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012171> , <http://vocab.linkeddata.es/resource/BINDING13953661011921> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLUSTERING_TF_IDF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007900> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661003081>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://purl.org/dc/terms/title>
+      a       owl:DatatypeProperty .
+
+<http://purl.org/net/p-plan#isStepOfPlan>
+      a       rdf:Property .
+
+<http://vocab.linkeddata.es/resource/45_1395366095847_NODE1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 45_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/45_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/VALIDATE_VALIDATOR>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Validator> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661010590> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661007060>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore>
+      a       owl:Class .
+
+<http://purl.org/net/wf-fd#foundIn>
+      a       rdf:Property .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003040> , <http://vocab.linkeddata.es/resource/BINDING13953661003351> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_MULTI_SMALLWORDS1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661012171> , <http://vocab.linkeddata.es/resource/BINDING13953661011921> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661001700>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/DOCUMENTCLASSIFICATION_SINGLE__SMALLWORDS1>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661003081> , <http://vocab.linkeddata.es/resource/BINDING13953661003300> .
+
+<http://vocab.linkeddata.es/resource/111_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 111_1395366095847" ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/111_1395366095847> .
+
+<http://vocab.linkeddata.es/resource/76_1395366095847_NODE4>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 76_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/76_1395366095847_NODE2> , <http://vocab.linkeddata.es/resource/76_1395366095847_NODE3> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/76_1395366095847> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661008920>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/MULTILABEL__MULTI2SINGLE>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661004020> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#ChiSquared>
+      a       owl:Class .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/STEMMING_SMALLWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007210> , <http://vocab.linkeddata.es/resource/BINDING13953661007060> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661011550>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661010590>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/STEMMING_STOPWORDS>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661007210> , <http://vocab.linkeddata.es/resource/BINDING13953661007060> .
+
+<http://www.isi.edu/ac/TextAnalytics/library.owl#FeatureSelection>
+      a       owl:Class .
+
+<http://vocab.linkeddata.es/resource/45_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 45_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/45_1395366095847_NODE2> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/45_1395366095847> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/PLOTCORRELATIONSCORE_CORRELATIONSCORE>
+      a       <http://purl.org/net/p-plan#Step> , <http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661008150> .
+
+<http://www.opmw.org/export/resource/WorkflowTemplateProcess/MULTILABEL__FORMATARFF>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff> , <http://purl.org/net/p-plan#Step> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/BINDING13953661004020> .
+
+<http://vocab.linkeddata.es/resource/BINDING13953661009990>
+      a       <http://purl.org/net/wf-fd#TiedResultWorkflowFragment> .
+
+<http://vocab.linkeddata.es/resource/44_1395366095847_NODE0>
+      a       <http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting> , <http://purl.org/net/p-plan#Step> ;
+      rdfs:label "Step 44_1395366095847" ;
+      <http://purl.org/net/p-plan#isPreceededBy>
+              <http://vocab.linkeddata.es/resource/44_1395366095847_NODE1> ;
+      <http://purl.org/net/p-plan#isStepOfPlan>
+              <http://vocab.linkeddata.es/resource/44_1395366095847> .

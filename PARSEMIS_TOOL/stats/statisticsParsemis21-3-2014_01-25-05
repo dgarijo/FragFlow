@@ -1,0 +1,17 @@
+Creating statistics ...
+Algorithm used: Parsemis
+- Domain: TextAnalytics, evaluation type: -
+- Executed on the templates
+- No inference applied
+Number of structures found: 41
+Number of irreducible fragments found (i.e., those structures which do not include parts of others): 15
+Number of multi step fragments structures found (i.e., those with at least two process steps): 41(11)
+Number of multi step irreducible fragments found: 15
+Frequency of detected structures: 95
+Frequency of multi step fragments: 95(33)
+FilteredMultiStepFragments:
+59; 111; 108; 107; 94; 45; 44; 47; 52; 50; 76; 
+MultiStepFragments:
+114; 78; 115; 59; 77; 112; 113; 110; 111; 55; 108; 107; 82; 105; 65; 104; 62; 80; 103; 63; 81; 99; 60; 86; 101; 87; 100; 48; 66; 94; 45; 93; 44; 47; 92; 51; 52; 54; 88; 50; 76; 
+IrreducibleMultiStepFragments:
+114; 115; 59; 112; 113; 111; 55; 108; 107; 105; 63; 60; 66; 94; 52; 

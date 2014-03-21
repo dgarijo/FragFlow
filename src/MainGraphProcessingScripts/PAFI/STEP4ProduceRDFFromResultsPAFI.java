@@ -43,8 +43,14 @@ public class STEP4ProduceRDFFromResultsPAFI{
         //now we find where the fragments have been found and we 
         OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
         fullCollection.transformDomainToGraph("TextAnalytics");
+        
+        //pero animal, si sabes en que templates sale cada fragmento, no le pases la coleccion entera...
+        //TO FIX
         catalogInRdf.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, fullCollection.getGraphCollection());
         catalogInRdf.exportToRDFFile("TURTLE");
+        
+        //what about the abstract collection? (missing completely)
+        //TO DO
     }
     
 }

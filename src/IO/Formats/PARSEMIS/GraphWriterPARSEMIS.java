@@ -50,7 +50,7 @@ public class GraphWriterPARSEMIS extends GraphWriter{
     public void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
         out.write("t # "+g.getName());
         out.newLine();
-        System.out.println("%Writting: "+g.getName());
+        System.out.println("%Writing: "+g.getName());
         //retrieve the reduced graph
         g.putReducedNodesInAdjacencyMatrix();
         ArrayList<String>uris = g.getURIs();
@@ -72,7 +72,7 @@ public class GraphWriterPARSEMIS extends GraphWriter{
                 GraphNode currNode = (GraphNode) nodes.get(currentURI);
                 String nodeType = currNode.getType();
                 //the hashMap may NOT have the node for replacement (leave the one it has already)
-                if(replacements.containsKey(currNode.getType())){
+                if(replacements.containsKey(nodeType)){
                     nodeType = (String) replacements.get(nodeType);
                 }
 //                System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
@@ -87,7 +87,18 @@ public class GraphWriterPARSEMIS extends GraphWriter{
                     //this is a bug that has to be fixed. the [0][0] lines should NOT be ignored, and therefore
                     //the -1 should not be necessary.
                     //This has to be fixed and reviewed (opmw2Template and opmw2Trace)
-                    out.write("e "+(i+nodeCount)+" "+(j+nodeCount)+" "+nodes.get(uris.get(i-1)).getType()+"_"+nodes.get(uris.get(j-1)).getType()+" "+GeneralConstants.INFORM_EGDE);
+                    String typeI = nodes.get(uris.get(i-1)).getType();
+                    String typeJ = nodes.get(uris.get(j-1)).getType();
+                    if(replacements!=null){
+                        if(replacements.containsKey(typeI)){
+                            typeI = (String) replacements.get(typeI);
+                        }
+                        if(replacements.containsKey(typeJ)){
+                            typeJ = (String) replacements.get(typeJ);
+                        }
+                    }
+                    String lineToWrite = "e "+(i+nodeCount)+" "+(j+nodeCount)+" "+typeI+"_"+typeJ+" "+GeneralConstants.INFORM_EGDE;
+                    out.write(lineToWrite);
                     out.newLine();
                 }
             }                

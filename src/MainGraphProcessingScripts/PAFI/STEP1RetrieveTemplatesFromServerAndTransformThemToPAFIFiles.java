@@ -54,8 +54,6 @@ public class STEP1RetrieveTemplatesFromServerAndTransformThemToPAFIFiles {
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(),Configuration.getPAFIInputPath()+"CollectionInPAFIFormatABSTRACT", replacements);
                 System.out.println("Abstract collection retrieved successfully");
             }
-                
-            
         }catch(Exception e){
             System.out.println("Error: "+ e.getMessage());
             

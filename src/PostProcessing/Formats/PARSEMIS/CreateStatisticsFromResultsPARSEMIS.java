@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,10 +15,37 @@
  */
 package PostProcessing.Formats.PARSEMIS;
 
+import IO.Exception.FragmentReaderException;
+import IO.Formats.PARSEMIS.Gspan.FragmentReaderPARSEMISGspan;
+import PostProcessing.CreateStatisticsFromResults;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
- * TO DO
+ * Main class to generate statistics for Parsemis results
  * @author Daniel Garijo
  */
-public class CreateStatisticsFromResultsPARSEMIS {
+public class CreateStatisticsFromResultsPARSEMIS extends CreateStatisticsFromResults{
+    private HashMap<String, ArrayList<String>> fragmentsInTransactions;
+  public CreateStatisticsFromResultsPARSEMIS(String domain, 
+             boolean isTemplate, boolean hasInference, 
+                String resultFile) throws FragmentReaderException {                        
+        super(domain, "-", "Parsemis", isTemplate, hasInference, null);
+        FragmentReaderPARSEMISGspan reader = new FragmentReaderPARSEMISGspan(resultFile);
+        this.originalFragmentCatalog = reader.getFragmentCatalogAsHashMap();
+        this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();     
+        initializeStatistics();
+    }
+
+    /**
+     * Returns in which transactions has the fragment in the first argument been found
+     */
+    public HashMap<String, ArrayList<String>> getFragmentsInTransactions() {
+        return fragmentsInTransactions;
+    }
     
+//    public static void main(String[] args) throws FragmentReaderException{
+//        CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("TextAnalytics", true, false, "PARSEMIS_TOOL\\results\\run11-03-2014.txt");
+//        c.printStatistics("testStatisticsParsemis");
+//    }
 }

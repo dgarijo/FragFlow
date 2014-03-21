@@ -53,7 +53,7 @@ public class GraphWriterPAFI extends GraphWriter{
     public void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
         out.write("t # "+g.getName());
         out.newLine();
-        System.out.println("%Writting: "+g.getName());
+        System.out.println("%Writing: "+g.getName());
         //retrieve the reduced graph
         g.putReducedNodesInAdjacencyMatrix();
         Iterator<String> it = g.getURIs().iterator();

@@ -109,4 +109,24 @@ public class Configuration {
     public static String getPAFIInputPath(){
         return getConfigurationFile().config.getProperty("pafiInputFolderPath");
     }
+    
+    /**
+     * Parsemis executable path
+     * @return the executable output path
+     */
+    public static String getPARSEMISExecutablePath(){
+        return getConfigurationFile().config.getProperty("paresmisExecutableBinaryPath");
+    }
+    
+    /**
+     * Parsemis input path folder
+     * @return the executable output path
+     */
+    public static String getPARSEMISInputPath(){
+        return getConfigurationFile().config.getProperty("parsemisInputFolderPath");
+    }
+    
+    public static String getPARSEMISOutputPath(){
+        return getConfigurationFile().config.getProperty("parsemisOutputFolderPath");
+    }
 }

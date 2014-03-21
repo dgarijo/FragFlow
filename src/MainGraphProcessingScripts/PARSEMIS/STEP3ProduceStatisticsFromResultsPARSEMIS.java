@@ -15,10 +15,31 @@
  */
 package MainGraphProcessingScripts.PARSEMIS;
 
+import IO.Exception.FragmentReaderException;
+import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author Daniel Garijo
  */
 public class STEP3ProduceStatisticsFromResultsPARSEMIS {
-    
+    public static void main(String[]args){
+        try {
+            String inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormat.lg";
+            String d = new SimpleDateFormat("dd-M-yyyy_hh-mm-ss").format(new Date());
+            CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("TextAnalytics", true, false, inputFile);
+            c.printStatistics("statisticsParsemis"+d);
+            
+            //Abstract Collection
+            inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormatABSTRACT.lg";
+            c = new CreateStatisticsFromResultsPARSEMIS("TextAnalytics", true, true, inputFile);
+            c.printStatistics("statisticsParsemisAbstract"+d);
+        } catch (FragmentReaderException ex) {
+            System.out.println("Error while executing test "+ex.getMessage());
+        }
+        
+    }
 }

@@ -17,7 +17,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package IO.Formats.PARSEMIS;
+package IO.Formats.PARSEMIS.Gspan;
 
 import DataStructures.Fragment;
 import DataStructures.Graph;
@@ -38,7 +38,7 @@ import java.util.Iterator;
  * the PARSEMIS framework.
  * @author Daniel Garijo
  */
-public class FragmentReaderPARSEMIS extends FragmentReader{
+public class FragmentReaderPARSEMISGspan extends FragmentReader{
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
     //auxiliar structure to determine which fragment is included in which easily.
     private HashMap<String,ArrayList<String>> connectionsOfFragment;
@@ -48,7 +48,7 @@ public class FragmentReaderPARSEMIS extends FragmentReader{
      * need to parse the results.
      * @param resultFile 
      */
-    public FragmentReaderPARSEMIS(String resultFile) {
+    public FragmentReaderPARSEMISGspan(String resultFile) {
         this.resultFile = resultFile;
         finalResults = new HashMap<String, Fragment>();
     }
@@ -123,14 +123,19 @@ public class FragmentReaderPARSEMIS extends FragmentReader{
                 if(strLine.startsWith("#=>")){
                     //add the numbers here
                     String templates = strLine.split(" ")[1];
-                    numberOfOccurrencesOfFragment++;
 //                    System.out.println("Fragment "+fragmentID+" appears in "+templates);
                     if(occurrencesOfFragmentInTransaction.containsKey(fragmentID)){
-                        this.occurrencesOfFragmentInTransaction.get(fragmentID).add(templates);
+                        ArrayList<String> existingTransactions = occurrencesOfFragmentInTransaction.get(fragmentID);
+                        if(!existingTransactions.contains(templates)){
+                            existingTransactions.add(templates);
+                            numberOfOccurrencesOfFragment++;
+                        }
+                        //this.occurrencesOfFragmentInTransaction.get(fragmentID).add(templates);
                     }else{
                         ArrayList<String> valueToAdd = new ArrayList<String>();
                         valueToAdd.add(templates);
                         this.occurrencesOfFragmentInTransaction.put(fragmentID,valueToAdd );
+                        numberOfOccurrencesOfFragment++;
                     }
                 }
             }
@@ -179,7 +184,7 @@ public class FragmentReaderPARSEMIS extends FragmentReader{
                         if(included){
                             //add that the current fragment is included in the other fragment.
                             //That is, we add the current fragment in the other fragment list of included ids
-                            System.out.println("Fragment "+ currentFragment+" is included in "+otherFragment);
+//                            System.out.println("Fragment "+ currentFragment+" is included in "+otherFragment);
                             Fragment aux = finalResults.get(otherFragment);
                             if(aux.getListOfIncludedIDs()!=null){
                                 aux.getListOfIncludedIDs().add(finalResults.get(currentFragment));
@@ -195,6 +200,10 @@ public class FragmentReaderPARSEMIS extends FragmentReader{
         }
     }
 
+    public HashMap<String, ArrayList<String>> getOccurrencesOfFragmentInTransaction() {
+        return occurrencesOfFragmentInTransaction;
+    }
+
     @Override
     public HashMap<String, Fragment> getFragmentCatalogAsHashMap() throws FragmentReaderException {
         if(!finalResults.isEmpty())return finalResults;
@@ -205,13 +214,13 @@ public class FragmentReaderPARSEMIS extends FragmentReader{
         return finalResults;
     }
     
-    public static void main(String[] args){
-        try{
-            String file = "PARSEMIS_TOOL\\results\\run11-03-2014.txt";
-            HashMap<String,Fragment> structureResults = new FragmentReaderPARSEMIS(file).getFragmentCatalogAsHashMap();
-        }catch(Exception e){
-            System.out.println("Error executing test. Exception: "+e.getMessage());
-        }
-    }
+//    public static void main(String[] args){
+//        try{
+//            String file = "PARSEMIS_TOOL\\results\\run11-03-2014.txt";
+//            HashMap<String,Fragment> structureResults = new FragmentReaderPARSEMIS(file).getFragmentCatalogAsHashMap();
+//        }catch(Exception e){
+//            System.out.println("Error executing test. Exception: "+e.getMessage());
+//        }
+//    }
     
 }

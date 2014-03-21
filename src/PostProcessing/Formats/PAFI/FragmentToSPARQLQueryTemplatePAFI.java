@@ -24,7 +24,6 @@ import DataStructures.GraphNode.GraphNode;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.GeneralConstants;
 import Static.Vocabularies.OPMWTemplate;
-import Static.Vocabularies.PPlan;
 import java.util.ArrayList;
 import java.util.HashMap;
 

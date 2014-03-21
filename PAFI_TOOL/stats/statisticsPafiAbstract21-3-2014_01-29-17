@@ -1,0 +1,17 @@
+Creating statistics ...
+Algorithm used: PAFI
+- Domain: Text analytics, evaluation type: -
+- Executed on the templates
+- Inference applied
+Number of structures found: 68
+Number of irreducible fragments found (i.e., those structures which do not include parts of others): 11
+Number of multi step fragments structures found (i.e., those with at least two process steps): 68(16)
+Number of multi step irreducible fragments found: 11
+Frequency of detected structures: 188
+Frequency of multi step fragments: 188(70)
+FilteredMultiStepFragments:
+1-4; 1-7; 1-6; 1-9; 1-8; 1-1; 1-3; 1-2; 3-0; 5-0; 5-3; 3-7; 4-3; 2-1; 2-0; 7-0; 
+MultiStepFragments:
+1-5; 1-4; 2-10; 1-7; 2-11; 1-6; 2-12; 1-9; 2-13; 1-8; 2-14; 1-1; 1-0; 1-3; 1-2; 5-4; 2-6; 3-1; 5-5; 2-5; 3-0; 5-6; 2-4; 5-7; 2-3; 5-0; 4-12; 5-1; 2-9; 5-2; 4-10; 2-8; 5-3; 4-11; 2-7; 4-0; 3-9; 4-1; 3-8; 4-2; 3-7; 4-3; 3-6; 4-4; 2-2; 3-5; 4-5; 2-1; 3-4; 4-6; 4-7; 2-0; 3-3; 4-8; 3-2; 3-14; 6-0; 3-13; 6-1; 6-2; 4-9; 3-15; 6-3; 3-10; 3-12; 3-11; 1-10; 7-0; 
+IrreducibleMultiStepFragments:
+1-5; 1-4; 1-7; 1-6; 1-9; 1-8; 1-1; 1-0; 1-3; 1-2; 1-10; 

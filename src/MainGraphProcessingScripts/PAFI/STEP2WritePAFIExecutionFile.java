@@ -19,7 +19,6 @@
  */
 package MainGraphProcessingScripts.PAFI;
 
-import IO.Formats.PAFI.FragmentReaderPAFI;
 import Static.Configuration;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
