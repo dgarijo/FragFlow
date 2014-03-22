@@ -16,13 +16,22 @@
 package MainGraphProcessingScripts.PAFI;
 
 import DataStructures.Fragment;
+import DataStructures.GraphCollection;
+import Factory.Inference.CreateAbstractResource;
+import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PAFI.FragmentCatalogAndResultsToRDFPAFI;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
 import Static.Configuration;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileManager;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Main step to produce the RDF from the PAFI results.
@@ -37,7 +46,7 @@ public class STEP4ProduceRDFFromResultsPAFI{
         String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
         CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
         FragmentCatalogAndResultsToRDFPAFI catalogInRdf = new FragmentCatalogAndResultsToRDFPAFI("PafiRDFCatalog.ttl");
-        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
         //transformation of the fragment catalog to RDF.
         catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
         //now we find where the fragments have been found and we 
@@ -49,8 +58,25 @@ public class STEP4ProduceRDFFromResultsPAFI{
         catalogInRdf.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, fullCollection.getGraphCollection());
         catalogInRdf.exportToRDFFile("TURTLE");
         
-        //what about the abstract collection? (missing completely)
-        //TO DO
+        //Abstract collection
+        String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
+        OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+        InputStream in = FileManager.get().open(taxonomyFilePath);
+        o.read(in, null);        
+        HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+        GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(fullCollection.getGraphCollection(), replacements);
+        
+        fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.fp";
+        pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.pc";
+        tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormatABSTRACT.tid";
+        
+        c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
+        catalogInRdf = new FragmentCatalogAndResultsToRDFPAFI("PafiRDFCatalogAbstract.ttl");
+        filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), true);
+        //transformation of the fragment catalog to RDF.
+        catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
+        catalogInRdf.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, abstractCollection);
+        catalogInRdf.exportToRDFFile("TURTLE");
     }
     
 }

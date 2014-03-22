@@ -16,6 +16,9 @@
 package PostProcessing.Formats.PAFI;
 
 import DataStructures.Fragment;
+import DataStructures.GraphCollection;
+import Factory.Inference.CreateAbstractResource;
+import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
@@ -23,11 +26,15 @@ import Static.Configuration;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileManager;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,7 +56,8 @@ public class FixDirectionOfFragmentCatalog {
      * @return 
      */
     public static ArrayList<Fragment> fixDirectionOfCatalog(String pathFileWrittenCollection,
-            ArrayList<Fragment> filteredCatalog, HashMap<String, ArrayList<String>> occurrencesOfFragments) 
+            ArrayList<Fragment> filteredCatalog, HashMap<String, ArrayList<String>> occurrencesOfFragments, 
+            boolean isAbstract) 
             throws FragmentReaderException{
         HashMap<String,String> numberOfUriAndURI = new HashMap<String, String>();
         //read from the file the id and name of the structure.
@@ -72,6 +80,16 @@ public class FixDirectionOfFragmentCatalog {
                     }
                 }
             }
+        String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
+        OntModel oRep = null;
+        InputStream inRep = null;
+        HashMap replacements = null;
+        if(isAbstract){
+            oRep = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+            inRep = FileManager.get().open(taxonomyFilePath);
+            oRep.read(inRep, null);
+            replacements = CreateHashMapForInference.createReplacementHashMap(oRep);
+        }
         Iterator<Fragment> itFragments = filteredCatalog.iterator();
         while(itFragments.hasNext()){
             Fragment currF = itFragments.next();
@@ -80,7 +98,14 @@ public class FixDirectionOfFragmentCatalog {
             //we just query the first structure where it appears (no need for more for fixing the direction of the fragments)
             OPMWTemplate2Graph downloadedTemplate = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
             downloadedTemplate.transformToGraph(numberOfUriAndURI.get(fragmentFoundIn));
-            OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(downloadedTemplate.getGraphCollection().getGraphs().get(0));   
+            OntModel o2;
+            if(isAbstract){
+                GraphCollection gAux  = CreateAbstractResource.createAbstractCollection(downloadedTemplate.getGraphCollection(), replacements);
+                o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(gAux.getGraphs().get(0));   
+            }
+            else{
+                o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(downloadedTemplate.getGraphCollection().getGraphs().get(0));   
+            }
             //we download the template because the query performs quicker that way.
             String currentQuery = queryGenerator.createQueryForDirectionalityFromFragment(currF, numberOfUriAndURI.get(fragmentFoundIn));
             ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);

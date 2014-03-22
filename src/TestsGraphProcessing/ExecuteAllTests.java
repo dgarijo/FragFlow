@@ -33,14 +33,14 @@ import TestsGraphProcessing.OPMWWings.Test02TransformOPMWTemplateToGraphFromRepo
 import TestsGraphProcessing.OPMWWings.Test22Graph2OPMWTemplate;
 import TestsGraphProcessing.PAFI.Test26ReadAPAFIResult;
 import TestsGraphProcessing.PAFI.Test27CreateAndValidateStatisticsForAPAFIResult;
-import TestsGraphProcessing.PAFI.Test28FixDirectionalityOfPAFIFRagments;
+import TestsGraphProcessing.PAFI.Test28FixDirectionalityOfPAFIFragments;
 import TestsGraphProcessing.PAFI.Test29ValidateRDFWFFDFragmentCatalog;
 import TestsGraphProcessing.PAFI.Test30ValidateRDFWFFDFragmentInstances;
 import TestsGraphProcessing.PAFI.Test31WriteFullCollectionInPAFIFormat;
 import TestsGraphProcessing.SUBDUE.Test16ValidateFoundFragments1;
 import TestsGraphProcessing.SUBDUE.Test17ValidateFoundFragments2;
 import TestsGraphProcessing.SUBDUE.Test18ValidateFoundFragments3;
-import TestsGraphProcessing.SUBDUE.Test19ValidateFoundFragmentsAbstract;
+import TestsGraphProcessing.SUBDUE.Test19ValidateAbstractFoundFragments;
 import TestsGraphProcessing.SUBDUE.Test20ValidateFoundFragments4;
 import TestsGraphProcessing.SUBDUE.Test21ValidateFoundFragments5;
 import TestsGraphProcessing.SUBDUE.Test23CreateRDFFromFragments;
@@ -74,7 +74,7 @@ public class ExecuteAllTests {
         numberOfSuccessfulTests+=printTestStatus(Test31WriteFullCollectionInPAFIFormat.test());
         numberOfSuccessfulTests+=printTestStatus(Test30ValidateRDFWFFDFragmentInstances.test());
         numberOfSuccessfulTests+=printTestStatus(Test29ValidateRDFWFFDFragmentCatalog.test());
-        numberOfSuccessfulTests+=printTestStatus(Test28FixDirectionalityOfPAFIFRagments.test());
+        numberOfSuccessfulTests+=printTestStatus(Test28FixDirectionalityOfPAFIFragments.test());
         numberOfSuccessfulTests+=printTestStatus(Test27CreateAndValidateStatisticsForAPAFIResult.test());
         numberOfSuccessfulTests+=printTestStatus(Test26ReadAPAFIResult.test());
         numberOfSuccessfulTests+=printTestStatus(Test25ValidateRDFWFFDFragmentInstances.test());
@@ -83,7 +83,7 @@ public class ExecuteAllTests {
         numberOfSuccessfulTests+=printTestStatus(Test22Graph2OPMWTemplate.test());
         numberOfSuccessfulTests+=printTestStatus(Test21ValidateFoundFragments5.test());
         numberOfSuccessfulTests+=printTestStatus(Test20ValidateFoundFragments4.test());
-        numberOfSuccessfulTests+=printTestStatus(Test19ValidateFoundFragmentsAbstract.test());
+        numberOfSuccessfulTests+=printTestStatus(Test19ValidateAbstractFoundFragments.test());
         numberOfSuccessfulTests+=printTestStatus(Test18ValidateFoundFragments3.test());
         numberOfSuccessfulTests+=printTestStatus(Test17ValidateFoundFragments2.test());
         numberOfSuccessfulTests+=printTestStatus(Test16ValidateFoundFragments1.test());

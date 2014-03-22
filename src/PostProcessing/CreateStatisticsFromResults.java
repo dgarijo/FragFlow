@@ -359,6 +359,10 @@ public abstract class CreateStatisticsFromResults {
             FileWriter fstream = new FileWriter(outFilePath);
             BufferedWriter out = new BufferedWriter(fstream);
             String output = "Creating statistics ...\n"
+                    + "Note: The statistics rely on the information provided by the "
+                    + "Algorithm (e.g., number of occurrences of each fragment). No further checkings are done. "
+                    + "Only when the results are transformed to RDF (Wf-fd), each fragment is searched in each "
+                    + "template.\n"
                     + "Algorithm used: "+evaluationAlgorithm+"\n";
             output+="- Domain: "+domain+", evaluation type: "+evaluationType+"\n";
             if(isTemplate)output+="- Executed on the templates\n";

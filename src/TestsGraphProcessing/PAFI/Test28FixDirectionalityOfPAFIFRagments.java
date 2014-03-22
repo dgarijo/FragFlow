@@ -34,7 +34,7 @@ import java.util.ArrayList;
  * properly fixed.
  * @author Daniel Garijo
  */
-public class Test28FixDirectionalityOfPAFIFRagments {
+public class Test28FixDirectionalityOfPAFIFragments {
     public static int testNumber = 28;
     public static boolean test(){
          try {
@@ -45,7 +45,7 @@ public class Test28FixDirectionalityOfPAFIFRagments {
             FragmentReaderPAFI reader= new FragmentReaderPAFI(fpfile, pcFile, tidFile);
             ArrayList<Fragment> fixedCatalog = reader.getFragmentCatalogAsAnArrayList();
             FragmentCatalogFilter.filterFragmentCatalog(fixedCatalog);
-            fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", fixedCatalog,reader.getOccurrencesOfFragmentInTransaction());
+            fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", fixedCatalog,reader.getOccurrencesOfFragmentInTransaction(), false);
             //for these parameters, the first fragment has to have the following matrix:
             //[0,3]=[1,0]=[2,1]=wasInformedBy dependency. This is different from the original one which was:
             //[0,1]=[0,3]=[1,2]=wasInformedBy.

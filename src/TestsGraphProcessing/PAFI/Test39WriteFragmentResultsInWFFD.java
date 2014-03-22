@@ -39,7 +39,7 @@ public class Test39WriteFragmentResultsInWFFD {
             String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
             CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
             FragmentCatalogAndResultsToRDFPAFI catalogInRdf = new FragmentCatalogAndResultsToRDFPAFI("PafiRDFCatalogTest.ttl");
-            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
             //transformation of the fragment catalog to RDF.
             catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
             //now we find where the fragments have been found and we 

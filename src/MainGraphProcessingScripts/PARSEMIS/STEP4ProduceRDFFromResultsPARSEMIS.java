@@ -15,10 +15,19 @@
  */
 package MainGraphProcessingScripts.PARSEMIS;
 
+import DataStructures.GraphCollection;
+import Factory.Inference.CreateAbstractResource;
+import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
 import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.util.FileManager;
+import java.io.InputStream;
+import java.util.HashMap;
 
 /**
  * Main step to produce the RDF from the PAFI results.
@@ -30,19 +39,33 @@ public class STEP4ProduceRDFFromResultsPARSEMIS {
     public static void main(String[] args) throws FragmentReaderException{
         String inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormat.lg";
         CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("Text analytics", true, false, inputFile); 
-        FragmentCatalogAndResultsToRDFPARSEMIS aux = new FragmentCatalogAndResultsToRDFPARSEMIS("ParsemisRDFFragmentCatalog.ttl");           
+        FragmentCatalogAndResultsToRDFPARSEMIS catalogToRDF = new FragmentCatalogAndResultsToRDFPARSEMIS("ParsemisRDFFragmentCatalog.ttl");           
         //transformation of the fragment catalog to RDF.
-        aux.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
+        catalogToRDF.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
 
         OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
         fullCollection.transformDomainToGraph("TextAnalytics");
-        aux.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), fullCollection.getGraphCollection());            
+        catalogToRDF.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), fullCollection.getGraphCollection());            
         
         //pero animal, si sabes en que templates sale cada fragmento, no le pases la coleccion entera...
         //TO FIX
-        aux.exportToRDFFile("TURTLE");
+        catalogToRDF.exportToRDFFile("TURTLE");
         
-        //what about the abstract collection? (missing completely)
-        //TO DO
+        //Abstract collection
+        String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
+        OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+        InputStream in = FileManager.get().open(taxonomyFilePath);
+        o.read(in, null);        
+        HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+        GraphCollection abstractCollection = CreateAbstractResource.createAbstractCollection(fullCollection.getGraphCollection(), replacements);
+        
+        inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormatABSTRACT.lg";
+        
+        c = new CreateStatisticsFromResultsPARSEMIS("Text analytics", true, false, inputFile); 
+        catalogToRDF = new FragmentCatalogAndResultsToRDFPARSEMIS("ParsemisRDFCatalogAbstract.ttl");
+        //transformation of the fragment catalog to RDF.
+        catalogToRDF.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
+        catalogToRDF.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), abstractCollection);
+        catalogToRDF.exportToRDFFile("TURTLE");
     }
 }

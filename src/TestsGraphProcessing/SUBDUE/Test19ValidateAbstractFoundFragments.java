@@ -44,7 +44,7 @@ import java.util.Iterator;
  * We have to make a eparate test to check if the abstraction part indeed works.
  * @author Daniel Garijo
  */
-public class Test19ValidateFoundFragmentsAbstract {
+public class Test19ValidateAbstractFoundFragments {
     public static int testNumber = 19;
     public static boolean test(){
         System.out.println("\n\nExecuting test: "+testNumber+". Validator of a particualr set"

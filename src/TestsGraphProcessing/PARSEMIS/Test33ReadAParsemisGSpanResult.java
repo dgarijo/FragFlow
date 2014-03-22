@@ -23,7 +23,7 @@ import java.util.HashMap;
  * Test to read a Parsemis Result
  * @author Daniel Garijo
  */
-public class Test33ReadAParsemisResult {
+public class Test33ReadAParsemisGSpanResult {
     public static int testNumber = 33;//not given a number until we complete the previous ones.
     public static boolean test(){
          try{
