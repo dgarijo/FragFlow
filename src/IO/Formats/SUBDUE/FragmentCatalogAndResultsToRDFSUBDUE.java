@@ -90,7 +90,7 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             while (urisOfFragmentIt.hasNext()){
                 String currentURI = urisOfFragmentIt.next();
                 String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID);
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID+"_NODE"+currentURI);
                 GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, PPlan.IS_STEP_OF_PLAN);
                 if(currentURItype.contains(GeneralConstants.SUBDUE_SUB_)){
                     String multiStepURI = fragmentID+"_NODE"+currentURI;

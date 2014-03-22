@@ -93,7 +93,7 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
             while (urisOfFragmentIt.hasNext()){
                 String currentURI = urisOfFragmentIt.next();
                 String currentURItype = currentFragmentNodes.get(currentURI).getType();
-                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID);
+                GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI, PPlan.STEP, "Step "+fragmentID+"_NODE"+currentURI);
                 GeneralMethods.addProperty(repository, fragmentID+"_NODE"+currentURI, fragmentID, PPlan.IS_STEP_OF_PLAN);
                 GeneralMethods.addIndividual(repository, fragmentID+"_NODE"+currentURI,currentURItype , null);                
             }
