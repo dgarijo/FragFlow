@@ -1,0 +1,1662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="DTI4DNIFTIfile_1.Output" sink="dti_recon_1.RAW_DATA"/>
+                <connection source="DTI6dirMatrix_1.Output" sink="dti_recon_1.gradient_matrix"/>
+                <connection source="dti_recon_1.dtioutput" sink="dti_tracker_1.INPUT_DATA_PREFIX"/>
+                <connection source="dti_recon_1.dti_dwi" sink="dti_tracker_1.maskfile"/>
+                <connection source="dti_tracker_1.OUTPUT_FILE" sink="spline_filter_1.INPUT_TRACK_FILE"/>
+                <connection source="spline_filter_1.OUTPUT_TRACK_FILE" sink="Trkfile_1.Input"/>
+        </connections>
+        <icons>
+                <icon id="0" value="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"/>
+        </icons>
+        <moduleGroup id="DTI_workflow_1" name="DTI_workflow" package="Diffusion Toolkit" posX="0" posY="0" sourceCode="">
+                <uri>http://www.loni.ucla.edu/twiki/bin/view/CCB/PipelineWorkflows_DTIDSI</uri>
+                <metadata>
+                        <data key="__creationDateKey" value="Thu Feb 04 12:31:59 PST 2010"/>
+                </metadata>
+                <module id="dti_recon_1" name="dti_recon" package="Diffusion ToolKit" version="0.2.1" description="Reconstruct raw analyze/nifti images to tensors and a few other maps. " icon="0" posX="12" posY="200" sourceCode="" location="pipeline://cranium.loni.usc.edu/dti_recon_final.sh">
+                        <uri>http://www.trackvis.org/dtk</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Oct 05 11:41:41 PDT 2009"/>
+                        </metadata>
+                        <input id="dti_recon_1.RAW_DATA" name="RAW_DATA" description="Enter the raw input data." required="true" enabled="true" order="0" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.nii</transform>
+                                </format>
+                        </input>
+                        <output id="dti_recon_1.OUTPUT_FILE_PREFIX" name="OUTPUT_FILE_PREFIX" description="This is a dummy variable used to generate the output file prefix and to carry it to the next module. The output file associated with this parameter will not exist." required="true" enabled="true" order="1" includeTransformedParameter="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.nii</transform>
+                                </format>
+                                <dependencies>
+                                        <dependent>dti_adc</dependent>
+                                        <dependent>dti_b0</dependent>
+                                        <dependent>dti_dwi</dependent>
+                                        <dependent>dti_exp</dependent>
+                                        <dependent>dti_fa_color</dependent>
+                                        <dependent>dti_fa</dependent>
+                                        <dependent>dti_e1</dependent>
+                                        <dependent>dti_e2</dependent>
+                                        <dependent>dti_e3</dependent>
+                                        <dependent>dti_tensor</dependent>
+                                        <dependent>dti_v1</dependent>
+                                        <dependent>dti_v3</dependent>
+                                        <dependent>dti_v2</dependent>
+                                        <dependent>dtioutput</dependent>
+                                </dependencies>
+                        </output>
+                        <input id="dti_recon_1.output_type" name="output_type" description="Output file type. Accepted values are: 
+             analyze -&gt; analyze format 7.5 (NOT recommended)
+             ni1     -&gt; nifti format saved in seperate .hdr and .img file
+             nii     -&gt; nifti format with one .nii file (default)
+             nii.gz  -&gt; nifti format with compression
+
+Default type is 'nii'
+" required="false" enabled="true" order="2" prefix="-ot" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>analyze</enumeration>
+                                        <enumeration>ni1</enumeration>
+                                        <enumeration>nii</enumeration>
+                                        <enumeration>value</enumeration>
+                                </format>
+                                <values>
+                                        <value>nii</value>
+                                </values>
+                        </input>
+                        <input id="dti_recon_1.gradient_matrix" name="gradient_matrix" description="Specify the required Gradient Matrix." required="true" enabled="true" order="3" prefix="-gm" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_recon_1.b_value" name="b_value" description="Provide b value. Default is 1000." required="false" enabled="true" order="4" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>1000</value>
+                                </values>
+                        </input>
+                        <input id="dti_recon_1.number_of_b0" name="number_of_b0" description="Number of b0 images. dDefault is 1. The program assumes b0 images are on top.
+" required="false" enabled="true" order="5" prefix="-b0" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="dti_recon_1.nex" name="nex" description="Number of averages. Default is auto, meaning it will automatically figure out how many averages based on the gradient table and number of volumes in the 4D nifti file. Auto only works on 4D input data.
+" required="false" enabled="false" order="6" prefix="-nex" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_recon_1.image_info" name="image_info" description="Specify image information file. The image info file is generated from original dicom image by diff_unpack program and contains image orientation and other information needed for reconstruction and tracking. By default will look into the image folder for .info file.
+NOTE: if info file was not found or given, the following '-iop', '-sag', '-cor', '-axial' will be used.
+" required="false" enabled="false" order="7" prefix="-info" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_recon_1.image_orientation_patient" name="image_orientation_patient" description="Specify image orientation vectors. Specify either a filename or 6 numerical value.
+
+If just one argument given, will treat it as filename and read the orientation vectors from the file. If 6 arguments are given, will treat them as 6 float numbers and construct the 1st and 2nd vector and calculate the 3rd one automatically. This information will be used to determine image orientation, as well as to adjust gradient vectors with oblique angle when '-oc' flag is on.
+
+Default use the identity matrix vectors
+" required="false" enabled="false" order="8">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_recon_1.sagittal" name="sagittal" description="This flag is equal to '-iop 0 1 0 0 0 -1'" required="false" enabled="false" order="9" prefix="-sag" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.coronal" name="coronal" description="This flag is equal to '-iop 1 0 0 0 0 -1'" required="false" enabled="false" order="10" prefix="-cor" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.axial" name="axial" description="This flag is equal to '-iop 1 0 0 0 1 0'
+The above flags indicate image orientation. default is axial.
+NOTE: '-iop', '-sag', '-cor' and '-axial' options will overwrite what '-info' has given. usually if an .info file exists, it should be used instead of providing '-iop', etc., options manually end of image orientation options.
+" required="false" enabled="true" order="11" prefix="-axial" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.oblique_correction" name="oblique_correction" description="When oblique angle(s) applied, some SIEMENS dti protocols do not adjust gradient accordingly, thus it requires adjustment for correct diffusion tensor calculation.
+" required="false" enabled="true" order="12" prefix="-oc" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.b0_threshold" name="b0_threshold" description="Program will use b0 image with the given threshold to mask out high background of fa/adc maps. By default it will calculate threshold automatically, but if it failed, you need to set it manually.
+
+" required="false" enabled="false" order="13" prefix="-b0_th" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_recon_1.no_eigen_output" name="no_eigen_output" description="Do not write eigen-value and eigen-vector output." required="false" enabled="false" order="14" prefix="-no_eigen" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.no_tensor_output" name="no_tensor_output" description="Do not write tensor output" required="false" enabled="false" order="15" prefix="-no_tensor" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.no_exp_output" name="no_exp_output" description="Do Not write exp output." required="false" enabled="false" order="16">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_recon_1.paddings" name="paddings" description="Number of 0 paddings for input raw data file prefix. 
+
+Default value is 3
+" required="false" enabled="true" order="17" prefix="-p" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>4</value>
+                                </values>
+                        </input>
+                        <input id="dti_recon_1.start_number" name="start_number" description="Start number of the input filename numbering. default is 1, meaning the first filename in the series is prefix001.img
+NOTE: '-p' and '-sn' options are only effective when a series of single timepoint image files are given. when input is a 4D time series file, those options are ignored.
+" required="false" enabled="true" order="18" prefix="-sn" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="dti_recon_1.help" name="help" description="Display Help" required="false" enabled="false" order="19" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <output id="dti_recon_1.dti_adc" name="dti_adc" required="true" enabled="true" order="21">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_b0" name="dti_b0" required="true" enabled="true" order="22">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_dwi" name="dti_dwi" required="true" enabled="true" order="23">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_exp" name="dti_exp" required="true" enabled="true" order="24">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_fa_color" name="dti_fa_color" required="true" enabled="true" order="25">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_fa" name="dti_fa" required="true" enabled="true" order="26">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_e1" name="dti_e1" required="true" enabled="true" order="27">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_e2" name="dti_e2" required="true" enabled="true" order="28">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_e3" name="dti_e3" required="true" enabled="true" order="29">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_tensor" name="dti_tensor" required="true" enabled="true" order="30">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_v1" name="dti_v1" required="true" enabled="true" order="31">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_v2" name="dti_v2" required="true" enabled="true" order="32">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dti_v3" name="dti_v3" required="true" enabled="true" order="33">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="dti_recon_1.dtioutput" name="dtioutput" required="true" enabled="true" order="20" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="OUTPUT_FILE_PREFIX">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.nii</transform>
+                                </format>
+                                <dependencies>
+                                        <dependsOn>OUTPUT_FILE_PREFIX</dependsOn>
+                                </dependencies>
+                        </output>
+                        <license>http://www.trackvis.org/docs/?subsect=license
+
+The General Hospital Corporation
+
+ACADEMIC RESEARCH END-USER
+SOFTWARE LICENSE AGREEMENT
+
+By downloading, using, reproducing, displaying or otherwise accessing the 
+Software which is the subject of this Agreement, Licensee (defined below) 
+hereby agrees to all of the terms and conditions in this Agreement.  If 
+Licensee does not so agree, Licensee shall have no license or right to 
+use, reproduce or display the Software.
+
+This Academic Research End-User Software License Agreement (the 
+"Agreement") is by and between The General Hospital Corporation, d/b/a 
+Massachusetts General Hospital, a Massachusetts not-for-profit 
+corporation, with a principal place of business at 55 Fruit Street, 
+Boston, Massachusetts 02114 (the "Licensor") and the individual who is 
+or has engaged in downloading, using, reproducing, displaying or otherwise 
+accessing the Software described herein (the "Individual") and the 
+institution or entity which employs or is otherwise affiliated with such 
+Individual in connection with the Individual's use of the Software (the 
+"Institution" and together with the Individual, collectively 
+"Licensee"), and is effective as of the date the Software is first 
+downloaded or otherwise accessed by the Individual or the Institution (the 
+"Effective Date").  Each party to this Agreement is referred to herein 
+as a "Party" and collectively as the "Parties."
+
+RECITALS
+
+Licensor, through its investigators Ruopeng Wang, MS and Van Wedeen, MD of 
+the Department of Radiology, has developed the Software (defined below), 
+for use in the field of Diffusion Imaging research, and desires to permit 
+Licensee to use the software for Research Purposes only (defined below).
+
+Licensee desires to license the Software solely for Research Purposes in 
+accordance with the terms and conditions hereof.
+
+         Now therefore, in consideration of the premises and covenants 
+hereinafter set forth and other good and valuable consideration, the 
+receipt and sufficiency of which is hereby acknowledged, the Parties 
+hereby agree as follows:
+
+I.       Certain Definitions.  As used in this Agreement, the following 
+terms shall have the following meanings:
+
+         (a)    "Affiliate" with respect to either entity Party means 
+any corporation or other legal entity other than that Party in whatever 
+country organized, controlling, controlled by or under common control with 
+that Party.  The term "control" shall mean the power, direct or 
+indirect, to elect or appoint fifty percent (50%) or more of the directors 
+or trustees, or to cause direction of management and policies, whether 
+through the ownership of voting securities, by contract or otherwise.
+
+        (b)    "Binary Code" means the embodiment of a computer program 
+which is not in human-readable form, and which is derived from source code 
+of such program by means of assembly or compilation into either a 
+computer-specific non-executable code, or an executable code capable of 
+being run on a computer system.
+
+        (c)     "Commercial Purposes" shall mean the sale, lease, license or 
+other transfer of the Software, use of the Software for the performance of 
+contract research, or to produce or manufacture products for sale, or to 
+develop, use, and/or distribute educational materials based on the 
+Software, including but not limited to courseware or text books.
+
+        (d)     "Patent Rights" means Licensor's rights in the Software 
+under U.S. and foreign patent law, if applicable, as may be further 
+described in Appendix A.
+
+        (e)     "Research Purposes" means the academic or government 
+funded research under the direction of the Individual at the Institution.
+
+        (f)     "Software" means the computer programs known as TrackVis 
+and Diffusion Toolkit and any related documentation as further defined and 
+described in Appendix A.
+
+2.        Software License Grant.  Subject to the terms and conditions 
+contained in this Agreement, Licensor hereby grants to Licensee a 
+nonexclusive, nontransferable, nonsublicensable, royalty-free license:
+
+        (i)     under Licensor's copyright rights, to reproduce and display the 
+Software; and
+        (ii)    under Licensor's Patent Rights, to use the Software (but 
+not to sell or otherwise transfer the Software);
+
+provided, however, that the foregoing license grant is limited to Research 
+Purposes only and only at the Institution.  The Software shall not be 
+reproduced, displayed or used for any Commercial Purposes unless Licensor 
+has consented in writing in advance and the Parties have entered into a 
+commercial license agreement containing appropriate terms for royalties, 
+and such other terms and conditions as are required by Licensor.
+
+3.        Title and Ownership.  The Software is protected by copyright and 
+foreign treaties, and may be subject to Patent Rights and other 
+proprietary rights of Licensor and, if applicable, its licensor(s). 
+Except to the extent of the limited license provided for in this 
+Agreement, Licensor shall retain all of its rights, title and interest in 
+and to the Software.  This Agreement does not grant any rights in or to 
+any intellectual property owned or licensed by Licensor except those 
+rights expressly granted hereunder, and except as specifically set forth 
+in this Agreement, Licensee shall have no other rights in or to the 
+Software nor any underlying intellectual property.
+
+4.        Conditions.  As a condition to the license granted hereunder, 
+Licensee, and each of Individual or the Institution, as applicable, shall 
+comply at all times with each of the following:
+
+        (a)     Licensee shall preserve and maintain all applicable 
+attributions, copyright notices and licenses included in or applicable to 
+the Software.
+
+        (b)     Licensee may make copies of the Software but only to the extent 
+required to support Licensee's authorized use of the Software for 
+Licensee's Research Purposes.  Licensee agrees to reproduce on any such 
+copies all of Licensor's proprietary notices contained in and on the 
+Software and its associated media.
+
+        (c)     Licensee shall use the Software only for Research Purposes and 
+only at the Institution.
+
+        (d)     Licensee shall not sell, license, distribute, rent, lease, 
+offer on an ASP or service bureau basis, grant a security interest in, 
+sublicense or otherwise transfer or permit any third party (other than 
+Licensee's own employees, students and fellows or other collaborators 
+solely in connection with permitted activities at the Institution) to 
+access or use all or any portion of the Software in any form or any of the 
+rights therein or thereto.
+
+        (e)     This Agreement does not grant any rights with respect to 
+third party software, except those rights that Licensor has been 
+authorized by a third party to grant to Licensee, and accordingly Licensee 
+is solely responsible for obtaining any permissions from third parties 
+which are necessary to use, reproduce, or display, the Software.
+
+        (f)     Licensee shall exercise its rights pursuant to this Agreement in 
+compliance with all applicable governmental laws, regulations and orders, 
+including without limitation those relating to export and import control.
+
+        (g)     To the extent such restriction is not prohibited by 
+applicable law, Licensee shall not decompile, disassemble or reverse 
+engineer the Software or its structure, sequence, organization, algorithms 
+or data.
+
+        (h)     Licensee shall notify Licensor promptly if it becomes 
+aware of any unauthorized access to or use or transfer of the Software.
+
+        (i)     Institution shall be jointly responsible for the actions of 
+Individuals hereunder with respect to the Software and compliance with the 
+terms of this Agreement.   Licensee hereby represents and warrants that 
+all information provided to Licensor in connection with accessing, 
+downloading and/or using the Software is accurate, true and complete.
+
+5.        Limitations.
+
+(a)        LICENSEE ACKNOWLEDGES THAT THE SOFTWARE HAS BEEN DESIGNED FOR 
+RESEARCH PURPOSES ONLY AND HAS NOT BEEN REVIEWED OR APPROVED BY THE FOOD 
+AND DRUG ADMINISTRATION OR BY ANY OTHER AGENCY, AND FURTHER ACKNOWLEDGES 
+THAT CLINICAL APPLICATIONS ARE NEITHER RECOMMENDED NOR ADVISED.
+
+(b)        Licensee shall be solely responsible for installing and 
+maintaining the Software and for testing the Software for proper 
+operation.  Unless otherwise agreed in writing, Licensor shall have no 
+obligation to provide to Licensee any support, maintenance, corrections, 
+debugging, improvements, modifications, upgrades or updates of the 
+Software, or otherwise assist Licensee in installing, configuring, 
+integrating, understanding or using the Software.
+
+6.        Publication.  Licensee may publish and present the results of 
+Licensee's use of the Software in peer-reviewed journals.  Licensee 
+agrees to provide acknowledgement to Licensor and its designated 
+professional staff, Ruopeng Wang, MS and Van Wedeen, MD, who participated 
+in the creation of the Software, in such publications or presentations in 
+accordance with standard academic practice.
+
+7.        Term and Termination.  This Agreement and the license granted by 
+Licensor hereunder shall commence on the Effective Date and continue in 
+effect until terminated by any Party as provided herein.  Licensee may 
+terminate this Agreement at any time by destroying all copies of the 
+Software and notifying Licensor in writing of such destruction, or 
+returning all copies of the Software to Licensor.  Licensor may terminate 
+this Agreement upon sixty (60) days prior notice to Licensee if Licensee 
+does not comply with any of the material provisions of this Agreement and 
+such breach remains uncured at the end of such sixty (60) day period, 
+provided however that in the case of any breach of this Agreement that 
+Licensor in its reasonable judgment deems uncurable, Licensor may 
+terminate this Agreement immediately upon notification to Licensee.  Upon 
+any such termination, Licensee shall immediately cease all uses of the 
+Software and any portion thereof, and shall return or destroy all copies 
+of the Software and any portion thereof and, if so requested, provide 
+written certification of such destruction to Licensor.
+
+8.        Disclaimer.  Licensee accepts the Software free of charge and on 
+an "AS IS" basis.  Licensee understands and acknowledges that the Software 
+is experimental, may contain errors and is subject to further development 
+and revision and assumes the entire risk as to its use of the Software. 
+Licensor does not guarantee the accuracy of the Software, or of any 
+results or data, and assumes no obligation to notify Licensee of any bug 
+fixes, enhancements or other modifications that may be made to the 
+Software.  LICENSOR SPECIFICALLY DISCLAIMS ALL EXPRESS AND IMPLIED 
+WARRANTIES OF ANY KIND INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+9.        Limitation of Liability; Indemnification.  IN NO EVENT SHALL 
+LICENSOR OR ANY OF ITS TRUSTEES, DIRECTORS, OFFICERS, MEDICAL OR 
+PROFESSIONAL STAFF, EMPLOYEES, STUDENTS OR  AGENTS ("LICENSOR'S 
+PERSONNEL") BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, 
+INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES HOWEVER CAUSED AND ON ANY 
+THEORY OF LIABILITY ARISING IN ANY WAY RELATED TO THE SOFTWARE OR THIS 
+AGREEMENT, EVEN IF LICENSOR OR ANY OF LICENSOR'S PERSONNEL HAS BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  EXCEPT TO THE EXTENT 
+PROHIBITED BY LAW OR REGULATION, LICENSEE ASSUMES ALL LIABILITY FOR 
+LICENSEE'S USE, REPRODUCTION,  AND DISPLAY OF THE SOFTWARE, AND AGREES TO 
+INDEMNIFY AND HOLD HARMLESS LICENSOR AND EACH OF LICENSOR'S PERSONNEL 
+FROM AND AGAINST ANY AND ALL DAMAGES, COSTS, LIABILITY, LOSS OR EXPENSES 
+(INCLUDING ATTORNEYS' FEES AND COSTS) ARISING IN CONNECTION WITH ANY 
+CLAIMS, SUITS, ACTIONS, DEMANDS AND JUDGMENTS RELATED TO LICENSEE'S USE, 
+REPRODUCTION,  AND DISPLAY OF THE SOFTWARE.
+
+10.        Independent Status.  Neither the making of this Agreement nor the 
+performance of its provisions shall be construed to constitute any Party 
+an agent, employee or legal representative of the other Party for any 
+purpose whatsoever.
+
+11.        Use of Name.  Except as expressly provided in this Agreement or 
+pursuant to specific prior written permission of the applicable party, 
+Licensee shall not use any of the names, logos or trademarks, or any 
+adaptation thereof, of Licensor or any of its Affiliates, or of any 
+trustee, director, officer, staff member, employee, student or agent 
+thereof, or of any funding agency, in any advertising, promotional or 
+sales material or publicity or in any document employed to obtain funds or 
+financing, or to endorse or promote research results or products produced 
+in whole or in part by operation of the Software or derived from or based 
+on the Software.  Such permission shall be obtained from Licensor's Chief 
+Public Affairs Officer.  Licensee hereby grants permission to Licensor to 
+use Licensee's name for purposes of obtaining funds from any funding 
+agency.
+
+12.        U.S. Government Rights.  For Software supported by federal 
+funding, the license granted under this Agreement is subject to the 
+rights, conditions and limitations imposed by U.S. law including without 
+limitation 35 U.S.C. § 202 et seq. and regulations pertaining thereto. 
+Notwithstanding the foregoing, the license granted under this Agreement 
+does not constitute a response by Licensee to any request for proposals, 
+bid solicitation or other invitation or offer to contract by any 
+governmental authority but instead constitutes an offer to enter into a 
+license agreement only upon the terms set forth herein.  If the U.S. 
+Government or any other governmental authority shall seek to acquire the 
+Software and its acquisition of such Software would result in the U.S. 
+Government or such other governmental authority having rights in the 
+Software that are at variance with the terms and conditions of this 
+Agreement and license, Licensee shall not be bound by any such rights 
+unless it shall have expressly entered into an amendment of this Agreement 
+that shall set forth such rights in accordance with any applicable 
+governmental rules or regulations, including the Federal Acquisition 
+Regulation and the Defense Federal Acquisition Regulation Supplement.
+
+13.        General.  This Agreement constitutes the entire understanding of 
+the Parties with respect to the subject matter hereof, superseding and 
+merging any prior oral or written understandings between the Parties with 
+respect thereto.  Sections 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 and 13 shall 
+survive any termination of this Agreement.  This Agreement may be modified 
+or amended only in a writing signed by duly authorized representatives of 
+the Parties hereto.  If any part of this Agreement is adjudged to be 
+invalid or unenforceable, the Parties intend that such invalidity shall 
+not affect any other provision hereof.  Any waiver or failure of any Party 
+to assert a right hereunder shall not constitute a waiver or excuse a 
+similar failure in any other circumstance.  Licensee shall not assign any 
+of its rights or obligations under this Agreement without the prior 
+written consent of Licensor.  Except to the extent prohibited by law or 
+regulation, this Agreement shall be governed by and construed in 
+accordance with the laws of The Commonwealth of Massachusetts, excluding 
+its provisions with respect to conflict of laws, and each Party consents 
+to the exclusive jurisdiction and venue of courts in Boston, Massachusetts 
+in all disputes relating to this Agreement.  Headings in this Agreement 
+are for convenience only and are not intended to be used to interpret or 
+construe this Agreement.  This Agreement may be executed in counterparts 
+and delivered by facsimile with the same effect as an original.  Each of 
+the undersigned represents that such individual is duly authorized to 
+execute this Agreement.
+
+Appendix A
+
+Description of the Software
+
+1.        Diffusion Toolkit in binary code form:  Diffusion Toolkit is a 
+software tool for the performance of data reconstruction and fiber 
+tracking for diffusion MR imaging, utilizing but not limited to tensor 
+data, diffusion spectrum imaging (DSI), high angular resolution diffusion 
+imaging (HARDI) data and Q-ball imaging data.
+
+2.        TrackVis in binary code form: TrackVis is a 3-dimensional 
+visualization program that allows real-time visualization and analysis of 
+the fiber track data that was created by Diffusion Toolkit.</license>
+                </module>
+                <dataModule id="DTI6dirMatrix_1" name="DTI 6dir Matrix " package="LONI" version="1.0" posX="416" posY="13" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Oct 13 13:56:38 PDT 2009"/>
+                        </metadata>
+                        <output id="DTI6dirMatrix_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file"/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/LONI/data/ccb/DTI/nifti/dti_matrix.txt</value>
+                        </values>
+                </dataModule>
+                <dataModule id="DTI4DNIFTIfile_1" name="DTI 4D NIFTI file" package="LONI" version="1.0" posX="17" posY="13" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Oct 12 17:41:09 PDT 2009"/>
+                        </metadata>
+                        <output id="DTI4DNIFTIfile_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)"/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/LONI/data/ccb/DTI/nifti/dti.nii</value>
+                        </values>
+                </dataModule>
+                <module id="dti_tracker_1" name="dti_tracker" package="Diffusion ToolKit" version="0.2.1" description="Perform fiber tracking from the reconstructed tensor and maps by dti_recon and output a track file for TrackVis." icon="0" posX="160" posY="378" sourceCode="" location="pipeline://cranium.loni.usc.edu/dti_tracker">
+                        <uri>http://www.trackvis.org/dtk</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Oct 05 11:41:41 PDT 2009"/>
+                        </metadata>
+                        <input id="dti_tracker_1.INPUT_DATA_PREFIX" name="INPUT_DATA_PREFIX" description="Enter the input data prefix name." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="dti_tracker_1.OUTPUT_FILE" name="OUTPUT_FILE" description="Enter the output file prefix.
+" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="dti_tracker_1.input_type" name="input_type" description="Input and output file type. Accepted values are: 
+             analyze -&gt; analyze format 7.5 (NOT recommended)
+             ni1     -&gt; nifti format saved in seperate .hdr and .img file
+             nii     -&gt; nifti format with one .nii file (default)
+             nii.gz  -&gt; nifti format with compression
+
+Default type is 'nii'
+" required="false" enabled="true" order="2" prefix="-it" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>nii</enumeration>
+                                </format>
+                                <values>
+                                        <value>nii</value>
+                                </values>
+                        </input>
+                        <input id="dti_tracker_1.image_info" name="image_info" description="Specify image information file. The image info file is generated from original dicom image by diff_unpack program and contains image orientation and other information needed for reconstruction and tracking. By default will look into the image folder for .info file.
+NOTE: if info file was not found or given, the following '-iop', '-sag', '-cor', '-axial' will be used.
+" required="false" enabled="false" order="24" prefix="-info" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.image_orientation_patient" name="image_orientation_patient" description="Specify image orientation vectors. Specify either a filename or 6 numerical value.
+
+If just one argument given, will treat it as filename and read the orientation vectors from the file. If 6 arguments are given, will treat them as 6 float numbers and construct the 1st and 2nd vector and calculate the 3rd one automatically. This information will be used to determine image orientation, as well as to adjust gradient vectors with oblique angle when '-oc' flag is on.
+
+Default use the identity matrix vectors
+" required="false" enabled="false" order="25" prefix="-iop" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.help" name="help" description="Display Help" required="false" enabled="false" order="28" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.runge_kutta2" name="runge_kutta2" description="Use 2nd order runge-kutta method for tracking." required="false" enabled="false" order="4" prefix="-rk2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.tensor_line" name="tensor_line" description="Use tensor line method for tracking." required="false" enabled="false" order="5" prefix="-tl" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.stream_line" name="stream_line" description="Use interpolated steamline method with fixed step-length." required="false" enabled="false" order="6" prefix="-sl" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.step_length" name="step_length" description="Set step length, in the unit of minimum voxel size.
+Default value is 0.5 for interpolated streamline method and 0.1 for other methods.
+" required="false" enabled="false" order="7" prefix="-l" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.angle_threshold" name="angle_threshold" description="Set angle threshold. Default is 35 degree." required="false" enabled="true" order="8" prefix="-at" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>35</value>
+                                </values>
+                        </input>
+                        <input id="dti_tracker_1.random_seed" name="random_seed" description="Use random location in a voxel instead of the center of the voxel to seed. Can also define number of seed per voxel. Default is 1
+" required="false" enabled="false" order="10" prefix="-rseed" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.invert_x" name="invert_x" description="Invert x component of the vector." required="false" enabled="false" order="11" prefix="-ix" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.invert_y" name="invert_y" description="Invert y component of the vector." required="false" enabled="false" order="12" prefix="-iy" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.invert_z" name="invert_z" description="Invert z component of the vector." required="false" enabled="false" order="13" prefix="-iz" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.swapxy" name="swapxy" description="Swap x &amp; y vectors while tracking" required="false" enabled="false" order="14" prefix="-sxy" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.swapyz" name="swapyz" description="Swap y &amp; z vectors while tracking" required="false" enabled="false" order="15" prefix="-syz" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.angle_threshold_weight" name="angle_threshold_weight" description="Set angle threshold weighting factor. Weighting will be be applied on top of the angle_threshold.
+" required="false" enabled="false" order="9" prefix="-atw" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.fact" name="fact" description="Use FACT method for tracking. this is the default method." required="false" enabled="false" order="3" prefix="-fact" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="dti_tracker_1.swapzx" name="swapzx" description="Swap z &amp; x vectors while tracking" required="false" enabled="false" order="16" prefix="-szx" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.masklowthreshold" name="mask low threshold" description="Set the low Threshold." required="false" enabled="false" order="17" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.maskhighthreshold" name="mask high threshold" description="Set the highthreshold" required="false" enabled="false" order="18" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.maskfile" name="mask file" description="Specify the mask file." required="false" enabled="true" order="19" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.mask2lowthreshold" name="mask2 low threshold" description="Specify the low threshold for mask 2." required="false" enabled="false" order="20" prefix="-m2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.mask2highthreshold" name="mask2 high threshold" description="Specify the high threshold for mask 2." required="false" enabled="false" order="21" prefix="-m2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="dti_tracker_1.mask2file" name="mask2 file" description="Specify the mask2 file." required="false" enabled="false" order="22" prefix="-m2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.output_mask" name="output_mask" description="Output a binary mask file in analyze format
+" required="false" enabled="false" order="23" prefix="-om" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.slice_order" name="slice_order" description="Set the slice order. 1 means normal, -1 means reversed. Default value is 1
+NOTE: '-iop' and '-sorder' is used to determine '-vorder' if '-vorder' is not explicitly given.
+" required="false" enabled="false" order="26" prefix="-sorder" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>1</enumeration>
+                                        <enumeration>-1</enumeration>
+                                </format>
+                        </input>
+                        <input id="dti_tracker_1.voxel_order" name="voxel_order" description="Specify the voxel order in RL/AP/IS (human brain) reference. Must be 3 letters with no space in between.
+For example, RAS means the voxel row is from L-&gt;R, the column is from P-&gt;A and the slice order is from I-&gt;S. By default voxel order is determined by the image orientation (but NOT guaranteed to be correct because of various standards).
+for example, siemens axial image is LPS, coronal image is LIP and sagittal image is PIL. this information also is NOT needed for tracking but will be saved in the track file and is essential for track display to map onto the right coordinates
+
+NOTE: .info file contains all the information for '-iop', '-sorder'and '-vorder'. so if an .info file exists, it should be used instead of applying '-iop', '-sorder' or '-vorder' manually, unless you want to overwrite what '-info' option provided.
+" required="false" enabled="false" order="27" prefix="-vorder" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="3"/>
+                        </input>
+                        <license>http://www.trackvis.org/docs/?subsect=license
+
+The General Hospital Corporation
+
+ACADEMIC RESEARCH END-USER
+SOFTWARE LICENSE AGREEMENT
+
+By downloading, using, reproducing, displaying or otherwise accessing the 
+Software which is the subject of this Agreement, Licensee (defined below) 
+hereby agrees to all of the terms and conditions in this Agreement.  If 
+Licensee does not so agree, Licensee shall have no license or right to 
+use, reproduce or display the Software.
+
+This Academic Research End-User Software License Agreement (the 
+"Agreement") is by and between The General Hospital Corporation, d/b/a 
+Massachusetts General Hospital, a Massachusetts not-for-profit 
+corporation, with a principal place of business at 55 Fruit Street, 
+Boston, Massachusetts 02114 (the "Licensor") and the individual who is 
+or has engaged in downloading, using, reproducing, displaying or otherwise 
+accessing the Software described herein (the "Individual") and the 
+institution or entity which employs or is otherwise affiliated with such 
+Individual in connection with the Individual's use of the Software (the 
+"Institution" and together with the Individual, collectively 
+"Licensee"), and is effective as of the date the Software is first 
+downloaded or otherwise accessed by the Individual or the Institution (the 
+"Effective Date").  Each party to this Agreement is referred to herein 
+as a "Party" and collectively as the "Parties."
+
+RECITALS
+
+Licensor, through its investigators Ruopeng Wang, MS and Van Wedeen, MD of 
+the Department of Radiology, has developed the Software (defined below), 
+for use in the field of Diffusion Imaging research, and desires to permit 
+Licensee to use the software for Research Purposes only (defined below).
+
+Licensee desires to license the Software solely for Research Purposes in 
+accordance with the terms and conditions hereof.
+
+         Now therefore, in consideration of the premises and covenants 
+hereinafter set forth and other good and valuable consideration, the 
+receipt and sufficiency of which is hereby acknowledged, the Parties 
+hereby agree as follows:
+
+I.       Certain Definitions.  As used in this Agreement, the following 
+terms shall have the following meanings:
+
+         (a)    "Affiliate" with respect to either entity Party means 
+any corporation or other legal entity other than that Party in whatever 
+country organized, controlling, controlled by or under common control with 
+that Party.  The term "control" shall mean the power, direct or 
+indirect, to elect or appoint fifty percent (50%) or more of the directors 
+or trustees, or to cause direction of management and policies, whether 
+through the ownership of voting securities, by contract or otherwise.
+
+        (b)    "Binary Code" means the embodiment of a computer program 
+which is not in human-readable form, and which is derived from source code 
+of such program by means of assembly or compilation into either a 
+computer-specific non-executable code, or an executable code capable of 
+being run on a computer system.
+
+        (c)     "Commercial Purposes" shall mean the sale, lease, license or 
+other transfer of the Software, use of the Software for the performance of 
+contract research, or to produce or manufacture products for sale, or to 
+develop, use, and/or distribute educational materials based on the 
+Software, including but not limited to courseware or text books.
+
+        (d)     "Patent Rights" means Licensor's rights in the Software 
+under U.S. and foreign patent law, if applicable, as may be further 
+described in Appendix A.
+
+        (e)     "Research Purposes" means the academic or government 
+funded research under the direction of the Individual at the Institution.
+
+        (f)     "Software" means the computer programs known as TrackVis 
+and Diffusion Toolkit and any related documentation as further defined and 
+described in Appendix A.
+
+2.        Software License Grant.  Subject to the terms and conditions 
+contained in this Agreement, Licensor hereby grants to Licensee a 
+nonexclusive, nontransferable, nonsublicensable, royalty-free license:
+
+        (i)     under Licensor's copyright rights, to reproduce and display the 
+Software; and
+        (ii)    under Licensor's Patent Rights, to use the Software (but 
+not to sell or otherwise transfer the Software);
+
+provided, however, that the foregoing license grant is limited to Research 
+Purposes only and only at the Institution.  The Software shall not be 
+reproduced, displayed or used for any Commercial Purposes unless Licensor 
+has consented in writing in advance and the Parties have entered into a 
+commercial license agreement containing appropriate terms for royalties, 
+and such other terms and conditions as are required by Licensor.
+
+3.        Title and Ownership.  The Software is protected by copyright and 
+foreign treaties, and may be subject to Patent Rights and other 
+proprietary rights of Licensor and, if applicable, its licensor(s). 
+Except to the extent of the limited license provided for in this 
+Agreement, Licensor shall retain all of its rights, title and interest in 
+and to the Software.  This Agreement does not grant any rights in or to 
+any intellectual property owned or licensed by Licensor except those 
+rights expressly granted hereunder, and except as specifically set forth 
+in this Agreement, Licensee shall have no other rights in or to the 
+Software nor any underlying intellectual property.
+
+4.        Conditions.  As a condition to the license granted hereunder, 
+Licensee, and each of Individual or the Institution, as applicable, shall 
+comply at all times with each of the following:
+
+        (a)     Licensee shall preserve and maintain all applicable 
+attributions, copyright notices and licenses included in or applicable to 
+the Software.
+
+        (b)     Licensee may make copies of the Software but only to the extent 
+required to support Licensee's authorized use of the Software for 
+Licensee's Research Purposes.  Licensee agrees to reproduce on any such 
+copies all of Licensor's proprietary notices contained in and on the 
+Software and its associated media.
+
+        (c)     Licensee shall use the Software only for Research Purposes and 
+only at the Institution.
+
+        (d)     Licensee shall not sell, license, distribute, rent, lease, 
+offer on an ASP or service bureau basis, grant a security interest in, 
+sublicense or otherwise transfer or permit any third party (other than 
+Licensee's own employees, students and fellows or other collaborators 
+solely in connection with permitted activities at the Institution) to 
+access or use all or any portion of the Software in any form or any of the 
+rights therein or thereto.
+
+        (e)     This Agreement does not grant any rights with respect to 
+third party software, except those rights that Licensor has been 
+authorized by a third party to grant to Licensee, and accordingly Licensee 
+is solely responsible for obtaining any permissions from third parties 
+which are necessary to use, reproduce, or display, the Software.
+
+        (f)     Licensee shall exercise its rights pursuant to this Agreement in 
+compliance with all applicable governmental laws, regulations and orders, 
+including without limitation those relating to export and import control.
+
+        (g)     To the extent such restriction is not prohibited by 
+applicable law, Licensee shall not decompile, disassemble or reverse 
+engineer the Software or its structure, sequence, organization, algorithms 
+or data.
+
+        (h)     Licensee shall notify Licensor promptly if it becomes 
+aware of any unauthorized access to or use or transfer of the Software.
+
+        (i)     Institution shall be jointly responsible for the actions of 
+Individuals hereunder with respect to the Software and compliance with the 
+terms of this Agreement.   Licensee hereby represents and warrants that 
+all information provided to Licensor in connection with accessing, 
+downloading and/or using the Software is accurate, true and complete.
+
+5.        Limitations.
+
+(a)        LICENSEE ACKNOWLEDGES THAT THE SOFTWARE HAS BEEN DESIGNED FOR 
+RESEARCH PURPOSES ONLY AND HAS NOT BEEN REVIEWED OR APPROVED BY THE FOOD 
+AND DRUG ADMINISTRATION OR BY ANY OTHER AGENCY, AND FURTHER ACKNOWLEDGES 
+THAT CLINICAL APPLICATIONS ARE NEITHER RECOMMENDED NOR ADVISED.
+
+(b)        Licensee shall be solely responsible for installing and 
+maintaining the Software and for testing the Software for proper 
+operation.  Unless otherwise agreed in writing, Licensor shall have no 
+obligation to provide to Licensee any support, maintenance, corrections, 
+debugging, improvements, modifications, upgrades or updates of the 
+Software, or otherwise assist Licensee in installing, configuring, 
+integrating, understanding or using the Software.
+
+6.        Publication.  Licensee may publish and present the results of 
+Licensee's use of the Software in peer-reviewed journals.  Licensee 
+agrees to provide acknowledgement to Licensor and its designated 
+professional staff, Ruopeng Wang, MS and Van Wedeen, MD, who participated 
+in the creation of the Software, in such publications or presentations in 
+accordance with standard academic practice.
+
+7.        Term and Termination.  This Agreement and the license granted by 
+Licensor hereunder shall commence on the Effective Date and continue in 
+effect until terminated by any Party as provided herein.  Licensee may 
+terminate this Agreement at any time by destroying all copies of the 
+Software and notifying Licensor in writing of such destruction, or 
+returning all copies of the Software to Licensor.  Licensor may terminate 
+this Agreement upon sixty (60) days prior notice to Licensee if Licensee 
+does not comply with any of the material provisions of this Agreement and 
+such breach remains uncured at the end of such sixty (60) day period, 
+provided however that in the case of any breach of this Agreement that 
+Licensor in its reasonable judgment deems uncurable, Licensor may 
+terminate this Agreement immediately upon notification to Licensee.  Upon 
+any such termination, Licensee shall immediately cease all uses of the 
+Software and any portion thereof, and shall return or destroy all copies 
+of the Software and any portion thereof and, if so requested, provide 
+written certification of such destruction to Licensor.
+
+8.        Disclaimer.  Licensee accepts the Software free of charge and on 
+an "AS IS" basis.  Licensee understands and acknowledges that the Software 
+is experimental, may contain errors and is subject to further development 
+and revision and assumes the entire risk as to its use of the Software. 
+Licensor does not guarantee the accuracy of the Software, or of any 
+results or data, and assumes no obligation to notify Licensee of any bug 
+fixes, enhancements or other modifications that may be made to the 
+Software.  LICENSOR SPECIFICALLY DISCLAIMS ALL EXPRESS AND IMPLIED 
+WARRANTIES OF ANY KIND INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+9.        Limitation of Liability; Indemnification.  IN NO EVENT SHALL 
+LICENSOR OR ANY OF ITS TRUSTEES, DIRECTORS, OFFICERS, MEDICAL OR 
+PROFESSIONAL STAFF, EMPLOYEES, STUDENTS OR  AGENTS ("LICENSOR'S 
+PERSONNEL") BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, 
+INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES HOWEVER CAUSED AND ON ANY 
+THEORY OF LIABILITY ARISING IN ANY WAY RELATED TO THE SOFTWARE OR THIS 
+AGREEMENT, EVEN IF LICENSOR OR ANY OF LICENSOR'S PERSONNEL HAS BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  EXCEPT TO THE EXTENT 
+PROHIBITED BY LAW OR REGULATION, LICENSEE ASSUMES ALL LIABILITY FOR 
+LICENSEE'S USE, REPRODUCTION,  AND DISPLAY OF THE SOFTWARE, AND AGREES TO 
+INDEMNIFY AND HOLD HARMLESS LICENSOR AND EACH OF LICENSOR'S PERSONNEL 
+FROM AND AGAINST ANY AND ALL DAMAGES, COSTS, LIABILITY, LOSS OR EXPENSES 
+(INCLUDING ATTORNEYS' FEES AND COSTS) ARISING IN CONNECTION WITH ANY 
+CLAIMS, SUITS, ACTIONS, DEMANDS AND JUDGMENTS RELATED TO LICENSEE'S USE, 
+REPRODUCTION,  AND DISPLAY OF THE SOFTWARE.
+
+10.        Independent Status.  Neither the making of this Agreement nor the 
+performance of its provisions shall be construed to constitute any Party 
+an agent, employee or legal representative of the other Party for any 
+purpose whatsoever.
+
+11.        Use of Name.  Except as expressly provided in this Agreement or 
+pursuant to specific prior written permission of the applicable party, 
+Licensee shall not use any of the names, logos or trademarks, or any 
+adaptation thereof, of Licensor or any of its Affiliates, or of any 
+trustee, director, officer, staff member, employee, student or agent 
+thereof, or of any funding agency, in any advertising, promotional or 
+sales material or publicity or in any document employed to obtain funds or 
+financing, or to endorse or promote research results or products produced 
+in whole or in part by operation of the Software or derived from or based 
+on the Software.  Such permission shall be obtained from Licensor's Chief 
+Public Affairs Officer.  Licensee hereby grants permission to Licensor to 
+use Licensee's name for purposes of obtaining funds from any funding 
+agency.
+
+12.        U.S. Government Rights.  For Software supported by federal 
+funding, the license granted under this Agreement is subject to the 
+rights, conditions and limitations imposed by U.S. law including without 
+limitation 35 U.S.C. § 202 et seq. and regulations pertaining thereto. 
+Notwithstanding the foregoing, the license granted under this Agreement 
+does not constitute a response by Licensee to any request for proposals, 
+bid solicitation or other invitation or offer to contract by any 
+governmental authority but instead constitutes an offer to enter into a 
+license agreement only upon the terms set forth herein.  If the U.S. 
+Government or any other governmental authority shall seek to acquire the 
+Software and its acquisition of such Software would result in the U.S. 
+Government or such other governmental authority having rights in the 
+Software that are at variance with the terms and conditions of this 
+Agreement and license, Licensee shall not be bound by any such rights 
+unless it shall have expressly entered into an amendment of this Agreement 
+that shall set forth such rights in accordance with any applicable 
+governmental rules or regulations, including the Federal Acquisition 
+Regulation and the Defense Federal Acquisition Regulation Supplement.
+
+13.        General.  This Agreement constitutes the entire understanding of 
+the Parties with respect to the subject matter hereof, superseding and 
+merging any prior oral or written understandings between the Parties with 
+respect thereto.  Sections 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 and 13 shall 
+survive any termination of this Agreement.  This Agreement may be modified 
+or amended only in a writing signed by duly authorized representatives of 
+the Parties hereto.  If any part of this Agreement is adjudged to be 
+invalid or unenforceable, the Parties intend that such invalidity shall 
+not affect any other provision hereof.  Any waiver or failure of any Party 
+to assert a right hereunder shall not constitute a waiver or excuse a 
+similar failure in any other circumstance.  Licensee shall not assign any 
+of its rights or obligations under this Agreement without the prior 
+written consent of Licensor.  Except to the extent prohibited by law or 
+regulation, this Agreement shall be governed by and construed in 
+accordance with the laws of The Commonwealth of Massachusetts, excluding 
+its provisions with respect to conflict of laws, and each Party consents 
+to the exclusive jurisdiction and venue of courts in Boston, Massachusetts 
+in all disputes relating to this Agreement.  Headings in this Agreement 
+are for convenience only and are not intended to be used to interpret or 
+construe this Agreement.  This Agreement may be executed in counterparts 
+and delivered by facsimile with the same effect as an original.  Each of 
+the undersigned represents that such individual is duly authorized to 
+execute this Agreement.
+
+Appendix A
+
+Description of the Software
+
+1.        Diffusion Toolkit in binary code form:  Diffusion Toolkit is a 
+software tool for the performance of data reconstruction and fiber 
+tracking for diffusion MR imaging, utilizing but not limited to tensor 
+data, diffusion spectrum imaging (DSI), high angular resolution diffusion 
+imaging (HARDI) data and Q-ball imaging data.
+
+2.        TrackVis in binary code form: TrackVis is a 3-dimensional 
+visualization program that allows real-time visualization and analysis of 
+the fiber track data that was created by Diffusion Toolkit.</license>
+                </module>
+                <module id="spline_filter_1" name="spline_filter" package="Diffusion ToolKit" version="0.2.1" description="Smooth and clean up the original track file generated by dti_tracker or odf_tracker. " icon="0" posX="211" posY="556" sourceCode="" location="pipeline://cranium.loni.usc.edu/spline_filter">
+                        <uri>http://www.trackvis.org/dtk</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Oct 05 14:52:12 PDT 2009"/>
+                        </metadata>
+                        <input id="spline_filter_1.INPUT_TRACK_FILE" name="INPUT_TRACK_FILE" description="Enter the input.trk file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="spline_filter_1.STEP_LENGTH" name="STEP_LENGTH" description="Set step length, in the unit of minimum voxel size.
+Default value is 0.5 for interpolated streamline method and 0.1 for other methods." required="true" enabled="true" order="1">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <output id="spline_filter_1.OUTPUT_TRACK_FILE" name="OUTPUT_TRACK_FILE" description="Enter the output.trk file name." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <license>http://www.trackvis.org/docs/?subsect=license
+
+The General Hospital Corporation
+
+ACADEMIC RESEARCH END-USER
+SOFTWARE LICENSE AGREEMENT
+
+By downloading, using, reproducing, displaying or otherwise accessing the 
+Software which is the subject of this Agreement, Licensee (defined below) 
+hereby agrees to all of the terms and conditions in this Agreement.  If 
+Licensee does not so agree, Licensee shall have no license or right to 
+use, reproduce or display the Software.
+
+This Academic Research End-User Software License Agreement (the 
+"Agreement") is by and between The General Hospital Corporation, d/b/a 
+Massachusetts General Hospital, a Massachusetts not-for-profit 
+corporation, with a principal place of business at 55 Fruit Street, 
+Boston, Massachusetts 02114 (the "Licensor") and the individual who is 
+or has engaged in downloading, using, reproducing, displaying or otherwise 
+accessing the Software described herein (the "Individual") and the 
+institution or entity which employs or is otherwise affiliated with such 
+Individual in connection with the Individual's use of the Software (the 
+"Institution" and together with the Individual, collectively 
+"Licensee"), and is effective as of the date the Software is first 
+downloaded or otherwise accessed by the Individual or the Institution (the 
+"Effective Date").  Each party to this Agreement is referred to herein 
+as a "Party" and collectively as the "Parties."
+
+RECITALS
+
+Licensor, through its investigators Ruopeng Wang, MS and Van Wedeen, MD of 
+the Department of Radiology, has developed the Software (defined below), 
+for use in the field of Diffusion Imaging research, and desires to permit 
+Licensee to use the software for Research Purposes only (defined below).
+
+Licensee desires to license the Software solely for Research Purposes in 
+accordance with the terms and conditions hereof.
+
+         Now therefore, in consideration of the premises and covenants 
+hereinafter set forth and other good and valuable consideration, the 
+receipt and sufficiency of which is hereby acknowledged, the Parties 
+hereby agree as follows:
+
+I.       Certain Definitions.  As used in this Agreement, the following 
+terms shall have the following meanings:
+
+         (a)    "Affiliate" with respect to either entity Party means 
+any corporation or other legal entity other than that Party in whatever 
+country organized, controlling, controlled by or under common control with 
+that Party.  The term "control" shall mean the power, direct or 
+indirect, to elect or appoint fifty percent (50%) or more of the directors 
+or trustees, or to cause direction of management and policies, whether 
+through the ownership of voting securities, by contract or otherwise.
+
+        (b)    "Binary Code" means the embodiment of a computer program 
+which is not in human-readable form, and which is derived from source code 
+of such program by means of assembly or compilation into either a 
+computer-specific non-executable code, or an executable code capable of 
+being run on a computer system.
+
+        (c)     "Commercial Purposes" shall mean the sale, lease, license or 
+other transfer of the Software, use of the Software for the performance of 
+contract research, or to produce or manufacture products for sale, or to 
+develop, use, and/or distribute educational materials based on the 
+Software, including but not limited to courseware or text books.
+
+        (d)     "Patent Rights" means Licensor's rights in the Software 
+under U.S. and foreign patent law, if applicable, as may be further 
+described in Appendix A.
+
+        (e)     "Research Purposes" means the academic or government 
+funded research under the direction of the Individual at the Institution.
+
+        (f)     "Software" means the computer programs known as TrackVis 
+and Diffusion Toolkit and any related documentation as further defined and 
+described in Appendix A.
+
+2.        Software License Grant.  Subject to the terms and conditions 
+contained in this Agreement, Licensor hereby grants to Licensee a 
+nonexclusive, nontransferable, nonsublicensable, royalty-free license:
+
+        (i)     under Licensor's copyright rights, to reproduce and display the 
+Software; and
+        (ii)    under Licensor's Patent Rights, to use the Software (but 
+not to sell or otherwise transfer the Software);
+
+provided, however, that the foregoing license grant is limited to Research 
+Purposes only and only at the Institution.  The Software shall not be 
+reproduced, displayed or used for any Commercial Purposes unless Licensor 
+has consented in writing in advance and the Parties have entered into a 
+commercial license agreement containing appropriate terms for royalties, 
+and such other terms and conditions as are required by Licensor.
+
+3.        Title and Ownership.  The Software is protected by copyright and 
+foreign treaties, and may be subject to Patent Rights and other 
+proprietary rights of Licensor and, if applicable, its licensor(s). 
+Except to the extent of the limited license provided for in this 
+Agreement, Licensor shall retain all of its rights, title and interest in 
+and to the Software.  This Agreement does not grant any rights in or to 
+any intellectual property owned or licensed by Licensor except those 
+rights expressly granted hereunder, and except as specifically set forth 
+in this Agreement, Licensee shall have no other rights in or to the 
+Software nor any underlying intellectual property.
+
+4.        Conditions.  As a condition to the license granted hereunder, 
+Licensee, and each of Individual or the Institution, as applicable, shall 
+comply at all times with each of the following:
+
+        (a)     Licensee shall preserve and maintain all applicable 
+attributions, copyright notices and licenses included in or applicable to 
+the Software.
+
+        (b)     Licensee may make copies of the Software but only to the extent 
+required to support Licensee's authorized use of the Software for 
+Licensee's Research Purposes.  Licensee agrees to reproduce on any such 
+copies all of Licensor's proprietary notices contained in and on the 
+Software and its associated media.
+
+        (c)     Licensee shall use the Software only for Research Purposes and 
+only at the Institution.
+
+        (d)     Licensee shall not sell, license, distribute, rent, lease, 
+offer on an ASP or service bureau basis, grant a security interest in, 
+sublicense or otherwise transfer or permit any third party (other than 
+Licensee's own employees, students and fellows or other collaborators 
+solely in connection with permitted activities at the Institution) to 
+access or use all or any portion of the Software in any form or any of the 
+rights therein or thereto.
+
+        (e)     This Agreement does not grant any rights with respect to 
+third party software, except those rights that Licensor has been 
+authorized by a third party to grant to Licensee, and accordingly Licensee 
+is solely responsible for obtaining any permissions from third parties 
+which are necessary to use, reproduce, or display, the Software.
+
+        (f)     Licensee shall exercise its rights pursuant to this Agreement in 
+compliance with all applicable governmental laws, regulations and orders, 
+including without limitation those relating to export and import control.
+
+        (g)     To the extent such restriction is not prohibited by 
+applicable law, Licensee shall not decompile, disassemble or reverse 
+engineer the Software or its structure, sequence, organization, algorithms 
+or data.
+
+        (h)     Licensee shall notify Licensor promptly if it becomes 
+aware of any unauthorized access to or use or transfer of the Software.
+
+        (i)     Institution shall be jointly responsible for the actions of 
+Individuals hereunder with respect to the Software and compliance with the 
+terms of this Agreement.   Licensee hereby represents and warrants that 
+all information provided to Licensor in connection with accessing, 
+downloading and/or using the Software is accurate, true and complete.
+
+5.        Limitations.
+
+(a)        LICENSEE ACKNOWLEDGES THAT THE SOFTWARE HAS BEEN DESIGNED FOR 
+RESEARCH PURPOSES ONLY AND HAS NOT BEEN REVIEWED OR APPROVED BY THE FOOD 
+AND DRUG ADMINISTRATION OR BY ANY OTHER AGENCY, AND FURTHER ACKNOWLEDGES 
+THAT CLINICAL APPLICATIONS ARE NEITHER RECOMMENDED NOR ADVISED.
+
+(b)        Licensee shall be solely responsible for installing and 
+maintaining the Software and for testing the Software for proper 
+operation.  Unless otherwise agreed in writing, Licensor shall have no 
+obligation to provide to Licensee any support, maintenance, corrections, 
+debugging, improvements, modifications, upgrades or updates of the 
+Software, or otherwise assist Licensee in installing, configuring, 
+integrating, understanding or using the Software.
+
+6.        Publication.  Licensee may publish and present the results of 
+Licensee's use of the Software in peer-reviewed journals.  Licensee 
+agrees to provide acknowledgement to Licensor and its designated 
+professional staff, Ruopeng Wang, MS and Van Wedeen, MD, who participated 
+in the creation of the Software, in such publications or presentations in 
+accordance with standard academic practice.
+
+7.        Term and Termination.  This Agreement and the license granted by 
+Licensor hereunder shall commence on the Effective Date and continue in 
+effect until terminated by any Party as provided herein.  Licensee may 
+terminate this Agreement at any time by destroying all copies of the 
+Software and notifying Licensor in writing of such destruction, or 
+returning all copies of the Software to Licensor.  Licensor may terminate 
+this Agreement upon sixty (60) days prior notice to Licensee if Licensee 
+does not comply with any of the material provisions of this Agreement and 
+such breach remains uncured at the end of such sixty (60) day period, 
+provided however that in the case of any breach of this Agreement that 
+Licensor in its reasonable judgment deems uncurable, Licensor may 
+terminate this Agreement immediately upon notification to Licensee.  Upon 
+any such termination, Licensee shall immediately cease all uses of the 
+Software and any portion thereof, and shall return or destroy all copies 
+of the Software and any portion thereof and, if so requested, provide 
+written certification of such destruction to Licensor.
+
+8.        Disclaimer.  Licensee accepts the Software free of charge and on 
+an "AS IS" basis.  Licensee understands and acknowledges that the Software 
+is experimental, may contain errors and is subject to further development 
+and revision and assumes the entire risk as to its use of the Software. 
+Licensor does not guarantee the accuracy of the Software, or of any 
+results or data, and assumes no obligation to notify Licensee of any bug 
+fixes, enhancements or other modifications that may be made to the 
+Software.  LICENSOR SPECIFICALLY DISCLAIMS ALL EXPRESS AND IMPLIED 
+WARRANTIES OF ANY KIND INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+9.        Limitation of Liability; Indemnification.  IN NO EVENT SHALL 
+LICENSOR OR ANY OF ITS TRUSTEES, DIRECTORS, OFFICERS, MEDICAL OR 
+PROFESSIONAL STAFF, EMPLOYEES, STUDENTS OR  AGENTS ("LICENSOR'S 
+PERSONNEL") BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, 
+INCIDENTAL, EXEMPLARY OR CONSEQUENTIAL DAMAGES HOWEVER CAUSED AND ON ANY 
+THEORY OF LIABILITY ARISING IN ANY WAY RELATED TO THE SOFTWARE OR THIS 
+AGREEMENT, EVEN IF LICENSOR OR ANY OF LICENSOR'S PERSONNEL HAS BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  EXCEPT TO THE EXTENT 
+PROHIBITED BY LAW OR REGULATION, LICENSEE ASSUMES ALL LIABILITY FOR 
+LICENSEE'S USE, REPRODUCTION,  AND DISPLAY OF THE SOFTWARE, AND AGREES TO 
+INDEMNIFY AND HOLD HARMLESS LICENSOR AND EACH OF LICENSOR'S PERSONNEL 
+FROM AND AGAINST ANY AND ALL DAMAGES, COSTS, LIABILITY, LOSS OR EXPENSES 
+(INCLUDING ATTORNEYS' FEES AND COSTS) ARISING IN CONNECTION WITH ANY 
+CLAIMS, SUITS, ACTIONS, DEMANDS AND JUDGMENTS RELATED TO LICENSEE'S USE, 
+REPRODUCTION,  AND DISPLAY OF THE SOFTWARE.
+
+10.        Independent Status.  Neither the making of this Agreement nor the 
+performance of its provisions shall be construed to constitute any Party 
+an agent, employee or legal representative of the other Party for any 
+purpose whatsoever.
+
+11.        Use of Name.  Except as expressly provided in this Agreement or 
+pursuant to specific prior written permission of the applicable party, 
+Licensee shall not use any of the names, logos or trademarks, or any 
+adaptation thereof, of Licensor or any of its Affiliates, or of any 
+trustee, director, officer, staff member, employee, student or agent 
+thereof, or of any funding agency, in any advertising, promotional or 
+sales material or publicity or in any document employed to obtain funds or 
+financing, or to endorse or promote research results or products produced 
+in whole or in part by operation of the Software or derived from or based 
+on the Software.  Such permission shall be obtained from Licensor's Chief 
+Public Affairs Officer.  Licensee hereby grants permission to Licensor to 
+use Licensee's name for purposes of obtaining funds from any funding 
+agency.
+
+12.        U.S. Government Rights.  For Software supported by federal 
+funding, the license granted under this Agreement is subject to the 
+rights, conditions and limitations imposed by U.S. law including without 
+limitation 35 U.S.C. § 202 et seq. and regulations pertaining thereto. 
+Notwithstanding the foregoing, the license granted under this Agreement 
+does not constitute a response by Licensee to any request for proposals, 
+bid solicitation or other invitation or offer to contract by any 
+governmental authority but instead constitutes an offer to enter into a 
+license agreement only upon the terms set forth herein.  If the U.S. 
+Government or any other governmental authority shall seek to acquire the 
+Software and its acquisition of such Software would result in the U.S. 
+Government or such other governmental authority having rights in the 
+Software that are at variance with the terms and conditions of this 
+Agreement and license, Licensee shall not be bound by any such rights 
+unless it shall have expressly entered into an amendment of this Agreement 
+that shall set forth such rights in accordance with any applicable 
+governmental rules or regulations, including the Federal Acquisition 
+Regulation and the Defense Federal Acquisition Regulation Supplement.
+
+13.        General.  This Agreement constitutes the entire understanding of 
+the Parties with respect to the subject matter hereof, superseding and 
+merging any prior oral or written understandings between the Parties with 
+respect thereto.  Sections 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 and 13 shall 
+survive any termination of this Agreement.  This Agreement may be modified 
+or amended only in a writing signed by duly authorized representatives of 
+the Parties hereto.  If any part of this Agreement is adjudged to be 
+invalid or unenforceable, the Parties intend that such invalidity shall 
+not affect any other provision hereof.  Any waiver or failure of any Party 
+to assert a right hereunder shall not constitute a waiver or excuse a 
+similar failure in any other circumstance.  Licensee shall not assign any 
+of its rights or obligations under this Agreement without the prior 
+written consent of Licensor.  Except to the extent prohibited by law or 
+regulation, this Agreement shall be governed by and construed in 
+accordance with the laws of The Commonwealth of Massachusetts, excluding 
+its provisions with respect to conflict of laws, and each Party consents 
+to the exclusive jurisdiction and venue of courts in Boston, Massachusetts 
+in all disputes relating to this Agreement.  Headings in this Agreement 
+are for convenience only and are not intended to be used to interpret or 
+construe this Agreement.  This Agreement may be executed in counterparts 
+and delivered by facsimile with the same effect as an original.  Each of 
+the undersigned represents that such individual is duly authorized to 
+execute this Agreement.
+
+Appendix A
+
+Description of the Software
+
+1.        Diffusion Toolkit in binary code form:  Diffusion Toolkit is a 
+software tool for the performance of data reconstruction and fiber 
+tracking for diffusion MR imaging, utilizing but not limited to tensor 
+data, diffusion spectrum imaging (DSI), high angular resolution diffusion 
+imaging (HARDI) data and Q-ball imaging data.
+
+2.        TrackVis in binary code form: TrackVis is a 3-dimensional 
+visualization program that allows real-time visualization and analysis of 
+the fiber track data that was created by Diffusion Toolkit.</license>
+                </module>
+                <dataModule id="Trkfile_1" name="Trk file" posX="378" posY="697" sourceCode="" type="File" source="false" loopIndex="false" dirDump="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri May 07 17:30:28 PDT 2010"/>
+                        </metadata>
+                        <input id="Trkfile_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file"/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/{$tempdir}/{$username}/DiffusionToolkit/</value>
+                        </values>
+                </dataModule>
+        </moduleGroup>
+</pipeline>

@@ -35,7 +35,7 @@ import java.util.HashMap;
  * format.
  * @author Daniel Garijo
  */
-public class STEP1RetrieveTemplatesFromServerAndTransformThemToPAFIFiles {
+public class STEP1RetrieveOPMWTemplatesFromServerAndTransformThemToPAFIFiles {
     public static void main(String[] args){
         try{            
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");

@@ -30,7 +30,7 @@ import java.util.HashMap;
  *
  * @author Daniel Garijo
  */
-public class STEP1RetrieveTemplatesFromServerAndTransformThemToPARSEMISFiles {
+public class STEP1RetrieveOPMWTemplatesFromServerAndTransformThemToPARSEMISFiles {
     public static void main(String[] args){
         try{            
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");

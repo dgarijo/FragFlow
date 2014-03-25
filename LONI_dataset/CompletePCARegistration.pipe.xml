@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="ARTTransform_1.TransformedImageName" sink="SubjectImagelabels_1.Input"/>
+                <connection source="LabelImageValidation_1.MetricResultsFileName" sink="LabelValidationResults_1.Input"/>
+                <connection source="MatlabLibraryDirectory_1.Output" sink="LabelImageValidation_1.MATLABLibraryLocation"/>
+                <connection source="copy_1.Output" sink="LabelImageValidation_1.Image1"/>
+                <connection source="ARTTransform_1.TransformedImageName" sink="LabelImageValidation_1.Image2"/>
+                <connection source="SegmentationProjection_1.TemplateLabelImageName" sink="ARTTransform_1.TargetImageName"/>
+                <connection source="ART_1.DeformationFileName" sink="ARTTransform_1.DeformationFileName"/>
+                <connection source="copy_3.Output" sink="ART_1.TargetImageName"/>
+                <connection source="SegmentationProjection_1.TemplateIntensityImageName" sink="ART_1.SubjectImageName"/>
+                <connection source="SegmentationTraining_1.PCAModelFileName" sink="SegmentationProjection_1.PCAModelName"/>
+                <connection source="MatlabLibraryDirectory_1.Output" sink="SegmentationProjection_1.MATLABLibraryLocation"/>
+                <connection source="ART_2.TransformedSubjectImageName" sink="SegmentationProjection_1.SubjectImageName"/>
+                <connection source="SubjectImageLabels_1.Output" sink="copy_1.Input"/>
+                <connection source="TrainingDirectory_1.Output" sink="copy_2.Input"/>
+                <connection source="SegmentationTraining_1.OutputMeanImageName" sink="ART_2.TargetImageName"/>
+                <connection source="copy_4.Output" sink="ART_2.SubjectImageName"/>
+                <connection source="SubjectImage_1.Output" sink="copy_3.Input"/>
+                <connection source="SubjectImage_1.Output" sink="copy_4.Input"/>
+                <connection source="copy_2.Output" sink="SegmentationTraining_1.TrainingImagesDirectory"/>
+                <connection source="MatlabLibraryDirectory_1.Output" sink="SegmentationTraining_1.MATLABLibraryLocation"/>
+        </connections>
+        <icons>
+                <icon id="1" value="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
+"/>
+                <icon id="0" value="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"/>
+        </icons>
+        <moduleGroup id="CompletePCARegistration_1" name="Complete PCA Registration" package="LONI" version="1.0" posX="0" posY="0" sourceCode="">
+                <authors>
+                        <author fullName="Gautam Prasad " email="" website=""/>
+                        <author fullName="Alen Zamanyan" email="" website=""/>
+                        <author fullName="Sam Hobel" email="" website=""/>
+                </authors>
+                <metadata>
+                        <data key="__creationDateKey" value="Tue Nov 02 17:35:05 PDT 2010"/>
+                </metadata>
+                <dataModule id="SubjectImage_1" name="Subject Image" package="LONI" version="1.0" posX="664" posY="4" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 04 14:58:02 PDT 2010"/>
+                        </metadata>
+                        <output id="SubjectImage_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/LONI/data/Pipeline_Workflow_Test_Data/CompletePCARegistration/9.intensity.nii.gz</value>
+                        </values>
+                </dataModule>
+                <dataModule id="SubjectImagelabels_1" name="Subject Image labels" posX="662" posY="1037" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 22 10:39:37 PDT 2010"/>
+                        </metadata>
+                        <input id="SubjectImagelabels_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/{$tempdir}/{$username}/PCARegistration/subjectimagelabels.nii.gz</value>
+                        </values>
+                </dataModule>
+                <dataModule id="LabelValidationResults_1" name="Label Validation Results" posX="1195" posY="1047" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 22 10:40:16 PDT 2010"/>
+                        </metadata>
+                        <input id="LabelValidationResults_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAT File" extension="mat" description="Matrix describing transformation of image into standard space (found by first_flirt)."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="MAT File" extension="mat" description="Matrix describing transformation of image into standard space (found by first_flirt)."/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/{$tempdir}/{$username}/PCARegistration/labelimagevalidation.mat</value>
+                        </values>
+                </dataModule>
+                <module id="LabelImageValidation_1" name="Label Image Validation" package="PCA Registration" version="1.0" description="Takes two label images and compares the corresponding labels between the two images using Jaccard, Dice, Sensitivity, Specificity, hausdorff distance, and volume metrics. The results are displayed in that order in the ouput matrix MATLAB file. Each row containes the corresponding metric information for a particular label number. The final row contains the average over all the labels." icon="0" posX="1184" posY="307" sourceCode="" location="pipeline://cranium.loni.usc.edu/label_metrics/run_label_metrics.sh" executableVersion="1.0" gridVariables="h_stack=32;h_vmem=8">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <tag>segmenation</tag>
+                        <tag>projection</tag>
+                        <tag>template</tag>
+                        <tag>registration</tag>
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/CCB/PcaRegistration</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Jun 27 16:33:48 PDT 2010"/>
+                        </metadata>
+                        <input id="LabelImageValidation_1.MATLABLibraryLocation" name="MATLAB Library Location" description="This is the MATLAB location for the executables that is used by the executable." required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <input id="LabelImageValidation_1.Image1" name="Image 1" description="The first label image.
+" required="true" enabled="true" order="1" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.gz</transform>
+                                </format>
+                        </input>
+                        <input id="LabelImageValidation_1.Image2" name="Image 2" description="The second label image." required="true" enabled="true" order="2" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.gz</transform>
+                                </format>
+                        </input>
+                        <output id="LabelImageValidation_1.MetricResultsFileName" name="Metric Results File Name" description="The MATLAB file name that will contain the matrix of the metric values." required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MATLAB" extension="mat" description="Matlab storage format."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="LabelImageValidation_1.NumberofLabels" name="Number of Labels" description="Number of labels in the two images. Both images must have the same number of labels and they must start from being numbered at 1 to N (N being the total number of labels)." required="true" enabled="true" order="4">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>56</value>
+                                </values>
+                        </input>
+                </module>
+                <module id="ARTTransform_1" name="ART Transform" package="Automatic Registration Toolbox" version="1.0" description="Uses the deformations from the ART nonlinear registration aglorithm to transform an image." icon="0" posX="650" posY="752" sourceCode="" location="pipeline://cranium.loni.usc.edu/applywarp3d_niftiB.sh" executableVersion="  2008-07-21 08:12">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>PMID: 15652618</citation>
+                        </citations>
+                        <tag>registration</tag>
+                        <tag>ART</tag>
+                        <tag>nonlinear</tag>
+                        <tag>NIFTI</tag>
+                        <tag>mri</tag>
+                        <tag>brain</tag>
+                        <uri>http://www.nitrc.org/projects/art/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jul 01 11:05:05 PDT 2010"/>
+                        </metadata>
+                        <input id="ARTTransform_1.TargetImageName" name="Target Image Name" description="This is the input image that is being transformed using the deformation file." required="true" enabled="true" order="0" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.gz</transform>
+                                        <transform order="1" operation="Subtract">.gz</transform>
+                                </format>
+                        </input>
+                        <input id="ARTTransform_1.DeformationFileName" name="Deformation File Name" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ARTTransform_1.TransformedImageName" name="Transformed Image Name" description="This is the name of the transformed image name." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="ARTTransform_1.NearestNeighborInterpolation" name="Nearest Neighbor Interpolation" description="Specify if nearest neighbor interpolation is required. If this is not specified then there will be linear interpolation." required="false" enabled="false" order="3" prefix="-nn" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Babek Ardekani" email="Ardekani@nki.rfmh.org" website="http://www.nitrc.org/projects/art/"/>
+                        </executableAuthors>
+                </module>
+                <module id="ART_1" name="ART" package="Automatic Registration Toolbox" version="1.0" description="Nonlinear registration of two NIFTI images." icon="0" posX="650" posY="611" sourceCode="" location="pipeline://cranium.loni.usc.edu/3dwarper_nifti.sh" executableVersion=" 2009-03-12 12:37">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>PMID: 15652618</citation>
+                        </citations>
+                        <tag>registration</tag>
+                        <tag>nifti</tag>
+                        <uri>http://www.nitrc.org/projects/art/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jul 01 10:40:07 PDT 2010"/>
+                        </metadata>
+                        <input id="ART_1.TargetImageName" name="Target Image Name" description="This is the registration target or reference image image." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ART_1.SubjectImageName" name="Subject Image Name" description="This is the registration subject image." required="true" enabled="true" order="1" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.nii</transform>
+                                </format>
+                        </input>
+                        <output id="ART_1.TransformedSubjectImageName" name="Transformed Subject Image Name" description="This is the location of the transformed subject image." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="ART_1.DeformationFileName" name="Deformation File Name" description="This is the name for the deformation file from the registration. Its size can be large." required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Babek Ardekani" email="Ardekani@nki.rfmh.org" website="http://www.nitrc.org/projects/art/"/>
+                        </executableAuthors>
+                </module>
+                <module id="SegmentationProjection_1" name="Segmentation Projection" package="PCA Registration" version="1.0" description="Take the pca model generated from the segmenation training module and a subject image and uses that to output template label and intensity images." icon="0" posX="648" posY="457" sourceCode="" location="pipeline://cranium.loni.usc.edu/segmentation_projection/run_segmentation_projection.sh" executableVersion="1.0" gridVariables="h_stack=32;h_vmem=8">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <tag>segmenation</tag>
+                        <tag>projection</tag>
+                        <tag>template</tag>
+                        <tag>registration</tag>
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/CCB/PcaRegistration</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Jun 27 16:33:48 PDT 2010"/>
+                        </metadata>
+                        <input id="SegmentationProjection_1.PCAModelName" name="PCA Model Name" description="This is the name of the PCA model, it is of the MATLAB format." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MATLAB" extension="mat" description="Matlab storage format."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SegmentationProjection_1.MATLABLibraryLocation" name="MATLAB Library Location" description="This is the MATLAB location for the executables that is used by the executable." required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <input id="SegmentationProjection_1.SubjectImageName" name="Subject Image Name" description="This is the name of the subject image that has been registered to the mean image of the training data." required="true" enabled="true" order="2" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.gz</transform>
+                                </format>
+                        </input>
+                        <output id="SegmentationProjection_1.TemplateIntensityImageName" name="Template Intensity Image Name" description="This is the name of the template intensity image that is saved in the specified location." required="true" enabled="true" order="3" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.gz</transform>
+                                </format>
+                        </output>
+                        <output id="SegmentationProjection_1.TemplateLabelImageName" name="Template Label Image Name" description="This is the name of the template label image that is saved in the specified location." required="true" enabled="true" order="4" includeTransformedParameter="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                        <transform order="0" operation="Subtract">.gz</transform>
+                                </format>
+                        </output>
+                </module>
+                <module id="copy_1" name="copy" package="PCA Registraton" description="Copy files in a read only directory into another directory where they can be edited." icon="1" posX="1174" posY="145" sourceCode="" location="pipeline://cranium.loni.usc.edu//bin/cp">
+                        <tag>copy</tag>
+                        <tag>files</tag>
+                        <tag>directory</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 03 14:38:55 PDT 2010"/>
+                        </metadata>
+                        <input id="copy_1.Input" name="Input" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="copy_1.Output" name="Output" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="copy_2" name="copy" package="PCA Registraton" description="Copy files in a read only directory into another directory where they can be edited." icon="1" posX="195" posY="106" sourceCode="" location="pipeline://cranium.loni.usc.edu//bin/cp">
+                        <tag>copy</tag>
+                        <tag>files</tag>
+                        <tag>directory</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 03 14:38:55 PDT 2010"/>
+                        </metadata>
+                        <input id="copy_2.Input" name="Input" required="true" enabled="true" order="0" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <output id="copy_2.Output" name="Output" required="true" enabled="true" order="1">
+                                <format type="Directory" cardinality="1"/>
+                        </output>
+                </module>
+                <module id="ART_2" name="ART" package="Automatic Registration Toolbox" version="1.0" description="Nonlinear registration of two NIFTI images." icon="0" posX="649" posY="306" sourceCode="" location="pipeline://cranium.loni.usc.edu/3dwarper_nifti.sh" executableVersion=" 2009-03-12 12:37">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>PMID: 15652618</citation>
+                        </citations>
+                        <tag>registration</tag>
+                        <tag>nifti</tag>
+                        <uri>http://www.nitrc.org/projects/art/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jul 01 10:40:07 PDT 2010"/>
+                        </metadata>
+                        <input id="ART_2.TargetImageName" name="Target Image Name" description="This is the registration target or reference image image." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ART_2.SubjectImageName" name="Subject Image Name" description="This is the registration subject image." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ART_2.TransformedSubjectImageName" name="Transformed Subject Image Name" description="This is the location of the transformed subject image." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="ART_2.DeformationFileName" name="Deformation File Name" description="This is the name for the deformation file from the registration. Its size can be large." required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Babek Ardekani" email="Ardekani@nki.rfmh.org" website="http://www.nitrc.org/projects/art/"/>
+                        </executableAuthors>
+                </module>
+                <module id="copy_3" name="copy" package="PCA Registraton" description="Copy files in a read only directory into another directory where they can be edited." icon="1" posX="840" posY="124" sourceCode="" location="pipeline://cranium.loni.usc.edu//bin/cp">
+                        <tag>copy</tag>
+                        <tag>files</tag>
+                        <tag>directory</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 03 14:38:55 PDT 2010"/>
+                        </metadata>
+                        <input id="copy_3.Input" name="Input" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="copy_3.Output" name="Output" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="copy_4" name="copy" package="PCA Registraton" description="Copy files in a read only directory into another directory where they can be edited." icon="1" posX="648" posY="127" sourceCode="" location="pipeline://cranium.loni.usc.edu//bin/cp">
+                        <tag>copy</tag>
+                        <tag>files</tag>
+                        <tag>directory</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 03 14:38:55 PDT 2010"/>
+                        </metadata>
+                        <input id="copy_4.Input" name="Input" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="copy_4.Output" name="Output" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NIFTI GZ" extension="nii.gz" description="Gzipped NIFTI file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="SubjectImageLabels_1" name="Subject Image Labels" package="LONI" version="1.0" posX="1190" posY="0" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 04 14:58:02 PDT 2010"/>
+                        </metadata>
+                        <output id="SubjectImageLabels_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/LONI/data/Pipeline_Workflow_Test_Data/CompletePCARegistration/36.label.nii.gz</value>
+                        </values>
+                </dataModule>
+                <dataModule id="TrainingDirectory_1" name="Training Directory" package="LONI" version="1.0" posX="211" posY="7" sourceCode="" type="Directory" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Aug 13 14:06:53 PDT 2010"/>
+                        </metadata>
+                        <output id="TrainingDirectory_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1"/>
+                        </output>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/LONI/data/Pipeline_Workflow_Test_Data/CompletePCARegistration/segmentation_training_data/</value>
+                        </values>
+                </dataModule>
+                <module id="SegmentationTraining_1" name="Segmentation Training" package="PCA Registration" version="1.0" description="Takes a set of images 1...N names as i.intensity.nii.gz in the NIFTI zipped format and their corresponding label images 1...N names as i.label.nii.gz where i is the number of the image. Each label has L different labels numbered 1...L." icon="0" posX="205" posY="238" sourceCode="" location="pipeline://cranium.loni.usc.edu/segmentation_training/run_segmentation_training.sh" executableVersion="1.0" gridVariables="h_stack=32;h_vmem=8">
+                        <authors>
+                                <author fullName="Gautam Prasad" email="gprasad@loni.ucla.edu" website=""/>
+                        </authors>
+                        <tag>segmentation</tag>
+                        <tag>training</tag>
+                        <tag>labels</tag>
+                        <tag>intensity</tag>
+                        <tag>mean</tag>
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/CCB/PcaRegistration</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Jun 27 16:33:48 PDT 2010"/>
+                        </metadata>
+                        <input id="SegmentationTraining_1.TrainingImagesDirectory" name="Training Images Directory" description="This is the directory of the training images. Make sure that it ends with &quot;/&quot;" required="true" enabled="true" order="1" includeTransformedParameter="false">
+                                <format type="Directory" cardinality="1">
+                                        <transform order="0" operation="Append">/</transform>
+                                </format>
+                        </input>
+                        <output id="SegmentationTraining_1.PCAModelFileName" name="PCA Model File Name" description="The filename for the PCA image model." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MATLAB" extension="mat" description="Matlab storage format."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SegmentationTraining_1.NumberofTrainingImages" name="Number of Training Images" description="This is the number of training images used in the program." required="true" enabled="true" order="3">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>40</value>
+                                </values>
+                        </input>
+                        <input id="SegmentationTraining_1.NumberofLabels" name="Number of Labels" description="This is the number of labels that are used in the program." required="true" enabled="true" order="4">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>56</value>
+                                </values>
+                        </input>
+                        <output id="SegmentationTraining_1.OutputMeanImageName" name="Output Mean Image Name" description="This the name of the output mean image from the training data." required="true" enabled="true" order="5">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SegmentationTraining_1.MATLABLibraryLocation" name="MATLAB Library Location" description="This is the MATLAB location for the executables that is used by the executable." required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                </module>
+                <dataModule id="MatlabLibraryDirectory_1" name="Matlab Library Directory" package="LONI" version="1.0" posX="1484" posY="0" sourceCode="" type="Directory" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu"/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Nov 21 14:32:41 AMT 2011"/>
+                        </metadata>
+                        <output id="MatlabLibraryDirectory_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1"/>
+                        </output>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu/matlab-7.8_64bit/</value>
+                        </values>
+                </dataModule>
+                <annotations visible="true">
+                        <annotation width="200" height="97" posX="975" posY="304" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Compare the gold standard labels of the subject image with the ones obtained from the PCA Registration method and oputput the resulting measures into a MATLAB file.">
+                                <styles>
+                                        <style name="Compare the gold standard labels of the subject image with the ones obtained from the PCA Registration method and oputput the resulting measures into a MATLAB file.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="37" posX="982" posY="51" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="These modules can be removed if there is no gold standard data.">
+                                <styles>
+                                        <style name="These modules can be removed if there is no gold standard data.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="22" posX="981" posY="6" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Validation Modules">
+                                <styles>
+                                        <style name="Validation Modules$0" fontSize="12" isBold="true"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="82" posX="447" posY="752" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Apply the deformation field from the subject to atlas intensity registration to the labels of the atlas to provide a final labeling of the subject image.">
+                                <styles>
+                                        <style name="Apply the deformation field from the subject to atlas intensity registration to the labels of the atlas to provide a final labeling of the subject image.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="52" posX="441" posY="628" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Nonlinearly register the subject intensity image to the template from the PCA model.">
+                                <styles>
+                                        <style name="Nonlinearly register the subject intensity image to the template from the PCA model.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="37" posX="437" posY="480" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Orthogonaly project the subject image onto the PCA model.">
+                                <styles>
+                                        <style name="Orthogonaly project the subject image onto the PCA model.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="52" posX="439" posY="318" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Nonlinearly register the subject image to the mean training image.">
+                                <styles>
+                                        <style name="Nonlinearly register the subject image to the mean training image.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="37" posX="0" posY="261" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Output is the mean image and the trained PCA model.">
+                                <styles>
+                                        <style name="Output is the mean image and the trained PCA model.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="52" posX="459" posY="7" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Modules to orthogonally project a subject image onto the trained model.">
+                                <styles>
+                                        <style name="Modules to orthogonally project a subject image onto the trained model.$0" fontSize="12" isBold="true"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="37" posX="2" posY="13" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Modules responsible for training the algorithm.">
+                                <styles>
+                                        <style name="Modules responsible for training the algorithm.$0" fontSize="12" isBold="true"/>
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>

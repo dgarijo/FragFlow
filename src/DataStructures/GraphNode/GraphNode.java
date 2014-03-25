@@ -67,7 +67,7 @@ public class GraphNode {
      * @param type 
      */
     public void setType(String type) {        
-        
+        this.type = type;
     }
     
 }

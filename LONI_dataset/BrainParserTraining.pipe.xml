@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="BrainParser_1.TargetDirectory" sink="Post-BrainParser_1.ModelDirectory"/>
+                <connection source="Pre-BrainParser_1.OutputDirectory" sink="BrainParser_1.SourceDirectory"/>
+                <connection source="NumberofStructures_1.Output" sink="BrainParser_1.NumberofStructures"/>
+                <connection source="Labels_1.Output" sink="Pre-BrainParser_1.InputLabels"/>
+                <connection source="Brains_1.Output" sink="Pre-BrainParser_1.InputBrains"/>
+                <connection source="Post-BrainParser_1.OutputAppearanceDirectory" sink="ModelsDirectory_1.Input"/>
+        </connections>
+        <icons>
+                <icon id="0" value="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"/>
+        </icons>
+        <moduleGroup id="BrainParserTraining_1" name="BrainParser Training" package="LONI" version="1.0" posX="0" posY="0" sourceCode="">
+                <authors>
+                        <author fullName="Alex Genco" email="" website=""/>
+                </authors>
+                <tag>brainparser</tag>
+                <tag>train</tag>
+                <tag>model</tag>
+                <metadata>
+                        <data key="__creationDateKey" value="Wed Dec 08 09:25:32 PST 2010"/>
+                </metadata>
+                <dataModule id="Brains_1" name="Brains" posX="341" posY="115" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website=""/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 29 11:52:30 PDT 2010"/>
+                        </metadata>
+                        <output id="Brains_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                </dataModule>
+                <dataModule id="Labels_1" name="Labels" posX="78" posY="108" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website=""/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 29 11:52:30 PDT 2010"/>
+                        </metadata>
+                        <output id="Labels_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                </dataModule>
+                <dataModule id="NumberofStructures_1" name="Number of Structures" posX="528" posY="236" sourceCode="" type="Number" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website=""/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 29 12:55:05 PDT 2010"/>
+                        </metadata>
+                        <output id="NumberofStructures_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Number" cardinality="1"/>
+                        </output>
+                </dataModule>
+                <module id="Post-BrainParser_1" name="Post-BrainParser" package="LONI" version="1.0" icon="0" posX="234" posY="739" sourceCode="" location="pipeline://cranium.loni.usc.edu/LONI/scripts/agenco/post_bp.sh">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website=""/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 29 11:19:24 PDT 2010"/>
+                        </metadata>
+                        <input id="Post-BrainParser_1.ModelDirectory" name="Model Directory" required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <output id="Post-BrainParser_1.OutputAppearanceDirectory" name="Output Appearance Directory" required="true" enabled="true" order="1" includeTransformedParameter="false">
+                                <format type="Directory" cardinality="1" transformationBase="Model Directory">
+                                        <transform order="0" operation="Append">/appearance</transform>
+                                </format>
+                        </output>
+                </module>
+                <module id="BrainParser_1" name="Brain Parser" package="LONI" version="1.0" description="Usage: [-p structure] [-r testing] [source file] [target file] [-m path to the models] [-n number of structures]
+       [-t number of iterations] [-s smoothness]
+
+-p  0: segmenting sub-cortical structures
+        1: sulci detection
+        2: segmenting structures using a contextual model
+-r  0: perform segmentation/detection
+        1: perform training
+[source file]: in testing, it points to the source file
+               in training, it points directory in which the training volumes are saved
+[target file]: in testing, it points to the target file
+               in training, it points directory in which the trained classifiers are saved
+-m  : directory of trained models 
+-n  :  number of structures (only effective in training)
+-t  : number of iterations (default value 3, for '-r 1', it is the number of auto-context classifiers) 
+-s  : smoothness factor (defalut=0.5, typical 0.0~2.0)" icon="0" posX="225" posY="530" sourceCode="" location="pipeline://cranium.loni.usc.edu/LONI/workflows/BrainParser/brainparser.exec">
+                        <authors>
+                                <author fullName="Mubeena Mirza" email="" website=""/>
+                        </authors>
+                        <uri>http://www.loni.ucla.edu/~ztu/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Sep 11 10:28:28 PDT 2007"/>
+                        </metadata>
+                        <input id="BrainParser_1.Structure" name="Structure" description="0: segmentation sub-cortical structures
+1: sulci detection" required="false" enabled="false" order="0" prefix="-p" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                </format>
+                                <values>
+                                        <value>2</value>
+                                </values>
+                        </input>
+                        <input id="BrainParser_1.Testing" name="Testing" description="0: perform segmentation/detection
+1: perform training
+" required="false" enabled="true" order="1" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                </format>
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="BrainParser_1.SourceDirectory" name="Source Directory" description="In testing, it points to the source file in training, it points directory in which the training volumes are saved.
+" required="true" enabled="true" order="2">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <output id="BrainParser_1.TargetDirectory" name="Target Directory" description="In testing, it points to the target file in training, it points directory in which the trained classifiers are saved.
+" required="true" enabled="true" order="3">
+                                <format type="Directory" cardinality="1"/>
+                        </output>
+                        <input id="BrainParser_1.ModelsDirectory" name="Models Directory" description="Directory of trained models." required="false" enabled="false" order="4" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                        <input id="BrainParser_1.NumberofStructures" name="Number of Structures" description="Only effective in training." required="false" enabled="true" order="5" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="BrainParser_1.NumberofIterations" name="Number of Iterations" required="false" enabled="false" order="6" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="BrainParser_1.SmoothnessFactor" name="Smoothness Factor" description="Defalut=0.5, typical 0.0~2.0." required="false" enabled="false" order="7" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>2.0</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Zhuowen Tu" email="" website=""/>
+                                <author fullName="Bruce Liu" email="" website=""/>
+                        </executableAuthors>
+                </module>
+                <module id="Pre-BrainParser_1" name="Pre-BrainParser" package="LONI" version="1.0" icon="0" posX="193" posY="305" sourceCode="" location="pipeline://cranium.loni.usc.edu/LONI/scripts/agenco/pre_bp.sh">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website=""/>
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Oct 29 11:19:24 PDT 2010"/>
+                        </metadata>
+                        <input id="Pre-BrainParser_1.InputLabels" name="Input Labels" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Pre-BrainParser_1.InputBrains" name="Input Brains" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Pre-BrainParser_1.OutputDirectory" name="Output Directory" required="true" enabled="true" order="2">
+                                <format type="Directory" cardinality="1"/>
+                        </output>
+                </module>
+                <dataModule id="ModelsDirectory_1" name="Models Directory" posX="281" posY="919" sourceCode="" type="Directory" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Nov 30 13:55:17 PST 2010"/>
+                        </metadata>
+                        <input id="ModelsDirectory_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1"/>
+                        </input>
+                </dataModule>
+                <variables>
+                        <variable name="Age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                        <variable name="Var 1">Value</variable>
+                        <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                        <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                        <variable name="Var sasasa2">Value</variable>
+                        <variable name="age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                        <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                        <variable name="group">//idaxs/project/subject/researchGroup</variable>
+                        <variable name="y">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="Group">//PipelineMetadata/Group</variable>
+                </variables>
+        </moduleGroup>
+</pipeline>

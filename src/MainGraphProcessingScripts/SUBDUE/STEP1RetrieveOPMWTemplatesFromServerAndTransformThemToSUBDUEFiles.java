@@ -33,7 +33,7 @@ import java.util.HashMap;
  * 3) Abstract the collection and save it to a file.
  * @author Daniel Garijo
  */
-public class STEP1RetrieveTemplatesFromServerAndTransformThemToSUBDUEFiles {
+public class STEP1RetrieveOPMWTemplatesFromServerAndTransformThemToSUBDUEFiles {
     //Metod to test the different functionality of templates. It can be 
     //separated in several main methods if necessary
     public static void main(String [] args){

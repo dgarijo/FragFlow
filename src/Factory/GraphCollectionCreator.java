@@ -27,8 +27,9 @@ public abstract class GraphCollectionCreator {
     protected GraphCollection collection;
     protected final String repositoryURI;
 
+    
     /**
-     * Constructor. The repository URI is the URL of the repository (SPARQL) to
+     * Constructor. The repository URI is the URL/path of the repository to
      * query for results.
      * @param repositoryURI URI of the repository
      */

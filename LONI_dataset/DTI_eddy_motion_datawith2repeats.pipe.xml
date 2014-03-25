@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="ResliceWarp_1.OutputImage" sink="AlignLinear_1.ResliceVolume"/>
+                <connection source="AlignLinear_1.LinearTransformation" sink="CombineWarp_1.AIRfileprior"/>
+                <connection source="AlignWarp_1..warp-out" sink="CombineWarp_1.WARPfile"/>
+                <connection source="AlignWarp_1..warp-out" sink="ResliceWarp_1..warpFileNon-linearTransformation"/>
+                <connection source="CombineWarp_1.OutputWARPfile" sink="ResliceWarp_2..warpFileNon-linearTransformation"/>
+                <connection source="CombineDiffs_1.Output.diff" sink="reslicediff_dir_1.Input.difffile"/>
+                <connection source="AlignLinear_1.LinearTransformation" sink="reslicediff_dir_1.Inputfilelistof.airfiles"/>
+                <connection source="ResliceWarp_2.OutputImage" sink="FSLMergenii.gz_1.InputFiles"/>
+        </connections>
+        <icons>
+                <icon id="2" value="iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAVK0lEQVR42u1ZaXBTV5YW2JD0dE8l
+k9RMpbvT3dmJDSQdAgkESFhDIBAImLAZjPd9k2VJtqSnfbMW25J3jCzbIH3viX3fl5AAnZCFhJC1
+O5VJ9aQm87N/zfyZ+e41kKV70jU1f7pmItep+9699+md7yzfOVfW6X78/Pj58fPj5//ZZ/zfiPxf
+AXLHHXdIdZ588smslpaWcc3NzeNycnKynnjiiSyTyTTufwJk3LisH7yfOPH276x9f33ChNt0WVkT
+flDh7z/HZ+66/fa/0+lcLldvU1PTYCQSGfJ6vYlgMLjd4/EMhcPhoVgstj0QCCTa2toSXJcirrlH
+irj2eHwJu92ZUBRHwuFwJZxO93fuo9GOhNfrl+L3B+VaS4tFitFoTnR2xhM+X0BeNzY2yecikXZ+
+fyhhsdjkfpfLI98jRFyLd9yc4/OdPT19Zh09MFJQUJCuqanRtmzZolZWVkJc19fXaxUVFeC6Rk9p
+iqJodrtds1qt8l5Ia2urRgW0+romraa6QWuoN2hNepOmbzRKMTSZNbPJqjU2NMs9Yk6s37yvq9Vr
+tTWNWnVVvXy2xWzTTEaLvC8vq5ZrYl7MWS0OKeLa2NyqtbZQH8WtOR3ekbZg1Kej9YepfIreUNvb
+29Hb25sW1/SE2tPTk45Go+nOzs50d3d3emBgIL19+/b04OBgur+/Py3W+/u2p+Ox3nRHe1e6PRpP
+R8Kd6WAgIiUc6pBz0UgszZfJsa93UIp4RsjoSDo90J9Ixzp75F7xzM1nxbqY64r3yfeIfTfHocRo
+esco0orNtYN7Pbrq6uqR4uLitM1mE14Aw0x6QdxbLBY4nU44HA4QMBhaoPIgCHR1dcl7Kg4qCb8v
+BLfLD1oKtDxoddByoNXgcQfkfLOhBTarU46lJZUoKa4APYnOjm6kdmro6R4ALSxFfJ/XEwS9IEU8
+57B75Jx4H40CGk9873Cord2mo+LJsrKynUJpAkkzZFLimmGDurq6FBNeFcI51efzqfSOSu/IMRyO
+qi6nT+WL5UiFVb5M5YuliPmAP6xSQZUvk3vEPUNI3VpQom7ZXKTOmT1PXbN6ndyf2D4ixedtUxmS
+KpVUGUoqw1FliKk0kJyncVQaTSUoOc9rt47KD+Xl5e2k0jAajSkm/069Xp8W942NjSnhJYPBAOaG
+9AqTHCQCMOQoHdJCDrtXSsAfoaXiUtqC7QgGovI6ndqFnTs0DCdT2LP7oBzFXrEuZG3eRsya+Szy
+NxWiu2tA7u/s6IHZZJPSbGhFQ30zamv0qKttQpPeDEurQ75T32hK+31hh66qqmo4Pz8/LcKJYYba
+2to0k1yjp2RoEZRKEKrf71dDoZBKppKj8Ehf34DKeFcZo9I6wuqMa5VxLS0mLM+EVRkGcr67q19F
+epfK+JaeEc9p6h51z+4Dqt8TUvPWrFerqxrU3bsOqPv3HaHlPfSAjV6x0itmtaa6US0rrVYrK+pU
+Q1OLarO61NKSqpTV4lQIpCa5cWN+qqmpWSsrq0BFRRVDqkElG6m8TjU06BlmVubFNqRSwJkz5/DG
+G1fw+edfyPHKlbdx/vwFDAwMgnTJ8GwE6ZS55UYikcTx4yfx8cef4o9//AoffPAhRkZ2YHh4lHnn
+ktLT1YvjR0/g5JFTeP/qNezZtR8VZdUY2j6CvbsPSM9RaTkKr7S2upjD4j0mtLTamWtVgrlsOiqd
+3Ly5gLnQogkQQqqra1UCUAsLi1MFBYUgtyMQaIMAevTocXz11b/i1KkzUqFkMinziR7Fxo0bQQ/L
+azIbzp07h3fffReapoFMCNYlAh7AmjVr5DOCSEK+NsSjMSmff/IHNDUaMOPJp1Bfq0cnk1mEoRCv
+p02GWGNjC0wmO2w2L1wkEXpHYzTYdHq9ISkUptW1mpo6CaS8vFKlp9T8/C0pgqRiJmnh0tJyXL78
+Bg4dOoLZs+di06bN2LBhA2bOnIkVK1aAIcqXmGA2m8HQ475Dcn358uVYtmwZ1q9fL9fFftYqiJpV
+UlCMiuJy2MxWXL/6ATZtyMf0aTNAMsDiRUtlrom8stpc0gPCE8IriuKDyWxDRXmtRpL5BojVqmgi
+LOgNCUR4ZcuWranVq/Owdu06CM/U1tbLMBFh9sADD5EczCDLCXbDqlWrIApoQ0MDmEcgaeDChQuY
+Nm0aFi5cyO8sl3sEoBdeeEGCZv6hsZ4JXFkLr8ODE4ePY0t+AWbPmgMyF4qLyknfHgmki9TsFnRs
+JQV7I/z+NlhIybc8wrYgSSUlEOYJboCRoUVAKYaezBGDwShF5EVHRwz33/8gnn56Fr1UKsNm9erV
+eOmll+ilTRAkQdLAm2++KZUVSgsPkOblPDsIlJSUyPDauqUQVRXVUKx2vHruAkqLy/Dg/Q+RoRpl
+jfKyniSGdiDD3DGzFjUZyWQWF0ytTjhZt5g3mqwjVE56hD2NxjyBACOSneEkwKS2bi2SoUWgcu30
+6bOM+V1UpAwiFAsLC2UYCYWff/55CWTz5s0yD3bu3ImDBw8SeIcMI+EVkTtiryimYt+CeQvR3GSE
+vqEJb195B4UFRZg+/Sm8tGK1LKqtLIZ2Fkgts0+OBpOCRoNFArKyQJJ+NbKiTWexOpJl5dUptyeg
+tVrsMDQzVOqbVKOJhchgFvNQ7G4EghFwH/bsPYijx07Bprj45bsxOjqK3bt3yxrDnk0KOwWZFyLp
+33jjDbLVB2S8lOwa2DGI+iQ7AwG6uLAE0XC7BHP29Dnk5b2CF19cwZCpBd8vw8nh9GF7cicSwym4
+fRFYFC+C4TilU9QUjXRv07nc/mRNbWPKHwhrQrlmYytq6/QqRwlE32SCkM5YDwq2luDY8dO4dPkK
+5j67AAsXvcC4Xy3jnm2/BCCUEy3N7NmzwaOBDCGR9B999JEEXFRUJMNLeFLkVP7Gzagsr4LZ2CKJ
+hNGBnJzJKCwqk0C2J0YRJXs5CSg5CtTrW1BTb0S0sw+haFwkvMZeTHjEmSwuqUwF29o14UYhCtsM
+jqqhuTUl7j1MvO6ebaisqsep06+ip3cQj/92Bp56ejbuvffXTPwH8Pjjj2PSpEkysRcsWIDFixcz
+h56mUjmYNWuWzIfr169jaGiIVs/DnDlzsGjRIobjC6TtfLDFx7FjJ7Bu3Qbcx/ybM3c+Xli6AoXs
+yRqazCirrMMAa4uelb6ovBadPYMIE2ADO2rmkk1HRZOlZdWpSDSuiRi0scljEqkcVdJdSri1hpwu
+wAi6u3jpCr1mwZPTZ8HnD0HQs6BT4YElS5bIPHn22WelkmL+qaeekiDvu+8+CebKlSvSG3feeafc
+M2/eArz88hqZgxcuvI5q5t29v/oNpj42je+YiTnPLcKiJcvpCZP0gM0VQDPbkwBbHzeJwMhjArsG
+m67ZbEsWE0i0s0dzsMCIBFLY3FkEEKszxWuyhEOiryKgYyfPSevMmDkXbaF2Kr8UM2bMkAo/99xz
+0hOi0PEYwFh/kdS9VoaX8IrInw8//FD2bvfccw/mzp1LzzxLYliLRr0Bx0+cQimL7oSJt2PqE9Px
+4srVmP70HEyl91sY9g3M34ZmC0xWF+y+MOJ9g98AaTS0JOm+W0BaWXgoqqnVrhpblJRetOKkuZ7+
+hARy5vxF6eqcKU9g8dLlLHibZDUXhU+ElAAjWIznFllfBHsJWhaJf+nSJVnpxdzUqVMZRutYSFfK
+jsFIxjxz9jziXT1Yumw5nN4AhncCg6TeOh4LPCSbqvomVIim0aygjoD84Y5vQot0liwpr0t1xAc0
+pydEEB4hBMEcMSkpcS8SzBfsgMcfxfvXfy8pcPJjM7Bk2Uqy00uyYoswEUwllBTVW9DsZ599hq+/
+/hrvvPMOvvzyS/zpT38CT5l45plnZFEUHltPQ5Szm6hhsT3C9uetq+8hpWVw7rVLOHbqLPYcPApD
+iw0vrWFRLqlAeZ0BBosTFey7hIdqedLkQYzJrniTFdX6VLxnuyYUtbtId+421ebwqwSRqq5rxuq1
++Xg5bxOWr3xFAl34/ArkTp2OVzZswbr1G7Fy5UrJWvPnz5eJPG/ePOkZUSjPnj3LRvMM4vG4LIx3
+3323ZDlRS5YuXYp58xcyqV/EosVLUMIWyBMIoqKmFlV1jdhSVIqVeevx4qo8TJ81F6VVdRJINdv4
+Bia9zeVjqTCMFUTFHUxW1hlSZAHNw77GzfOBPxxTea06vKGUk7EoEkzE5tqNW7GluBJbS6slczCH
+sCl/iwwRYeGbQAQjCSa7//77JUjBZIK9RNKLXBIAxDOCHJ6YNh3TnpxBFpwm2eq302fgn37xS/z8
+V/fx+mmsWrsBdaT/BrMFLU4Patk4FlXWS69426LfeERxhZLlNfpUNLZNEyC8bR0IdfSowWiXAJOy
+OHxyLtzZK0VcC8Yw29ysrhbGNpOP8e12e5krNbIOiIIm6suiRc+TuZ6h8jPlKGQZ438+vSD6t4UL
+F0uymM2Enz9vMcFMx8urX5H1af6C5yXdi/yM8Cgs3l1a1YBaeqO6wQiLPQBGDSoq6zSPl72W0eZP
+Nls9qc6+Ec3hb4c33IW2zn61vSeh8jrlpuKCITyhTjm62iLwt8dgVJwyRv2BiGgTeMYOy3ODOMWJ
+09uG9Vvw8ipW6WWr5Olv1cq1WPlSHpa/+LI8ES6YvwTznlssx1Ur87DgueexaOFSdrzLxBlDfo/T
+EWDzGEFXfBt6u5Ow20hGZjeMBjv7s2Z2wAFBQIykMOnX6iMQXyo+sEPzhnsIYhsiXYO3gIRiAwjy
+2CkAecMx+KKdcIeicAbDMkZFSx0OxeFxh9hyd8oXu9mZhtpiVMYAlzMoRzPPECajQiVr2NVW3ZKq
+8jo01BqQv2Er5j+7GOvyNsNidiIa6kI4GINTCSLWPoCdI7vRE0/A62yHxeSFUc+S0NaN8poGzRkM
+2XQ1eiVZ3WhLReJDmifUjY7eYfQnNXUYB9TB0UyqPwkMpfYg1j+EUW0fRtS9aGdVHRhOo3sgSXba
+ge0Uvy+K/r6klGCgAztGMzyn75JABNCRYRW7Mgd5Jh+Ue/btPSqfG+b3iz0lxdXIW7NJru/ZfRgZ
+9RACvk6MDu+RcvrkZRw7cgGDA4DfG0cLwTgcYZGrmsXtGwNSUdea8kf6NYcvRiWp3OhuNXPglJDU
+gePncf7yuzh86jVc+/QLXP3oD9jLY+nZi1dw5OR5Hnm/wuVL7+AE9wnlVezDae69+Ppb+PKfv8bo
+iIbXLryJa+9/ireuXENq525o6n75THIojQP7j7ObPoBDB0/yRHkZn336Jav/Nbz15nU2m5/j04//
+Ba+99i4++eiPfNe/4dLr72P3rhPoiA7eAmL1+EVl9yfr9U4me0LzBrsR6dyOjq6k2rstpXb370iN
+pPbjwJGz5PaDeP137+H8629jaHQX9hMMMgdw+Xdv4913PsDJE+do6QSV3Iur717H9Q8+xUcf/h7n
+z12U61fevIqzZ15DPNYnz98q9qCXngWBHz52Fq++egUffvIl3nrrQ5w8cwmHD5/HO1d/j4sX38Oe
+fadw6eI1vHftCxrlKvbuJ53HRuB0d6C82qC5/GStukZHsqrWKoEEI/0SiK+tR3X5OtVWJZiy2Nvg
+9sdgtnoRCHfDy7htMjkkTYsCKrrTowQVI6ucOH5WKn/m9AV8cO0TeuA9HDxwTJ7wDuw/ilfPX8Le
+PYeYvP3y56HjJ87i0NEzOHX2IjvbXaziYCvUh96BUdidEdjsIYSjAwi09WBkx35AO4rBRAYdsSGu
+d8DhakdppV5jibDpKqpbWdmNqUC4TyMAhNq3UfG46vC0SyBmqx8tZAtjq1tKc4sLBiajoF9RHAfZ
+kR45fBJ9vdsZFl/gP/79P6XC77/3ET5mGAoPCesLsK9d+B0te0WCGUrswMlT53Hg8ClcuPw2Dh9/
+Fd39I7A528ao1Rmm0bpAgyIYIbhtacR7R6UwYmjEOMIdgyipaNLsbgLRN3uSFTXmlD/Uqzk8ZCaG
+lwBBLwivSCDCGw5PhIB8UuyeNtm4sR/jWYVnhsERDJAMBJj9+45IERYfISG4WUzFj20i7MQvIeIH
+uG0kCYWG6Iz1skaM1SYf6V18d4geEUDE+zyBOHsurpGdhJEVVxSxHr4rocl7ET2VtUamBE+IViU0
+3KBXRk0t3p1+kSPt29R2boh2DKa9gc4URWXrorq8YZXty43WxaWyI5aNJVt6+bOm+ClT/CBn4Zz4
++dNmdUoRP3sKEWtij9hrbG6VwtOoyqZVZS+lttrdKkNEJSCVBXdMwt2qP9SlUlFpWAJT6R21szup
+DiRUNbljr1pZ07xDcQZiujVrC3dUVBtS5ZVswpqs2ppXCjKNBlumus6ksZlUi8tqM0WlVZnCkupM
+QVF5ZvPW0symgqLMhvzCzMZNBZn16/K/IxvWb/6LcnN93SubMq+s3ZhZm7chk7d2Q2b5qjWZFavX
+ZthTZdas53r+1szGguJMfmF5hu2QHDcVVEjZXFiVKSqrz1TVmTJ6ozNjsngy+mbrKI8aMV1391CL
+3e5v9XrbrZFIt9LTk7BHoz32eHybwsOWjcdMjjElHIkpoXCHwjOIEmwLKzzDK/5AmxK4ITzhKT5f
+QPF6/YrH41PYskgR8zfXvr0u91Dsbo+iuNyK1TEmisuruHzcH4wqPJMrPDxRIlK8gXYlEIopDEcl
+1p1QuvuGFB749NSrVKfTTdBNmPhTXVb2T3Tjs26X9zpdtm7c+IlyHJPv/QtM/EPupvxv//f37e8a
+d3Puxph1Q4dxN/WY8Gdy2+0/+yn3jtctWLgk69e/eTD7kUmTs+/91f0T2LhNuOvuf5zwwIMPT/jl
+vb+ekDt5anbulMnfk5xbMnnyZMrUP5Pc3ClSpk59/JZMmfLYLRnbJ5698V25j2bnTM7NZpec/Whu
+ztiYM3ls781npvw2e3Lu49k5uY9lPzppSvakR3Oz2T1n3XnXP+h0P/v7O75lnaxbVppw20Rd9sQJ
+Y5b6q/8V/u//afl9+Yv/Uh435gQpP/Dv1z//Hp2O4LOo53jdAw89mN3b35dlNJuyXB73eAIY7wt4
+s+oaarPMraasnMmP0kIPj8nkh74Zb1xPmjSJQuvROjclh5a8Kd+e//6asHpuzsO08sPZUyY/ckMm
+8f4ROZ/z6CO0/NiYmzMpO/dRRkBO7i3Jzc3NvucXPx8z9sTbbxunG/v7TrxmT8ySohv3w39jn6xb
+Qkv9Vflm/zjhgB+UbG7LooOFjB/33TWh6cyZT42/7SdC0R8/f1uf/wJm63Xm8Uo4+AAAAABJRU5E
+rkJggg=="/>
+                <icon id="0" value="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"/>
+                <icon id="1" value="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"/>
+        </icons>
+        <moduleGroup id="DTIeddymotiondatawithtworepeats_1" name="DTI eddy motion data with two repeats" package="LONI DTI Suite" version="1.0" description="Correct for eddy current induced distortions &amp; motion artifacts using data with two repeats" posX="0" posY="0" sourceCode="">
+                <tag>eddy</tag>
+                <tag>motion correction</tag>
+                <uri>http://www.loni.ucla.edu/twiki/bin/view/Main/KristiClark</uri>
+                <metadata>
+                        <data key="__creationDateKey" value="Tue Jun 15 10:35:31 PDT 2010"/>
+                </metadata>
+                <module id="AlignLinear_1" name="Align Linear" package="AIR" version="5.2.5_16" description="This is a general linear intramodality registration tool (within or across subjects, 2D or 3D). The user can specify any of a variety of models, including rigid-body, affine, or perspective.
+
+The program will generate a .air file that can be used to reslice the specified reslice data set to match the specified standard data set.
+
+64-bit compilation" icon="0" posX="354" posY="283" sourceCode="" location="pipeline://cranium.loni.usc.edu/alignlinear" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="Allan MacKenzie-Graham" email="" website=""/>
+                                <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>registration</tag>
+                        <tag>linear</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/alignlinear.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 28 12:14:19 PDT 2006"/>
+                        </metadata>
+                        <input id="AlignLinear_1.StandardVolume" name="Standard Volume" description="The atlas that  the input file is resliced to match. " required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignLinear_1.ResliceVolume" name="Reslice Volume" description="The input being registered to the  standard-file." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AlignLinear_1.LinearTransformation" name="Linear Transformation" description="Resultant linear spatial transformation matrix saved as a .air file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="AIR file" extension="air" description="AIR Linear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignLinear_1.ModelNumber" name="Model Number" description="Defines the degrees of freedom of the transformation.
+3-D models:
+    6. rigid body 6 parameter model
+    7. global rescale 7 parameter model
+    9. traditional 9 parameter model (std must be on AC-PC line)
+    12. affine 12 parameter model
+    15. perspective 15 parameter model
+2-D models (constrained to in-plane, no interpolation):
+    23. 2-D rigid body 3 parameter model
+    24. 2-D global rescale 4 parameter model
+    25. 2-D affine/fixed determinant 5 parameter model
+    26. 2-D affine 6 parameter model
+    28. 2-D perspective 8 parameter model AIR 5.0" required="true" enabled="true" order="3" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>6</enumeration>
+                                        <enumeration>7</enumeration>
+                                        <enumeration>9</enumeration>
+                                        <enumeration>12</enumeration>
+                                        <enumeration>15</enumeration>
+                                        <enumeration>23</enumeration>
+                                        <enumeration>24</enumeration>
+                                        <enumeration>25</enumeration>
+                                        <enumeration>26</enumeration>
+                                        <enumeration>28</enumeration>
+                                </format>
+                                <values>
+                                        <value>6</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.ThresholdStandard" name="Threshold Standard" description="The threshold for the Standard Volume 
+defines a minimum voxel value. Voxels in the Standard Volume with intensities below this value are excluded from analysis when computing the cost function and its derivatives. The value should always be an integer less than the maximum voxel value in the corresponding file." required="false" enabled="true" order="4" prefix="-t1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>25</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.ThresholdReslice" name="Threshold Reslice" description="The threshold for the Reslice Volume 
+defines a minimum voxel value. Voxels in the Reslice Volume with intensities below this value are excluded from analysis when computing the cost function and its derivatives. The value should always be an integer less than the maximum voxel value in the corresponding file." required="false" enabled="true" order="5" prefix="-t2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>25</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.BlurStandard" name="Blur Standard" description="The Gaussian smoothing filter for the Standard Volume.  Smoothing filters are applied along the x, y, and z axes of the Standard Volume before performing registration. The FWHM value specifies the full width at half maximum of the Gaussian smoothing filter to be applied along each dimension. The filters have units of millimeters (or whatever units you use to specify voxel sizes in your .hdr files). All three dimensions must be specified. If you give a value of zero, no smoothing will be applied along the corresponding dimension." required="false" enabled="false" order="6" prefix="-b1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="AlignLinear_1.BlurReslice" name="Blur Reslice" description="The Gaussian smoothing filter for the Reslice Volume.  Smoothing filters are applied along the x, y, and z axes of the Reslice Volume before performing registration. The FWHM value specifies the full width at half maximum of the Gaussian smoothing filter to be applied along each dimension. The filters have units of millimeters (or whatever units you use to specify voxel sizes in your .hdr files). All three dimensions must be specified. If you give a value of zero, no smoothing will be applied along the corresponding dimension." required="false" enabled="false" order="7" prefix="-b2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="AlignLinear_1.SegmentStandard" name="Segment Standard" description="Number of partitions for the standard image.  This defines the number of partitions used for segmenting the standard file in the forward direction WHEN USING THE STANDARD DEVIATION OF THE RATIO IMAGE AS THE COST FUNCITON. If this value is zero, no forward direction computation is performed. A value of 256 is typically used for intermodality registration when the corresponding file is an MRI study. For MRI-PET registration, the number of partitions corresponding to the PET study should be set to zero. When registering two dissimilar MR images, both data sets can be assigned 256 partitions. For intramodality registration, the default value of 1 is appropriate.
+
+AIR 5.0 Note that AIR now uses dynamic partitioning by default. Instead of dividing the theoretical range of voxel intensities into the designated number of partitions, the actual range of voxel intensities is divided into this number of partitions. This assures that when the dynamic range of the data is restricted, the voxels do not all end up occupying far fewer partitions than requested. The &quot;Static Partitioning&quot; option forces the use of static partitioning as in AIR 3.0x." required="false" enabled="true" order="8" prefix="-p1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>256</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.SegmentReslice" name="Segment Reslice" description="Number of partitions for the Reslice Volume.  This defines the number of partitions used for segmenting the Reslice Volume in the reverse direction WHEN USING THE STANDARD DEVIATION OF THE RATIO IMAGE AS THE COST FUNCITON. If this value is zero, no reverse direction computation is performed. A value of 256 is typically used for intermodality registration when the corresponding file is an MRI study. For MRI-PET registration, the number of partitions corresponding to the PET study should be set to zero. When registering two dissimilar MR images, both data sets can be assigned 256 partitions. For intramodality registration, the default value of 1 is appropriate.
+
+AIR 5.0 Note that AIR now uses dynamic partitioning by default. Instead of dividing the theoretical range of voxel intensities into the designated number of partitions, the actual range of voxel intensities is divided into this number of partitions. This assures that when the dynamic range of the data is restricted, the voxels do not all end up occupying far fewer partitions than requested. The &quot;Static Partitioning&quot; option forces the use of static partitioning as in AIR 3.0x." required="false" enabled="true" order="9" prefix="-p2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>256</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.StandardMaskVolume" name="Standard Mask Volume" description="This volume is applied to the Standard Volume as a mask. The file must match the corresponding file's dimensions, and voxels that are zero in this file will be treated as if they were zero in the corresponding file when computing the cost function. Mask files can be binary or regular files." required="false" enabled="false" order="10" prefix="-e1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignLinear_1.ResliceMaskVolume" name="Reslice Mask Volume" description="This volume is applied to the Reslice Volume as a mask. The file must match the corresponding file's dimensions, and voxels that are zero in this file will be treated as if they were zero in the corresponding file when computing the cost function. Mask files can be binary or regular files." required="false" enabled="false" order="11" prefix="-e2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignLinear_1.SpatialInitialization" name="Spatial Initialization" description="An ASCII file containing spatial transformation initialization parameters. These parameters can be used to control the starting position for automated registration, a feature that is useful if the initial misregistration is extreme (e.g., &gt; 45 degrees of rotational misregistration) or if the default registration leads to an obviously incorrect result. Different spatial models require different numbers and types of parameters in the initialization file. Note that some cost functions may also allow an intensity parameter initialization file as well." required="false" enabled="false" order="12" prefix="-f" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AlignLinear_1.SpatialTermination" name="Spatial Termination" description="An ASCII file to be created containing spatial transformation termination parameters. These parameters can then be used as initialization parameters to restart the algorithm at the same location in parameter space where it left off (using the same spatial model). This allows you to switch cost functions or to vary smoothing, among other things. Different spatial models create incompatible files. Note that some cost functions may also allow an intensity parameter termination file." required="false" enabled="false" order="13" prefix="-g" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignLinear_1.ScalingInitialization" name="Scaling Initialization" description="An ASCII file containing a single parameter that initializes intensity scaling." required="false" enabled="false" order="14" prefix="-fs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AlignLinear_1.ScalingTermination" name="Scaling Termination" description="An ASCII file containing the intensity scaling parameter identified as optimal by the algorithm. Combined with a spatial transformation initialization file, this parameter can be used to restart the algorithm at the same location in parameter space where it left off. In addition, the scaling parameter can be used as an intensity normalization factor for subsequent statistical analysis of the registered data or as input to reslice to create a final image that is intensity corrected as well as spatially corrrected." required="false" enabled="false" order="15" prefix="-gs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignLinear_1.Samplings" name="Samplings" description="Determines the number of intermediate iterative cycles of the algorithm. The current sampling is divided by this ratio with each cycle to determine the new sampling." required="false" enabled="true" order="16" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="3"/>
+                                <values>
+                                        <value>243</value>
+                                        <value>1</value>
+                                        <value>3</value>
+                                </values>
+                        </input>
+                        <input id="AlignLinear_1.ConvergenceThreshold" name="Convergence Threshold" description="Controls how small the predicted change in the cost function must be in order to meet the convergence criteria. Setting this value too large will result in convergence while the images are still misregistered; setting it too small may lead to a failure to converge." required="false" enabled="false" order="17" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="AlignLinear_1.RepeatedIterations" name="Repeated Iterations" description="The maximum number of iterations permitted at each sampling density. If this number is made too low, it will lead to inaccurate results and/or slow down the overall performance of the algorithm by preventing you from making use of information that could have been derived more quickly at the prematurely aborted, more superficial sampling." required="false" enabled="false" order="18" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="AlignLinear_1.HaltAfterStepsWithoutImprovement" name="Halt After Steps Without Improvement" description="The maximum number of iterations without any observed improvement in the cost function. If greater than or equal to  repeated-iterations, this value has no effect. At lower values, it can help you escape from situations where you are bouncing back and forth between two or three locations in parameter space without making any real progress. This sort of thing usually only happens at superficial sampling densities." required="false" enabled="false" order="19" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="AlignLinear_1.UseNon-positiveDefiniteHessianMatrices" name="Use Non-positive Definite Hessian Matrices" description="A currently unvalidated method for overcoming non-positive definite Hessian matrices." required="false" enabled="false" order="20" prefix="-j" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignLinear_1.StaticPartitioningAIR3.0compatible" name="Static Partitioning (AIR 3.0 compatible)" description="Forces the use of static partitioning, reverting to the default behavior of AIR 3.0x." required="false" enabled="false" order="21" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignLinear_1.Non-interactionofSpatialParameterDerivatives" name="Non-interaction of Spatial Parameter Derivatives" description="Assumes a non-interaction of spatial parameter derivatives (reduces likelihood of non-positive definite Hessian matrices)." required="false" enabled="true" order="22" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignLinear_1.Verbose" name="Verbose" description="Extremely detailed reporting of interim results." required="false" enabled="false" order="23" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignLinear_1.Pre-alignmentInterpolation" name="Pre-alignment Interpolation" description="Provides pre-alignment interpolation to cubic voxels." required="false" enabled="false" order="24" prefix="-z" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignLinear_1.CostFunction" name="Cost Function" description="The cost function to be used for alignemtn as selected from the following menu:
+1. Standard deviation of ratio images cost function:
+  This cost function has the advantage of being independent of image intensity, so image intensities can be poorly matched and the registration will not be adversely affected. This is the only model that allows multiple partitions as required for intermodality registration.
+
+2. Least squares cost function:
+  This cost function assumes that the image intensities are scaled identically. Least squares is computationally simpler and therefore faster than the standard deviation of ratio images, but may be inaccurate if the image intensities are poorly matched.
+
+3. Least squares with global rescaling cost function
+  This cost function is identical to the least squares cost function except that an intensity scaling term is added to the model." required="false" enabled="false" order="25" prefix="-x" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                        <enumeration>3</enumeration>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="rwoods@ucla.edu" website="http://bishopw.loni.ucla.edu"/>
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="AlignWarp_1" name="Align Warp" package="AIR" version="5.2.5_16" description="This is a nonlinear registration tool that can be used within or across subjects and includes implementation of 2D and 3D nonlinear spatial transformation models.
+
+The program will generate a .warp file that can be used to reslice the specified reslice data set to match the specified standard data set. 
+
+http://bishopw.loni.ucla.edu/AIR5/align_warp.html" icon="0" posX="500" posY="23" sourceCode="" location="pipeline://cranium.loni.usc.edu/align_warp" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="Allan MacKenzie-Graham" email="" website=""/>
+                                <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>registration</tag>
+                        <tag>nonlinear</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/alignlinear.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 16:00:01 PDT 2006"/>
+                        </metadata>
+                        <input id="AlignWarp_1.StandardVolume" name="Standard Volume" description="The name of the file that you want the other file resliced to match. The standard file will often be an atlas, but can also be images from a single subject." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignWarp_1.ResliceVolume" name="Reslice Volume" description="The name of the file you want registered to the standard volume" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AlignWarp_1..warp-out" name=".warp-out" description="The exact name of the .warp transformation parameter output file (cannot contain '.img' or '.hdr')." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignWarp_1.ModelMenuNumber" name="Model Menu Number" description="The menu number, from the model menu listed above, of the polynomial transformation to be used initially for spatial transformation. Note that this parameter was changed in AIR 5.0 such that this is always the initial model used, regardless of the presence of the optional final-model-menu-number. If no final-model-menu-number is provided, the algorithm starts and ends with the model specified here." required="true" enabled="true" order="3" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                        <enumeration>3</enumeration>
+                                        <enumeration>4</enumeration>
+                                        <enumeration>5</enumeration>
+                                        <enumeration>6</enumeration>
+                                        <enumeration>7</enumeration>
+                                        <enumeration>8</enumeration>
+                                        <enumeration>9</enumeration>
+                                        <enumeration>10</enumeration>
+                                        <enumeration>11</enumeration>
+                                        <enumeration>12</enumeration>
+                                        <enumeration>21</enumeration>
+                                        <enumeration>22</enumeration>
+                                        <enumeration>23</enumeration>
+                                        <enumeration>24</enumeration>
+                                        <enumeration>25</enumeration>
+                                        <enumeration>26</enumeration>
+                                        <enumeration>27</enumeration>
+                                        <enumeration>28</enumeration>
+                                        <enumeration>29</enumeration>
+                                        <enumeration>30</enumeration>
+                                        <enumeration>31</enumeration>
+                                        <enumeration>32</enumeration>
+                                </format>
+                                <values>
+                                        <value>21</value>
+                                </values>
+                        </input>
+                        <input id="AlignWarp_1.FinalModelMenuNumber" name="Final Model Menu Number" description="Models are incremented sequentially from the model-menu-number to this the model from the model menu that corresponds to this value. If the algorithm fails to improve the parameters at a given polynomial order,this final value will not be reached." required="false" enabled="true" order="4">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                        <enumeration>3</enumeration>
+                                        <enumeration>4</enumeration>
+                                        <enumeration>5</enumeration>
+                                        <enumeration>6</enumeration>
+                                        <enumeration>7</enumeration>
+                                        <enumeration>8</enumeration>
+                                        <enumeration>9</enumeration>
+                                        <enumeration>10</enumeration>
+                                        <enumeration>11</enumeration>
+                                        <enumeration>12</enumeration>
+                                        <enumeration>21</enumeration>
+                                        <enumeration>22</enumeration>
+                                        <enumeration>23</enumeration>
+                                        <enumeration>24</enumeration>
+                                        <enumeration>25</enumeration>
+                                        <enumeration>26</enumeration>
+                                        <enumeration>27</enumeration>
+                                        <enumeration>28</enumeration>
+                                        <enumeration>29</enumeration>
+                                        <enumeration>30</enumeration>
+                                        <enumeration>31</enumeration>
+                                        <enumeration>32</enumeration>
+                                </format>
+                                <values>
+                                        <value>22</value>
+                                </values>
+                        </input>
+                        <input id="AlignWarp_1.BlurStandard" name="Blur Standard" description="If this option is used, smoothing filters are applied along the x, y and z axes of the standard file before performing registration. The FWHM value specifies the full width at half maximum of the Gaussian smoothing filter to be applied along each dimension. The filters have units of millimeters (or whatever units you use to specify voxel sizes in your .hdr files).  All three dimensions must be specified. If you give a value of zero, no smoothing will be applied along the corresponding dimension." required="false" enabled="false" order="5" prefix="-b1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="AlignWarp_1.BlurReslice" name="Blur Reslice" description="If this option is used, smoothing filters are applied along the x, y and z axes of the reslice file before performing registration. The FWHM value specifies the full width at half maximum of the Gaussian smoothing filter to be applied along each dimension. The filters have units of millimeters (or whatever units you use to specify voxel sizes in your .hdr files).  All three dimensions must be specified. If you give a value of zero, no smoothing will be applied along the corresponding dimension." required="false" enabled="false" order="6" prefix="-b2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="AlignWarp_1.ConvergenceThreshold" name="Convergence Threshold" description="Controls how small the predicted change in the cost function must be in order to meet the convergence criteria.  Setting this value too large will result in convergence while the images are still misregistered; setting it too small may lead to a failure to converge." required="false" enabled="false" order="7" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="AlignWarp_1.MaskStandard" name="Mask Standard" description="This file is applied to the standard file as a mask. The file must match the corresponding file's dimensions, and voxels that are zero in this file will be treated as if they were zero in the corresponding file when computing the cost function. Mask files can be binary or regular files." required="false" enabled="false" order="8" prefix="-e1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignWarp_1.MaskReslice" name="Mask Reslice" description="This file is applied to the reslice file as a mask. The file must match the corresponding file's dimensions, and voxels that are zero in this file will be treated as if they were zero in the corresponding file when computing the cost function. Mask files can be binary or regular files." required="false" enabled="false" order="9" prefix="-e2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignWarp_1.WarpInitialization" name="Warp Initialization" description="The name of a .warp file to be used to initialize the spatial transformation. Starting with AIR 5.2.3, the order of this file can be either equal to or one less than that of the Model Menu Number. Earlier versions of AIR 5 will only allow orders that are one less than that of the model-menu-number. First (AIR 5.2.3 and later) or second order spatial transformations may also be initialized using a .air file rather than a .warp file provided that the .air file does not use perspective transformations. Prior to AIR 5.0, ASCII files were used for initialization purposes. This is no longer supported. Note that intensity scaling must be initialized separately using the Scaling Initialization." required="false" enabled="false" order="10" prefix="-f" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AlignWarp_1.ScalingInitialization" name="Scaling Initialization" description="The name of an ASCII file containing a single parameter that initializes intensity scaling" required="false" enabled="false" order="11" prefix="-fs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AlignWarp_1.ScalingTermination" name="Scaling Termination" description="The name of an ASCII file to be created containing the intensity scaling parameter identified as optimal by the algorithm. Combined with a .warp file, this parameter can be used to restart the algorithm at the same location in parameter space where it left off. In addition, the scaling parameter can be used as an intensity normalization factor for subsequent statistical analysis of the registered data or as input to reslice_warp to create a final image that is intensity corrected as well as spatially corrrected." required="false" enabled="false" order="12" prefix="-gs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignWarp_1.HaltafterNiterationswithoutimprovement" name="Halt after N iterations without improvement" description="Controls the maximum number of iterations without any observed improvement in the cost function. If greater than or equal to repeated-iterations, this value has no effect. At lower values, it can help you escape from situations where you are bouncing back and forth between two or three locations in parameter space without making any real progress. This sort of thing usually only happens at superficial sampling densities." required="false" enabled="false" order="13" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <output id="AlignWarp_1.SaveIntermediate.warpFiles" name="Save Intermediate .warp Files" description="Enables saving (with overwrite permission) of intermediate .warp files for each incremental model" required="false" enabled="false" order="14" prefix="-i" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="AlignWarp_1.UseNon-positiveDefiniteHessianMatrices" name="Use Non-positive Definite Hessian Matrices" description="Uses currently unvalidated method for overcoming non-positive definite Hessian matrices" required="false" enabled="false" order="15" prefix="-j" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignWarp_1.Non-interactionofSpatialParameterDerivatives" name="Non-interaction of Spatial Parameter Derivatives" description="Assumes non-interaction of spatial parameter derivatives (reduces likelihood of non-positive definite Hessian matrices)" required="false" enabled="true" order="16" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="AlignWarp_1.MaximumIterations" name="Maximum Iterations" description="Controls the maximum number of iterations permitted at each sampling density. If this number is made too low, it will lead to inaccurate results and/or slow down the overall performance of the algorithm by preventing you from making use of information that could have been derived more quickly at the prematurely aborted, more superficial sampling." required="false" enabled="false" order="17" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="AlignWarp_1.Initial-samplingFinal-samplingSampling-decrement-ratio" name="Initial-sampling Final-sampling Sampling-decrement-ratio" description="Controls how densely data is sampled during the first iterative cycle of the algorithm for each order of polynomial. Large values generally speed up the registration process because gross misregistration can be detected with fairly superficial sampling of the data. However, choosing an excessively large value can be counterproductive if the algorithm falls into an infinite loop or is led far from the true value by nonrepresentative sampling." required="false" enabled="true" order="18" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                                <values>
+                                        <value>243</value>
+                                        <value>1</value>
+                                        <value>3</value>
+                                </values>
+                        </input>
+                        <input id="AlignWarp_1.ThresholdStandard" name="Threshold Standard" description="Defines a minimum voxel value for the standard file.  Voxels in the corresponding file with intensities below this value are excluded from analysis when computing the cost function and its derivatives.  The value should always be an integer less than the maximum voxel value in the corresponding file." required="false" enabled="true" order="19" prefix="-t1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>25</value>
+                                </values>
+                        </input>
+                        <input id="AlignWarp_1.ThresholdReslice" name="Threshold Reslice" description="Defines a minimum voxel value for the reslice file.  Voxels in the corresponding file with intensities below this value are excluded from analysis when computing the cost function and its derivatives.  The value should always be an integer less than the maximum voxel value in the corresponding file." required="false" enabled="true" order="20" prefix="-t2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                                <values>
+                                        <value>25</value>
+                                </values>
+                        </input>
+                        <input id="AlignWarp_1.Verbose" name="Verbose" description="Enables verbose reporting of interim results to log file" required="false" enabled="false" order="21" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website=""/>
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="CombineWarp_1" name="Combine Warp" package="AIR" version="5.2.5_16" description="Mathematically combines a .warp file with any number of compatible .air files to create a single .warp file that directly achieves the spatial transformation described by sequential application of the .air and .warp files." icon="0" posX="541" posY="468" sourceCode="" location="pipeline://cranium.loni.usc.edu/combine_warp" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="Allan MacKenzie-Graham" email="" website=""/>
+                                <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>combining</tag>
+                        <tag>air and warp file</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/combine_warp.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006"/>
+                        </metadata>
+                        <output id="CombineWarp_1.OutputWARPfile" name="Output WARP file" description="The name of the .warp file to be created." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="CombineWarp_1.Overwrite" name="Overwrite" description="'y' grants permission to overwrite output" required="true" enabled="true" order="1">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>y</enumeration>
+                                        <enumeration>n</enumeration>
+                                </format>
+                                <values>
+                                        <value>y</value>
+                                </values>
+                        </input>
+                        <input id="CombineWarp_1.AIRfileprior" name="AIR file (prior)" description="An optional sequence of .air files with the standard file of each being spatially equivalent to the reslice file of the one before it." required="false" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="AIR file" extension="air" description="AIR Linear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CombineWarp_1.WARPfile" name="WARP file" description="The input .warp file, which, if preceded by a .air file, must have a standard file that is spatially equivalent to that .air file's reslice file." required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CombineWarp_1.AIRfilesubsequent" name="AIR file (subsequent)" description="An optional sequence of .air files, the first of which must have a standard file that is spatially equivalent to the .warp file's reslice file; similarly each subsequent .air file must have a standard file that is spatially equivalent to the preceding .air file's reslice file." required="false" enabled="false" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="AIR file" extension="air" description="AIR Linear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website=""/>
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="ResliceWarp_1" name="Reslice Warp" package="AIR" version="5.2.5_16" description="This program takes a .warp file and uses the information that it contains to load the corresponding image file and generate a new, realigned file." icon="0" posX="486" posY="139" sourceCode="" location="pipeline://cranium.loni.usc.edu/reslice_warp" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website=""/>
+                                <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/reslice_warp.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 19:04:09 PDT 2006"/>
+                        </metadata>
+                        <input id="ResliceWarp_1..warpFileNon-linearTransformation" name=".warp File (Non-linear Transformation)" description="name of the warp file containing the nonlinear transformation parameters" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ResliceWarp_1.OutputImage" name="Output Image" description="name of the output image file " required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="ResliceWarp_1.AlternateResliceFile" name="Alternate Reslice File" description="changes the file to be resliced" required="false" enabled="false" order="2" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_1.DivideByIntensityScaleFactor" name="Divide By Intensity Scale Factor" description="Scales output by dividing by specified factor" required="false" enabled="false" order="3" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="ResliceWarp_1.DivideByIntensityScaleFactorFile" name="Divide By Intensity Scale Factor File" description="scales output by dividing by factor specified in file" required="false" enabled="false" order="4" prefix="-df" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber0" name="Interpolation Model Number 0" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="5" prefix="-n 0" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="0"/>
+                                <values>
+                                        <value>1</value>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="ResliceWarp_1.Overwrite" name="Overwrite?" description="grants overwrite permission" required="false" enabled="false" order="11" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="ResliceWarp_1.MultiplicativeIntensityScaleFactor" name="Multiplicative Intensity Scale Factor" description="scales output using specified multiplicative factor" required="false" enabled="false" order="12" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="ResliceWarp_1.MultiplicativeIntensityScaleFactorFile" name="Multiplicative Intensity Scale Factor File" description="scales output using multiplicative factor specified in file" required="false" enabled="false" order="13" prefix="-sf" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber1" name="Interpolation Model Number 1" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="true" order="6" prefix="-n 1 " prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="0"/>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber2" name="Interpolation Model Number 2" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="7" prefix="-n 2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber3" name="Interpolation Model Number 3" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="8" prefix="-n 3" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber4" name="Interpolation Model Number 4" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="9" prefix="-n 4" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_1.InterpolationModelNumber5" name="Interpolation Model Number 5" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="10" prefix="-n 5" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website=""/>
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="ResliceWarp_2" name="Reslice Warp" package="AIR" version="5.2.5_16" description="This program takes a .warp file and uses the information that it contains to load the corresponding image file and generate a new, realigned file." icon="0" posX="318" posY="632" sourceCode="" location="pipeline://cranium.loni.usc.edu/reslice_warp" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website=""/>
+                                <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website=""/>
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/reslice_warp.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 19:04:09 PDT 2006"/>
+                        </metadata>
+                        <input id="ResliceWarp_2..warpFileNon-linearTransformation" name=".warp File (Non-linear Transformation)" description="name of the warp file containing the nonlinear transformation parameters" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Warp file" extension="warp" description="AIR Nonlinear transformation"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ResliceWarp_2.OutputImage" name="Output Image" description="name of the output image file " required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="ResliceWarp_2.AlternateResliceFile" name="Alternate Reslice File" description="changes the file to be resliced" required="false" enabled="false" order="2" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_2.DivideByIntensityScaleFactor" name="Divide By Intensity Scale Factor" description="Scales output by dividing by specified factor" required="false" enabled="false" order="3" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="ResliceWarp_2.DivideByIntensityScaleFactorFile" name="Divide By Intensity Scale Factor File" description="scales output by dividing by factor specified in file" required="false" enabled="false" order="4" prefix="-df" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber0" name="Interpolation Model Number 0" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="5" prefix="-n 0" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="ResliceWarp_2.Overwrite" name="Overwrite?" description="grants overwrite permission" required="false" enabled="false" order="11" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <input id="ResliceWarp_2.MultiplicativeIntensityScaleFactor" name="Multiplicative Intensity Scale Factor" description="scales output using specified multiplicative factor" required="false" enabled="false" order="12" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1"/>
+                        </input>
+                        <input id="ResliceWarp_2.MultiplicativeIntensityScaleFactorFile" name="Multiplicative Intensity Scale Factor File" description="scales output using multiplicative factor specified in file" required="false" enabled="false" order="13" prefix="-sf" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber1" name="Interpolation Model Number 1" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="true" order="6" prefix="-n 1 " prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="0"/>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber2" name="Interpolation Model Number 2" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="7" prefix="-n 2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber3" name="Interpolation Model Number 3" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="8" prefix="-n 3" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber4" name="Interpolation Model Number 4" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="9" prefix="-n 4" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <input id="ResliceWarp_2.InterpolationModelNumber5" name="Interpolation Model Number 5" description="the interpolation model number:
+
+    * 0. nearest neighbor
+    * 1. trilinear
+    * 2. windowed sinc in original xy plane, linear along z
+          o requires x- and y- half-window-width arguments
+    * 3. windowed sinc in original xz plane. linear along y
+          o requires x- and z- half-window-width arguments
+    * 4. windowed sinc in original yz plane, linear along x
+          o requires y- and z- half-window-width arguments
+    * 5. 3D windowed sinc
+          o requires x-, y- and z- half-window-width arguments
+" required="false" enabled="false" order="10" prefix="-n 5" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="3"/>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website=""/>
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="CombineDiffs_1" name="Combine Diffs" package="LONI DTI Suite" version="1.0" description="Combine two .diff files into a single output .diff" icon="1" posX="1145" posY="186" sourceCode="" location="pipeline://cranium.loni.usc.edu/combine_diff" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Smriti Raghunathan" email="smriti.raghunathan@loni.ucla.edu" website="http://loni.ucla.edu"/>
+                        </authors>
+                        <tag>diff</tag>
+                        <tag>combine</tag>
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/Main/KristiClark</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Jan 13 20:34:45 PST 2008"/>
+                        </metadata>
+                        <input id="CombineDiffs_1.Input1.diff" name="Input1.diff" description="First input .diff" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Diff" extension="diff" description="A type of .diff file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CombineDiffs_1.Input2.diff" name="Input2.diff" description="Second input .diff" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Diff" extension="diff" description="A type of .diff file."/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CombineDiffs_1.Output.diff" name="Output.diff" description="Output .diff" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Diff" extension="diff" description="A type of .diff file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="CombineDiffs_1.Swapbytes" name="Swap bytes" description="Swap bytes" required="false" enabled="false" order="3" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0"/>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Kristi Clark" email="kaclark@ucla.edu" website="http://www.loni.ucla.edu/twiki/bin/view/Main/KristiClark"/>
+                        </executableAuthors>
+                </module>
+                <module id="reslicediff_dir_1" name="reslicediff_dir" package="LONI DTI Suite" version="1.0" description="Apply a filelist of .air files to a .diff file.  Primary use is to adjust the diffusion gradient table after data has been corrected for motion and/or spatially aligned to a reference space (e.g. MNI brain)." icon="1" posX="964" posY="437" sourceCode="" location="pipeline://cranium.loni.usc.edu/reslicediff_dir.pl">
+                        <authors>
+                                <author fullName="Kristi Clark" email="kaclark@ucla.edu" website=""/>
+                        </authors>
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/Main/KristiClark</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 24 15:56:08 EDT 2007"/>
+                        </metadata>
+                        <input id="reslicediff_dir_1.Input.difffile" name="Input .diff file" description="Input .diff file (required)." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="reslicediff_dir_1.Output.difffile" name="Output .diff file" description="Output .diff file (even though this is an output, for the pipeline it is treated as an input)" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Diff" extension="diff" description="A type of .diff file."/>
+                                                <filetype name="Diff" extension=".diff" description="A type of .diff file."/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="reslicediff_dir_1.Inputfilelistof.airfiles" name="Input filelist of .airfiles" description="List of airfiles.  The number of files must equal the number of gradients specified in the input .diff.  " required="true" enabled="true" order="3">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file"/>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="reslicediff_dir_1.Swapbytes" name="Swap bytes" description="Swap bytes of the input .diff.  If the bytes need to be swapped for the .air files, the program should figure it out on its own.
+0:  Do not swap bytes (default)
+1:  Swap bytes" required="true" enabled="true" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                </format>
+                                <values>
+                                        <value>0</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Kristi Clark" email="kaclark@ucla.edu" website=""/>
+                        </executableAuthors>
+                </module>
+                <module id="FSLMergenii.gz_1" name="FSLMerge (nii.gz)" package="FSL" version="4.1.4" description="Concatenate image files into a single output. This concatenation can be in time, or in X, Y or Z. All image dimensions (except for the one being concatenated over) must be the same in all input images. For example, this can be used to take multiple 3D files (eg as output by SPM) and create a single 4D image file." icon="2" posX="239" posY="786" sourceCode="" location="pipeline://cranium.loni.usc.edu/fslmerge" executableVersion="4.1.4">
+                        <authors>
+                                <author fullName="Stephen Tabaquin" email="tabaquin@ucla.edu " website="http://loni.ucla.edu "/>
+                        </authors>
+                        <citations>
+                                <citation>S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004
+
+PMID: 15501092</citation>
+                        </citations>
+                        <tag>concatenate</tag>
+                        <tag>4D</tag>
+                        <uri>http://www.fmrib.ox.ac.uk/fsl/avwutils/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Jul 10 17:50:22 PDT 2007"/>
+                        </metadata>
+                        <input id="FSLMergenii.gz_1.ConcatenationType" name="Concatenation Type" description="Specify the type of concatenation to be applied.
+The following can be chosen:
+-x: concatenate images in the x direction.
+-y: concatenate images in the y direction.
+-z: concatenate images in the z direction.
+-t : concatenate images in time.
+-a: auto-choose: single slices -&gt; volume, volumes -&gt; 4D (time series)" required="true" enabled="true" order="0">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>-x</enumeration>
+                                        <enumeration>-y</enumeration>
+                                        <enumeration>-z</enumeration>
+                                        <enumeration>-t</enumeration>
+                                        <enumeration>-a</enumeration>
+                                </format>
+                                <values>
+                                        <value>-t</value>
+                                </values>
+                        </input>
+                        <output id="FSLMergenii.gz_1.OutputFile" name="Output File" description="Specifies the output file path." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="FSLMergenii.gz_1.InputFiles" name="Input File(s)" description="Specifies the input file path.  An infinite number of inputs may be specified." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti"/>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Mark Jenkinson" email="mark@fmrib.ox.ac.uk" website="http://users.fmrib.ox.ac.uk/~mark/ "/>
+                                <author fullName="Steve Smith" email="steve@fmrib.ox.ac.uk" website="http://www.fmrib.ox.ac.uk/Members/steve "/>
+                        </executableAuthors>
+                        <license>http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html
+
+LICENCE
+
+FMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford
+(the "Software")
+
+The Software remains the property of the University of Oxford ("the
+University").
+
+The Software is distributed "AS IS" under this Licence solely for
+non-commercial use in the hope that it will be useful, but in order
+that the University as a charitable foundation protects its assets for
+the benefit of its educational and research purposes, the University
+makes clear that no condition is made or to be implied, nor is any
+warranty given or to be implied, as to the accuracy of the Software,
+or that it will be suitable for any particular purpose or for use
+under any specific conditions. Furthermore, the University disclaims
+all responsibility for the use which is made of the Software. It
+further disclaims any liability for the outcomes arising from using
+the Software.
+
+The Licensee agrees to indemnify the University and hold the
+University harmless from and against any and all claims, damages and
+liabilities asserted by third parties (including claims for
+negligence) which arise directly or indirectly from the use of the
+Software or the sale of any products based on the Software.
+
+No part of the Software may be reproduced, modified, transmitted or
+transferred in any form or by any means, electronic or mechanical,
+without the express permission of the University. The permission of
+the University is not required if the said reproduction, modification,
+transmission or transference is done without financial return, the
+conditions of this Licence are imposed upon the receiver of the
+product, and all original and amended source code is included in any
+transmitted product. You may be held legally responsible for any
+copyright infringement that is caused or encouraged by your failure to
+abide by these terms and conditions.
+
+You are not permitted under this Licence to use this Software
+commercially. Use for which any financial return is received shall be
+defined as commercial use, and includes (1) integration of all or part
+of the source code or the Software into a product for sale or license
+by or on behalf of Licensee to third parties or (2) use of the
+Software or any derivative of it for research with the final aim of
+developing software products for sale or license to a third party or
+(3) use of the Software or any derivative of it for research with the
+final aim of developing non-software products for sale or license to a
+third party, or (4) use of the Software to provide any service to an
+external organisation for which payment is received. If you are
+interested in using the Software commercially, please contact Isis
+Innovation Limited ("Isis"), the technology transfer company of the
+University, to negotiate a licence. Contact details are:
+innovation@isis.ox.ac.uk quoting reference BS/3497.</license>
+                </module>
+                <annotations visible="true">
+                        <annotation width="200" height="67" posX="277" posY="27" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="This step corrects the 2D eddy current induced distortions.  It should align each image to the first b=0.">
+                                <styles>
+                                        <style name="This step corrects the 2D eddy current induced distortions.  It should align each image to the first b=0.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="292" posX="141" posY="203" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="This step does the 3D linear motion correction.  It should align every image (including the first b=0) to the first b=0.   The segment option of 256 is necessary to do multimodal registration.  As the b=0 has a different image contrast from the diffusion-weighted images, this is very important.
+
+Alternatively, this step can be used to put the DTI data into a common space, by specifying a different reference image.  Note: only rigid body registrations (6 parameters) should be used here in order to correct the gradient table properly.">
+                                <styles>
+                                        <style name="This step does the 3D linear motion correction.  It should align every image (including the first b=0) to the first b=0.   The segment option of 256 is necessary to do multimodal registration.  As the b=0 has a different image contrast from the diffusion-weighted images, this is very important.
+
+Alternatively, this step can be used to put the DTI data into a common space, by specifying a different reference image.  Note: only rigid body registrations (6 parameters) should be used here in order to correct the gradient table properly.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="67" posX="596" posY="556" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="The combine_warp step allows for only a single orientation per image, reducing the amount of interpolation.">
+                                <styles>
+                                        <style name="The combine_warp step allows for only a single orientation per image, reducing the amount of interpolation.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="52" posX="19" posY="801" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Add a data sink here if you want to continue on with the 4D analyze images.">
+                                <styles>
+                                        <style name="Add a data sink here if you want to continue on with the 4D analyze images.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="67" posX="931" posY="188" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Combine the two .diff files (1 from each repeated acquisition).  Can be called multiple times if there are multiple repeats.">
+                                <styles>
+                                        <style name="Combine the two .diff files (1 from each repeated acquisition).  Can be called multiple times if there are multiple repeats.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="172" posX="1204" posY="389" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Correct the gradient table for the spatial rotations introduced by the motion correction (from previous step).  This step is necessary because any time the images are rotated spatially, these rotations must also be applied to the gradient vectors so that the gradient vectors and images correspond for later computations.">
+                                <styles>
+                                        <style name="Correct the gradient table for the spatial rotations introduced by the motion correction (from previous step).  This step is necessary because any time the images are rotated spatially, these rotations must also be applied to the gradient vectors so that the gradient vectors and images correspond for later computations.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="157" posX="944" posY="547" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Add a data sink here if you want to use the .diff file in later calculations.  Add a scandiff module if you are going to continue on with FSL.  With scandiff, you can see the corrected gradient vectors in the execution log, or you can specify outputs to &quot;bvecs&quot; and &quot;bvals&quot;, which are used in FSL.">
+                                <styles>
+                                        <style name="Add a data sink here if you want to use the .diff file in later calculations.  Add a scandiff module if you are going to continue on with FSL.  With scandiff, you can see the corrected gradient vectors in the execution log, or you can specify outputs to &quot;bvecs&quot; and &quot;bvals&quot;, which are used in FSL.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                        <annotation width="200" height="52" posX="107" posY="640" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Add a data sink here if you want to continue on with the 3D analyze images.">
+                                <styles>
+                                        <style name="Add a data sink here if you want to continue on with the 3D analyze images.$0" fontSize="12"/>
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
