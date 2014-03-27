@@ -1,0 +1,43 @@
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#StopWords
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#SmallWords
+d 2 1 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#PorterStemmer
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+d 2 1 informBy
+d 3 2 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+d 2 1 informBy
+
+S
+v 1 SUB_3
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TF_IDF
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Multi2Single
+d 2 1 informBy
+d 3 4 informBy
+d 4 2 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatSim
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+d 2 3 informBy
+d 3 1 informBy
+
+S
+v 1 SUB_3
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+d 2 1 informBy
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#FormatArff
+d 2 1 informBy
+

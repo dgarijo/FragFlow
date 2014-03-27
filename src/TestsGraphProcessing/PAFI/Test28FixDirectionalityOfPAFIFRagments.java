@@ -42,14 +42,17 @@ public class Test28FixDirectionalityOfPAFIFragments {
             String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
             String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
             String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-            FragmentReaderPAFI reader= new FragmentReaderPAFI(fpfile, pcFile, tidFile);
-            ArrayList<Fragment> fixedCatalog = reader.getFragmentCatalogAsAnArrayList();
-            FragmentCatalogFilter.filterFragmentCatalog(fixedCatalog);
-            fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", fixedCatalog,reader.getOccurrencesOfFragmentInTransaction(), false);
+            CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
+//            FragmentReaderPAFI reader= new FragmentReaderPAFI(fpfile, pcFile, tidFile);
+//            ArrayList<Fragment> fixedCatalog = reader.getFragmentCatalogAsAnArrayList();
+//            FragmentCatalogFilter.filterFragmentCatalog(fixedCatalog);
+//            fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", fixedCatalog,reader.getOccurrencesOfFragmentInTransaction(), false);
+            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
+            
             //for these parameters, the first fragment has to have the following matrix:
             //[0,3]=[1,0]=[2,1]=wasInformedBy dependency. This is different from the original one which was:
             //[0,1]=[0,3]=[1,2]=wasInformedBy.
-            Fragment f3_1 = fixedCatalog.get(0);
+            Fragment f3_1 = filteredFixedFragmentCatalog.get(0);
             String[][] fAdjMatrix = f3_1.getDependencyGraph().getAdjacencyMatrix();
             if(fAdjMatrix[0][3].equals(fAdjMatrix[1][0]) && 
                 fAdjMatrix[1][0].equals(fAdjMatrix[2][1]) && fAdjMatrix[2][1].equals(GeneralConstants.INFORM_DEPENDENCY)) 

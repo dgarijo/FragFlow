@@ -32,7 +32,7 @@ public class CreateStatisticsFromResultsPARSEMIS extends CreateStatisticsFromRes
                 String resultFile) throws FragmentReaderException {                        
         super(domain, "-", "Parsemis", isTemplate, hasInference, null);
         FragmentReaderPARSEMISGspan reader = new FragmentReaderPARSEMISGspan(resultFile);
-        this.originalFragmentCatalog = reader.getFragmentCatalogAsHashMap();
+        this.fragmentCatalog = reader.getFragmentCatalogAsHashMap();
         this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();     
         initializeStatistics();
     }

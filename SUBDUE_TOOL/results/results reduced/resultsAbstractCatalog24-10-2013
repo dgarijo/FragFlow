@@ -1,0 +1,45 @@
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 1 2 informBy
+d 2 4 informBy
+d 4 3 informBy
+d 5 1 informBy
+
+S
+v 1 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 1 2 informBy
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+v 4 http://www.isi.edu/ac/TextAnalytics/library.owl#Topic_Modeling
+v 5 http://www.isi.edu/ac/TextAnalytics/library.owl#TermWeighting
+d 3 5 informBy
+d 4 2 informBy
+d 4 3 informBy
+d 5 1 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#CorrelationScore
+v 3 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Selection
+d 2 1 informBy
+d 3 2 informBy
+d 3 1 informBy
+
+S
+v 1 SUB_2
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Stemmer
+d 2 1 informBy
+
+S
+v 1 SUB_1
+v 2 http://www.isi.edu/ac/TextAnalytics/library.owl#Feature_Generation
+d 2 1 informBy
+

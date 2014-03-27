@@ -81,7 +81,7 @@ public class Test19ValidateAbstractFoundFragments {
             FragmentToSPARQLQueryTemplateSUBDUE qr = new FragmentToSPARQLQueryTemplateSUBDUE();
             while(fragments.hasNext()){
                 Fragment f = obtainedResults.get(fragments.next());
-                if(f.isMultiStepStructure()){//to ensure it is a meaningful fragment
+                if(f.isMultiStepFragment()){//to ensure it is a meaningful fragment
 
                         String currentQuery = qr.createQueryFromFragment(f, "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
 //                        System.out.println(currentQuery);

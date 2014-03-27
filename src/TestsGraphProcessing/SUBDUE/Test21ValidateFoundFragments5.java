@@ -65,7 +65,7 @@ public class Test21ValidateFoundFragments5 {
             OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(test.getGraphCollection().getGraphs().get(0));   
             while(fragments.hasNext()){
                 Fragment f = obtainedResults.get(fragments.next());
-                if(f.isMultiStepStructure()){//to ensure it is a meaningful fragment
+                if(f.isMultiStepFragment()){//to ensure it is a meaningful fragment
                     String currentQuery = qr.createQueryFromFragment(f, "http://www.opmw.org/export/resource/WorkflowTemplate/SIMPLE");
                     ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
                     System.out.println(currentQuery);

@@ -18,22 +18,17 @@ package Factory.Loni;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import Factory.GraphCollectionCreator;
-import IO.CollectionWriter;
-import IO.Exception.CollectionWriterException;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
 import Static.GeneralConstants;
+import Static.GeneralMethods;
 import java.io.File;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
-import java.util.Map.Entry;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -93,7 +88,7 @@ public class LoniTemplate2Graph extends GraphCollectionCreator{
             Node currentModule = nodeListModules.item(i);
             NamedNodeMap nodeAttributes = currentModule.getAttributes();
             String moduleID = nodeAttributes.getNamedItem("id").getNodeValue();
-            String moduleType = nodeAttributes.getNamedItem("name").getNodeValue().replace(" ", "");
+            String moduleType = GeneralMethods.clean(nodeAttributes.getNamedItem("name").getNodeValue());
             nodes.put(moduleID, new GraphNode(moduleID, moduleType, countNodes));
                 countNodes++;
                 URIs.add(moduleID);
@@ -144,12 +139,12 @@ public class LoniTemplate2Graph extends GraphCollectionCreator{
 
   }
     
-    public static void main(String[] args) throws CollectionWriterException{
-        LoniTemplate2Graph test = new LoniTemplate2Graph("C:\\Users\\Monen\\Dropbox\\NetBeansProjects\\MotifFinder\\LONI_dataset\\");
-        test.transformToGraph("DTI_workflow.pipe.xml");
-        test.transformToGraph("DTI_eddy_motion_datawith2repeats.pipe.xml");
-        test.transformToGraph("CorticalSurfaceLabeling.pipe.xml");
-        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-        writer.writeReducedGraphsToFile(test.getGraphCollection(), "TEST_LONI", null);
-    }
+//    public static void main(String[] args) throws CollectionWriterException{
+//        LoniTemplate2Graph test = new LoniTemplate2Graph("C:\\Users\\Monen\\Dropbox\\NetBeansProjects\\MotifFinder\\LONI_dataset\\");
+//        test.transformToGraph("DTI_workflow.pipe.xml");
+//        test.transformToGraph("DTI_eddy_motion_datawith2repeats.pipe.xml");
+//        test.transformToGraph("CorticalSurfaceLabeling.pipe.xml");
+//        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
+//        writer.writeReducedGraphsToFile(test.getGraphCollection(), "TEST_LONI", null);
+//    }
 }

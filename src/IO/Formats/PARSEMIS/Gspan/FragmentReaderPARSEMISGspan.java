@@ -58,6 +58,7 @@ public class FragmentReaderPARSEMISGspan extends FragmentReader{
     protected void processResultFile(String graphFile) throws FragmentReaderException {
         //de process the number of occurrences of each fragment in each template
         //here as well.
+        System.out.println("processing results file...");
         FileInputStream fstream =null;
         DataInputStream in = null;
         this.occurrencesOfFragmentInTransaction = new HashMap<String, ArrayList<String>>();
@@ -143,7 +144,7 @@ public class FragmentReaderPARSEMISGspan extends FragmentReader{
             if(fragmentID!=null){
                 Graph auxg = new Graph(URIs, nodes, adjacencyMatrix, fragmentID);
                 Fragment currentStructure = new Fragment(fragmentID, numberOfOccurrencesOfFragment,auxg,null,true);
-                //all PAFI structures are multistep. The dependency list is updated by processing another file
+                //all Parsemis structures are multistep. The dependency list is updated by processing another file
                 finalResults.put(fragmentID, currentStructure) ;
                 connectionsOfFragment.put(fragmentID,currentConnections);
             }
@@ -157,15 +158,27 @@ public class FragmentReaderPARSEMISGspan extends FragmentReader{
     }
     
     private void processIncludedFragments(){
+        //To do: this method has to mark as non valid those fragments that are 
+        //included in others with the same occurrences.
+        //also, it should mark as irreducible those fragments that are not included 
+        //in any other fragment.
         Iterator <String> keys = this.connectionsOfFragment.keySet().iterator();
+        int currFnumber = 1;
+        int numberOfConnections = connectionsOfFragment.size();        
         while(keys.hasNext()){
             String currentFragment = keys.next();
+            Fragment currF = finalResults.get(currentFragment);
+            System.out.println("Processing Fragment "+ currFnumber+" out of "+numberOfConnections);
+            currFnumber++;
             //for each fragment, check whether if it is included in any of the rest
             Iterator<String> keys2 = connectionsOfFragment.keySet().iterator();
-            while(keys2.hasNext()){
+            while(keys2.hasNext() && currF.isFilteredMultiStepFragment()){
                 String otherFragment = keys2.next();
+                Fragment otherF = finalResults.get(otherFragment);
                 //check with every fragment except the same
-                if(!currentFragment.equals(otherFragment)){
+                //if the other fragment (or the current) has already been filtered out, then continue
+                if(!currentFragment.equals(otherFragment)  && 
+                        otherF.isFilteredMultiStepFragment()){
                     //check only if the current can be included in the other (less number of nodes).
                     if(finalResults.get(currentFragment).getDependencyGraph().getNodes().size()<
                             finalResults.get(otherFragment).getDependencyGraph().getNodes().size() ||
@@ -184,15 +197,29 @@ public class FragmentReaderPARSEMISGspan extends FragmentReader{
                         if(included){
                             //add that the current fragment is included in the other fragment.
                             //That is, we add the current fragment in the other fragment list of included ids
-//                            System.out.println("Fragment "+ currentFragment+" is included in "+otherFragment);
-                            Fragment aux = finalResults.get(otherFragment);
-                            if(aux.getListOfIncludedIDs()!=null){
-                                aux.getListOfIncludedIDs().add(finalResults.get(currentFragment));
-                            }else{
-                                ArrayList<Fragment> newList = new ArrayList<Fragment>();
-                                newList.add(finalResults.get(currentFragment));
-                                aux.setListOfIncludedIDs(newList);
+//                            System.out.println("Fragment "+ currentFragment+" is included in "+otherFragment);                            
+                            if(currF.getNumberOfOccurrences() == otherF.getNumberOfOccurrences()){
+                                //if it is contained and the number of occurrences is the same,
+                                //we filter the fragment. This way we avoid creating the dependency list
+                                currF.setIsFilteredMultiStepFragment(false);
+                                currF.setListOfIncludedIDs(null);
                             }
+                            else{
+                                if(otherF.getListOfIncludedIDs()!=null){
+                                    otherF.getListOfIncludedIDs().add(finalResults.get(currentFragment));
+                                }else{
+                                    ArrayList<Fragment> newList = new ArrayList<Fragment>();
+                                    newList.add(finalResults.get(currentFragment));
+                                    otherF.setListOfIncludedIDs(newList);
+                                }
+                            }
+//                            if(otherF.getListOfIncludedIDs()!=null){
+//                                otherF.getListOfIncludedIDs().add(finalResults.get(currentFragment));
+//                            }else{
+//                                ArrayList<Fragment> newList = new ArrayList<Fragment>();
+//                                newList.add(finalResults.get(currentFragment));
+//                                otherF.setListOfIncludedIDs(newList);
+//                            }
                         }
                     }
                 }

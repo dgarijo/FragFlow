@@ -1,0 +1,392 @@
+S
+v 1 Smoother
+v 2 ConvertXFMniigz
+v 3 BitConverter
+v 4 FSLCpGeomniigz
+v 5 FLIRTniigz
+v 6 smartlineFLIRTniigzBitConverter
+d 3 6 informBy
+d 4 1 informBy
+d 5 1 informBy
+d 5 2 informBy
+d 5 4 informBy
+d 6 5 informBy
+
+S
+v 1 3DBsplineDeformation
+v 2 SSMA
+v 3 BiasFieldCorrector
+v 4 FLIRTniigz
+v 5 BrainParser
+v 6 Reorient
+v 7 smartlineFLIRTniigz3DBsplineDeformation
+v 8 smartlineFLIRTniigzSmoother
+d 1 7 informBy
+d 2 3 informBy
+d 3 6 informBy
+d 4 2 informBy
+d 5 1 informBy
+d 7 4 informBy
+d 8 4 informBy
+
+S
+v 1 ApplyROIColorsandLabels
+v 2 MakeScene
+d 2 1 informBy
+
+S
+v 1 Mask2Mesh
+v 2 TranslateTo
+v 3 QEMmeshsimplification
+v 4 MeshSubdivision
+d 2 1 informBy
+d 3 2 informBy
+d 4 3 informBy
+
+S
+v 1 ShapeTranslator
+v 2 ShapeAttribute
+v 3 ShapeAttribute
+v 4 BinaryAsciiConversion
+v 5 ShapeAttribute
+v 6 BinaryAsciiConversion
+v 7 ShapeAttribute
+v 8 BinaryAsciiConversion
+v 9 ShapeAttribute
+v 10 BinaryAsciiConversion
+v 11 BinaryAsciiConversion
+d 2 1 informBy
+d 2 11 informBy
+d 3 1 informBy
+d 3 4 informBy
+d 5 1 informBy
+d 5 6 informBy
+d 7 1 informBy
+d 7 8 informBy
+d 9 1 informBy
+d 9 10 informBy
+
+S
+v 1 equalizeshapevolume
+v 2 transform
+v 3 RigidQuaternionTransform
+v 4 ShapeTranslator
+v 5 ShapeTranslator
+d 2 1 informBy
+d 2 3 informBy
+d 3 4 informBy
+d 3 5 informBy
+d 4 1 informBy
+
+S
+v 1 DeformationFieldWarpping
+v 2 InverseDeformationField
+d 1 2 informBy
+
+S
+v 1 regularsphericalsampling
+v 2 SphericalGaussiansmoothing
+v 3 taosphericalmap
+d 1 3 informBy
+d 2 1 informBy
+
+S
+v 1 SSMA
+v 2 BiasFieldCorrector
+v 3 FLIRTniigz
+v 4 Reorient
+d 1 2 informBy
+d 2 4 informBy
+d 3 1 informBy
+
+S
+v 1 ChooseROIs
+v 2 CopyShapeFiles
+v 3 ChooseReferenceSubject
+d 1 2 informBy
+d 2 3 informBy
+
+S
+v 1 MRIConvert
+v 2 MRISegStats
+d 2 1 informBy
+
+S
+v 1 Grep
+v 2 Grep
+d 2 1 informBy
+
+S
+v 1 permutationtestbyYS
+v 2 colorattribute
+v 3 CreateList
+v 4 CreateList
+v 5 colorattribute
+v 6 GaussianSmoothregattribute
+v 7 colorpvals
+v 8 GaussianSmoothregattribute
+d 1 3 informBy
+d 1 4 informBy
+d 2 6 informBy
+d 3 8 informBy
+d 4 6 informBy
+d 5 8 informBy
+d 7 1 informBy
+
+S
+v 1 metcomp
+v 2 Reorient8bit
+v 3 Reorient8bit
+d 1 2 informBy
+d 1 3 informBy
+
+S
+v 1 UpdateDesignMatrix
+v 2 GaussianSmoothregattribute
+v 3 VolumeRegressionAnalysis
+v 4 FalseDiscoveryRateCorrection
+d 1 2 informBy
+d 3 1 informBy
+d 4 3 informBy
+
+S
+v 1 QEMmeshsimplification
+v 2 MeshSubdivision
+v 3 ShapeTranslator
+v 4 ShapeTranslator
+v 5 Mask2Mesh
+d 1 4 informBy
+d 2 1 informBy
+d 3 2 informBy
+d 4 5 informBy
+
+S
+v 1 ImageToShapeAttribute
+v 2 TranslateTo
+d 1 2 informBy
+
+S
+v 1 Reslice
+v 2 AlignLinear
+d 1 2 informBy
+
+S
+v 1 GraphExtraction
+v 2 SkeletonPruning
+d 2 1 informBy
+
+S
+v 1 SUB_9
+v 2 3DBsplineDeformation
+v 3 smartlineFLIRTniigz3DBsplineDeformation
+d 2 3 informBy
+d 3 1 informBy
+
+S
+v 1 TTest
+v 2 TransposeTableGroup1
+v 3 ResliceGroups
+v 4 CreateList
+v 5 CreateList
+v 6 CreateList
+v 7 TransposeTableGroup2
+d 1 2 informBy
+d 1 7 informBy
+d 2 3 informBy
+d 3 4 informBy
+d 3 5 informBy
+d 3 6 informBy
+d 7 3 informBy
+
+S
+v 1 ShapeReporter
+v 2 FractalDimension
+v 3 ListDirectoryContents
+d 1 3 informBy
+d 2 1 informBy
+d 2 3 informBy
+
+S
+v 1 PartialVolumeClassifier
+v 2 VolumeTablelist
+v 3 FSLMathsniigz
+v 4 FSLMathsniigz
+v 5 FSLMathsniigz
+v 6 FSLMathsniigz
+v 7 Volumestats
+d 2 7 informBy
+d 3 1 informBy
+d 4 1 informBy
+d 5 1 informBy
+d 6 1 informBy
+d 7 3 informBy
+d 7 4 informBy
+d 7 5 informBy
+d 7 6 informBy
+
+S
+v 1 ConvertXFMniigz
+v 2 FSLCpGeomniigz
+v 3 FLIRTniigz
+d 3 1 informBy
+d 3 2 informBy
+
+S
+v 1 MINCResample
+v 2 MincFixHeader
+v 3 MINCResample
+v 4 FLIRTniigz
+v 5 smartlineFLIRTniigzMincFixHeader
+d 1 2 informBy
+d 2 5 informBy
+d 3 1 informBy
+d 5 4 informBy
+
+S
+v 1 dtirecon
+v 2 dtitracker
+v 3 splinefilter
+d 2 1 informBy
+d 3 2 informBy
+
+S
+v 1 closesphericalshape
+v 2 radialdistance
+d 2 1 informBy
+
+S
+v 1 Grep
+v 2 BalanceRows
+v 3 Cut
+v 4 Paste
+v 5 TransposeTable
+v 6 Squeeze
+d 2 6 informBy
+d 3 2 informBy
+d 4 3 informBy
+d 5 4 informBy
+d 6 1 informBy
+
+S
+v 1 SUB_12
+v 2 FractalDimension
+v 3 ShapeReporter
+d 2 3 informBy
+d 1 2 informBy
+
+S
+v 1 Gamixture
+v 2 SVPASEG
+d 2 1 informBy
+
+S
+v 1 CompilePValuesGroup2Group1
+v 2 ApplyLabels
+d 1 2 informBy
+
+S
+v 1 BrainSurfaceExtractor
+v 2 BiasFieldCorrector
+v 3 PartialVolumeClassifier
+d 2 1 informBy
+d 3 2 informBy
+
+S
+v 1 SUB_17
+v 2 OctahedralResample
+d 1 2 informBy
+
+S
+v 1 BiasFieldCorrector
+v 2 BrainSurfaceExtractor
+d 2 1 informBy
+
+S
+v 1 SUB_19
+v 2 SulcalSkeletons
+d 1 2 informBy
+
+S
+v 1 SurfaceGenerator
+v 2 ScrubMask
+v 3 TopologicalCorrection
+v 4 HemisphereSplit
+v 5 PharmonicMapping
+v 6 DFSSmooth
+v 7 Dewisp
+v 8 DFSSmooth
+v 9 PharmonicMapping
+v 10 CopyUV
+v 11 CopyUV
+d 1 7 informBy
+d 3 2 informBy
+d 4 6 informBy
+d 5 4 informBy
+d 6 1 informBy
+d 7 3 informBy
+d 8 6 informBy
+d 9 4 informBy
+d 10 4 informBy
+d 10 9 informBy
+d 11 4 informBy
+d 11 5 informBy
+
+S
+v 1 CreateList
+v 2 permutationtestbyYS
+v 3 SelectRows
+v 4 CreateList
+v 5 MapPValueToSurface
+d 2 1 informBy
+d 2 4 informBy
+d 3 2 informBy
+d 5 3 informBy
+
+S
+v 1 Group1Measures
+v 2 ConcatenateShapeMeasures
+v 3 Group2Measures
+d 2 1 informBy
+d 2 3 informBy
+
+S
+v 1 Mask2Mesh
+v 2 MakeDir
+v 3 DHMDirectHippoMapping
+v 4 ShapeTranslator
+v 5 displacementfeature
+d 3 1 informBy
+d 3 2 informBy
+d 4 3 informBy
+d 5 4 informBy
+
+S
+v 1 SUB_19
+v 2 GyralSkeletons
+d 1 2 informBy
+
+S
+v 1 MINCMath
+v 2 smartlineMINCMathFLIRT
+d 2 1 informBy
+
+S
+v 1 BackwarpApplywarp
+v 2 CombineParams
+d 1 2 informBy
+
+S
+v 1 ART
+v 2 copy
+d 1 2 informBy
+
+S
+v 1 FLIRTniigz
+v 2 smartlineFSLMathsniigzFLIRTniigz
+d 1 2 informBy
+
+S
+v 1 SUB_39
+v 2 SUB_37
+d 2 1 informBy
+

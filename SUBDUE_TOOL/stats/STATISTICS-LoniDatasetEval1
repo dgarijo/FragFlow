@@ -1,0 +1,18 @@
+Creating statistics ...
+Note: The statistics rely on the information provided by the Algorithm (e.g., number of occurrences of each fragment). No further checkings are done. Only when the results are transformed to RDF (Wf-fd), each fragment is searched in each template.
+Algorithm used: SUBDUE
+- Domain: LONI Dataset, evaluation type: MDL
+- Executed on the templates
+- Inference applied
+Number of structures found: 45
+Number of irreducible fragments found (i.e., those structures which do not include parts of others): 39
+Number of multi step fragments structures found (i.e., those with at least two process steps): 45(43)
+Number of multi step irreducible fragments found: 39
+Frequency of detected structures: 167
+Frequency of multi step fragments: 167(163)
+FilteredMultiStepFragments:
+SUB_33; SUB_45; SUB_32; SUB_31; SUB_30; SUB_11; SUB_10; SUB_29; SUB_27; SUB_28; SUB_25; SUB_26; SUB_23; SUB_24; SUB_42; SUB_41; SUB_44; SUB_43; SUB_20; SUB_40; SUB_22; SUB_21; SUB_38; SUB_12; SUB_2; SUB_13; SUB_1; SUB_14; SUB_15; SUB_34; SUB_6; SUB_16; SUB_35; SUB_5; SUB_17; SUB_36; SUB_4; SUB_18; SUB_3; SUB_19; SUB_9; SUB_8; SUB_7; 
+MultiStepFragments:
+SUB_33; SUB_45; SUB_32; SUB_31; SUB_30; SUB_11; SUB_10; SUB_29; SUB_27; SUB_28; SUB_25; SUB_26; SUB_23; SUB_24; SUB_42; SUB_41; SUB_44; SUB_43; SUB_20; SUB_40; SUB_22; SUB_21; SUB_38; SUB_12; SUB_2; SUB_39; SUB_13; SUB_1; SUB_14; SUB_15; SUB_34; SUB_6; SUB_16; SUB_35; SUB_5; SUB_17; SUB_36; SUB_4; SUB_18; SUB_37; SUB_3; SUB_19; SUB_9; SUB_8; SUB_7; 
+IrreducibleMultiStepFragments:
+SUB_32; SUB_31; SUB_30; SUB_11; SUB_10; SUB_27; SUB_28; SUB_25; SUB_26; SUB_23; SUB_24; SUB_42; SUB_41; SUB_44; SUB_43; SUB_22; SUB_21; SUB_38; SUB_12; SUB_2; SUB_39; SUB_13; SUB_1; SUB_14; SUB_15; SUB_34; SUB_6; SUB_16; SUB_5; SUB_17; SUB_36; SUB_4; SUB_18; SUB_37; SUB_3; SUB_19; SUB_9; SUB_8; SUB_7; 

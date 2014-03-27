@@ -55,7 +55,7 @@ public class Test16ValidateFoundFragments1 {
             while(fragments.hasNext()){
                 Fragment f = obtainedResults.get(fragments.next());
                 //System.out.println("Size of fragment "+f.getStructureID()+" is "+ f.getSize());
-                if(f.isMultiStepStructure()){//to ensure it is a meaningful fragment
+                if(f.isMultiStepFragment()){//to ensure it is a meaningful fragment
                     String currentQuery = qr.createQueryFromFragment(f, "http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
 //                        System.out.println(currentQuery);
                     //ResultSet rs = GeneralMethods.queryOnlineRepository("http://opmw.org/sparql", currentQuery);

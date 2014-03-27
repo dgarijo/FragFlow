@@ -36,7 +36,7 @@ import java.util.ArrayList;
  * @author Daniel Garijo
  */
 public class Test30ValidateRDFWFFDFragmentInstances {
-    public static int testNumber = 29;
+    public static int testNumber = 30;
     public static boolean test(){
     try{
             System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog (PAFI)");

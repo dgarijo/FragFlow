@@ -30,7 +30,10 @@ public class Fragment {
     private Graph dependencyGraph;
     private ArrayList<Fragment> listOfPointersToIncludedStructures;
     
-    private boolean isMultiStepStructure;//a multi step structure is a structure with at least two steps.
+    private boolean isMultiStepFragment;//a multi step structure is a structure with at least two steps.
+    private boolean isFilteredMultiStepFragment;//if a fragment is not filtered multistep, then we may ignore it
+    private boolean isFilteredMultiStepIrreducibleFragment;
+//    private boolean isMultiStepIrreducibleFragment;
     
     /**
      * Default constructor
@@ -54,7 +57,12 @@ public class Fragment {
         this.numberOfOccurrences = numberOfOccurrences;
         this.dependencyGraph = dependencyGraph;
         this.listOfPointersToIncludedStructures = listOfIncludedPointers;
-        this.isMultiStepStructure = isMultiStep;
+        this.isMultiStepFragment = isMultiStep;
+        //the rest are not known normally when creating a fragment. We set them
+        //to false by deafult.
+        this.isFilteredMultiStepFragment = true;//until filtered, all fragments are considered valuable
+        this.isFilteredMultiStepIrreducibleFragment = false;
+//        this.isMultiStepIrreducibleFragment = false;
    }
 
     /**
@@ -90,12 +98,37 @@ public class Fragment {
     }
 
     /**
-     * isMultiStep getter
+     * isMultiStepFragment getter
      * @return whether this fragment is a multi step one or not
      */
-    public boolean isMultiStepStructure() {
-        return isMultiStepStructure;
+    public boolean isMultiStepFragment() {
+        return isMultiStepFragment;
     }
+    
+    /**
+     * isFilteredMultiStepFragment getter
+     * @return whether this fragment is a filtered multi step fragment or not
+     * (i.e., if the fragment is relevant or not).
+     */
+    public boolean isFilteredMultiStepFragment() {
+        return isFilteredMultiStepFragment;
+    }
+
+    /**
+     * isIrreducibleFragment getter
+     * @return if the current fragment is an irreducible fragment or not
+     */
+    public boolean isFilteredMultiStepIrreducibleFragment() {
+        return isFilteredMultiStepIrreducibleFragment;
+    }
+
+    /**
+     * isMultiStepIrreducibleFragment getter
+     * @return if the current fragment is a multi step irreducible fragment or not
+     */
+//    public boolean isMultiStepIrreducibleFragment() {
+//        return isMultiStepIrreducibleFragment;
+//    }
     
     /**
      * Dependency graph setter
@@ -134,8 +167,34 @@ public class Fragment {
      * @param isMeaningfulStructure 
      */
     public void setIsMultiStepStructure(boolean isMeaningfulStructure) {
-        this.isMultiStepStructure = isMeaningfulStructure;
+        this.isMultiStepFragment = isMeaningfulStructure;
     }
+
+    /**
+     * isFilteredMultiStepFragment setter
+     * @param isFilteredMultiStepFragment 
+     */
+    public void setIsFilteredMultiStepFragment(boolean isFilteredMultiStepFragment) {
+        this.isFilteredMultiStepFragment = isFilteredMultiStepFragment;
+    }
+
+    /**
+     * isIrreducibleFragment setter
+     * @param isIrreducibleFragment 
+     */
+    public void setIsFilteredMultiStepIrreducibleFragment(boolean isFilteredMultiStepIrreducibleFragment) {
+        this.isFilteredMultiStepIrreducibleFragment = isFilteredMultiStepIrreducibleFragment;
+    }
+
+    /**
+     * isMultiStepIrreducibleFragment setter
+     * @param isMultiStepIrreducibleFragment 
+     */
+//    public void setIsMultiStepIrreducibleFragment(boolean isMultiStepIrreducibleFragment) {
+//        this.isMultiStepIrreducibleFragment = isMultiStepIrreducibleFragment;
+//    }
+    
+    
     
     /**
      * Function that return the size of the fragment (regarding the number of 
@@ -174,8 +233,8 @@ public class Fragment {
         Fragment otherFragment = (Fragment)other;
         if (otherFragment.getStructureID().equals(this.structureID)) return true;
         return false;
-    }
-    
+    } 
+   
     
         
 }

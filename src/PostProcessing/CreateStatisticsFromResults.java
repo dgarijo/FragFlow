@@ -44,10 +44,12 @@ public abstract class CreateStatisticsFromResults {
     //protected int structuresFound, multiStepFragment, filteredMultiStepFragment,
     //        numberOfIrreducibleStructures, numberOfMultiStepIrreducibleStructures,
     //        occurrencesOfDetectedStructures, occurrencesOfMultiStepStructures, occurrencesOfFilteredMultiStepStructures;
-    protected HashMap<String,Fragment> originalFragmentCatalog;
-    protected ArrayList<Fragment>  multiStepFragments, filteredMultiStepFragments,
-            irreducibleFragments, multiStepIrreducibleFragments;//relevant fragments are the filteredMultiStep ones
-    protected int occurrencesOfDetectedStructures, occurrencesOfMultiStepStructures, occurrencesOfFilteredMultiStepStructures;
+    protected HashMap<String,Fragment> fragmentCatalog;
+    protected ArrayList<Fragment>  filteredMultiStepFragments;
+    //        irreducibleFragments, multiStepIrreducibleFragments;//relevant fragments are the filteredMultiStep ones
+    protected int occurrencesOfDetectedStructures, occurrencesOfMultiStepStructures, 
+            occurrencesOfFilteredMultiStepStructures, numberOfFilteredMultiStepFragments, 
+            numberOfFilteredMultiStepIrreducibleFragments, numberOfMultiStepFragments;
     //multi step: those with 2 or more steps.
     //filtered multi step: those structures that meaningful and that
     //if they include another structure, then it has to occur at a different frequency than
@@ -73,7 +75,11 @@ public abstract class CreateStatisticsFromResults {
         this.evaluationAlgorithm = evaluationAlgorithm;
         this.isTemplate = isTemplate;
         this.hasInference = hasInference;
-        this.originalFragmentCatalog = originalFragmentCatalog;
+        this.fragmentCatalog = originalFragmentCatalog;
+//        this.numberOfMultiStepIrreducibleFragments = 0;
+        this.numberOfFilteredMultiStepFragments = 0;
+        this.numberOfFilteredMultiStepIrreducibleFragments = 0;
+        this.numberOfMultiStepFragments = 0;
         //this.isReducedGraph = isReducedGraph;
         //here each method will invoke the fragment reader, etc. to initialize 
         //the fragment catalogue        
@@ -84,32 +90,44 @@ public abstract class CreateStatisticsFromResults {
      * @return number of filtered multi step fragments
      */
     public ArrayList<Fragment> getFilteredMultiStepFragments() {
+        //this is the filtered catalog, and many methods may request it.
+        //We generate from the relevant fragments from the orginal catalog
+        if(filteredMultiStepFragments==null){
+            filteredMultiStepFragments = new ArrayList<Fragment>();
+            Iterator<String> it = this.fragmentCatalog.keySet().iterator();
+            while(it.hasNext()){
+                Fragment currF = fragmentCatalog.get(it.next());
+                if(currF.isFilteredMultiStepFragment()){
+                    filteredMultiStepFragments.add(currF);
+                }
+            }
+        }
         return filteredMultiStepFragments;
     }
 
     /**
      * Default getter to retrieve the  irreducible fragments
      * @return irreducible fragments
-     */
-    public ArrayList<Fragment> getIrreducibleFragments() {
-        return irreducibleFragments;
-    }
+//     */
+//    public ArrayList<Fragment> getIrreducibleFragments() {
+//        return irreducibleFragments;
+//    }
 
     /**
      * Default getter to retrieve the multi step fragments
      * @return multistep fragments
      */
-    public ArrayList<Fragment> getMultiStepFragments() {
-        return multiStepFragments;
-    }
+//    public ArrayList<Fragment> getMultiStepFragments() {
+//        return multiStepFragments;
+//    }
 
     /**
      * Default getter to retrieve the multi step irreducible fragments
      * @return multistep irreducible fragments
      */
-    public ArrayList<Fragment> getMultiStepIrreducibleFragments() {
-        return multiStepIrreducibleFragments;
-    }
+//    public ArrayList<Fragment> getMultiStepIrreducibleFragments() {
+//        return multiStepIrreducibleFragments;
+//    }
     
     
     /**
@@ -117,7 +135,7 @@ public abstract class CreateStatisticsFromResults {
      * @return number of original fragments
      */
     public int getNumberOfOriginalFoundFragments(){
-        return this.originalFragmentCatalog.size();
+        return this.fragmentCatalog.size();
     }
     
     /**
@@ -125,7 +143,8 @@ public abstract class CreateStatisticsFromResults {
      * @return number of multi step fragments
      */
     public int getNumberOfMultiStepFragments(){
-        return this.multiStepFragments.size();
+//        return this.multiStepFragments.size();
+        return this.numberOfMultiStepFragments;
     }
     
     /**
@@ -133,7 +152,8 @@ public abstract class CreateStatisticsFromResults {
      * @return number of filtered multi step fragments
      */
     public int getNumberOfFilteredMultiStepFragments(){
-        return this.filteredMultiStepFragments.size();
+//        return this.filteredMultiStepFragments.size();
+        return this.numberOfFilteredMultiStepFragments;
     }
     
     /**
@@ -141,7 +161,8 @@ public abstract class CreateStatisticsFromResults {
      * @return number of irreducible fragments
      */
     public int getNumberOfIrreducibleFragments(){
-        return this.irreducibleFragments.size();
+//        return this.irreducibleFragments.size();
+        return this.numberOfFilteredMultiStepIrreducibleFragments;
     }
     
     /**
@@ -157,7 +178,8 @@ public abstract class CreateStatisticsFromResults {
      * @return number of multi step irreducible fragments
      */
     public int getNumberOfMultiStepIrreducibleFragments(){
-        return this.multiStepIrreducibleFragments.size();
+//        return this.multiStepIrreducibleFragments.size();
+        return this.numberOfFilteredMultiStepIrreducibleFragments;
     }
 
     /**
@@ -189,33 +211,45 @@ public abstract class CreateStatisticsFromResults {
      * It depends on the algorithm and the output it provides.
      */
     protected void initializeStatistics(){
-        if(originalFragmentCatalog==null||originalFragmentCatalog.isEmpty())return;
-        multiStepFragments = new ArrayList<Fragment>();
-        filteredMultiStepFragments = new ArrayList<Fragment>();
-        irreducibleFragments = new ArrayList<Fragment>(); 
-        multiStepIrreducibleFragments = new ArrayList<Fragment>();
-        Iterator<String> it = originalFragmentCatalog.keySet().iterator();
+        if(fragmentCatalog==null||fragmentCatalog.isEmpty())return;
+//        multiStepFragments = new ArrayList<Fragment>();
+//        filteredMultiStepFragments = new ArrayList<Fragment>();
+//        irreducibleFragments = new ArrayList<Fragment>(); 
+//        multiStepIrreducibleFragments = new ArrayList<Fragment>();
+        System.out.println("Filtering catalog...");
+        FragmentCatalogFilter.filterFragmentCatalog(fragmentCatalog);
+        System.out.println("Calculating statistics...");
+        Iterator<String> it = fragmentCatalog.keySet().iterator();
         while (it.hasNext()){
             String currentString = it.next();
-            Fragment currentResult = originalFragmentCatalog.get(currentString);
+            Fragment currentResult = fragmentCatalog.get(currentString);
             this.occurrencesOfDetectedStructures+= currentResult.getNumberOfOccurrences();
-            if(currentResult.isMultiStepStructure()){
-                multiStepFragments.add(currentResult);
+            if(currentResult.isMultiStepFragment()){//initialized in the fragm reader
+//                multiStepFragments.add(currentResult);
                 //for the moment we add all of them. We will filter them later.
                 //we will also remove the duplicated ones
-                filteredMultiStepFragments.add(currentResult);                    
+//                filteredMultiStepFragments.add(currentResult);                
                 this.occurrencesOfMultiStepStructures+=currentResult.getNumberOfOccurrences();
                 ArrayList<Fragment> includedIds = currentResult.getListOfIncludedIDs();
-                if(includedIds==null || includedIds.isEmpty()){                    
-                    multiStepIrreducibleFragments.add(currentResult);                    
+                if(currentResult.isFilteredMultiStepFragment()&&(includedIds==null || includedIds.isEmpty())){                    
+//                    multiStepIrreducibleFragments.add(currentResult);
+//                    if(currentResult.isFilteredMultiStepFragment()){
+//                        currentResult.setIsIrreducibleFragment(true);
+                        currentResult.setIsFilteredMultiStepIrreducibleFragment(true);
+//                    }
 //                    this.occurrencesOfFilteredMultiStepStructures+=currentResult.getNumberOfOccurrences();
                 }                              
-            }            
-            if(currentResult.getListOfIncludedIDs()==null || currentResult.getListOfIncludedIDs().isEmpty()){
-                irreducibleFragments.add(currentResult);
             }
+//            else{ no need for this assertion, as starts as false.
+//                currentResult.setIsFilteredMultiStepFragment(false);
+//            }            
+//            if(currentResult.getListOfIncludedIDs()==null || currentResult.getListOfIncludedIDs().isEmpty()){
+//                irreducibleFragments.add(currentResult);
+//                    currentResult.setIsIrreducibleFragment(true);
+//            }
         }
-        occurrencesOfFilteredMultiStepStructures = FragmentCatalogFilter.filterFragmentCatalog(filteredMultiStepFragments, occurrencesOfMultiStepStructures);
+        
+        this.updateAttributes();
     }
     
     /**
@@ -374,30 +408,75 @@ public abstract class CreateStatisticsFromResults {
             output+="Number of structures found: "+this.getNumberOfOriginalFoundFragments()+"\n";
             output+="Number of irreducible fragments found (i.e., those structures which do not include parts of others): "+getNumberOfIrreducibleFragments()+"\n";
             output+="Number of multi step fragments structures found (i.e., those with at least two process steps): "+getNumberOfMultiStepFragments()+"("+getNumberOfFilteredMultiStepFragments()+")\n";
-            output+="Number of multi step irreducible fragments found: "+getNumberOfMultiStepIrreducibleFragments()+"\n";
+            output+="Number of filtered multi step irreducible fragments found: "+getNumberOfMultiStepIrreducibleFragments()+"\n";
             output+="Frequency of detected structures: "+occurrencesOfDetectedStructures+"\n";
             output+="Frequency of multi step fragments: "+occurrencesOfMultiStepStructures+"("+occurrencesOfFilteredMultiStepStructures+")\n";
-            output+="FilteredMultiStepFragments:\n";
-            Iterator <Fragment> it = filteredMultiStepFragments.iterator();
-            while (it.hasNext()){
-                output+=it.next().getStructureID()+"; ";
+//            output+="FilteredMultiStepFragments:\n";
+            String filteredMultiStep = "FilteredMultiStepFragments:\n", 
+                    multiStep = "\nMultiStepFragments:\n", 
+                    filteredMultiStepIrreducible = "\nFilteredMultiStepIrreducibleFragments:\n";
+            Iterator<String> it = this.fragmentCatalog.keySet().iterator();
+            while(it.hasNext()){
+                Fragment currentFragment = fragmentCatalog.get(it.next());
+                if(currentFragment.isFilteredMultiStepFragment()){
+                    filteredMultiStep+=currentFragment.getStructureID()+"; ";
+                }
+                if(currentFragment.isFilteredMultiStepIrreducibleFragment()){
+                    filteredMultiStepIrreducible+=currentFragment.getStructureID()+"; ";
+                }
+                if(currentFragment.isMultiStepFragment()){
+                    multiStep+=currentFragment.getStructureID()+"; ";
+                }
             }
-            output+="\nMultiStepFragments:\n";
-            Iterator <Fragment> it2 = multiStepFragments.iterator();
-            while (it2.hasNext()){
-                output+=it2.next().getStructureID()+"; ";
-            }
-            output+="\nIrreducibleMultiStepFragments:\n";
-            Iterator <Fragment> it3 = multiStepIrreducibleFragments.iterator();
-            while (it3.hasNext()){
-                output+=it3.next().getStructureID()+"; ";
-            }
+            output+=filteredMultiStep;
+            output+=filteredMultiStepIrreducible;
+            output+=multiStep;            
+//            Iterator <Fragment> it = filteredMultiStepFragments.iterator();
+//            while (it.hasNext()){
+//                output+=it.next().getStructureID()+"; ";
+//            }
+//            output+="\nMultiStepFragments:\n";
+//            Iterator <Fragment> it2 = multiStepFragments.iterator();
+//            while (it2.hasNext()){
+//                output+=it2.next().getStructureID()+"; ";
+//            }
+//            output+="\nIrreducibleMultiStepFragments:\n";
+//            Iterator <Fragment> it3 = multiStepIrreducibleFragments.iterator();
+//            while (it3.hasNext()){
+//                output+=it3.next().getStructureID()+"; ";
+//            }
             System.out.println(output);
             out.write(output);
             out.close();
         }catch (Exception e){
             System.err.println("Error "+e.getMessage());
         }
-    }    
+    }
+
+    /**
+     * Method that iterates through the catalog and updates all the attributes
+     * related to statistics (number of irreducible fragments, multistep, etc.).
+     * This method is separate, as filtering has occurred in the catalog.
+     */
+    private void updateAttributes() {
+        Iterator<String> it = this.fragmentCatalog.keySet().iterator();
+        this.occurrencesOfFilteredMultiStepStructures = 0;
+        while (it.hasNext()){
+            Fragment currF = fragmentCatalog.get(it.next());
+            if(currF.isFilteredMultiStepFragment()){
+                numberOfFilteredMultiStepFragments++;
+                occurrencesOfFilteredMultiStepStructures+=currF.getNumberOfOccurrences();
+            }
+//            if(currF.isFilteredMultiStepIrreducibleFragment()){
+//                numberOfMultiStepIrreducibleFragments++;
+//            }
+            if(currF.isMultiStepFragment()){
+                numberOfMultiStepFragments++;                    
+            }
+            if(currF.isFilteredMultiStepIrreducibleFragment()){
+                numberOfFilteredMultiStepIrreducibleFragments++;
+            }
+        }
+    }
     
 }

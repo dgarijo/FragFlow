@@ -30,8 +30,6 @@ import java.util.HashMap;
  * @author Daniel Garijo
  */
 public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults{
-    private String pcFile;
-    private String tidFile;
     private HashMap<String,ArrayList<String>> fragmentsInTransactions;
 
 
@@ -50,10 +48,11 @@ public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults
                 String resultFile, String pcFile, String tidFile) throws FragmentReaderException {                        
         super(domain, "-", "PAFI", isTemplate, hasInference, null);
         FragmentReaderPAFI reader = new FragmentReaderPAFI(resultFile,pcFile,tidFile);
-        this.originalFragmentCatalog = reader.getFragmentCatalogAsHashMap();
+        System.out.println("Reading results...");
+        this.fragmentCatalog = reader.getFragmentCatalogAsHashMap();
+        System.out.println("Getting occurrences of Fragment in transaction...");
         this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();
-        this.pcFile = pcFile;
-        this.tidFile = tidFile;        
+        System.out.println("Initializing statistics....");
         initializeStatistics();
     }
 

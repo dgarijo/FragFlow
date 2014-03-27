@@ -16,8 +16,8 @@
 package PostProcessing;
 
 import DataStructures.Fragment;
-import Static.GeneralMethodsFragments;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -46,46 +46,52 @@ public class FragmentCatalogFilter {
      * @param occurrencesOfCatalogToFilter total number of occurrences of the fragment catalog
      * @return the number of occurrences of the filtered fragment catalog
      */
-    public static int filterFragmentCatalog(ArrayList<Fragment>  catalogToFilter, int occurrencesOfCatalogToFilter){
-        Iterator<Fragment> it = catalogToFilter.iterator();
-        ArrayList<Fragment> elementsToRemove = new ArrayList<Fragment>();
+    public static void filterFragmentCatalog(HashMap<String,Fragment> catalogToFilter){//, int occurrencesOfCatalogToFilter){
+        Iterator<String> it = catalogToFilter.keySet().iterator();
+//        ArrayList<Fragment> elementsToRemove = new ArrayList<Fragment>();
         while(it.hasNext()){
-            Fragment currentFragment = it.next();
-            if(currentFragment.isMultiStepStructure()){
-                ArrayList<Fragment> includedFragments = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
+            Fragment currentFragment = catalogToFilter.get(it.next());
+            if(currentFragment.isMultiStepFragment()){
+                ArrayList<Fragment> includedFragments = currentFragment.getListOfIncludedIDs();//GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
                 //if any of the included structures has the same occurrences as the actual one,
                 //we count the actual as the relevant structure and remove the others from the filtered 
                 //multi step fragments
-                Iterator<Fragment>includedFragmentsIt = includedFragments.iterator();
-                while(includedFragmentsIt.hasNext()){
-                    Fragment currentIncludedFragment = includedFragmentsIt.next();                
-                    if(catalogToFilter.contains(currentIncludedFragment) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
-                        if(!elementsToRemove.contains(currentIncludedFragment))
-                            elementsToRemove.add(currentIncludedFragment);
+                if(includedFragments!=null){
+                    Iterator<Fragment>includedFragmentsIt = includedFragments.iterator();
+                    while(includedFragmentsIt.hasNext()){
+                        Fragment currentIncludedFragment = includedFragmentsIt.next();                
+                        if(catalogToFilter.containsKey(currentIncludedFragment.getStructureID()) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
+//                            if(!elementsToRemove.contains(currentIncludedFragment))
+//                                elementsToRemove.add(currentIncludedFragment);
+                            //we avoid creating additional elements this way.
+                            currentIncludedFragment.setIsFilteredMultiStepFragment(false);
+                            currentIncludedFragment.setIsFilteredMultiStepIrreducibleFragment(false);
+                        }
                     }
                 }
             }else{
-                elementsToRemove.add(currentFragment);
+                currentFragment.setIsFilteredMultiStepFragment(false);
+                //elementsToRemove.add(currentFragment);
             }
         }
         //now that we know the elements to remove, we remove them
-        Iterator<Fragment> itRemove = elementsToRemove.iterator();
-//        occurrencesOfCatalog = occurrencesOfMultiStepStructures;        
-        while(itRemove.hasNext()){
-            Fragment fragmentToRemove = itRemove.next();
-            //while we remove, calculate the occurrences of filteredmultistep fragments here.
-            occurrencesOfCatalogToFilter -= fragmentToRemove.getNumberOfOccurrences();
-            catalogToFilter.remove(fragmentToRemove);            
-        }
-        return occurrencesOfCatalogToFilter;
+//        Iterator<Fragment> itRemove = elementsToRemove.iterator();
+////        occurrencesOfCatalog = occurrencesOfMultiStepStructures;        
+//        while(itRemove.hasNext()){
+//            Fragment fragmentToRemove = itRemove.next();
+//            //while we remove, calculate the occurrences of filteredmultistep fragments here.
+//            occurrencesOfCatalogToFilter -= fragmentToRemove.getNumberOfOccurrences();
+//            catalogToFilter.remove(fragmentToRemove);            
+//        }
+//        return occurrencesOfCatalogToFilter;
     }
     
     /**
      * Simplification of the fragment filter to only filter the catalog.
      * @param catalogToFilter 
      */
-    public static void filterFragmentCatalog(ArrayList<Fragment>  catalogToFilter){
-        filterFragmentCatalog(catalogToFilter, 0);
-    }
+//    public static void filterFragmentCatalog(ArrayList<Fragment>  catalogToFilter){
+//        filterFragmentCatalog(catalogToFilter);//, 0);
+//    }
     
 }
