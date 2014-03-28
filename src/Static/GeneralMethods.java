@@ -127,7 +127,13 @@ public class GeneralMethods {
      */
     public static void addIndividual(OntModel m,String individualId, String classURL, String label){
         String nombreIndividuoEnc = encode(individualId);
-        OntClass c = m.createClass(classURL);
+        OntClass c ;
+        if(classURL.startsWith("http://")){
+            c = m.createClass(classURL);
+        }else{
+            //this is an auxiliar thing caused when the model types does are not uris
+            c = m.createClass(GeneralConstants.PREFIX_FOR_RDF_GENERATION+encode(classURL));
+        }
         if(individualId.contains("http://")){//is a URI already
             c.createIndividual(individualId);
         }else{
@@ -136,6 +142,18 @@ public class GeneralMethods {
         if(label!=null){
             addDataProperty(m,nombreIndividuoEnc,label,Wffd.RDFS_SCHEMA_PREFIX+"label");
         }
+    }
+    
+    /**
+     * Method analogous to addIndividual but without encoding the name or doing anything
+     * to change the URI prefix. This method should not be used for generating RDF
+     * @param m model where we will insert the triples
+     * @param individualId Instance id. If exists it won't be created.
+     * @param classURL URL of the class from which we want to create the instance
+     */
+    public static void addSimpleIndividual(OntModel m,String individualId, String classURL){
+        OntClass c = m.createClass(classURL);
+        c.createIndividual(individualId);
     }
 
     /**
@@ -159,6 +177,21 @@ public class GeneralMethods {
             instance.addProperty(propSelec, m.getResource(GeneralConstants.PREFIX_FOR_RDF_GENERATION+encode(dest)));
         }
 //        System.out.println("Creada propiedad "+ property+" que relaciona los individuos "+ orig + " y "+ dest);
+    }
+    
+    /**
+     * Method analogous to addProperty, but without adding any namespace, encoding, etc.
+     * This method is to be used by auxiliar tests, but not for generating RDF
+     * @param m model where we assert the triples.
+     * @param orig Domain of the property (Id, not complete URI)
+     * @param dest Range of the property (Id, not complete URI)
+     * @param property URI of the property
+     */
+    public static void addSimpleProperty(OntModel m, String orig, String dest, String property){
+        OntProperty propSelec = m.createOntProperty(property);
+        Resource source = m.getResource(orig);
+        Individual instance = (Individual) source.as( Individual.class );
+        instance.addProperty(propSelec,m.getResource(dest));            
     }
 
     /**

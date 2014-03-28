@@ -39,14 +39,14 @@ import java.util.HashMap;
  * directionality of the fragments and publish it as rdf.
  * @author Daniel garijo
  */
-public class STEP4ProduceRDFFromResultsPAFI{
+public class STEP4ProduceRDFFromOPMWResultsPAFI{
     public static void main(String[] args) throws FragmentReaderException{
         String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
         String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
         String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
         CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
         FragmentCatalogAndResultsToRDFPAFI catalogInRdf = new FragmentCatalogAndResultsToRDFPAFI("PafiRDFCatalog.ttl");
-        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
+        ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalogWithOPMWTemplates(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
         //transformation of the fragment catalog to RDF.
         catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
         //now we find where the fragments have been found and we 
@@ -72,7 +72,7 @@ public class STEP4ProduceRDFFromResultsPAFI{
         
         c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile); 
         catalogInRdf = new FragmentCatalogAndResultsToRDFPAFI("PafiRDFCatalogAbstract.ttl");
-        filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), true);
+        filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalogWithOPMWTemplates(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), true);
         //transformation of the fragment catalog to RDF.
         catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
         catalogInRdf.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, abstractCollection);

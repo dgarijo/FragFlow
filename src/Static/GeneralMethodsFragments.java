@@ -46,13 +46,15 @@ public class GeneralMethodsFragments {
      * @param f fragment to be explored.
      */
     private static void addDependencies(ArrayList<Fragment> results, Fragment f){
-        ArrayList<Fragment> aux = f.getListOfIncludedIDs();
-        if(aux == null || aux.isEmpty())return;
-        Iterator<Fragment> it = aux.iterator();
-        while(it.hasNext()){
-            Fragment currentDependency = it.next();
-            results.add(currentDependency);
-            addDependencies(results, currentDependency);
+        if(f!=null){
+            ArrayList<Fragment> aux = f.getListOfIncludedIDs();
+            if(aux == null || aux.isEmpty())return;
+            Iterator<Fragment> it = aux.iterator();
+            while(it.hasNext()){
+                Fragment currentDependency = it.next();
+                results.add(currentDependency);
+                addDependencies(results, currentDependency);
+            }
         }
     }
 }

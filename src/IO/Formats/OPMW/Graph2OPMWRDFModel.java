@@ -85,6 +85,7 @@ public class Graph2OPMWRDFModel {
             if(isTemplate){
                 //all the nodes in a fragment are steps (if it is reduced)
                 GeneralMethods.addProperty(m, currentURI, structure.getName(), OPMWTemplate.IS_STEP_OF_TEMPL);
+                
             }else{
                 GeneralMethods.addProperty(m, currentURI, structure.getName(), OPMWTrace.WORKFLOW_OPMO_ACCOUNT);
             }
@@ -93,6 +94,11 @@ public class Graph2OPMWRDFModel {
                     GeneralMethods.addProperty(m, currentURI, structureURIs.get(j-1), generationDep);
                 }else if(matrix[i][j]!=null && matrix[i][j].equals(GeneralConstants.USAGE_DEPENDENCY)){ 
                     GeneralMethods.addProperty(m, currentURI, structureURIs.get(j-1), usageDep);
+                }else if(matrix[i][j]!=null && matrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){ 
+                    //if one is informed by the other, then we produce
+                    GeneralMethods.addProperty(m, currentURI,"a"+i+j , usageDep);
+                    GeneralMethods.addProperty(m, "a"+i+j, structureURIs.get(j-1), generationDep);
+                    GeneralMethods.addProperty(m, currentURI, structureURIs.get(j-1), "http://www.opmw.org/ontology/informBy");
                 }
             }
         }

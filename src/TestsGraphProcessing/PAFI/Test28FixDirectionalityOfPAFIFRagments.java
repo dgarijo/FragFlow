@@ -47,7 +47,7 @@ public class Test28FixDirectionalityOfPAFIFragments {
 //            ArrayList<Fragment> fixedCatalog = reader.getFragmentCatalogAsAnArrayList();
 //            FragmentCatalogFilter.filterFragmentCatalog(fixedCatalog);
 //            fixedCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", fixedCatalog,reader.getOccurrencesOfFragmentInTransaction(), false);
-            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
+            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalogWithOPMWTemplates(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
             
             //for these parameters, the first fragment has to have the following matrix:
             //[0,3]=[1,0]=[2,1]=wasInformedBy dependency. This is different from the original one which was:

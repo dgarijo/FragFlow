@@ -78,7 +78,7 @@ public class FragmentCatalogAndResultsToRDFPAFI extends FragmentCatalogAndResult
                 while(includedIdsIt.hasNext()){
                     Fragment currentIncludedId = includedIdsIt.next();
                     //we just include the fragment if it also belongs to the catalog
-                    if(filteredCatalog.contains(currentIncludedId)){
+                    if(currentIncludedId!=null && filteredCatalog.contains(currentIncludedId)){
                         String currentID = currentIncludedId.getStructureID()+"_"+dateToken;               
                         GeneralMethods.addIndividual(repository, currentID, PPlan.PLAN, null);//for redundancy and interoperability
                         GeneralMethods.addProperty(repository, currentID, fragmentID, Wffd.PART_OF_WORKFLOW_FRAGMENT);

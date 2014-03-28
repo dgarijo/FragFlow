@@ -59,8 +59,8 @@ public class FragmentCatalogFilter {
                 if(includedFragments!=null){
                     Iterator<Fragment>includedFragmentsIt = includedFragments.iterator();
                     while(includedFragmentsIt.hasNext()){
-                        Fragment currentIncludedFragment = includedFragmentsIt.next();                
-                        if(catalogToFilter.containsKey(currentIncludedFragment.getStructureID()) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
+                        Fragment currentIncludedFragment = includedFragmentsIt.next();                        
+                        if(currentIncludedFragment!=null && catalogToFilter.containsKey(currentIncludedFragment.getStructureID()) && currentIncludedFragment.getNumberOfOccurrences() == currentFragment.getNumberOfOccurrences()){
 //                            if(!elementsToRemove.contains(currentIncludedFragment))
 //                                elementsToRemove.add(currentIncludedFragment);
                             //we avoid creating additional elements this way.

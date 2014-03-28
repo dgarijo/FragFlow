@@ -17,12 +17,13 @@ package PostProcessing.Formats.PAFI;
 
 import DataStructures.Fragment;
 import DataStructures.GraphCollection;
+import DataStructures.GraphNode.GraphNode;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
+import Factory.Loni.LoniTemplate2Graph;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
-import Static.Configuration;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -50,12 +51,13 @@ import java.util.Iterator;
 public class FixDirectionOfFragmentCatalog {
     
     /**
-     * Given a Fragment Catalog, this method fixed the directionality of the 
-     * fragments. Note that a copy of the catalog is NOT returned. The input catalog
+     * Given a Fragment Catalog, this method fixes the directionality of the 
+     * fragments by matching the fragments agains OPMW templates. 
+     * Note that a copy of the catalog is NOT returned. The input catalog
      * is modified.
      * @return 
      */
-    public static ArrayList<Fragment> fixDirectionOfCatalog(String pathFileWrittenCollection,
+    public static ArrayList<Fragment> fixDirectionOfCatalogWithOPMWTemplates(String pathFileWrittenCollection,
             ArrayList<Fragment> filteredCatalog, HashMap<String, ArrayList<String>> occurrencesOfFragments, 
             boolean isAbstract) 
             throws FragmentReaderException{
@@ -134,12 +136,111 @@ public class FixDirectionOfFragmentCatalog {
         return filteredCatalog;
     }
     
+    /**
+     * Given a Fragment Catalog, this method fixes the directionality of the 
+     * fragments by matching the fragments agains LONI templates. 
+     * Note that a copy of the catalog is NOT returned. The input catalog
+     * is modified.
+     * @return 
+     */
+    public static ArrayList<Fragment> fixDirectionOfCatalogWithLONIemplates(String pathFileWrittenCollection,
+            ArrayList<Fragment> filteredCatalog, HashMap<String, ArrayList<String>> occurrencesOfFragments) 
+            throws FragmentReaderException{
+        HashMap<String,String> numberOfUriAndURI = new HashMap<String, String>();
+        //read from the file the id and name of the structure.
+        FileInputStream fstream =null;
+        DataInputStream in = null;
+        FragmentToSPARQLQueryTemplatePAFI queryGenerator = new FragmentToSPARQLQueryTemplatePAFI();
+        try{
+            fstream = new FileInputStream(pathFileWrittenCollection);            
+            in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            int currentStructure = 0;
+            while ((strLine = br.readLine()) != null)   {
+                if(!strLine.startsWith("#")){                    
+                    if(strLine.startsWith("t")){
+                        String[] splitLine = strLine.split(" # ");
+                        String uri = splitLine[1];//position 0 is "t"
+                        numberOfUriAndURI.put(""+currentStructure, uri);
+                        currentStructure++;
+                    }
+                }
+            }
+        Iterator<Fragment> itFragments = filteredCatalog.iterator();
+        while(itFragments.hasNext()){
+            Fragment currF = itFragments.next();
+//            if(currF.getStructureID().equals("5-164")){
+//                System.out.println("Stop here");
+////                o2.write(System.out, "TURTLE");
+//            }
+            setTypesOfCurrentFragment(currF);
+//            System.out.println("Fragment "+currF.getStructureID());
+            String fragmentFoundIn = occurrencesOfFragments.get(currF.getStructureID()).get(0); 
+            //we just query the first structure where it appears (no need for more for fixing the direction of the fragments)
+            LoniTemplate2Graph downloadedTemplate = new LoniTemplate2Graph("LONI_dataset\\");    
+            downloadedTemplate.transformToGraph(numberOfUriAndURI.get(fragmentFoundIn));
+            OntModel o2;
+            o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(downloadedTemplate.getGraphCollection().getGraphs().get(0));   
+//            o2.write(System.out, "TURTLE");
+            //we download the template because the query performs quicker that way.
+            String currentQuery = queryGenerator.createQueryForDirectionalityFromFragment(currF, GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(numberOfUriAndURI.get(fragmentFoundIn)));
+            ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
+             
+            while(rs.hasNext()){
+                QuerySolution qs = rs.next();//there is only one solution, but just in case
+                Iterator<String> varNamesIterator = qs.varNames();
+                while(varNamesIterator.hasNext()){
+                    String currentVar = varNamesIterator.next();
+                    if(qs.get(currentVar)!=null){
+//                        System.out.println(currentVar);
+                        String[][] fragmentDepMatrix = currF.getDependencyGraph().getAdjacencyMatrix();
+                        //fix the adjacency matrix of each fragment here
+                        currentVar = currentVar.replace("dep_", "");//we remove the prefix
+                        String[] aux = currentVar.split("_");
+                        int row = Integer.parseInt(aux[0]);
+                        int column = Integer.parseInt(aux[1]);
+                        fragmentDepMatrix[row][column] = GeneralConstants.INFORM_DEPENDENCY;
+                        fragmentDepMatrix[column][row] = null;
+                    }
+                }
+            }
+        }
+        }catch(Exception e){
+            throw new FragmentReaderException("Unable to process the PAFI input file. "+e.getMessage());
+        }
+        return filteredCatalog;
+    }
+    
+    /**
+     * Auxiliary method to change LONI types to URIs. 
+     * @param f 
+     */
+    private static void setTypesOfCurrentFragment(Fragment f){
+        Iterator<String> it = f.getDependencyGraph().getNodes().keySet().iterator();
+        HashMap<String,GraphNode> nodes = f.getDependencyGraph().getNodes();
+        while(it.hasNext()){
+            GraphNode currentNode = nodes.get(it.next());
+            String currType = currentNode.getType();
+            if(!currType.startsWith("http://")){
+                currentNode.setType(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(currType));
+            }
+        }
+        
+    }
+    
 //    public static void main(String[] args) throws FragmentReaderException{
-//        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
-//        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
-//        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
-//        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
-//        fixDirectionOfCatalog(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions());
+////        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";
+////        String pcFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.pc";
+////        String tidFile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.tid";
+//        String fpfile = "PAFI_TOOL\\results\\LoniDatasetFiltered.fp";
+//        String pcFile = "PAFI_TOOL\\results\\LoniDatasetFiltered.pc";
+//        String tidFile = "PAFI_TOOL\\results\\LoniDatasetFiltered.tid";
+////        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Text analytics", true, false, fpfile, pcFile, tidFile);            
+//        CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("LONI dataset", true, false, fpfile, pcFile, tidFile);            
+//        ArrayList<Fragment> aux = c.getFilteredMultiStepFragments();
+//        fixDirectionOfCatalogWithLONIemplates(Configuration.getPAFIInputPath()+"LONIInPAFIFormat", aux,c.getFragmentsInTransactions());
+
 //    }
     
 }

@@ -25,13 +25,13 @@ import java.util.Date;
  *
  * @author Daniel Garijo
  */
-public class STEP3aProduceStatisticsFromLONIResultsPARSEMIS {
+public class STEP3aProduceStatisticsFromFilteredLONIResultsPARSEMIS_test {
     public static void main(String[]args){
         try {
-            String inputFile = "PARSEMIS_TOOL\\results\\resultsLoniFullDatasetFiltered.lg";
+            String inputFile = "PARSEMIS_TOOL\\results\\resultsLoniFullDataset.lg";
             String d = new SimpleDateFormat("dd-M-yyyy_hh-mm-ss").format(new Date());
             CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("LONI dataset", true, false, inputFile);
-            c.printStatistics("statisticsParsemis-LONI-FilteredTest"+d);
+            c.printStatistics("statisticsParsemis-LONI"+d);
         } catch (FragmentReaderException ex) {
             System.out.println("Error while executing test "+ex.getMessage());
         }

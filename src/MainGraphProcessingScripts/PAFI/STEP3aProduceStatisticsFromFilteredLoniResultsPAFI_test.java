@@ -13,28 +13,30 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package MainGraphProcessingScripts.PARSEMIS;
+package MainGraphProcessingScripts.PAFI;
 
 import IO.Exception.FragmentReaderException;
-import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
+import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
- *
+ * This class is a small test to see if the reduced catalog produced by hand 
+ * has been produced correctly. (I don't want to process the full catalog each 
+ * time I want to test something)
  * @author Daniel Garijo
  */
-public class STEP3aProduceStatisticsFromLONIResultsPARSEMIS {
-    public static void main(String[]args){
+public class STEP3aProduceStatisticsFromFilteredLoniResultsPAFI_test {
+    public static void main(String[] args){
         try {
-            String inputFile = "PARSEMIS_TOOL\\results\\resultsLoniFullDatasetFiltered.lg";
             String d = new SimpleDateFormat("dd-M-yyyy_hh-mm-ss").format(new Date());
-            CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("LONI dataset", true, false, inputFile);
-            c.printStatistics("statisticsParsemis-LONI-FilteredTest"+d);
+            String fpfile = "PAFI_TOOL\\results\\LoniDatasetFiltered.fp";
+            String pcFile = "PAFI_TOOL\\results\\LoniDatasetFiltered.pc";
+            String tidFile = "PAFI_TOOL\\results\\LoniDatasetFiltered.tid";
+            CreateStatisticsFromResultsPAFI c = new CreateStatisticsFromResultsPAFI("Loni dataset (image)", true, false, fpfile, pcFile, tidFile);            
+            c.printStatistics("statisticsPafi-LoniFiltered-test"+d);            
         } catch (FragmentReaderException ex) {
             System.out.println("Error while executing test "+ex.getMessage());
         }
-        
     }
 }

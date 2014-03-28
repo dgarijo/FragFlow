@@ -19,7 +19,6 @@ import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
-import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import PostProcessing.FragmentToSPARQLQuery;
 import Static.GeneralMethods;
 import Static.Vocabularies.PPlan;
@@ -34,7 +33,6 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 
 /**
