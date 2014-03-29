@@ -36,7 +36,7 @@ import java.util.HashMap;
  * ontology (http://purl.org/net/wf-fd)
  * @author Daniel Garijo
  */
-public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
+public class STEP4ProduceRDFFromOPMWFragmentCatalogAndResultsSUBDUE {
   public static void main(String[] args)   {
       try{
            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
@@ -46,7 +46,7 @@ public class STEP4ProduceRDFFromFragmentCatalogAndResultsSUBDUE {
            //note that calling this method is faster than declaring the reader and then filtering the catalog.
            CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("text analytics",
                     "MDL", true, false,file, ocFile);
-           ArrayList<Fragment> obtainedResults = aux.getFilteredMultiStepFragments();
+           ArrayList<Fragment> obtainedResults = aux.getMultiStepFragments();//since SUBDUE does not repeat fragments, we have to publish ALL multistep structures.
            
            //without inference
            FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("out30-01-2014.ttl");

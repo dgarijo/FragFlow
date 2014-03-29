@@ -35,7 +35,7 @@ import java.util.HashMap;
  * directionality of the fragments and publish it as rdf.
  * @author Daniel Garijo
  */
-public class STEP4ProduceRDFFromResultsPARSEMIS {
+public class STEP4ProduceRDFFromOPMWResultsPARSEMIS {
     public static void main(String[] args) throws FragmentReaderException{
         String inputFile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormat.lg";
         CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("Text analytics", true, false, inputFile); 

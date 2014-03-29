@@ -186,7 +186,6 @@ public class FragmentToSPARQLQueryTemplateSUBDUE extends FragmentToSPARQLQuery {
                     String currentTypeJ = graphNodes.get(graphURIs.get(j-1)).getType();
                     currentVarNumber = getNextVariable();
                     if(currentTypeI.contains(GeneralConstants.SUBDUE_SUB_)&&(currentTypeJ.contains(GeneralConstants.SUBDUE_SUB_))){                        
-                        //2 bucles for con las vars como se ha hecho abajo
                         Fragment substructureI = getPointerToSubstructure(currentTypeI, f);        
                         Fragment substructureJ = getPointerToSubstructure(currentTypeJ, f);
                         context+=uris.get(i-1);

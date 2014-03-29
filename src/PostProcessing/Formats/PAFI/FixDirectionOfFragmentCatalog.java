@@ -170,11 +170,7 @@ public class FixDirectionOfFragmentCatalog {
         Iterator<Fragment> itFragments = filteredCatalog.iterator();
         while(itFragments.hasNext()){
             Fragment currF = itFragments.next();
-//            if(currF.getStructureID().equals("5-164")){
-//                System.out.println("Stop here");
-////                o2.write(System.out, "TURTLE");
-//            }
-            setTypesOfCurrentFragment(currF);
+            GeneralMethods.setTypesOfCurrentFragment(currF);
 //            System.out.println("Fragment "+currF.getStructureID());
             String fragmentFoundIn = occurrencesOfFragments.get(currF.getStructureID()).get(0); 
             //we just query the first structure where it appears (no need for more for fixing the direction of the fragments)
@@ -212,22 +208,7 @@ public class FixDirectionOfFragmentCatalog {
         return filteredCatalog;
     }
     
-    /**
-     * Auxiliary method to change LONI types to URIs. 
-     * @param f 
-     */
-    private static void setTypesOfCurrentFragment(Fragment f){
-        Iterator<String> it = f.getDependencyGraph().getNodes().keySet().iterator();
-        HashMap<String,GraphNode> nodes = f.getDependencyGraph().getNodes();
-        while(it.hasNext()){
-            GraphNode currentNode = nodes.get(it.next());
-            String currType = currentNode.getType();
-            if(!currType.startsWith("http://")){
-                currentNode.setType(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(currType));
-            }
-        }
-        
-    }
+    
     
 //    public static void main(String[] args) throws FragmentReaderException{
 ////        String fpfile = "PAFI_TOOL\\results\\CollectionInPAFIFormat.fp";

@@ -119,7 +119,14 @@ public class Graph {
     public void setAdjacencyMatrix(String[][] adjacencyMatrix) {
         this.adjacencyMatrix = adjacencyMatrix;        
     }
-    
+
+    /**
+     * Name setter
+     * @param name new name of the graph 
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
     
     /**
      * Given a graph with used and wasGeneratedBy dependencies, this method

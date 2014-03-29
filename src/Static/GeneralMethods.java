@@ -17,6 +17,9 @@
 package Static;
 
 
+import DataStructures.Fragment;
+import DataStructures.Graph;
+import DataStructures.GraphNode.GraphNode;
 import Static.Vocabularies.Wffd;
 import com.hp.hpl.jena.datatypes.RDFDatatype;
 import com.hp.hpl.jena.ontology.Individual;
@@ -33,6 +36,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Iterator;
 /**
  *
  * Code to create MD5 Hash
@@ -284,5 +289,33 @@ public class GeneralMethods {
         input = input.replace(" ", "");
         input = input.replace("-", "");
         return input;
+    }
+    
+    
+    /*****This next methods are a bit a workaround for LONI and should be refined*****/
+    
+    /**
+     * Method that given a graph, it transforms the types of the nodes to URIS.
+     * This is a workaround for those systems that don't work with URIS
+     * @param g 
+     */
+    public static void setStringTypesToURIs(Graph g){
+        HashMap<String,GraphNode> nodes = g.getNodes();
+        Iterator<String> it = nodes.keySet().iterator();
+        while(it.hasNext()){
+            GraphNode currentNode = nodes.get(it.next());
+            String currType = currentNode.getType();
+            if(!currType.startsWith("http://")&&!currType.startsWith("SUB_")){//in case this is invoked from subdue. workaround! (must be deleted)
+                currentNode.setType(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(currType));
+            }
+        }
+    }
+    
+    /**
+     * Auxiliary method to change LONI types to URIs. 
+     * @param f 
+     */
+    public static void setTypesOfCurrentFragment(Fragment f){
+        setStringTypesToURIs(f.getDependencyGraph());    
     }
 }

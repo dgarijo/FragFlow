@@ -193,7 +193,6 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
         while(fragments.hasNext()){
             Fragment f = fragments.next();
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplateSUBDUE());
-        
         }
     }
     

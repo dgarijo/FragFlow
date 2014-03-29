@@ -61,7 +61,7 @@ public class FragmentCatalogAndResultsToRDFPARSEMIS extends FragmentCatalogAndRe
             GeneralMethods.addDataProperty(repository, fragmentID,currentFragment.getStructureID(),DCTerms.TITLE,XSDDatatype.XSDstring);
             GeneralMethods.addDataProperty(repository, fragmentID,new Date().toString(),DCTerms.CREATED,XSDDatatype.XSDdate);
             //add which algorithm found the result (in this case, PAFI).
-            GeneralMethods.addDataProperty(repository, fragmentID, "PAFI", Wffd.DETECTED_BY_ALGORITHM,XSDDatatype.XSDstring);
+            GeneralMethods.addDataProperty(repository, fragmentID, "PARSEMIS", Wffd.DETECTED_BY_ALGORITHM,XSDDatatype.XSDstring);
             ArrayList<Fragment> includedIds = GeneralMethodsFragments.getFullDependenciesOfFragment(currentFragment);
             if(includedIds!=null){
                 Iterator<Fragment> includedIdsIt = includedIds.iterator();                

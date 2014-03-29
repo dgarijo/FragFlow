@@ -45,7 +45,7 @@ public abstract class CreateStatisticsFromResults {
     //        numberOfIrreducibleStructures, numberOfMultiStepIrreducibleStructures,
     //        occurrencesOfDetectedStructures, occurrencesOfMultiStepStructures, occurrencesOfFilteredMultiStepStructures;
     protected HashMap<String,Fragment> fragmentCatalog;
-    protected ArrayList<Fragment>  filteredMultiStepFragments;
+    protected ArrayList<Fragment>  filteredMultiStepFragments, multiStepFragments;//auxiliar structures for returning the data
     //        irreducibleFragments, multiStepIrreducibleFragments;//relevant fragments are the filteredMultiStep ones
     protected int occurrencesOfDetectedStructures, occurrencesOfMultiStepStructures, 
             occurrencesOfFilteredMultiStepStructures, numberOfFilteredMultiStepFragments, 
@@ -103,6 +103,20 @@ public abstract class CreateStatisticsFromResults {
             }
         }
         return filteredMultiStepFragments;
+    }
+    
+    public ArrayList<Fragment> getMultiStepFragments() {
+        if(multiStepFragments==null){
+            multiStepFragments = new ArrayList<Fragment>();
+            Iterator<String> it = this.fragmentCatalog.keySet().iterator();
+            while(it.hasNext()){
+                Fragment currF = fragmentCatalog.get(it.next());
+                if(currF.isMultiStepFragment()){
+                    multiStepFragments.add(currF);
+                }
+            }
+        }
+        return multiStepFragments;
     }
 
     /**
