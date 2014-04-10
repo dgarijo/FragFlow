@@ -276,14 +276,14 @@ public class GeneralMethods {
     }
     
     /**
-     * Method to remove "[(,.,#,_, ,),-]" from the input 
+     * Method to remove "[#,_, ,-]" from the input 
      * @param input
      * @return 
      */
     public static String clean(String input){
-        input = input.replace("(", "");
-        input = input.replace(")", "");
-        input = input.replace(".", "");
+//        input = input.replace("(", "");
+//        input = input.replace(")", "");
+//        input = input.replace(".", "");
         input = input.replace("_", "");
         input = input.replace(",", "");
         input = input.replace(" ", "");

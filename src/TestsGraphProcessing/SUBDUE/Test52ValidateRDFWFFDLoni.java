@@ -21,5 +21,5 @@ package TestsGraphProcessing.SUBDUE;
  * @author Daniel Garijo
  */
 public class Test52ValidateRDFWFFDLoni {
-    
+    // TO DO
 }

@@ -17,8 +17,8 @@ package MainGraphProcessingScripts.SUBDUE;
 
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
 import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import Static.Configuration;
 import java.io.File;
 
 /**
@@ -37,7 +37,7 @@ public class STEP1aLONITemplates2SUBDUE {
                 test.transformToGraph(files[i].getName());
             }
             CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
-            writer.writeReducedGraphsToFile(test.getGraphCollection(), "LoniFullDataset.g", null);
+            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getSUBDUEInputFolderPath()+ "LoniFullDataset.g", null);
         }        
     }
 }

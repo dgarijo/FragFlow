@@ -22,6 +22,7 @@ package MainGraphProcessingScripts.PARSEMIS;
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
 import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
+import Static.Configuration;
 import java.io.File;
 
 /**
@@ -40,7 +41,7 @@ public class STEP1aLONITemplates2Parsemis {
                 test.transformToGraph(files[i].getName());
             }
             CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-            writer.writeReducedGraphsToFile(test.getGraphCollection(), "LoniFullDataset.lg", null);
+            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getPARSEMISInputPath()+ "LoniFullDataset.lg", null);
         }
     }
     
