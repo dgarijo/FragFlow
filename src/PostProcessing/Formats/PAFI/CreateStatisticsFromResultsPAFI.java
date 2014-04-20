@@ -20,7 +20,7 @@
 package PostProcessing.Formats.PAFI;
 
 import IO.Exception.FragmentReaderException;
-import IO.Formats.PAFI.FragmentReaderPAFI;
+import IO.Formats.PAFI.FragmentCollectionReaderPAFI;
 import PostProcessing.CreateStatisticsFromResults;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,7 +47,7 @@ public class CreateStatisticsFromResultsPAFI extends CreateStatisticsFromResults
              boolean isTemplate, boolean hasInference, 
                 String resultFile, String pcFile, String tidFile) throws FragmentReaderException {                        
         super(domain, "-", "PAFI", isTemplate, hasInference, null);
-        FragmentReaderPAFI reader = new FragmentReaderPAFI(resultFile,pcFile,tidFile);
+        FragmentCollectionReaderPAFI reader = new FragmentCollectionReaderPAFI(resultFile,pcFile,tidFile);
         System.out.println("Reading results...");
         this.fragmentCatalog = reader.getFragmentCatalogAsHashMap();
         System.out.println("Getting occurrences of Fragment in transaction...");

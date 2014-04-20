@@ -21,7 +21,7 @@ package MainGraphProcessingScripts.PAFI;
 
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.PAFI.CollectionWriterPAFI;
+import IO.Formats.PAFI.GraphCollectionWriterPAFI;
 import Static.Configuration;
 import java.io.File;
 
@@ -36,7 +36,7 @@ public class STEP1aLONITemplates2PAFI {
         String loniDatasetFolder = "LONI_dataset\\";
         File f = new File(loniDatasetFolder);
         LoniTemplate2Graph test = new LoniTemplate2Graph(loniDatasetFolder);
-        CollectionWriterPAFI writer = new CollectionWriterPAFI();
+        GraphCollectionWriterPAFI writer = new GraphCollectionWriterPAFI();
         if(f.isDirectory()){
             File[] files = f.listFiles();
             for(int i=0;i<files.length;i++){

@@ -88,8 +88,6 @@ public class GraphWriterSUBDUE extends GraphWriter{
         out.write("%Processing: "+g.getName());
         out.newLine();
         System.out.println("%Writting: "+g.getName());
-        //retrieve the reduced graph
-        g.putReducedNodesInAdjacencyMatrix();
         Iterator<String> it = g.getURIs().iterator();
         HashMap<String,GraphNode> nodes = g.getNodes();
         String[][] adjacencyMatrix = g.getAdjacencyMatrix();
@@ -98,7 +96,7 @@ public class GraphWriterSUBDUE extends GraphWriter{
                     String currentURI = it.next();
                     GraphNode currNode = (GraphNode) nodes.get(currentURI);
 //                    System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
-                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
+                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());//this.getCodeForNode(currNode.getType(), codes));
                     out.newLine();
             }
         }else{
@@ -111,22 +109,26 @@ public class GraphWriterSUBDUE extends GraphWriter{
                     nodeType = (String) replacements.get(nodeType);
                 }
 //                System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
-                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
+                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);//this.getCodeForNode(nodeType, codes));
                 out.newLine();
             }
         }
-        //write down the dependencies (adjacency matrix)
-        for (int i = 0; i<adjacencyMatrix.length;i++){
-                for(int j = 0; j<adjacencyMatrix.length; j++){
-                    if(adjacencyMatrix[i][j]!=null) {
-                        //we filter the relationships with the reduced notation (informedBy)
-                        if(adjacencyMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
-//                            System.out.println("d "+(i+nodeCount)+" "+(j+nodeCount)+" "+adjacencyMatrix[i][j]);
-                            out.write("d "+(i+nodeCount)+" "+(j+nodeCount)+" "+adjacencyMatrix[i][j]);
-                            out.newLine();
+        //retrieve the reduced graph
+        if(g.getAdjacencyMatrix()!=null){
+            g.putReducedNodesInAdjacencyMatrix();
+            //write down the dependencies (adjacency matrix)
+            for (int i = 0; i<adjacencyMatrix.length;i++){
+                    for(int j = 0; j<adjacencyMatrix.length; j++){
+                        if(adjacencyMatrix[i][j]!=null) {
+                            //we filter the relationships with the reduced notation (informedBy)
+                            if(adjacencyMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
+    //                            System.out.println("d "+(i+nodeCount)+" "+(j+nodeCount)+" "+adjacencyMatrix[i][j]);
+                                out.write("d "+(i+nodeCount)+" "+(j+nodeCount)+" "+adjacencyMatrix[i][j]);
+                                out.newLine();
+                            }
                         }
                     }
                 }
-            }
+        }
     }
 }

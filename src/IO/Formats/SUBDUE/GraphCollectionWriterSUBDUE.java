@@ -17,7 +17,7 @@ package IO.Formats.SUBDUE;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import IO.CollectionWriter;
+import IO.GraphCollectionWriter;
 import IO.Exception.CollectionWriterException;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -31,7 +31,7 @@ import java.util.Iterator;
  * format.
  * @author Daniel Garijo
  */
-public class CollectionWriterSUBDUE extends CollectionWriter{
+public class GraphCollectionWriterSUBDUE extends GraphCollectionWriter{
    
     @Override
     public void writeFullGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements)throws CollectionWriterException{
@@ -127,7 +127,7 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
                     gw.writeReducedGraphToFile(currentGraph, out, numeration, replacements);
                 }
                 numeration += currentGraph.getNumberOfNodes();
-            }            
+            }
         } catch (Exception ex) {
             System.err.println("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage());
             throw new CollectionWriterException("Exception while writing the graph: . Nodes written: "+numeration+" "+ex.getMessage(), ex);
@@ -166,7 +166,7 @@ public class CollectionWriterSUBDUE extends CollectionWriter{
                 i++;
                 out.close();
                 fstream.close();                
-            }            
+            }
         } catch (Exception ex) {
             System.err.println("Exception while writing the graph:  "+i+" "+ex.getMessage());            
             throw new CollectionWriterException("Exception while writing the graph:  "+i+" "+ex.getMessage(), ex);

@@ -19,6 +19,7 @@
  */
 package IO.Formats.PAFI;
 
+import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import IO.GraphWriter;
@@ -40,32 +41,18 @@ import java.util.Iterator;
  * @author Daniel Garijo
  */
 public class GraphWriterPAFI extends GraphWriter{
-
-    //write reducedFraphToFile with the 3 ones will result in the call to the specialization
-
-    /**
-     * Each transaction starts with t.
-     * Nodes come in ascendent order
-     * u <id1> <id2> <id1> must be <id2>
-     */
     
-    @Override
-    public void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
-        out.write("t # "+g.getName());
-        out.newLine();
-        System.out.println("%Writing: "+g.getName());
-        //retrieve the reduced graph
-        g.putReducedNodesInAdjacencyMatrix();
+    private void writeGraph(Graph g, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
         Iterator<String> it = g.getURIs().iterator();
         HashMap<String,GraphNode> nodes = g.getNodes();
         String[][] adjacencyMatrix = g.getAdjacencyMatrix();
-        nodeCount = -1;//PAFI must start in 0 always.
+//        nodeCount = -1;//PAFI must start in 0 always.
         if(replacements==null){
             while (it.hasNext()){
                     String currentURI = it.next();
                     GraphNode currNode = (GraphNode) nodes.get(currentURI);
 //                    System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
-                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
+                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());//this.getCodeForNode(currNode.getType(), codes));
                     out.newLine();
             }
         }else{
@@ -78,7 +65,7 @@ public class GraphWriterPAFI extends GraphWriter{
                     nodeType = (String) replacements.get(nodeType);
                 }
 //                System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
-                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
+                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);//this.getCodeForNode(nodeType, codes));
                 out.newLine();
             }
         }
@@ -93,7 +80,30 @@ public class GraphWriterPAFI extends GraphWriter{
                     out.newLine();
                 }
             }                
-        }        
+        }  
+    }
+    /**
+     * Each transaction starts with t.
+     * Nodes come in ascendent order
+     * u <id1> <id2> <id1> must be <id2>
+     */
+    
+    @Override
+    public void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
+        out.write("t # "+g.getName());
+        out.newLine();
+        System.out.println("%Writing: "+g.getName());
+        //retrieve the reduced graph
+        g.putReducedNodesInAdjacencyMatrix();
+        this.writeGraph(g, out, nodeCount, replacements);      
+    }
+    
+     //write reducedFraphToFile with the 3 ones will result in the call to the specialization
+    public void writeFragmentToFile(Fragment f, BufferedWriter out, int nodeCount, HashMap replacements) throws IOException {
+        out.write("t # "+f.getStructureID()+", "+f.getNumberOfOccurrences());
+        out.newLine();
+        System.out.println("%Writing: "+f.getStructureID());
+        writeGraph(f.getDependencyGraph(), out, nodeCount, replacements);
     }
     
     private boolean checkDependency(String[][] matrix,int i,int j){

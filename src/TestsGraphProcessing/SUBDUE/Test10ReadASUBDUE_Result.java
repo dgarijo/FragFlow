@@ -16,7 +16,7 @@
 package TestsGraphProcessing.SUBDUE;
 
 import DataStructures.Fragment;
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
+import IO.Formats.SUBDUE.FragmentCollectionReaderSUBDUE;
 import java.util.HashMap;
 
 /**
@@ -31,7 +31,7 @@ public class Test10ReadASUBDUE_Result {
         try{
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-            HashMap<String,Fragment> structureResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogAsHashMap();
+            HashMap<String,Fragment> structureResults = new FragmentCollectionReaderSUBDUE(file, ocFile).getFragmentCatalogAsHashMap();
             if(structureResults.isEmpty())return false;
             return true;
         }catch(Exception e){

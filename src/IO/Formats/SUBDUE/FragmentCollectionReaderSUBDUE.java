@@ -19,7 +19,7 @@ import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import DataStructures.Fragment;
 import IO.Exception.FragmentReaderException;
-import IO.FragmentReader;
+import IO.FragmentCollectionReader;
 import Static.GeneralConstants;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -36,7 +36,7 @@ import java.util.HashMap;
  * one (dependences)
  * @author Daniel Garijo
  */
-public class FragmentReaderSUBDUE extends FragmentReader {
+public class FragmentCollectionReaderSUBDUE extends FragmentCollectionReader {
     private String occurrencesFile;
 
 
@@ -45,7 +45,7 @@ public class FragmentReaderSUBDUE extends FragmentReader {
      * The key is the substructure name (e.g., SUB_1 and the value is the 
      * fragment itself
      */
-    public FragmentReaderSUBDUE(String resultFile,String occurrencesFile) {
+    public FragmentCollectionReaderSUBDUE(String resultFile,String occurrencesFile) {
         this.occurrencesFile = occurrencesFile;
         this.resultFile = resultFile;
         this.finalResults = new HashMap<String, Fragment>();

@@ -18,8 +18,6 @@ package Factory.Loni;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import Factory.GraphCollectionCreator;
-import IO.Exception.CollectionWriterException;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
 import java.io.File;
@@ -60,7 +58,6 @@ public class LoniTemplate2Graph extends GraphCollectionCreator{
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     System.out.println("Processing "+uri);
     try{
-//        revisar esto :1) ver las dependencias entre modulegroups. 2) ver si los tipos y las plantillas se pueden hacer uris
 //        (puede que el id de plantilla no sea una buena idea.)
         int countNodes = 1;
         ArrayList<String> uris = new ArrayList<String>();
@@ -97,6 +94,7 @@ public class LoniTemplate2Graph extends GraphCollectionCreator{
             NamedNodeMap nodeAttributes = currentModule.getAttributes();
             String moduleID = nodeAttributes.getNamedItem("id").getNodeValue();
             String moduleType = GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.clean(nodeAttributes.getNamedItem("name").getNodeValue());
+//            String moduleType = GeneralMethods.clean(nodeAttributes.getNamedItem("name").getNodeValue());
             nodes.put(moduleID, new GraphNode(moduleID, moduleType, countNodes));
                 countNodes++;
             uris.add(moduleID);            

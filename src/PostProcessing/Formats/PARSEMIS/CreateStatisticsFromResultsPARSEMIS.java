@@ -16,7 +16,7 @@
 package PostProcessing.Formats.PARSEMIS;
 
 import IO.Exception.FragmentReaderException;
-import IO.Formats.PARSEMIS.Gspan.FragmentReaderPARSEMISGspan;
+import IO.Formats.PARSEMIS.Gspan.FragmentCollectionReaderPARSEMISGspan;
 import PostProcessing.CreateStatisticsFromResults;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class CreateStatisticsFromResultsPARSEMIS extends CreateStatisticsFromRes
              boolean isTemplate, boolean hasInference, 
                 String resultFile) throws FragmentReaderException {                        
         super(domain, "-", "Parsemis", isTemplate, hasInference, null);
-        FragmentReaderPARSEMISGspan reader = new FragmentReaderPARSEMISGspan(resultFile);
+        FragmentCollectionReaderPARSEMISGspan reader = new FragmentCollectionReaderPARSEMISGspan(resultFile);
         this.fragmentCatalog = reader.getFragmentCatalogAsHashMap();
         this.fragmentsInTransactions = reader.getOccurrencesOfFragmentInTransaction();     
         initializeStatistics();

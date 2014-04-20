@@ -16,7 +16,7 @@
 package TestsGraphProcessing.PARSEMIS;
 
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
+import IO.Formats.PARSEMIS.GraphCollectionWriterPARSEMIS;
 
 /**
  * Test designed to write the graph collection in the parsemis format.
@@ -29,7 +29,7 @@ public class Test32WriteFullCollectionInPARSEMISFormat {
             System.out.println("\n\nExecuting test:"+testNumber+" Save collection in Parsemis format");
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
-            CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
+            GraphCollectionWriterPARSEMIS writer = new GraphCollectionWriterPARSEMIS();
 //          writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testSaveCollectionAsPARSEMISFile.lg");

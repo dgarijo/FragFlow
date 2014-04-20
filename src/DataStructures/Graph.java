@@ -167,5 +167,43 @@ public class Graph {
         }
         return false;
     }
+
+    /**
+     * Method which determines if a graph is the same as other:
+     * All the connections among URI types must be the same. 
+     * (This implies that all URI types are the same).
+     * This method does not remove those graphs with same nodes and different 
+     * edges.
+     * @param target
+     * @return 
+     */
+    public boolean equalsGraph(Graph target) {
+        if(this.getNumberOfNodes()!=target.getNumberOfNodes()) return false;
+        //for each one of the connections in the adj matrix, look for
+        //a connection in the target Graph
+        
+        //compare the types. The URIs have to have the same type
+        ArrayList<String> targetURIs = target.getURIs();
+        for(int i=0; i< URIs.size();i++){
+            if(!nodes.get(URIs.get(i)).getType().equals(target.getNodes().get(targetURIs.get(i)).getType()))return false;
+        }
+        if(adjacencyMatrix!=null){
+            String[][] targetMatrix = target.getAdjacencyMatrix();
+            // I assume that the same graphs will have the same adj matrix (as they are read in the same order)
+            for(int i=0; i< adjacencyMatrix.length;i++){
+                for(int j=0; j< adjacencyMatrix.length;j++){
+                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] == null) return false;
+                    if (adjacencyMatrix[i][j]==null && targetMatrix[i][j] != null) return false;
+                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] != null && !adjacencyMatrix[i][j].equals(targetMatrix[i][j])){
+
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    
     
 }

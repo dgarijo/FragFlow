@@ -16,7 +16,7 @@
 package TestsGraphProcessing.PARSEMIS;
 
 import DataStructures.Fragment;
-import IO.Formats.PARSEMIS.Gspan.FragmentReaderPARSEMISGspan;
+import IO.Formats.PARSEMIS.Gspan.FragmentCollectionReaderPARSEMISGspan;
 import java.util.HashMap;
 
 /**
@@ -29,7 +29,7 @@ public class Test33ReadAParsemisGSpanResult {
          try{
             System.out.println("\n\nExecuting test:"+testNumber+" Read Parsemis results");
             String file = "PARSEMIS_TOOL\\results\\run11-03-2014.txt";
-            HashMap<String,Fragment> structureResults = new FragmentReaderPARSEMISGspan(file).getFragmentCatalogAsHashMap();
+            HashMap<String,Fragment> structureResults = new FragmentCollectionReaderPARSEMISGspan(file).getFragmentCatalogAsHashMap();
             //this particular set of results has 41.
             if(structureResults.size()==41){
                 return true;

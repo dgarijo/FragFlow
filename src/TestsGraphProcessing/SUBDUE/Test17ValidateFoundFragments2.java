@@ -17,7 +17,7 @@ package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
+import IO.Formats.SUBDUE.FragmentCollectionReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
 import Static.GeneralMethods;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -44,7 +44,7 @@ public class Test17ValidateFoundFragments2 {
     
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";
-            HashMap<String,Fragment> obtainedResults = new FragmentReaderSUBDUE(file, ocFile).getFragmentCatalogAsHashMap();
+            HashMap<String,Fragment> obtainedResults = new FragmentCollectionReaderSUBDUE(file, ocFile).getFragmentCatalogAsHashMap();
             Iterator<String> fragments = obtainedResults.keySet().iterator();
             //it would be nice to just send the relevant fragments    
             FragmentToSPARQLQueryTemplateSUBDUE qr = new FragmentToSPARQLQueryTemplateSUBDUE();

@@ -69,4 +69,6 @@ public abstract class GraphWriter {
      * @throws IOException 
      */
     public abstract void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements)throws IOException;
+    
+    
 }

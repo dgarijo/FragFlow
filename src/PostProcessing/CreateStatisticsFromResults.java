@@ -16,12 +16,14 @@
 package PostProcessing;
 
 import DataStructures.Fragment;
+import IO.Formats.SUBDUE.FragmentCollectionWriterSUBDUE;
 import Static.GeneralMethodsFragments;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 /**
  * This class is for creating statistics from the structures:
@@ -420,48 +422,53 @@ public abstract class CreateStatisticsFromResults {
             //if(isReducedGraph)output +="- Graph on reduced format (informBy edges instead of used + wasGenBy)\n";
             //else output +="- Non reduced graph\n\n";
             output+="Number of structures found: "+this.getNumberOfOriginalFoundFragments()+"\n";
-            output+="Number of irreducible fragments found (i.e., those structures which do not include parts of others): "+getNumberOfIrreducibleFragments()+"\n";
+//            output+="Number of irreducible fragments found (i.e., those structures which do not include parts of others): "+getNumberOfIrreducibleFragments()+"\n";
             output+="Number of multi step fragments structures found (i.e., those with at least two process steps): "+getNumberOfMultiStepFragments()+"("+getNumberOfFilteredMultiStepFragments()+")\n";
             output+="Number of filtered multi step irreducible fragments found: "+getNumberOfMultiStepIrreducibleFragments()+"\n";
             output+="Frequency of detected structures: "+occurrencesOfDetectedStructures+"\n";
             output+="Frequency of multi step fragments: "+occurrencesOfMultiStepStructures+"("+occurrencesOfFilteredMultiStepStructures+")\n";
 //            output+="FilteredMultiStepFragments:\n";
-            String filteredMultiStep = "FilteredMultiStepFragments:\n", 
-                    multiStep = "\nMultiStepFragments:\n", 
-                    filteredMultiStepIrreducible = "\nFilteredMultiStepIrreducibleFragments:\n";
-            Iterator<String> it = this.fragmentCatalog.keySet().iterator();
-            while(it.hasNext()){
-                Fragment currentFragment = fragmentCatalog.get(it.next());
-                if(currentFragment.isFilteredMultiStepFragment()){
-                    filteredMultiStep+=currentFragment.getStructureID()+"; ";
-                }
-                if(currentFragment.isFilteredMultiStepIrreducibleFragment()){
-                    filteredMultiStepIrreducible+=currentFragment.getStructureID()+"; ";
-                }
-                if(currentFragment.isMultiStepFragment()){
-                    multiStep+=currentFragment.getStructureID()+"; ";
-                }
-            }
-            output+=filteredMultiStep;
-            output+=filteredMultiStepIrreducible;
-            output+=multiStep;            
-//            Iterator <Fragment> it = filteredMultiStepFragments.iterator();
-//            while (it.hasNext()){
-//                output+=it.next().getStructureID()+"; ";
+//            String filteredMultiStep = "FilteredMultiStepFragments:\n", 
+//                    multiStep = "\nMultiStepFragments:\n", 
+//                    filteredMultiStepIrreducible = "\nFilteredMultiStepIrreducibleFragments:\n";
+//            Iterator<String> it = this.fragmentCatalog.keySet().iterator();
+//            while(it.hasNext()){
+//                Fragment currentFragment = fragmentCatalog.get(it.next());
+//                if(currentFragment.isFilteredMultiStepFragment()){
+//                    filteredMultiStep+=currentFragment.getStructureID()+"; ";
+//                }
+//                if(currentFragment.isFilteredMultiStepIrreducibleFragment()){
+//                    filteredMultiStepIrreducible+=currentFragment.getStructureID()+"; ";
+//                }
+//                if(currentFragment.isMultiStepFragment()){
+//                    multiStep+=currentFragment.getStructureID()+"; ";
+//                }
 //            }
-//            output+="\nMultiStepFragments:\n";
-//            Iterator <Fragment> it2 = multiStepFragments.iterator();
-//            while (it2.hasNext()){
-//                output+=it2.next().getStructureID()+"; ";
-//            }
-//            output+="\nIrreducibleMultiStepFragments:\n";
-//            Iterator <Fragment> it3 = multiStepIrreducibleFragments.iterator();
-//            while (it3.hasNext()){
-//                output+=it3.next().getStructureID()+"; ";
-//            }
+//            output+=filteredMultiStep;
+//            output+=filteredMultiStepIrreducible;
+//            output+=multiStep;            
             System.out.println(output);
             out.write(output);
             out.close();
+            //write each of the fragments in separate files.
+            //this will have to be done in the split and filter method, which
+            //will read fragments and place them in files
+            //for the moment only done in SUBDUE.
+            HashMap<String,Fragment> filteredMultiStep, filteredMultiStepIrreducible, multiStep;
+            filteredMultiStep = new HashMap<String, Fragment>();
+            filteredMultiStepIrreducible = new HashMap<String, Fragment>();
+            multiStep = new HashMap<String, Fragment>();
+            Iterator<Entry<String,Fragment>> it = this.fragmentCatalog.entrySet().iterator();
+            while(it.hasNext()){
+                Fragment currF = it.next().getValue();
+                if(currF.isMultiStepFragment())multiStep.put(currF.getStructureID(),currF);
+                if(currF.isFilteredMultiStepIrreducibleFragment())filteredMultiStepIrreducible.put(currF.getStructureID(),currF);
+                if(currF.isFilteredMultiStepFragment())filteredMultiStep.put(currF.getStructureID(),currF);
+            }
+            FragmentCollectionWriterSUBDUE outF = new FragmentCollectionWriterSUBDUE();
+            outF.writeFragmentsToFile(multiStep, outFilePath+"-multiStep", null);
+            outF.writeFragmentsToFile(filteredMultiStep, outFilePath+"-FilteredMultiStep", null);
+            outF.writeFragmentsToFile(filteredMultiStepIrreducible, outFilePath+"-filteredMultiStepIrreducible", null);
         }catch (Exception e){
             System.err.println("Error "+e.getMessage());
         }

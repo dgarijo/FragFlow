@@ -21,7 +21,7 @@ package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
 import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
+import IO.Formats.SUBDUE.FragmentCollectionReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralMethods;
 import Static.Vocabularies.DCTerms;

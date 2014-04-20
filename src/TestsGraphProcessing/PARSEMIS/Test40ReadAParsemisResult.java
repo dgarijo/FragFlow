@@ -16,7 +16,7 @@
 package TestsGraphProcessing.PARSEMIS;
 
 import DataStructures.Fragment;
-import IO.Formats.PARSEMIS.Gspan.FragmentReaderPARSEMISGspan;
+import IO.Formats.PARSEMIS.Gspan.FragmentCollectionReaderPARSEMISGspan;
 import java.util.HashMap;
 
 /**
@@ -29,7 +29,7 @@ public class Test40ReadAParsemisResult {
         System.out.println("\n\nExecuting test:"+testNumber+" Reading a PARSEMIS result.");
         try{
             String fpfile = "PARSEMIS_TOOL\\results\\resultsCollectionInParsemisFormat.lg";
-            HashMap<String,Fragment> structureResults = new FragmentReaderPARSEMISGspan(fpfile).getFragmentCatalogAsHashMap();
+            HashMap<String,Fragment> structureResults = new FragmentCollectionReaderPARSEMISGspan(fpfile).getFragmentCatalogAsHashMap();
             if(structureResults.isEmpty())return false;
             return true;
         }catch(Exception e){

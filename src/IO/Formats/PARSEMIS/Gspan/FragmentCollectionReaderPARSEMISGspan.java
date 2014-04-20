@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +19,7 @@ import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import IO.Exception.FragmentReaderException;
-import IO.FragmentReader;
+import IO.FragmentCollectionReader;
 import Static.GeneralConstants;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -38,7 +34,7 @@ import java.util.Iterator;
  * the PARSEMIS framework.
  * @author Daniel Garijo
  */
-public class FragmentReaderPARSEMISGspan extends FragmentReader{
+public class FragmentCollectionReaderPARSEMISGspan extends FragmentCollectionReader{
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
     //auxiliar structure to determine which fragment is included in which easily.
     private HashMap<String,ArrayList<String>> connectionsOfFragment;
@@ -48,7 +44,7 @@ public class FragmentReaderPARSEMISGspan extends FragmentReader{
      * need to parse the results.
      * @param resultFile 
      */
-    public FragmentReaderPARSEMISGspan(String resultFile) {
+    public FragmentCollectionReaderPARSEMISGspan(String resultFile) {
         this.resultFile = resultFile;
         finalResults = new HashMap<String, Fragment>();
     }

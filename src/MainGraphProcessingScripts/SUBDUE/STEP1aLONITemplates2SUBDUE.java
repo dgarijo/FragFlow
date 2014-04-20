@@ -15,9 +15,11 @@
  */
 package MainGraphProcessingScripts.SUBDUE;
 
+import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
+import PostProcessing.DatasetFilter;
 import Static.Configuration;
 import java.io.File;
 
@@ -28,7 +30,7 @@ import java.io.File;
 public class STEP1aLONITemplates2SUBDUE {
     public static void main(String [] args) throws CollectionWriterException{
         System.out.println("\n Starting script for writing LONI collection");
-        String loniDatasetFolder = "LONI_dataset\\";
+        String loniDatasetFolder = "LONI_dataset\\datasetPublicFull\\";
         File f = new File(loniDatasetFolder);
         LoniTemplate2Graph test = new LoniTemplate2Graph(loniDatasetFolder);
         if(f.isDirectory()){
@@ -36,8 +38,9 @@ public class STEP1aLONITemplates2SUBDUE {
             for(int i=0;i<files.length;i++){
                 test.transformToGraph(files[i].getName());
             }
-            CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
-            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getSUBDUEInputFolderPath()+ "LoniFullDataset.g", null);
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
+            GraphCollection filteredC = DatasetFilter.removeDuplicates(test.getGraphCollection());
+            writer.writeReducedGraphsToFile(filteredC,Configuration.getSUBDUEInputFolderPath()+ "LoniFullPublicDataset.g", null);
         }        
     }
 }

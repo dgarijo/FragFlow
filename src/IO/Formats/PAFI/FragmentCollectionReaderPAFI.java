@@ -23,7 +23,7 @@ import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
 import IO.Exception.FragmentReaderException;
-import IO.FragmentReader;
+import IO.FragmentCollectionReader;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -43,7 +43,7 @@ import java.util.HashMap;
  * 
  * @author Daniel Garijo
  */
-public class FragmentReaderPAFI extends FragmentReader {
+public class FragmentCollectionReaderPAFI extends FragmentCollectionReader {
     //PAFI captures which transaction numbers support a fragment.
     //for example 1-1 0 1 5 means that the fragment was found in the graphs
     //0, 1 and 5 of the input file. We store this information in this hashmap.
@@ -51,7 +51,7 @@ public class FragmentReaderPAFI extends FragmentReader {
     private HashMap<String,ArrayList<String>> occurrencesOfFragmentInTransaction;
     private String depFile, tidFile;
 
-    public FragmentReaderPAFI(String resultFile, String depFile, String tidFile) {        
+    public FragmentCollectionReaderPAFI(String resultFile, String depFile, String tidFile) {        
         this.resultFile = resultFile;
         this.depFile = depFile;
         this.tidFile = tidFile;

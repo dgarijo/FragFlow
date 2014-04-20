@@ -26,7 +26,7 @@ import java.util.HashMap;
  * to find them among a dataset (like SUBDUE).
  * @author Daniel Garijo
  */
-public abstract class FragmentReader {
+public abstract class FragmentCollectionReader {
     //will be initialized on the subclasses
     protected HashMap<String,Fragment> finalResults;
     protected String resultFile;

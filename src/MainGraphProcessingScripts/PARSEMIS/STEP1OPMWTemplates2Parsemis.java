@@ -17,7 +17,7 @@ package MainGraphProcessingScripts.PARSEMIS;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
+import IO.Formats.PARSEMIS.GraphCollectionWriterPARSEMIS;
 import Static.Configuration;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -35,9 +35,9 @@ public class STEP1OPMWTemplates2Parsemis {
         try{            
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
-            CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();            
+            GraphCollectionWriterPARSEMIS writer = new GraphCollectionWriterPARSEMIS();            
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
-                writer.writeReducedGraphsToFile(tp.getGraphCollection(), Configuration.getPARSEMISInputPath()+"CollectionInParsemisFormat.lg");
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(), Configuration.getPARSEMISInputPath()+"CollectionInParsemisFormatCoded.lg");
                 System.out.println("Regular collection retrieved successfully");
                 //abstract collection
                 OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
@@ -46,7 +46,7 @@ public class STEP1OPMWTemplates2Parsemis {
                 o.read(in, null);
                 HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
 
-                writer.writeReducedGraphsToFile(tp.getGraphCollection(),Configuration.getPARSEMISInputPath()+"CollectionInParsemisFormatABSTRACT.lg", replacements);
+                writer.writeReducedGraphsToFile(tp.getGraphCollection(),Configuration.getPARSEMISInputPath()+"CollectionInParsemisFormatABSTRACTCoded.lg", replacements);
                 System.out.println("Abstract collection retrieved successfully");
             }
         }catch(Exception e){

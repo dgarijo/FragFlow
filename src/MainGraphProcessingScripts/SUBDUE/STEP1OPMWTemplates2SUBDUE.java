@@ -18,7 +18,7 @@ package MainGraphProcessingScripts.SUBDUE;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
 import Factory.OPMW.OPMWTrace2Graph;
-import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -48,7 +48,7 @@ public class STEP1OPMWTemplates2SUBDUE {
             tp.transformDomainToGraph("TextAnalytics");
             //write down results (no inference, no taxonomy)
 //            tp.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference_Templates");
-            CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
             writer.writeFullGraphsToFile(tp.getGraphCollection(), "Text_Analytics_Graph_No_Inference_Templates");
 //            tp.getGraphCollection().writeReducedGraphsToFile("Text_Analytics_Graph_No_Inference_Templates_Reduced");
             //write down in separate graphs for internal macro evaluation

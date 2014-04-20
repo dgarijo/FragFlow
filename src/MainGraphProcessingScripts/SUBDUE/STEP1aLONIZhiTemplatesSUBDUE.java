@@ -1,8 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,22 +13,22 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package MainGraphProcessingScripts.PARSEMIS;
+package MainGraphProcessingScripts.SUBDUE;
 
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
-import IO.Formats.PARSEMIS.CollectionWriterPARSEMIS;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import Static.Configuration;
 import java.io.File;
 
 /**
- * Script to transform LONI templates to Parsemis
+ * Script to translate LONI dataset to SUBDUE
  * @author Daniel Garijo
  */
-public class STEP1aLONITemplates2Parsemis {
+public class STEP1aLONIZhiTemplatesSUBDUE {
     public static void main(String [] args) throws CollectionWriterException{
         System.out.println("\n Starting script for writing LONI collection");
-        String loniDatasetFolder = "LONI_dataset\\";
+        String loniDatasetFolder = "LONI_dataset\\LONIZhizhong\\";
         File f = new File(loniDatasetFolder);
         LoniTemplate2Graph test = new LoniTemplate2Graph(loniDatasetFolder);
         if(f.isDirectory()){
@@ -40,9 +36,8 @@ public class STEP1aLONITemplates2Parsemis {
             for(int i=0;i<files.length;i++){
                 test.transformToGraph(files[i].getName());
             }
-            CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getPARSEMISInputPath()+ "LoniFullDataset.lg", null);
-        }
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
+            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getSUBDUEInputFolderPath()+ "LoniZhiDataset.g", null);
+        }        
     }
-    
 }

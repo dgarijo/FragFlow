@@ -21,7 +21,7 @@ package TestsGraphProcessing.PAFI;
 
 import DataStructures.Fragment;
 import IO.Exception.FragmentReaderException;
-import IO.Formats.PAFI.FragmentReaderPAFI;
+import IO.Formats.PAFI.FragmentCollectionReaderPAFI;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
 import PostProcessing.FragmentCatalogFilter;

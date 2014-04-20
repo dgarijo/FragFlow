@@ -1,4 +1,8 @@
 /*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +17,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package IO.Formats.PARSEMIS;
+package IO.Formats.PAFI;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import Factory.OPMW.OPMWTemplate2Graph;
-import IO.CollectionWriter;
+import IO.GraphCollectionWriter;
 import IO.Exception.CollectionWriterException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -27,24 +30,21 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * PARSEMIS collection writer
+ * Class that extends the Graph Collection Writter to write graphs in PAFI 
+ * format. In PAFI we don't need to save the collection in separated files, 
+ * as PAFI associates each occurrence of a pattern with the transaction 
+ * (substructure). For example, if a pattern appears twice in a graph, it will 
+ * only count as one.
+ * 
  * @author Daniel Garijo
  */
-public class CollectionWriterPARSEMIS extends CollectionWriter{
+public class GraphCollectionWriterPAFI extends GraphCollectionWriter{
 
-    /**
-     * Parsemis collection writer. Very similar to the PAFI Collection writer. 
-     * The main difference is when writing the graphs themselves.
-     * @param gc graph collection
-     * @param outputFilePath output file path
-     * @param replacements replacement hashmap (if any)
-     * @throws CollectionWriterException  exception when reading the input.
-     */
     @Override
     public void writeReducedGraphsToFile(GraphCollection gc, String outputFilePath, HashMap replacements) throws CollectionWriterException {
         FileWriter fstream = null; 
         BufferedWriter out = null;
-        GraphWriterPARSEMIS gw = new GraphWriterPARSEMIS();
+        GraphWriterPAFI gw = new GraphWriterPAFI();
         Iterator<Graph> it = gc.getGraphs().iterator();        
         try {
             fstream = new FileWriter(outputFilePath);
@@ -52,11 +52,11 @@ public class CollectionWriterPARSEMIS extends CollectionWriter{
             while (it.hasNext()){
                 Graph currentGraph = it.next();
                 if(replacements==null){//i.e., no replacements
-                    gw.writeReducedGraphToFile(currentGraph, out, 0);                    
+                    gw.writeReducedGraphToFile(currentGraph, out, -1);                    
                 }else{
-                    gw.writeReducedGraphToFile(currentGraph, out, 0, replacements);
+                    gw.writeReducedGraphToFile(currentGraph, out, -1, replacements);
                 }
-            }            
+            }
         } catch (Exception ex) {
             System.err.println("Exception while writing the graph: "+ex.getMessage());
             throw new CollectionWriterException("Exception while writing the graph: "+ex.getMessage(), ex);
@@ -70,14 +70,6 @@ public class CollectionWriterPARSEMIS extends CollectionWriter{
         }
     }
     
-//    public static void main(String[] args) throws CollectionWriterException{
-//        OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
-//            tp.transformDomainToGraph("TextAnalytics");        
-////        tp.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
-//        CollectionWriterPARSEMIS writer = new CollectionWriterPARSEMIS();
-////            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
-//        writer.writeReducedGraphsToFile(tp.getGraphCollection(), "testParsemis.lg");
-//               
-//    }
+    
     
 }

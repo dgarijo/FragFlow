@@ -24,7 +24,10 @@ import java.util.HashMap;
  * in any given format. Different formats will extend the methods of this class.
  * @author Daniel Garijo
  */
-public abstract class CollectionWriter {
+public abstract class GraphCollectionWriter {
+    
+    
+    
     /**
      * Method to write all the graphs into one file
      * @param gc graph collection to write
@@ -90,4 +93,6 @@ public abstract class CollectionWriter {
      * @param replacements 
      */
     public void writeReducedGraphsToSeparatedFiles(GraphCollection gc, String outputPath, HashMap replacements) throws CollectionWriterException{}
+    
+    
 }

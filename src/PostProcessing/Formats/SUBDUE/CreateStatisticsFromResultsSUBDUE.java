@@ -15,7 +15,7 @@
  */
 package PostProcessing.Formats.SUBDUE;
 
-import IO.Formats.SUBDUE.FragmentReaderSUBDUE;
+import IO.Formats.SUBDUE.FragmentCollectionReaderSUBDUE;
 import PostProcessing.CreateStatisticsFromResults;
 import IO.Exception.FragmentReaderException;
 
@@ -44,7 +44,7 @@ public class CreateStatisticsFromResultsSUBDUE extends CreateStatisticsFromResul
      */
     public CreateStatisticsFromResultsSUBDUE(String domain, String evalType, boolean isTemplate, boolean hasInference, String inputFile, String ocFile) throws FragmentReaderException{
         super(domain, evalType, "SUBDUE", isTemplate, hasInference, null);        
-        this.fragmentCatalog = new FragmentReaderSUBDUE(inputFile,ocFile).getFragmentCatalogAsHashMap();
+        this.fragmentCatalog = new FragmentCollectionReaderSUBDUE(inputFile,ocFile).getFragmentCatalogAsHashMap();
         this.occurrencesFile = ocFile;
         initializeStatistics();
     }

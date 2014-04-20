@@ -57,13 +57,13 @@ public class GraphWriterPARSEMIS extends GraphWriter{
         Iterator<String> it = uris.iterator();
         HashMap<String,GraphNode> nodes = g.getNodes();
         String[][] adjacencyMatrix = g.getAdjacencyMatrix();
-        nodeCount = -1;//PAFI must start in 0 always.
+//        nodeCount = -1;//PAFI must start in 0 always.
         if(replacements==null){
             while (it.hasNext()){
                     String currentURI = it.next();
                     GraphNode currNode = (GraphNode) nodes.get(currentURI);
 //                    System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
-                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());
+                    out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+currNode.getType());//this.getCodeForNode(currNode.getType(), codes));
                     out.newLine();
             }
         }else{
@@ -76,7 +76,7 @@ public class GraphWriterPARSEMIS extends GraphWriter{
                     nodeType = (String) replacements.get(nodeType);
                 }
 //                System.out.println("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
-                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);
+                out.write("v "+(currNode.getNumberInGraph()+nodeCount)+" "+nodeType);//this.getCodeForNode(nodeType, codes));
                 out.newLine();
             }
         }
@@ -87,8 +87,10 @@ public class GraphWriterPARSEMIS extends GraphWriter{
                     //this is a bug that has to be fixed. the [0][0] lines should NOT be ignored, and therefore
                     //the -1 should not be necessary.
                     //This has to be fixed and reviewed (opmw2Template and opmw2Trace)
-                    String typeI = nodes.get(uris.get(i-1)).getType();
-                    String typeJ = nodes.get(uris.get(j-1)).getType();
+                    //WORKAROUND: if nodecount is 0, then i. If -1, then i-1.
+                    //this is just temporary, while the opmwthing is being fixed.
+                    String typeI = nodes.get(uris.get(i+nodeCount)).getType();
+                    String typeJ = nodes.get(uris.get(j+nodeCount)).getType();
                     if(replacements!=null){
                         if(replacements.containsKey(typeI)){
                             typeI = (String) replacements.get(typeI);
@@ -97,7 +99,7 @@ public class GraphWriterPARSEMIS extends GraphWriter{
                             typeJ = (String) replacements.get(typeJ);
                         }
                     }
-                    String lineToWrite = "e "+(i+nodeCount)+" "+(j+nodeCount)+" "+typeI+"_"+typeJ+" "+GeneralConstants.INFORM_EGDE;
+                    String lineToWrite = "e "+(i+nodeCount)+" "+(j+nodeCount)+" "+typeI+"_"+typeJ +" "+GeneralConstants.INFORM_EGDE;//this.getCodeForNode(typeI, codes)+"_"+this.getCodeForNode(typeJ, codes)+" "+GeneralConstants.INFORM_EGDE;
                     out.write(lineToWrite);
                     out.newLine();
                 }

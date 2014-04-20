@@ -16,7 +16,7 @@
 package TestsGraphProcessing.SUBDUE;
 
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 
 /**
  * Test to save a collection as a reduced graph in a file. If the test succeeds 
@@ -30,7 +30,7 @@ public class Test07SaveCollectionAsReducedGraphInFile {
             System.out.println("\n\nExecuting test:"+testNumber+" Save collection in one file (reduced graph)");
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
-            CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
 //            writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");

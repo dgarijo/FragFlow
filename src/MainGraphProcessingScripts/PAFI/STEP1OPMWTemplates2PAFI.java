@@ -21,7 +21,7 @@ package MainGraphProcessingScripts.PAFI;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.PAFI.CollectionWriterPAFI;
+import IO.Formats.PAFI.GraphCollectionWriterPAFI;
 import Static.Configuration;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -40,7 +40,7 @@ public class STEP1OPMWTemplates2PAFI {
         try{            
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
-            CollectionWriterPAFI writer = new CollectionWriterPAFI();            
+            GraphCollectionWriterPAFI writer = new GraphCollectionWriterPAFI();            
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(), Configuration.getPAFIInputPath()+"CollectionInPAFIFormat");
                 System.out.println("Regular collection retrieved successfully");

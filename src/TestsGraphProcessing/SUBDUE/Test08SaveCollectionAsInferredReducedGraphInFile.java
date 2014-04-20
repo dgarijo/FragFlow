@@ -18,7 +18,7 @@ package TestsGraphProcessing.SUBDUE;
 
 import Factory.Inference.CreateHashMapForInference;
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -52,7 +52,7 @@ public class Test08SaveCollectionAsInferredReducedGraphInFile {
                 HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
                 if(replacements.isEmpty()) return false;
                 //write the full file abstracted.
-                CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
+                GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
                 writer.writeReducedGraphsToFile(tp.getGraphCollection(),outputFilePath ,replacements);
                 //if the writes the collection and that collection is not empty, then the test is OK
                 return true;

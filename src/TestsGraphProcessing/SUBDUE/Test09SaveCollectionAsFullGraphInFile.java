@@ -16,7 +16,7 @@
 package TestsGraphProcessing.SUBDUE;
 
 import Factory.OPMW.OPMWTemplate2Graph;
-import IO.Formats.SUBDUE.CollectionWriterSUBDUE;
+import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 
 /**
  * Test designed to save a collection as a full graph file. If the test does not
@@ -30,7 +30,7 @@ public class Test09SaveCollectionAsFullGraphInFile {
         try{
             OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
-            CollectionWriterSUBDUE writer = new CollectionWriterSUBDUE();
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 writer.writeFullGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsFullGraphInFile");
                 return true;
