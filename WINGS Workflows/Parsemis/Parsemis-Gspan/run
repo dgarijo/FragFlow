@@ -1,0 +1,35 @@
+#!/bin/sh
+
+BASEDIR=`dirname $0`
+# ----------
+
+
+### EDIT --- your code here
+# e.g. $BASEDIR/merge.sh -files=$INPUTS1 -threshold=$INPUTS2 > $OUTPUTS1
+# using $BASEDIR/scriptname... is a good idea, since this script shall
+# be able to run anywhere, i.e., not depend on a specific path.
+# Note: if one of the arguments is a collection of size N, then the
+# respective script variable (e.g., $INPUTS1) contains as its value a
+# space separated list of N elements (e.g., "File1 File2 File3").
+
+args=("$@")
+  valueCounter=0
+  arg1=""
+  for arg in $@; do
+    valueCounter=`expr $valueCounter + 1`
+	if [ "$arg" == "-i1" ]; then GraphDatabase=${args[$valueCounter]}; fi
+	if [ "$arg" == "-p1" ]; then MaxSizeOfSubGraphs=${args[$valueCounter]}; fi
+	if [ "$arg" == "-p2" ]; then Support=${args[$valueCounter]}; fi
+	if [ "$arg" == "-o1" ]; then FragmentFile=${args[$valueCounter]}; fi
+  done
+
+  
+java -jar /opt/tools/parsemis/parsemis-2008-09-04.jar --graphFile=$GraphDatabase --minimumFrequency=$Support --outputFile=$FragmentFile --storeEmbeddings=true --minimumNodeCount=2 --maximumNodeCount=$MaxSizeOfSubGraphs   
+
+###  ------------------
+
+# IGNORE report any errors
+if [ $? -ne 0 ]; then 
+    echo "Error"
+    exit 1;
+fi
