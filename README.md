@@ -21,4 +21,4 @@ The project is configured as a Netbeans project right now. All the libraries and
 
 Current ongoing work:
 * Adapt the framework to different types of graph mining algorithms. Currently supported: SUBDUE, PAFI, Parsemis (gSpan, Gaston(ongoing))
-* Adapt the framework to read from different types of workflows. Currently supported: OPMW
+* Adapt the framework to read from different types of workflows. Currently supported: OPMW, LONI Pipeline
