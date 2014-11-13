@@ -1,4 +1,8 @@
 /*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,24 +17,24 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package MainGraphProcessingScripts.SUBDUE;
+package MainGraphProcessingScripts.PARSEMIS;
 
 import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
-import IO.Exception.CollectionWriterException;
-import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import IO.DatasetFilter;
+import IO.Exception.CollectionWriterException;
+import IO.Formats.PARSEMIS.GraphCollectionWriterPARSEMIS;
 import Static.Configuration;
 import java.io.File;
 
 /**
- * Script to translate LONI dataset to SUBDUE
+ * Script to transform LONI templates to Parsemis
  * @author Daniel Garijo
  */
-public class STEP1aLONITemplates2SUBDUE {
+public class STEP1aLONITemplates2ParsemisBorisAll {
     public static void main(String [] args) throws CollectionWriterException{
         System.out.println("\n Starting script for writing LONI collection");
-        String loniDatasetFolder = "LONI_dataset\\datasetPublicFull\\";
+        String loniDatasetFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowBoris\\Pipeline123\\";
         File f = new File(loniDatasetFolder);
         LoniTemplate2Graph test = new LoniTemplate2Graph(loniDatasetFolder);
         if(f.isDirectory()){
@@ -38,9 +42,10 @@ public class STEP1aLONITemplates2SUBDUE {
             for(int i=0;i<files.length;i++){
                 test.transformToGraph(files[i].getName());
             }
-            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
             GraphCollection filteredC = DatasetFilter.removeDuplicates(test.getGraphCollection());
-            writer.writeReducedGraphsToFile(filteredC,Configuration.getSUBDUEInputFolderPath()+ "LoniFullPublicDataset.g", null);
-        }        
+            GraphCollectionWriterPARSEMIS writer = new GraphCollectionWriterPARSEMIS();
+            writer.writeReducedGraphsToFile(filteredC,Configuration.getPARSEMISInputPath()+ "BorisAll.lg", null);
+        }
     }
+    
 }

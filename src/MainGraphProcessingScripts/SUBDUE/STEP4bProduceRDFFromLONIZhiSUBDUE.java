@@ -18,22 +18,14 @@ package MainGraphProcessingScripts.SUBDUE;
 import DataStructures.Fragment;
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import Factory.Inference.CreateAbstractResource;
-import Factory.Inference.CreateHashMapForInference;
 import Factory.Loni.LoniTemplate2Graph;
-import Factory.OPMW.OPMWTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
+import IO.DatasetFilter;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
-import com.hp.hpl.jena.ontology.OntModel;
-import com.hp.hpl.jena.ontology.OntModelSpec;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.util.FileManager;
 import java.io.File;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 /**
@@ -42,25 +34,19 @@ import java.util.Iterator;
  * ontology (http://purl.org/net/wf-fd)
  * @author Daniel Garijo
  */
-public class STEP4aProduceRDFFromLONIFragmentCatalogAndResultsSUBDUE {
+public class STEP4bProduceRDFFromLONIZhiSUBDUE {
   public static void main(String[] args)   {
       try{
 //           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
-           String file = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniDatasetEval1";
-           String ocFile = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniDatasetEval1_occurrences";
+           String file = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniZhiFilteredSUBDUEEval1";
+           String ocFile = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniZhiFilteredSUBDUEEval1_occurrences";
            //note that calling this method is faster than declaring the reader and then filtering the catalog.
-           CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("LONI dataset",
+           CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("LONI Zhi dataset filtered",
                     "MDL", true, false,file, ocFile);
            ArrayList<Fragment> obtainedResults = aux.getMultiStepFragments();
-           
-           //generalize the fragments types (workaround)
-           Iterator<Fragment> itF = obtainedResults.iterator();
-           while(itF.hasNext()){
-               GeneralMethods.setTypesOfCurrentFragment(itF.next());
-           }
-           
-           String loniDatasetFolder = "LONI_dataset\\";
+                      
+           String loniDatasetFolder = "LONI_dataset\\datasetZhiZhong\\";
            File f = new File(loniDatasetFolder);
            LoniTemplate2Graph fullCollection = new LoniTemplate2Graph(loniDatasetFolder);
            if(f.isDirectory()){
@@ -69,23 +55,23 @@ public class STEP4aProduceRDFFromLONIFragmentCatalogAndResultsSUBDUE {
                    fullCollection.transformToGraph(files[i].getName());
                }
            }
+           GraphCollection filteredC = DatasetFilter.removeDuplicates(fullCollection.getGraphCollection());
            //we need to transform some types and names to URIs in order to properly find things
            //(the fragments have been properly treated when fixing the directionality)
-           ArrayList<Graph> collection = fullCollection.getGraphCollection().getGraphs();
-           Iterator<Graph> it = collection.iterator();
-           while (it.hasNext()){
-               Graph currentG = it.next();
-               GeneralMethods.setStringTypesToURIs(currentG);
-               if(!currentG.getName().startsWith("http://")){
-                   currentG.setName(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(currentG.getName()));
-               }
-           }
+//           ArrayList<Graph> collection = fullCollection.getGraphCollection().getGraphs();
+//           Iterator<Graph> it = collection.iterator();
+//           while (it.hasNext()){
+//               Graph currentG = it.next();
+//               GeneralMethods.setStringTypesToURIs(currentG);
+//               if(!currentG.getName().startsWith("http://")){
+//                   currentG.setName(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(currentG.getName()));
+//               }
+//           }
            
-           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outLONI29-03-2014.ttl");
+           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outLONIZHI.ttl");
 
            catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
-           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, fullCollection.getGraphCollection());
-           //test1.transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, testGraph);
+           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, filteredC);
 
            catalogNoInference.exportToRDFFile("TURTLE");
 

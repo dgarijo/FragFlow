@@ -41,7 +41,7 @@ public class GraphCollectionWriterSUBDUE extends GraphCollectionWriter{
         GraphWriterSUBDUE gw = new GraphWriterSUBDUE();
         int numeration = 0;
         try {
-            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
+//            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
             fstream = new FileWriter(outputFilePath);
             out = new BufferedWriter(fstream);
             while (it.hasNext()){
@@ -79,7 +79,7 @@ public class GraphCollectionWriterSUBDUE extends GraphCollectionWriter{
         try {
             
             while (it.hasNext()){
-                if(!outputPath.endsWith(".g"))outputPath+=".g";
+//                if(!outputPath.endsWith(".g"))outputPath+=".g";
                 fstream = new FileWriter(outputPath+File.separator+graphNumber+i);
                 out = new BufferedWriter(fstream);
                 Graph currentGraph = it.next();
@@ -115,7 +115,7 @@ public class GraphCollectionWriterSUBDUE extends GraphCollectionWriter{
         Iterator<Graph> it = gc.getGraphs().iterator();
         int numeration = 0;
         try {
-            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
+//            if(!outputFilePath.endsWith(".g"))outputFilePath+=".g";
             fstream = new FileWriter(outputFilePath);
             out = new BufferedWriter(fstream);
             while (it.hasNext()){
@@ -153,7 +153,7 @@ public class GraphCollectionWriterSUBDUE extends GraphCollectionWriter{
         try {
             
             while (it.hasNext()){
-                if(!outputPath.endsWith(".g"))outputPath+=".g";
+//                if(!outputPath.endsWith(".g"))outputPath+=".g";
                 fstream = new FileWriter(outputPath+File.separator+graphNumber+i);
                 out = new BufferedWriter(fstream);
                 Graph currentGraph = it.next();

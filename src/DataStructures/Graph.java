@@ -169,39 +169,96 @@ public class Graph {
     }
 
     /**
-     * Method which determines if a graph is the same as other:
-     * All the connections among URI types must be the same. 
-     * (This implies that all URI types are the same).
-     * This method does not remove those graphs with same nodes and different 
-     * edges.
-     * @param target
+     * Method which determines if a graph is the same as other.
+     * Source and target edges must have the same URIs and in the same order.
+     * @param target target graph to be compared with
      * @return 
      */
+    //this has to be redone checking the connections to ensure removing ALL duplicates
     public boolean equalsGraph(Graph target) {
+        //the number of nodes of both graphs have to be the same
         if(this.getNumberOfNodes()!=target.getNumberOfNodes()) return false;
+        /*Old code: assumes the adj matrix and uris of both graphs are the same.
+        However we could have graphs with different URIs which could be the same*/
+//        ArrayList<String> targetURIs = target.getURIs();
+//        for(int i=0; i< URIs.size();i++){
+//            if(!nodes.get(URIs.get(i)).getType().equals(target.getNodes().get(targetURIs.get(i)).getType()))return false;
+//        }
+//        if(adjacencyMatrix!=null){
+//            String[][] targetMatrix = target.getAdjacencyMatrix();
+//            // I assume that the same graphs will have the same adj matrix (as they are read in the same order)
+//            for(int i=0; i< adjacencyMatrix.length;i++){
+//                for(int j=0; j< adjacencyMatrix.length;j++){
+//                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] == null) return false;
+//                    if (adjacencyMatrix[i][j]==null && targetMatrix[i][j] != null) return false;
+//                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] != null && !adjacencyMatrix[i][j].equals(targetMatrix[i][j])){
+//
+//                        return false;
+//                    }
+//                }
+//            }
+//        }
+//        return true;
+        /*end of old code*/
+        return(allConnectionsIncludedInGraph(this, target) && allConnectionsIncludedInGraph(target, this));
+    }
+    
+    private static boolean allConnectionsIncludedInGraph(Graph source, Graph target){
         //for each one of the connections in the adj matrix, look for
-        //a connection in the target Graph
-        
-        //compare the types. The URIs have to have the same type
-        ArrayList<String> targetURIs = target.getURIs();
-        for(int i=0; i< URIs.size();i++){
-            if(!nodes.get(URIs.get(i)).getType().equals(target.getNodes().get(targetURIs.get(i)).getType()))return false;
-        }
-        if(adjacencyMatrix!=null){
-            String[][] targetMatrix = target.getAdjacencyMatrix();
-            // I assume that the same graphs will have the same adj matrix (as they are read in the same order)
-            for(int i=0; i< adjacencyMatrix.length;i++){
-                for(int j=0; j< adjacencyMatrix.length;j++){
-                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] == null) return false;
-                    if (adjacencyMatrix[i][j]==null && targetMatrix[i][j] != null) return false;
-                    if (adjacencyMatrix[i][j]!=null && targetMatrix[i][j] != null && !adjacencyMatrix[i][j].equals(targetMatrix[i][j])){
-
-                        return false;
+        //ONE connection in the target Graph. For each of the connections of the adj matrix of the 
+        //target graph, look for one connection in the original graph. If this happens for both,
+        //they are equal.
+        int length = source.getAdjacencyMatrix().length;//all matrixes are square and the same size (otherwise it is false)
+        String [][] sourceAdjMatrix = source.getAdjacencyMatrix();
+        boolean[][] boolMatrix = new boolean[length][length];
+        source.initializeBoolMatrixToFalse(boolMatrix);
+        String [][] targetMatrix = target.getAdjacencyMatrix();
+        String typeI, typeJ, typeL, typeK;
+        //initialize bool matrix to false. Each bool mean which connections have been used.
+        //It is necessary in case we have multiple connections of the same types with differen uris.
+        if(sourceAdjMatrix!=null){
+            for(int i=0; i< length;i++){
+                for(int j=0; j< length;j++){
+                    if(sourceAdjMatrix[i][j]!=null && sourceAdjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
+                        //for each connection in the adj matrix, check if exists in the other graph
+                        int k=0;
+                        boolean connFound = false;
+                        while(k<length && !connFound){
+                            int l=0; 
+                            while(l<length && !connFound){
+                                if(!boolMatrix[k][l] && 
+                                    targetMatrix[k][l]!=null && 
+                                    targetMatrix[k][l].equals(GeneralConstants.INFORM_DEPENDENCY)){
+                                    //is type of i==type of k? is type of j == type of l? If yes and that connection
+                                    //has not been checked already, then we are fine
+                                    typeI = source.getNodes().get(source.getURIs().get(i-1)).getType();
+                                    typeJ = source.getNodes().get(source.getURIs().get(j-1)).getType();
+                                    typeK = target.getNodes().get(target.getURIs().get(k-1)).getType();
+                                    typeL = target.getNodes().get(target.getURIs().get(l-1)).getType();
+                                    if(typeI.equals(typeK) && typeJ.equals(typeL)){
+                                        connFound = true;
+                                        boolMatrix[k][l] = true;
+                                    }
+                                }
+                                l++;
+                            }
+                            k++;
+                        }
+                        if(!connFound)return false;
                     }
                 }
             }
+            return true;
         }
-        return true;
+        return false;
+    }
+    
+    private void initializeBoolMatrixToFalse(boolean[][] boolMatrix){
+        for (int i=0; i<boolMatrix.length; i++){
+            for(int j=0; j<boolMatrix.length; j++){
+                boolMatrix[i][j] = false;
+            }
+        }
     }
     
     

@@ -66,31 +66,31 @@ public class STEP1OPMWTemplates2SUBDUE {
             writer.writeFullGraphsToFile(tp.getGraphCollection(),"Text_Analytics_Graph_Inference_Templates", replacements);            
             writer.writeFullGraphsToSeparatedFiles(tp.getGraphCollection(),"TESTS_INFERENCE_TEXT_ANALYTICS_templates", replacements);
         
-            //TESTS FOR EVALUATION OF THE TRACES
-            //creation of the graph collection
-            OPMWTrace2Graph t = new OPMWTrace2Graph("http://wind.isi.edu:8890/sparql");
-            t.transformDomainToGraph("TextAnalytics");
-            //write down results (no inference, no taxonomy)
-//            t.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference");
-            writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_No_Inference");
-            //write down in separate graphs for internal macro evaluation
-//            t.getGraphCollection().writeFullGraphsToSeparatedFiles("TESTS_NO_INFERENCE_TEXT_ANALYTICS");
-            writer.writeFullGraphsToSeparatedFiles(t.getGraphCollection(), "TESTS_NO_INFERENCE_TEXT_ANALYTICS");
-            
-            
-            //INFERENCE
-            //reading the taxonomy (already created)
-//            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
-//            InputStream in = FileManager.get().open("C:\\Users\\Monen\\Documents\\NetBeansProjects\\MotifFinder\\src\\Tests\\multiDomainOnto.owl");
-//            // read the RDF/XML file
-//            o.read(in, null);
-//            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
-            
-            //write down the whole inferred graph
-//            t.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_Inference", replacements);
-            writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_Inference", replacements);
-//            t.getGraphCollection().writeFullGraphsToSeparatedFiles("TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
-            writer.writeFullGraphsToSeparatedFiles(t.getGraphCollection(),"TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
+//            //TESTS FOR EVALUATION OF THE TRACES
+//            //creation of the graph collection
+//            OPMWTrace2Graph t = new OPMWTrace2Graph("http://wind.isi.edu:8890/sparql");
+//            t.transformDomainToGraph("TextAnalytics");
+//            //write down results (no inference, no taxonomy)
+////            t.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference");
+//            writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_No_Inference");
+//            //write down in separate graphs for internal macro evaluation
+////            t.getGraphCollection().writeFullGraphsToSeparatedFiles("TESTS_NO_INFERENCE_TEXT_ANALYTICS");
+//            writer.writeFullGraphsToSeparatedFiles(t.getGraphCollection(), "TESTS_NO_INFERENCE_TEXT_ANALYTICS");
+//            
+//            
+//            //INFERENCE
+//            //reading the taxonomy (already created)
+////            OntModel o = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+////            InputStream in = FileManager.get().open("C:\\Users\\Monen\\Documents\\NetBeansProjects\\MotifFinder\\src\\Tests\\multiDomainOnto.owl");
+////            // read the RDF/XML file
+////            o.read(in, null);
+////            HashMap replacements = CreateHashMapForInference.createReplacementHashMap(o);
+//            
+//            //write down the whole inferred graph
+////            t.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_Inference", replacements);
+//            writer.writeFullGraphsToFile(t.getGraphCollection(),"Text_Analytics_Graph_Inference", replacements);
+////            t.getGraphCollection().writeFullGraphsToSeparatedFiles("TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
+//            writer.writeFullGraphsToSeparatedFiles(t.getGraphCollection(),"TESTS_INFERENCE_TEXT_ANALYTICS", replacements);
         }catch(Exception e){
             System.err.println("Error while executing main method "+e.getMessage());
         }

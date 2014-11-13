@@ -94,6 +94,7 @@ public abstract class FragmentCollectionReader {
      */
     protected int getNumberOfInformDependencies(String[][] matrix){
         int dependencies = 0;
+        if(matrix==null)return 0;
         for(int i = 0; i< matrix[0].length;i++){
             for(int j = 0; j<matrix[0].length;j++){
                 if((matrix[i][j]!=null)&&(matrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)))

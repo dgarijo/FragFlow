@@ -108,7 +108,7 @@ public class GeneralMethods {
         Query query = QueryFactory.create(queryIn);
         //System.out.println(queryIn);
         QueryExecution qe = QueryExecutionFactory.create(query, model);
-        ResultSet rs = qe.execSelect();        
+        ResultSet rs = qe.execSelect(); 
         return rs;
     }
     

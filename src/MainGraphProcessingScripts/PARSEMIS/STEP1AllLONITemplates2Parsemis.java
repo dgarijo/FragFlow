@@ -19,7 +19,7 @@ import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Exception.CollectionWriterException;
 import IO.Formats.PARSEMIS.GraphCollectionWriterPARSEMIS;
-import PostProcessing.DatasetFilter;
+import IO.DatasetFilter;
 import java.io.File;
 
 /**

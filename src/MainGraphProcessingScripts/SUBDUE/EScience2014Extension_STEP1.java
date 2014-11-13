@@ -13,34 +13,39 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
 package MainGraphProcessingScripts.SUBDUE;
 
 import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
+import IO.DatasetFilter;
 import IO.Exception.CollectionWriterException;
 import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
-import IO.DatasetFilter;
-import Static.Configuration;
 import java.io.File;
 
 /**
- * Script to translate LONI dataset to SUBDUE
+ *
  * @author Daniel Garijo
  */
-public class STEP1aLONITemplates2SUBDUE {
-    public static void main(String [] args) throws CollectionWriterException{
-        System.out.println("\n Starting script for writing LONI collection");
-        String loniDatasetFolder = "LONI_dataset\\datasetPublicFull\\";
-        File f = new File(loniDatasetFolder);
-        LoniTemplate2Graph test = new LoniTemplate2Graph(loniDatasetFolder);
+public class EScience2014Extension_STEP1 {
+    private static void processFolder(String folderPath, String outName) throws CollectionWriterException{
+        //aux method to look for the name
+        File f = new File(folderPath);
         if(f.isDirectory()){
+            LoniTemplate2Graph test = new LoniTemplate2Graph(folderPath);
             File[] files = f.listFiles();
-            for(int i=0;i<files.length;i++){
+            for(int i=0; i< files.length;i++){
                 test.transformToGraph(files[i].getName());
             }
-            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
             GraphCollection filteredC = DatasetFilter.removeDuplicates(test.getGraphCollection());
-            writer.writeReducedGraphsToFile(filteredC,Configuration.getSUBDUEInputFolderPath()+ "LoniFullPublicDataset.g", null);
-        }        
+            GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
+            writer.writeReducedGraphsToFile(filteredC,outName, null);
+        }
+    }
+    public static void main(String [] args) throws CollectionWriterException{
+        System.out.println("\n Writing Samuel dataset in SUBDUE format");
+        String escienceSamuel = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\datasetSamuel\\";
+        processFolder(escienceSamuel, "corpusSamuel.g");
+             
     }
 }

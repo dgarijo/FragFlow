@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package PostProcessing;
+package IO;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
@@ -36,7 +36,6 @@ public class DatasetFilter {
             repeated = false;
             while(it2.hasNext()&&!repeated){
                 Graph graphToCompare = it2.next();
-                //avoid comparing the graph with itself!
                 if(currentG.equalsGraph(graphToCompare)){
                     repeated = true;
                 }

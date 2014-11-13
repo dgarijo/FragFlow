@@ -453,22 +453,22 @@ public abstract class CreateStatisticsFromResults {
             //write each of the fragments in separate files.
             //this will have to be done in the split and filter method, which
             //will read fragments and place them in files
-            //for the moment only done in SUBDUE.
-            HashMap<String,Fragment> filteredMultiStep, filteredMultiStepIrreducible, multiStep;
-            filteredMultiStep = new HashMap<String, Fragment>();
-            filteredMultiStepIrreducible = new HashMap<String, Fragment>();
-            multiStep = new HashMap<String, Fragment>();
-            Iterator<Entry<String,Fragment>> it = this.fragmentCatalog.entrySet().iterator();
-            while(it.hasNext()){
-                Fragment currF = it.next().getValue();
-                if(currF.isMultiStepFragment())multiStep.put(currF.getStructureID(),currF);
-                if(currF.isFilteredMultiStepIrreducibleFragment())filteredMultiStepIrreducible.put(currF.getStructureID(),currF);
-                if(currF.isFilteredMultiStepFragment())filteredMultiStep.put(currF.getStructureID(),currF);
-            }
-            FragmentCollectionWriterSUBDUE outF = new FragmentCollectionWriterSUBDUE();
-            outF.writeFragmentsToFile(multiStep, outFilePath+"-multiStep", null);
-            outF.writeFragmentsToFile(filteredMultiStep, outFilePath+"-FilteredMultiStep", null);
-            outF.writeFragmentsToFile(filteredMultiStepIrreducible, outFilePath+"-filteredMultiStepIrreducible", null);
+            //for the moment only done in SUBDUE. THIS IS A TEST
+//            HashMap<String,Fragment> filteredMultiStep, filteredMultiStepIrreducible, multiStep;
+//            filteredMultiStep = new HashMap<String, Fragment>();
+//            filteredMultiStepIrreducible = new HashMap<String, Fragment>();
+//            multiStep = new HashMap<String, Fragment>();
+//            Iterator<Entry<String,Fragment>> it = this.fragmentCatalog.entrySet().iterator();
+//            while(it.hasNext()){
+//                Fragment currF = it.next().getValue();
+//                if(currF.isMultiStepFragment())multiStep.put(currF.getStructureID(),currF);
+//                if(currF.isFilteredMultiStepIrreducibleFragment())filteredMultiStepIrreducible.put(currF.getStructureID(),currF);
+//                if(currF.isFilteredMultiStepFragment())filteredMultiStep.put(currF.getStructureID(),currF);
+//            }
+//            FragmentCollectionWriterSUBDUE outF = new FragmentCollectionWriterSUBDUE();
+//            outF.writeFragmentsToFile(multiStep, outFilePath+"-multiStep", null);
+//            outF.writeFragmentsToFile(filteredMultiStep, outFilePath+"-FilteredMultiStep", null);
+//            outF.writeFragmentsToFile(filteredMultiStepIrreducible, outFilePath+"-filteredMultiStepIrreducible", null);
         }catch (Exception e){
             System.err.println("Error "+e.getMessage());
         }
@@ -499,5 +499,8 @@ public abstract class CreateStatisticsFromResults {
             }
         }
     }
-    
+ 
+//    esta clase ha de ser cambiada para que no escriba ficheros así. Tiene que coger
+//    un 3 inputs con los ficheros generados y generar las estadisticas (leyendo).throws 
+//    Deberia hacer un fragment reader especifico para leer y contar, y asi se separa.
 }

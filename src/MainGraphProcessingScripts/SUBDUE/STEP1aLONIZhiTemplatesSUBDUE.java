@@ -15,10 +15,13 @@
  */
 package MainGraphProcessingScripts.SUBDUE;
 
+import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
+import IO.DatasetFilter;
 import IO.Exception.CollectionWriterException;
 import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import Static.Configuration;
+import com.hp.hpl.jena.reasoner.rulesys.builtins.Remove;
 import java.io.File;
 
 /**
@@ -36,8 +39,12 @@ public class STEP1aLONIZhiTemplatesSUBDUE {
             for(int i=0;i<files.length;i++){
                 test.transformToGraph(files[i].getName());
             }
+            
+            GraphCollection filteredC = DatasetFilter.removeDuplicates(test.getGraphCollection());
             GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
-            writer.writeReducedGraphsToFile(test.getGraphCollection(),Configuration.getSUBDUEInputFolderPath()+ "LoniZhiDataset.g", null);
+            writer.writeReducedGraphsToFile(filteredC,Configuration.getSUBDUEInputFolderPath()+ "LoniZhiDataset11.g", null);
+//            writer.writeReducedGraphsToFile(filteredC,"POQUEE.g", null);
+
         }        
     }
 }

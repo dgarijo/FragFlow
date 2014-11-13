@@ -1,4 +1,3 @@
-
 /*
  * Copyright 2012-2013 Ontology Engineering Group, Universidad Politécnica de Madrid, Spain
  *
@@ -14,17 +13,17 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package Static;
+package IO.Formats.SUBDUE;
 
 /**
- * Class to store the test constants that appear in the tests.
+ * class to split the input into several files, each containing one of the 
+ * types of fragments detected. This is for the statistics.
  * @author Daniel Garijo
  */
-public class TestConstants {
-    public static final String aCodedFileForReadingTests = "PARSEMIS_TOOL\\input_graphs\\LoniZhitEncoded.lg-codes";
-    public static final String aLoniTemplatePathForTests = "LONI_dataset\\datasetPublicReduced\\";
-    public static final String SUBDUETestResultFolder = "SUBDUE_TOOL\\results\\Tests\\";
-    public static final String SUBDUEResultFolder = "SUBDUE_TOOL\\results\\";
-    public static final String PARSEMISResultFolder = "PARSEMIS_TOOL\\results\\";
-    public static final String PAFIResultsFolder = "PAFI_TOOL\\results\\";
+public class FragmentCollectionReaderSplitterSUBDUE {
+    
+    /**
+     * TO DO
+     */
+//    aqui hacer
 }

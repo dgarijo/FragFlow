@@ -90,6 +90,13 @@ public abstract class FragmentCatalogAndResultsToRDF {
     public abstract void transformBindingResultsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates);
     
     /**
+     * In order to be able to avoid publishing the bisndings.
+     * @param obtainedResults
+     * @param templates n r
+     */
+    public abstract void transformResultsAndNoBindingsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates);
+    
+    /**
      * Method which given a set of fragments and a template, checks whether 
      * any of the fragments can be found in the template or not. The results 
      * are exported to RDF.
@@ -97,6 +104,8 @@ public abstract class FragmentCatalogAndResultsToRDF {
      * @param template template in which we want to search the results.
      */
     public abstract void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template);
+    
+    public abstract void transformResultsAndNoBindingsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template);
     
     /**
      * Given a fragment and a template, this method detects where in the 
@@ -109,12 +118,14 @@ public abstract class FragmentCatalogAndResultsToRDF {
         {        
         OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(template);
         String currentQuery = qr.createQueryFromFragment(currentFragment, template.getName());
+//        System.out.println("Querying graph "+template.getName());
         ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
         if(rs.hasNext()){
             String fragID= currentFragment.getStructureID()+"_"+dateToken;                
             GeneralMethods.addIndividual(repository, fragID, Wffd.DETECTED_RESULT, "Detected Result Workflow fragment "+fragID);
             int n = 0;
             GeneralMethods.addProperty(repository, fragID, template.getName(), Wffd.FOUND_IN);//WffdConstants.IS_PART_OF);
+            System.out.println("Fragment "+currentFragment.getStructureID()+" found in "+template.getName());
             while(rs.hasNext()){
                 QuerySolution qs = rs.nextSolution();
                 String currentBindingURI = "binding"+new Date().getTime()+n;
@@ -134,7 +145,23 @@ public abstract class FragmentCatalogAndResultsToRDF {
             } 
         }
     }
-    }        
+    }
+    
+    protected void transformResultsAndNoBindingsOfOneFragmentAndOneTemplateToRDF(Fragment currentFragment, Graph template, FragmentToSPARQLQuery qr){
+        {        
+        OntModel o2 = Graph2OPMWRDFModel.graph2OPMWTemplate(template);
+        String currentQuery = qr.createQueryFromFragment(currentFragment, template.getName());
+        //System.out.println("Querying graph "+template.getName()+" "+ currentQuery);
+//        System.out.println(currentFragment.getStructureID());
+        ResultSet rs = GeneralMethods.queryLocalRepository(o2, currentQuery);
+        if(rs.hasNext()){
+            String fragID= currentFragment.getStructureID()+"_"+dateToken;                
+            GeneralMethods.addIndividual(repository, fragID, Wffd.DETECTED_RESULT, "Detected Result Workflow fragment "+fragID);
+            GeneralMethods.addProperty(repository, fragID, template.getName(), Wffd.FOUND_IN);//WffdConstants.IS_PART_OF);
+            System.out.println("Fragment "+currentFragment.getStructureID()+" found in "+template.getName());
+        }
+    }
+    }
     
     
     /**

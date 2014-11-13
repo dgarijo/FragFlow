@@ -17,8 +17,10 @@ package MainGraphProcessingScripts.SUBDUE;
 
 import DataStructures.Fragment;
 import DataStructures.Graph;
+import DataStructures.GraphCollection;
 import Factory.Loni.LoniTemplate2Graph;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
+import IO.DatasetFilter;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralConstants;
 import Static.GeneralMethods;
@@ -32,39 +34,28 @@ import java.util.Iterator;
  * ontology (http://purl.org/net/wf-fd)
  * @author Daniel Garijo
  */
-public class STEP4aProduceRDFFromLONIZhiSUBDUE {
+public class STEP4aProduceRDFFromLONIBorisSUBDUE {
   public static void main(String[] args)   {
       try{
 //           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
-           String file = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniDatasetZhiEval1";
-           String ocFile = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniDatasetZhiEval1_occurrences";
+           String file = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniBorisFilteredSUBDUEval1";
+           String ocFile = "SUBDUE_TOOL\\results\\resultsLoni\\resultsLoniBorisFilteredSUBDUEval1_occurrences";
            //note that calling this method is faster than declaring the reader and then filtering the catalog.
-           CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("LONI dataset",
+           CreateStatisticsFromResultsSUBDUE aux = new CreateStatisticsFromResultsSUBDUE("LONI Zhi dataset filtered",
                     "MDL", true, false,file, ocFile);
            ArrayList<Fragment> obtainedResults = aux.getMultiStepFragments();
-           
-//           casi mejor: haz un decode del dataset y llama a lo que ya tenias, tio bestia
-           
-           /**
-            * TO DO
-            */
-           
-           //generalize the fragments types (workaround)
-//           Iterator<Fragment> itF = obtainedResults.iterator();
-//           while(itF.hasNext()){
-//               GeneralMethods.setTypesOfCurrentFragment(itF.next());
-//           }
-           
-//           String loniDatasetFolder = "LONI_dataset\\";
-//           File f = new File(loniDatasetFolder);
-//           LoniTemplate2Graph fullCollection = new LoniTemplate2Graph(loniDatasetFolder);
-//           if(f.isDirectory()){
-//               File[] files = f.listFiles();
-//               for(int i=0;i<files.length;i++){
-//                   fullCollection.transformToGraph(files[i].getName());
-//               }
-//           }
+                      
+           String loniDatasetFolder = "LONI_dataset\\datasetBoris\\";
+           File f = new File(loniDatasetFolder);
+           LoniTemplate2Graph fullCollection = new LoniTemplate2Graph(loniDatasetFolder);
+           if(f.isDirectory()){
+               File[] files = f.listFiles();
+               for(int i=0;i<files.length;i++){
+                   fullCollection.transformToGraph(files[i].getName());
+               }
+           }
+           GraphCollection filteredC = DatasetFilter.removeDuplicates(fullCollection.getGraphCollection());
            //we need to transform some types and names to URIs in order to properly find things
            //(the fragments have been properly treated when fixing the directionality)
 //           ArrayList<Graph> collection = fullCollection.getGraphCollection().getGraphs();
@@ -77,10 +68,10 @@ public class STEP4aProduceRDFFromLONIZhiSUBDUE {
 //               }
 //           }
            
-           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outLONIZHI.ttl");
+           FragmentCatalogAndResultsToRDFSUBDUE catalogNoInference = new FragmentCatalogAndResultsToRDFSUBDUE("outLONIBoris.ttl");
 
            catalogNoInference.transformFragmentCollectionToRDF(obtainedResults);
-//           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, fullCollection.getGraphCollection());
+           catalogNoInference.transformBindingResultsInTemplateCollection(obtainedResults, filteredC);
 
            catalogNoInference.exportToRDFFile("TURTLE");
 

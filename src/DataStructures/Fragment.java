@@ -216,11 +216,14 @@ public class Fragment {
      * @return the size of the fragment (nodes)
      */
     public int getSize(){
-        int size = this.getDependencyGraph().getNumberOfNodes()-listOfPointersToIncludedStructures.size();
-        Iterator<Fragment> includedStructuresIterator = this.listOfPointersToIncludedStructures.iterator();
-        while(includedStructuresIterator.hasNext()){
-            Fragment includedStructure = includedStructuresIterator.next();
-            size+= includedStructure.getSize();
+        int size = this.getDependencyGraph().getNumberOfNodes();
+        if(listOfPointersToIncludedStructures!=null && !listOfPointersToIncludedStructures.isEmpty()){
+            size = size-listOfPointersToIncludedStructures.size();
+            Iterator<Fragment> includedStructuresIterator = this.listOfPointersToIncludedStructures.iterator();
+            while(includedStructuresIterator.hasNext()){
+                Fragment includedStructure = includedStructuresIterator.next();
+                size+= includedStructure.getSize();
+            }
         }
         return size;
     }

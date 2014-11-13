@@ -113,6 +113,16 @@ public class FragmentCatalogAndResultsToRDFPARSEMIS extends FragmentCatalogAndRe
             transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
         }
     }
+    @Override
+    public void transformResultsAndNoBindingsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates) {
+        ArrayList<Graph> temps = templates.getGraphs();
+        Iterator<Graph> itTemps = temps.iterator();
+        while(itTemps.hasNext()){
+            Graph currentTemplate = itTemps.next();
+            currentTemplate.putReducedNodesInAdjacencyMatrix();
+            transformResultsAndNoBindingsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
+        }
+    }
 
     @Override
     public void transformBindingResultsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
@@ -122,5 +132,16 @@ public class FragmentCatalogAndResultsToRDFPARSEMIS extends FragmentCatalogAndRe
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplatePAFI());
         }
     }
+
+    @Override
+    public void transformResultsAndNoBindingsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
+        Iterator<Fragment> fragments = obtainedResults.iterator();         
+        while(fragments.hasNext()){
+            Fragment f = fragments.next();
+            transformResultsAndNoBindingsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplatePAFI());
+        }
+    }
+
+    
     
 }

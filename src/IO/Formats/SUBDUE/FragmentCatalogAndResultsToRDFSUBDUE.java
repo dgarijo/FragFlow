@@ -177,7 +177,17 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             currentTemplate.putReducedNodesInAdjacencyMatrix();
             transformBindingResultsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
         }
-        
+    }
+    
+    @Override
+    public void transformResultsAndNoBindingsInTemplateCollection(ArrayList<Fragment> obtainedResults, GraphCollection templates) {
+        ArrayList<Graph> temps = templates.getGraphs();
+        Iterator<Graph> itTemps = temps.iterator();
+        while(itTemps.hasNext()){
+            Graph currentTemplate = itTemps.next();
+            currentTemplate.putReducedNodesInAdjacencyMatrix();
+            transformResultsAndNoBindingsOfFragmentCollectionInTemplateToRDF(obtainedResults, currentTemplate);
+        }
     }
     /**
      * Method which given a set of fragments and a template, checks whether 
@@ -195,6 +205,18 @@ public class FragmentCatalogAndResultsToRDFSUBDUE extends FragmentCatalogAndResu
             transformBindingResultsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplateSUBDUE());
         }
     }
+
+    @Override
+    public void transformResultsAndNoBindingsOfFragmentCollectionInTemplateToRDF(ArrayList<Fragment> obtainedResults, Graph template) {
+        Iterator<Fragment> fragments = obtainedResults.iterator();
+        //it would be nice to just send the relevant fragments            
+        while(fragments.hasNext()){
+            Fragment f = fragments.next();
+            transformResultsAndNoBindingsOfOneFragmentAndOneTemplateToRDF(f,template, new FragmentToSPARQLQueryTemplateSUBDUE());
+        }
+    }
+
+    
     
     /**
      * Given a fragment and a template, this method detects where in the 
