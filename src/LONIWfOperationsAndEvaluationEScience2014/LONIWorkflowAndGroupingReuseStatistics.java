@@ -106,8 +106,10 @@ public class LONIWorkflowAndGroupingReuseStatistics {
                 test.transformToGraph(file.getName());
             }
         }
+//        test.transformToGraph("cranium.loni.usc.edu_8001-13c5a718-dabe-48bb-8b67-4eda8e22ee21.pipe");
         GraphCollection filteredCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
         Iterator<Graph> it = filteredCollection.getGraphs().iterator();
+        String problematicWorkflows = "";
         while(it.hasNext()){
             //check the number of times each grah is found in the collection.
             Graph queryGraph = it.next();
@@ -134,6 +136,7 @@ public class LONIWorkflowAndGroupingReuseStatistics {
                         }catch(Exception e){
                             System.err.println("\n Query between "+queryGraph.getName()+" and "+currentGraph.getName()+" failed ");
                             //here do another query slicing the main query into smaller ones...
+                            problematicWorkflows+= queryGraph.getName()+" with "+ currentGraph.getName()+"\n";
                         }
                         qe.close();
                         o2.close();
@@ -147,6 +150,8 @@ public class LONIWorkflowAndGroupingReuseStatistics {
         String stats = "Size of the collection: "+filteredCollection.getGraphs().size()+"\n";
         stats+="Workflows reused at least 1 time in another workflow:\n";
         stats+= getStats(workflowOccurrences, 2);
+        stats+= "Problematic workflows: ";
+        stats+= problematicWorkflows;
 //        stats+="Workflows reused at least 4 times:\n";
 //        stats+= getStats(workflowOccurrences, 4);
         return stats;
@@ -164,6 +169,8 @@ public class LONIWorkflowAndGroupingReuseStatistics {
             }
         }
         GraphCollection filteredWfAndGroupingCollection = DatasetFilter.removeDuplicates(wfAndGroupings.getGraphCollection());
+        
+        String stats = "Size of the collection: "+filteredWfAndGroupingCollection.getNumberOfSubGraphs()+"\n";
         ArrayList <Graph> groupings = filteredWfAndGroupingCollection.getGraphs();
         ArrayList <Graph> workflows = new ArrayList<Graph>();//instead of rereading, we separate them
         //step 2: separate workflows from grouping collection (we don't want them mixed here now)
@@ -178,9 +185,9 @@ public class LONIWorkflowAndGroupingReuseStatistics {
                 i++;
             }
         }
-        
         //step 4: Search groupings in workflows
         Iterator<Graph> itGroupings = groupings.iterator();
+        String problematicGroupings = "";
         while(itGroupings.hasNext()){
             //check the number of times each grah is found in the collection.
             Graph queryGroupingGraph = itGroupings.next();
@@ -205,6 +212,7 @@ public class LONIWorkflowAndGroupingReuseStatistics {
                             }
                         }catch(Exception e){
                             System.err.println("\n Query between "+queryGroupingGraph.getName()+" and "+currentWorkflow.getName()+" failed\n");
+                            problematicGroupings+=queryGroupingGraph.getName()+" with workflow "+currentWorkflow.getName()+"\n";
                         }
                         qe.close();
                         o2.close();
@@ -216,9 +224,12 @@ public class LONIWorkflowAndGroupingReuseStatistics {
             System.out.println();
         }
         
-        String stats = "Size of the collection: "+groupings.size()+"\n";
+        stats+= "Groupings: "+groupings.size()+"\n";
+        stats+= "Workflows: "+workflows.size()+"\n";
         stats+="Groupings reused at least 2 in two different workflows:\n";
         stats+= getStats(groupingOccurrences, 2);
+        stats+= "Problematic groupings: ";
+        stats+= problematicGroupings;
 //        stats+="Groupings reused at least 4 times:\n";
 //        stats+= getStats(groupingOccurrences, 4);
         return stats;
@@ -227,13 +238,24 @@ public class LONIWorkflowAndGroupingReuseStatistics {
     private String getStats(HashMap <String,Integer> occurrences, int minFreq){
         Iterator<String> keys = occurrences.keySet().iterator();
         String toReturn = "";
+        int numberOfUsedTimes = 0;
+        int mostReusedStructure = -1;
+        int totalReusedStructures = 0;
         while(keys.hasNext()){
             String currentKey = keys.next();
             int freq = occurrences.get(currentKey);
             if(freq>=minFreq){
                 toReturn+=currentKey+" appeared "+freq+" times\n";
+                totalReusedStructures++;
+                numberOfUsedTimes+=freq;
+                if(mostReusedStructure<freq){
+                    mostReusedStructure = freq;
+                }
             }
         }
+        toReturn="Total reused structures: "+totalReusedStructures +"\n" +
+                "Number of times the structures have been used in the corpus: "+numberOfUsedTimes+"\n"+
+                "Structure most reused was reused "+mostReusedStructure+" times\n"+toReturn;
         return toReturn;
     }
     
@@ -288,11 +310,28 @@ public class LONIWorkflowAndGroupingReuseStatistics {
         String stats;
         //String escienceSam = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\datasetSamuel\\";
         String escienceSam = "LONI_dataset\\datasetSamuel\\";
+        String escienceBoris = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowBoris\\Pipeline123\\";//"C:\\Users\\Dani\\Desktop\\WC1\\Pipeline123\\";//
+        String escienceIVO = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowIVO\\all\\";
+        String escienceMonthly = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\dataset3months(Zhizhong)\\2014-01\\";//"C:\\Users\\Dani\\Desktop\\WC3\\2014-01\\";
+        
         
         stats = "";
+        
+        //boris' stats
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getWorkflowReuse(escienceBoris);
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getGroupingReuse(escienceBoris);
+        
+        //Ivo's stats
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getWorkflowReuse(escienceIVO);
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getGroupingReuse(escienceIVO);
+        
+        //monthly stats
+        stats += new LONIWorkflowAndGroupingReuseStatistics().getWorkflowReuse(escienceMonthly);
+        stats += new LONIWorkflowAndGroupingReuseStatistics().getGroupingReuse(escienceMonthly);
+        
         //stats = "Samuel's dataset\n";
-        //stats += new LONIWorkflowAndGroupingReuseStatistics().getWorkflowReuse(escienceSam);
-        stats += new LONIWorkflowAndGroupingReuseStatistics().getGroupingReuse(escienceSam);
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getWorkflowReuse(escienceSam);
+//        stats += new LONIWorkflowAndGroupingReuseStatistics().getGroupingReuse(escienceSam);
        
         
         System.out.println(stats);

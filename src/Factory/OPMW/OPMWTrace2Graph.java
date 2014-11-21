@@ -19,7 +19,7 @@ import Static.GeneralConstants;
 import Static.Query.QueriesOPMWTraces;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
-import DataStructures.GraphNode.OPMW.GraphNodeTracesOPMW;
+import DataStructures.GraphNode.OPMW.GraphNodeTracesOPMWWings;
 import Factory.GraphCollectionCreator;
 import Static.GeneralMethods;
 import com.hp.hpl.jena.query.QuerySolution;
@@ -139,7 +139,7 @@ public class OPMWTrace2Graph extends GraphCollectionCreator{
                 if(nodes.containsKey(currNode.getURI())){
                     nodes.get(currNode.getURI()).setType(ty);
                 }else{                
-                    nodes.put(currNode.getURI(), new GraphNodeTracesOPMW(currNode.getURI(), ty, countNodes));
+                    nodes.put(currNode.getURI(), new GraphNodeTracesOPMWWings(currNode.getURI(), ty, countNodes));
                     countNodes++;
                     URIs.add(currNode.getURI());
                 }

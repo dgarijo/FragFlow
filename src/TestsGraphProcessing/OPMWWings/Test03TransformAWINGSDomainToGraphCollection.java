@@ -15,7 +15,7 @@
  */
 package TestsGraphProcessing.OPMWWings;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 
 /**
  * This test downloads a whole domain of Wings (specified by the user) and 
@@ -28,7 +28,7 @@ public class Test03TransformAWINGSDomainToGraphCollection {
     public static boolean test(){
         try{
             System.out.println("\n\nExecuting test:"+testNumber+" Transform a Wings Domain To Graph Collection");
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             tp.getGraphCollection().getGraphs().size();
             //as a fact, we know there are 22 templates in this particular domain.

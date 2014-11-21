@@ -21,7 +21,7 @@ import DataStructures.GraphCollection;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.Loni.LoniTemplate2Graph;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
 import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;

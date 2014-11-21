@@ -167,7 +167,11 @@ public class LoniTemplateAndGroupings2Graph extends GraphCollectionCreator{
             if(currentModule.getParentNode().getNodeName().equals("pipeline")){
                 g.setName(GeneralConstants.PREFIX_FOR_RDF_GENERATION+GeneralMethods.encode(uri));
             }
-            this.collection.addSubGraph(g);
+            if(g.getNodes().size()<=1){
+                System.out.println("Structure with only one node!");
+            }else{
+                this.collection.addSubGraph(g);
+            }
         }
     }catch(Exception e){
         System.out.println("Error while parsing the input "+e.getMessage());

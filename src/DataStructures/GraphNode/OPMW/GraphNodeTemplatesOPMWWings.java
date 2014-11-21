@@ -22,7 +22,7 @@ import Static.Vocabularies.OPMWTemplate;
  * Extension of the GraphNode for modeling nodes of the templates in OPMW.
  * @author Daniel Garijo
  */
-public class GraphNodeTemplatesOPMW extends GraphNode{
+public class GraphNodeTemplatesOPMWWings extends GraphNode{
     
     /**
      * Constructor
@@ -30,7 +30,7 @@ public class GraphNodeTemplatesOPMW extends GraphNode{
      * @param type
      * @param numberInGraph 
      */
-    public GraphNodeTemplatesOPMW(String URI, String type, int numberInGraph) {        
+    public GraphNodeTemplatesOPMWWings(String URI, String type, int numberInGraph) {        
         super(URI, type, numberInGraph);
     }
 

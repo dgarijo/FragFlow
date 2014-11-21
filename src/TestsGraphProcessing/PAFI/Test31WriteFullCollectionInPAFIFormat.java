@@ -19,7 +19,7 @@
  */
 package TestsGraphProcessing.PAFI;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PAFI.GraphCollectionWriterPAFI;
 
 /**
@@ -31,7 +31,7 @@ public class Test31WriteFullCollectionInPAFIFormat {
     public static boolean test(){
         try{
             System.out.println("\n\nExecuting test:"+testNumber+" Save collection in PAFI format");
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             GraphCollectionWriterPAFI writer = new GraphCollectionWriterPAFI();
 //          writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");

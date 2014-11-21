@@ -23,7 +23,7 @@ import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.Loni.LoniTemplate2Graph;
 import Factory.Loni.LoniTemplateAndGroupings2Graph;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.DatasetFilter;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;

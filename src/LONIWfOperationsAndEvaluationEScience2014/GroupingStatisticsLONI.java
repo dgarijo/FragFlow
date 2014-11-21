@@ -121,24 +121,24 @@ public class GroupingStatisticsLONI {
         return returnValue;
     }
     
-    public static String getStatsFromFolder(String folderPath){
-        GroupingStatisticsLONI g = new GroupingStatisticsLONI(folderPath);
-        File f = new File(folderPath);
-        if(f.isDirectory()){
-            File[] files = f.listFiles();
-            for(int i=0;i<files.length;i++){
-                g.getGroupingsFromFile(files[i].getName());
-            }
-        }
-        return g.printStats();
-    }
+//    public static String getStatsFromFolder(String folderPath){
+//        GroupingStatisticsLONI g = new GroupingStatisticsLONI(folderPath);
+//        File f = new File(folderPath);
+//        if(f.isDirectory()){
+//            File[] files = f.listFiles();
+//            for(int i=0;i<files.length;i++){
+//                g.getGroupingsFromFile(files[i].getName());
+//            }
+//        }
+//        return g.printStats();
+//    }
     
     
     
     /**
      * Given a filteredCollection, we calculate the stats for ONLY those templates
      * in the filtered collection, which are the ones that are meaningful
-     * @param gc
+     * @param folderPath
      * @return 
      */
     public static String getStatsFilteredFolder(String folderPath){

@@ -276,7 +276,7 @@ public class GeneralMethods {
     }
     
     /**
-     * Method to remove "[#,_, ,-]" from the input 
+     * Method to remove "[#,_, ,-,(,),<,>]" from the input 
      * @param input
      * @return 
      */
@@ -288,6 +288,10 @@ public class GeneralMethods {
         input = input.replace(",", "");
         input = input.replace(" ", "");
         input = input.replace("-", "");
+        input = input.replace("(", "");
+        input = input.replace(")", "");
+        input = input.replace(">", "");
+        input = input.replace("<", "");
         return input;
     }
     

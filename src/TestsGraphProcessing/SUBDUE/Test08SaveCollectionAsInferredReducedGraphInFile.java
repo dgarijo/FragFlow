@@ -17,7 +17,7 @@
 package TestsGraphProcessing.SUBDUE;
 
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -42,7 +42,7 @@ public class Test08SaveCollectionAsInferredReducedGraphInFile {
             String taxonomyFilePath = "src\\TestFiles\\multiDomainOnto.owl"; //we assume the file has already been created.
             String outputFilePath = "TestAbstractFragmentGraphCollection";
             //process the domain
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph(endpoint);
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings(endpoint);
             tp.transformDomainToGraph(domain);
             if(tp.getGraphCollection().getNumberOfSubGraphs()>1){
                 //create the hashmap for replacements with the taxonomy

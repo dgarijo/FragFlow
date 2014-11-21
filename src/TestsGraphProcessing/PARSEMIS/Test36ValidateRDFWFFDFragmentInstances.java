@@ -19,7 +19,7 @@
  */
 package TestsGraphProcessing.PARSEMIS;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
 import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
 import Static.GeneralMethods;
@@ -40,7 +40,7 @@ public class Test36ValidateRDFWFFDFragmentInstances {
            CreateStatisticsFromResultsPARSEMIS c = new CreateStatisticsFromResultsPARSEMIS("Text analytics", true, false, resultFile); 
            FragmentCatalogAndResultsToRDFPARSEMIS aux = new FragmentCatalogAndResultsToRDFPARSEMIS("testPafiRDF.ttl");
            aux.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
-           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+           OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
            aux.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), test.getGraphCollection());            

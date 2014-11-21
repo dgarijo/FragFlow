@@ -87,7 +87,7 @@ public class GraphWriterSUBDUE extends GraphWriter{
     public void writeReducedGraphToFile(Graph g, BufferedWriter out, int nodeCount, HashMap replacements)throws IOException{
         out.write("%Processing: "+g.getName());
         out.newLine();
-        System.out.println("%Writting: "+g.getName());
+        System.out.println("%Writing: "+g.getName());
         Iterator<String> it = g.getURIs().iterator();
         HashMap<String,GraphNode> nodes = g.getNodes();
         String[][] adjacencyMatrix = g.getAdjacencyMatrix();

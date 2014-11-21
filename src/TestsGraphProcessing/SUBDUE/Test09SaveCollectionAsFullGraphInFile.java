@@ -15,7 +15,7 @@
  */
 package TestsGraphProcessing.SUBDUE;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 
 /**
@@ -28,7 +28,7 @@ public class Test09SaveCollectionAsFullGraphInFile {
     public static boolean test(){
         System.out.println("\n\nExecuting test:"+testNumber+" Saving a collection as a full graph file.");
         try{
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             GraphCollectionWriterSUBDUE writer = new GraphCollectionWriterSUBDUE();
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){

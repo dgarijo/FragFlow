@@ -16,7 +16,7 @@
 package MainGraphProcessingScripts.SUBDUE;
 
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import Factory.OPMW.OPMWTrace2Graph;
 import IO.Formats.SUBDUE.GraphCollectionWriterSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -44,7 +44,7 @@ public class STEP1OPMWTemplates2SUBDUE {
 //        esta clase se deberia llamar preprocessing
             
             //TESTS FOR THE EVALUATION OF THE TEMPLATES.
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             //write down results (no inference, no taxonomy)
 //            tp.getGraphCollection().writeFullGraphsToFile("Text_Analytics_Graph_No_Inference_Templates");

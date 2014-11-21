@@ -19,7 +19,7 @@
  */
 package TestsGraphProcessing.PAFI;
 import DataStructures.Fragment;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PAFI.FragmentCatalogAndResultsToRDFPAFI;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
 import PostProcessing.Formats.PAFI.FixDirectionOfFragmentCatalog;
@@ -47,7 +47,7 @@ public class Test30ValidateRDFWFFDFragmentInstances {
            FragmentCatalogAndResultsToRDFPAFI aux = new FragmentCatalogAndResultsToRDFPAFI("testPafiRDF.ttl");
            ArrayList<Fragment> filteredFixedFragmentCatalog = FixDirectionOfFragmentCatalog.fixDirectionOfCatalogWithOPMWTemplates(Configuration.getPAFIInputPath()+"CollectionInPAFIFormat", c.getFilteredMultiStepFragments(),c.getFragmentsInTransactions(), false);
            aux.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
-           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+           OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
            aux.transformBindingResultsInTemplateCollection(filteredFixedFragmentCatalog, test.getGraphCollection());            

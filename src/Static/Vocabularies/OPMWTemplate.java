@@ -38,5 +38,8 @@ public class OPMWTemplate {
     
     public static final String USES = PREFIX_OPMW+"uses";
     public static final String IS_GEN_BY = PREFIX_OPMW+"isGeneratedBy";
+    
+    public static final String DATA_VARIABLE = PREFIX_OPMW+"DataVariable";
+    public static final String WORFKLOW_TEMPLATE_PROCESS = PREFIX_OPMW+"WorkflowTemplateProcess";
             
 }

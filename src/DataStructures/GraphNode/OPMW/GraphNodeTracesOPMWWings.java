@@ -21,7 +21,7 @@ import DataStructures.GraphNode.GraphNode;
  * Extension of GraphNode to represent traces in OPMW.
  * @author Daniel Garijo
  */
-public class GraphNodeTracesOPMW extends GraphNode{
+public class GraphNodeTracesOPMWWings extends GraphNode{
     
     /**
      * Constructor
@@ -29,7 +29,7 @@ public class GraphNodeTracesOPMW extends GraphNode{
      * @param type
      * @param numberInGraph 
      */
-    public GraphNodeTracesOPMW(String URI, String type, int numberInGraph) {      
+    public GraphNodeTracesOPMWWings(String URI, String type, int numberInGraph) {      
         super(URI, type, numberInGraph);
     }
 

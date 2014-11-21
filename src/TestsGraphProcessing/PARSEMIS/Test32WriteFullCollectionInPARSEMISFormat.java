@@ -15,7 +15,7 @@
  */
 package TestsGraphProcessing.PARSEMIS;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PARSEMIS.GraphCollectionWriterPARSEMIS;
 
 /**
@@ -27,7 +27,7 @@ public class Test32WriteFullCollectionInPARSEMISFormat {
     public static boolean test(){
         try{
             System.out.println("\n\nExecuting test:"+testNumber+" Save collection in Parsemis format");
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");
             GraphCollectionWriterPARSEMIS writer = new GraphCollectionWriterPARSEMIS();
 //          writer.writeReducedGraphsToFile(tp.getGraphCollection(), "TestSaveCollectionAsReducedlGraphInFile");

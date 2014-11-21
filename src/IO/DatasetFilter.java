@@ -37,6 +37,7 @@ public class DatasetFilter {
             while(it2.hasNext()&&!repeated){
                 Graph graphToCompare = it2.next();
                 if(currentG.equalsGraph(graphToCompare)){
+                    System.out.println(currentG.getName()+ " is equal to "+ graphToCompare.getName());
                     repeated = true;
                 }
             }

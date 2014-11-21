@@ -205,8 +205,8 @@ public class FragmentAndGroupingOverlapLONI {
 //        f = new File(repositoryFolder);
 //        if(f.isDirectory()){
 //            File[] files = f.listFiles();
-//            for(int i=0;i<files.length;i++){
-//                test.transformToGraph(files[i].getName());
+//            for (File file : files) {
+//                test.transformToGraph(file.getName());
 //            }
 //        }
 //        endCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
@@ -219,29 +219,9 @@ public class FragmentAndGroupingOverlapLONI {
 //        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,47);
         
         //Corpus2 (Ivo)
-//        repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowIVO\\all\\";
-////        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2MDL", occurrencesFile+"corpus2MDL_occurrences");
-//        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2SIZE", occurrencesFile+"corpus2SIZE_occurrences");
-//        LoniTemplateAndGroupings2Graph test = new LoniTemplateAndGroupings2Graph(repositoryFolder);
-//        f = new File(repositoryFolder);
-//        if(f.isDirectory()){
-//            File[] files = f.listFiles();
-//            for(int i=0;i<files.length;i++){
-//                test.transformToGraph(files[i].getName());
-//            }
-//        }
-//        endCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
-//        System.out.println("Total size of collection with groupings "+endCollection.getGraphs().size());
-//        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
-//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
-//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,5);
-//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,10);
-        
-        //Corpus3 (Monthly)
-        //to do when I get the last evaluations.
-        repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\dataset3months(Zhizhong)\\2014-01\\";
+        repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowIVO\\all\\";
 //        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2MDL", occurrencesFile+"corpus2MDL_occurrences");
-        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus3MDL", occurrencesFile+"corpus3MDL_occurrences");
+        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2SIZE", occurrencesFile+"corpus2SIZE_occurrences");
         LoniTemplateAndGroupings2Graph test = new LoniTemplateAndGroupings2Graph(repositoryFolder);
         f = new File(repositoryFolder);
         if(f.isDirectory()){
@@ -252,11 +232,31 @@ public class FragmentAndGroupingOverlapLONI {
         }
         endCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
         System.out.println("Total size of collection with groupings "+endCollection.getGraphs().size());
-        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
-        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
-        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,7);
-        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,18);
-        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,35);
+//        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,5);
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,10);
+        
+        //Corpus3 (Monthly)
+        //to do when I get the last evaluations.
+//        repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\dataset3months(Zhizhong)\\2014-01\\";
+////        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2MDL", occurrencesFile+"corpus2MDL_occurrences");
+//        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus3MDL", occurrencesFile+"corpus3MDL_occurrences");
+//        LoniTemplateAndGroupings2Graph test = new LoniTemplateAndGroupings2Graph(repositoryFolder);
+//        f = new File(repositoryFolder);
+//        if(f.isDirectory()){
+//            File[] files = f.listFiles();
+//            for (File file : files) {
+//                test.transformToGraph(file.getName());
+//            }
+//        }
+//        endCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
+//        System.out.println("Total size of collection with groupings "+endCollection.getGraphs().size());
+//        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,7);
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,18);
+//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,35);
     }
     
 }

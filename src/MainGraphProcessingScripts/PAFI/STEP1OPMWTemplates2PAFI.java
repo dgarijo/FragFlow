@@ -20,7 +20,7 @@
 package MainGraphProcessingScripts.PAFI;
 
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PAFI.GraphCollectionWriterPAFI;
 import Static.Configuration;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -38,7 +38,7 @@ import java.util.HashMap;
 public class STEP1OPMWTemplates2PAFI {
     public static void main(String[] args){
         try{            
-            OPMWTemplate2Graph tp = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings tp = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             tp.transformDomainToGraph("TextAnalytics");        
             GraphCollectionWriterPAFI writer = new GraphCollectionWriterPAFI();            
             if (tp.getGraphCollection().getNumberOfSubGraphs()>1){

@@ -19,7 +19,7 @@
  */
 package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import IO.Formats.SUBDUE.FragmentCollectionReaderSUBDUE;
 import PostProcessing.Formats.SUBDUE.FragmentToSPARQLQueryTemplateSUBDUE;
@@ -54,7 +54,7 @@ public class Test21ValidateFoundFragments5 {
         //If any of the tests give results that are not okay, then we have a problem
         //with the detection and binding of fragments.
         try{
-            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+            OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
             test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/SIMPLE");
             String file = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake3";
             String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReducedFake3_occurrences";

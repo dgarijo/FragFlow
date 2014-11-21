@@ -23,7 +23,7 @@ import DataStructures.Graph;
 import DataStructures.GraphCollection;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -44,7 +44,7 @@ public class Test22Graph2OPMWTemplate {
         System.out.println("\n\nExecuting test:"+testNumber+" Graph to OPMW transformation");
         try{
             
-            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             //test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
             test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
             Graph testGraph = test.getGraphCollection().getGraphs().get(0);

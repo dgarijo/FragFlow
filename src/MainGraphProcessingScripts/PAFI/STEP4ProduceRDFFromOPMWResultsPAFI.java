@@ -19,7 +19,7 @@ import DataStructures.Fragment;
 import DataStructures.GraphCollection;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PAFI.FragmentCatalogAndResultsToRDFPAFI;
 import PostProcessing.Formats.PAFI.CreateStatisticsFromResultsPAFI;
@@ -50,7 +50,7 @@ public class STEP4ProduceRDFFromOPMWResultsPAFI{
         //transformation of the fragment catalog to RDF.
         catalogInRdf.transformFragmentCollectionToRDF(filteredFixedFragmentCatalog);
         //now we find where the fragments have been found and we 
-        OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+        OPMWTemplate2GraphWings fullCollection = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
         fullCollection.transformDomainToGraph("TextAnalytics");
         
         //pero animal, si sabes en que templates sale cada fragmento, no le pases la coleccion entera...

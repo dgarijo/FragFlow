@@ -21,7 +21,7 @@ import DataStructures.GraphNode.GraphNode;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
 import Factory.Loni.LoniTemplate2Graph;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.OPMW.Graph2OPMWRDFModel;
 import Static.GeneralConstants;
@@ -98,7 +98,7 @@ public class FixDirectionOfFragmentCatalog {
 //            System.out.println("Fragment "+currF.getStructureID());
             String fragmentFoundIn = occurrencesOfFragments.get(currF.getStructureID()).get(0); 
             //we just query the first structure where it appears (no need for more for fixing the direction of the fragments)
-            OPMWTemplate2Graph downloadedTemplate = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+            OPMWTemplate2GraphWings downloadedTemplate = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
             downloadedTemplate.transformToGraph(numberOfUriAndURI.get(fragmentFoundIn));
             OntModel o2;
             if(isAbstract){

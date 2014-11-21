@@ -26,7 +26,7 @@ import java.util.HashMap;
  * Dataset: Samuel
  * @author Daniel Garijo
  */
-public class VisualizeFragmentsExtension {
+public class VisualizeLONIFragmentsExtension {
     public static void main(String[] args){
         String file = TestConstants.SUBDUEResultFolder+"eScienceResultsAdditional(Samuel)\\";
         String ocFile = TestConstants.SUBDUEResultFolder +"eScienceResultsAdditional(Samuel)\\";

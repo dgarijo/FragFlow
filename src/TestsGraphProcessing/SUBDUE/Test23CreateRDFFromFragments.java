@@ -23,7 +23,7 @@ import DataStructures.Fragment;
 import DataStructures.GraphCollection;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import com.hp.hpl.jena.ontology.OntModel;
@@ -47,7 +47,7 @@ public class Test23CreateRDFFromFragments {
     public static boolean test(){
         System.out.println("\n\nExecuting test:"+testNumber+" Creating RDF from fragment catalog");
         try{            
-           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+           OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
            test.transformDomainToGraph("TextAnalytics");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";
            String ocFile = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2_occurrences";

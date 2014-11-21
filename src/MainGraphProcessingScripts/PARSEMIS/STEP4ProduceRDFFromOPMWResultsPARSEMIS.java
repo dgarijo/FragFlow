@@ -18,7 +18,7 @@ package MainGraphProcessingScripts.PARSEMIS;
 import DataStructures.GraphCollection;
 import Factory.Inference.CreateAbstractResource;
 import Factory.Inference.CreateHashMapForInference;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Exception.FragmentReaderException;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
 import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
@@ -43,7 +43,7 @@ public class STEP4ProduceRDFFromOPMWResultsPARSEMIS {
         //transformation of the fragment catalog to RDF.
         catalogToRDF.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
 
-        OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+        OPMWTemplate2GraphWings fullCollection = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
         fullCollection.transformDomainToGraph("TextAnalytics");
         catalogToRDF.transformBindingResultsInTemplateCollection(c.getFilteredMultiStepFragments(), fullCollection.getGraphCollection());            
         

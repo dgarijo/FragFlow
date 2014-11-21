@@ -17,7 +17,7 @@ package IO.Formats.PARSEMIS;
 
 import DataStructures.Graph;
 import DataStructures.GraphCollection;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.GraphCollectionWriter;
 import IO.Exception.CollectionWriterException;
 import java.io.BufferedWriter;

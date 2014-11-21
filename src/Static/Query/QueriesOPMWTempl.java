@@ -32,6 +32,21 @@ public class QueriesOPMWTempl {
         return query;
     }
     
+    /**
+     * This query is for those workflows in a file specified in rdf/xml.
+     * We want to retrieve all the data variables and steps.
+     * @return 
+     */
+    public static String getAllWTArtifactsAndTypesOfTemplate(){
+        String query = "SELECT distinct ?node ?type WHERE{"
+                + "{?node a <"+OPMWTemplate.DATA_VARIABLE+">."
+                + "?node a ?type}"
+                + "UNION"
+                + "{?node a <"+OPMWTemplate.WORFKLOW_TEMPLATE_PROCESS+">."
+                + "?node a ?type}"
+                + "}";                
+        return query;
+    }
     public static String getWTArtifactsAndTypesOfTemplate(String templateURI){
         String query = "SELECT distinct ?node ?type WHERE{"
                 + "{?node <"+OPMWTemplate.IS_VAR_OF_TEMPL+"> <"+templateURI+">."
@@ -45,10 +60,34 @@ public class QueriesOPMWTempl {
                 + "}";                
         return query;
     }
+    
+    /**
+     * Retrieves all usages from a template, without the "is step from template"
+     * relationship. Needed when loading single templates from files.
+     * @return 
+     */
+    public static String getAllUsagesOfTemplate(){
+        String query = "SELECT distinct ?process ?artif WHERE{"
+                + "?process <"+OPMWTemplate.USES+"> ?artif."
+                + "}";                
+        return query;
+    }
     public static String getUsagesOfTemplate(String templateURI){
         String query = "SELECT distinct ?process ?artif WHERE{"
                 + "?process <"+OPMWTemplate.USES+"> ?artif."
                 + "?process <"+OPMWTemplate.IS_STEP_OF_TEMPL+"> <"+templateURI+">."
+                + "}";                
+        return query;
+    }
+    
+    /**
+     * Retrieves all usages from a template, without the "is step from template"
+     * relationship. Needed when loading single templates from files.
+     * @return 
+     */
+    public static String getAllGenerationsOfTemplate(){
+        String query = "SELECT distinct ?artif ?process WHERE{"
+                + "?artif <"+OPMWTemplate.IS_GEN_BY+"> ?process."
                 + "}";                
         return query;
     }

@@ -19,44 +19,50 @@ import Static.GeneralConstants;
 import Static.Query.QueriesOPMWTempl;
 import DataStructures.Graph;
 import DataStructures.GraphNode.GraphNode;
-import DataStructures.GraphNode.OPMW.GraphNodeTemplatesOPMW;
+import DataStructures.GraphNode.OPMW.GraphNodeTemplatesOPMWTaverna;
 import Factory.GraphCollectionCreator;
 import Static.GeneralMethods;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Class to process OPMW templates into Graphs
+ * Class to process OPMW templates into Graphs.
+ * Specialization for the Tavenra Workflows provided by Beatriz Garcia and
+ * Mark Wilkinson.
  * @author Daniel Garijo
  */
-public class OPMWTemplate2Graph extends GraphCollectionCreator{
+public class OPMWTemplate2GraphTaverna extends GraphCollectionCreator{
 
     /**
      * Creation method
-     * @param repositoryURI 
+     * @param folderName 
      */
-    public OPMWTemplate2Graph(String repositoryURI) {
-        super(repositoryURI);
-    }
-    
-    @Override
-    public void transformDomainToGraph(String domain){
-        ResultSet rs = GeneralMethods.queryOnlineRepository(repositoryURI,QueriesOPMWTempl.getTemplatesFromSpecificDomain(domain) );        
-        while (rs.hasNext()){
-            QuerySolution qs = rs.next();
-            Resource currentTrace = qs.getResource("?templ");
-//            System.out.println(currentTrace.getURI());
-            this.transformToGraph(currentTrace.getURI());
-        }
+    public OPMWTemplate2GraphTaverna(String folderName) {
+        super(folderName);
     }    
 
     @Override
-    public void transformToGraph(String URI) {
+    public void transformToGraph(String fileName) {
         int countNodes = 1;
-        System.out.println("Processing "+ URI);        
+        System.out.println("Processing "+ fileName);        
+        
+        //load the rdf file into a repository, locally
+        OntModel currentWorkflow = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+        try{
+            currentWorkflow.read(new FileInputStream(this.repositoryURI+File.separator+fileName),"http://example.org");
+        }catch(Exception e){
+            System.err.println("Error while reading the file "+fileName+". Mesage: "+e.getMessage());
+            return;
+        }
         //we store the ordered list in the arrayList. We store the types, etc in the 
         //hashmap. This way we avoid consecutive searches (using the hashmap), and 
         //reordering at the end.
@@ -64,7 +70,7 @@ public class OPMWTemplate2Graph extends GraphCollectionCreator{
         HashMap<String,GraphNode> nodes = new HashMap<String, GraphNode>();
         //retrieve NODES: variables, parameters (wtArtifacts) and wtProcesses and their types 
         //v NUMBER LABEL(type)
-        ResultSet nodesAndTypes = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTempl.getWTArtifactsAndTypesOfTemplate(URI));        
+        ResultSet nodesAndTypes = GeneralMethods.queryLocalRepository(currentWorkflow, QueriesOPMWTempl.getAllWTArtifactsAndTypesOfTemplate());        
         //clean types in nodes. We can only have 1 type on the graph.
         
         while(nodesAndTypes.hasNext()){
@@ -74,7 +80,7 @@ public class OPMWTemplate2Graph extends GraphCollectionCreator{
             if(nodes.containsKey(currNode.getURI())){
                 nodes.get(currNode.getURI()).setType(type.getURI());
             }else{
-                nodes.put(currNode.getURI(), new GraphNodeTemplatesOPMW(currNode.getURI(), type.getURI(), countNodes));
+                nodes.put(currNode.getURI(), new GraphNodeTemplatesOPMWTaverna(currNode.getURI(), type.getURI(), countNodes));
                 countNodes++;
                 URIs.add(currNode.getURI());
             }
@@ -83,9 +89,9 @@ public class OPMWTemplate2Graph extends GraphCollectionCreator{
             //retrieve EDGES: uses, isGeneratedBy
             //d NUMBER NUMBER
             //creation of adjacency Matrix
-            ResultSet usages = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTempl.getUsagesOfTemplate(URI));
+            ResultSet usages = GeneralMethods.queryLocalRepository(currentWorkflow, QueriesOPMWTempl.getAllUsagesOfTemplate());
             
-            ResultSet generations = GeneralMethods.queryOnlineRepository(repositoryURI, QueriesOPMWTempl.getGenerationsOfTemplate(URI));
+            ResultSet generations = GeneralMethods.queryLocalRepository(currentWorkflow, QueriesOPMWTempl.getAllGenerationsOfTemplate());
             
             String[][] adjacencyMatrix = new String[countNodes][countNodes]; //we ignore the [0][0] lines            
         
@@ -104,15 +110,31 @@ public class OPMWTemplate2Graph extends GraphCollectionCreator{
                 Resource artifact = qs.getResource("?artif");
 //                System.out.println("d "+nodes.get(artifact.getURI()).getNumberInGraph()+" "+ nodes.get(process.getURI()).getNumberInGraph()+" igb");
                 adjacencyMatrix [nodes.get(artifact.getURI()).getNumberInGraph()][nodes.get(process.getURI()).getNumberInGraph()] = GeneralConstants.GENERATION_DEPENDENCY;
+            }        
+            Graph graph = new Graph(URIs, nodes, adjacencyMatrix, fileName);
+            graph.putReducedNodesInAdjacencyMatrix();//to ease up things
+            
+            //if the number of infomr dependencies is 0, discard the workflow.
+            if(countNumberOfInformDependencies(graph)>0){
+                this.collection.addSubGraph(graph);
             }
-                       
-            Graph graph = new Graph(URIs, nodes, adjacencyMatrix, URI);            
-            this.collection.addSubGraph(graph);
         }catch(Exception e){
-            System.out.println("Error while writting the results: "+e.getMessage());
+            System.out.println("Error while writing the results: "+e.getMessage());
         }
         
-        
+    }
+    
+    private int countNumberOfInformDependencies(Graph g){
+        String[][] adjMatrix = g.getAdjacencyMatrix();
+        int count =0 ;
+        for(int i=0; i< adjMatrix.length; i++){
+            for(int j=0; j< adjMatrix.length;j++){
+                if(adjMatrix[i][j]!=null && adjMatrix[i][j].equals(GeneralConstants.INFORM_DEPENDENCY)){
+                    count++;
+                }
+            }
+        }
+        return count;
     }
     
 }

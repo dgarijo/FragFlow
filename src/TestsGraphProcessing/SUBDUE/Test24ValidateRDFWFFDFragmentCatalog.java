@@ -15,7 +15,7 @@
  */
 package TestsGraphProcessing.SUBDUE;
 import DataStructures.Fragment;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.SUBDUE.FragmentCatalogAndResultsToRDFSUBDUE;
 import PostProcessing.Formats.SUBDUE.CreateStatisticsFromResultsSUBDUE;
 import Static.GeneralMethods;
@@ -36,7 +36,7 @@ public class Test24ValidateRDFWFFDFragmentCatalog {
     public static boolean test(){        
        try{
            System.out.println("\n\nExecuting test:"+testNumber+" Testing the RDF created from the catalog");
-           OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+           OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
 //           test.transformDomainToGraph("TextAnalytics");
            test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/DOCUMENTCLASSIFICATION_MULTI");
            String file = "SUBDUE_TOOL\\results\\Tests\\testResultReduced2";

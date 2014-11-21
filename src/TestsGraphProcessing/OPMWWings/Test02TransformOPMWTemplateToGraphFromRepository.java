@@ -16,7 +16,7 @@
 package TestsGraphProcessing.OPMWWings;
 
 import DataStructures.Graph;
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 
 /**
  * Test that given an OPMW template URI, retrieves it and transforms it into 
@@ -29,7 +29,7 @@ public class Test02TransformOPMWTemplateToGraphFromRepository {
     public static boolean test(){
         try{
             System.out.println("\n\nExecuting test:"+testNumber+" Transformation of an OPMW template to graph from the Wings repository");
-            OPMWTemplate2Graph test = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");
+            OPMWTemplate2GraphWings test = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");
             test.transformToGraph("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION");
             Graph template = test.getGraphCollection().getGraphs().get(0);
             if(template.getName().equals("http://www.opmw.org/export/resource/WorkflowTemplate/FEATUREGENERATION")) return true;

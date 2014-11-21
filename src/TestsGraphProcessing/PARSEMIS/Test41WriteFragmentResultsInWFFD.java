@@ -15,7 +15,7 @@
  */
 package TestsGraphProcessing.PARSEMIS;
 
-import Factory.OPMW.OPMWTemplate2Graph;
+import Factory.OPMW.OPMWTemplate2GraphWings;
 import IO.Formats.PARSEMIS.FragmentCatalogAndResultsToRDFPARSEMIS;
 import PostProcessing.Formats.PARSEMIS.CreateStatisticsFromResultsPARSEMIS;
 
@@ -34,7 +34,7 @@ public class Test41WriteFragmentResultsInWFFD {
             //transformation of the fragment catalog to RDF.
             catalogInRdf.transformFragmentCollectionToRDF(c.getFilteredMultiStepFragments());
             //now we find where the fragments have been found and we 
-            OPMWTemplate2Graph fullCollection = new OPMWTemplate2Graph("http://wind.isi.edu:8890/sparql");    
+            OPMWTemplate2GraphWings fullCollection = new OPMWTemplate2GraphWings("http://wind.isi.edu:8890/sparql");    
             fullCollection.transformDomainToGraph("TextAnalytics");
 
             //pero animal, si sabes en que templates sale cada fragmento, no le pases la coleccion entera...
