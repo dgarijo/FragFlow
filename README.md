@@ -1,4 +1,4 @@
-MotifGraphProcessor
+FragFlow
 ===================
 
 Project designed for finding internal macro and composite workflow motifs in scientific workflow, defined according to 
