@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="MAQMapper_1.Outputmappingfile" sink="SamToolsmaq2sam-long_1.InputlistfileofMAPFiles" />
+                <connection source="SamToolsmaq2sam-long_1.OutputSAMfile" sink="MAQSAMtoolsOutputs_1.Input" />
+                <connection source="MAQMapper_1.Outputmappingfile" sink="MAQMAPOutput_1.Input" />
+                <connection source="FowardBFQ_1.Output" sink="MAQMapper_1.ForwardReads" />
+                <connection source="MAQFasta2BfaConverter_1.Outputbinaryfastafilebfa" sink="MAQMapper_1.InputBFAReference" />
+                <connection source="ReverseBFQ_1.Output" sink="MAQMapper_1.ReverseReads" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="MAQFasta2BfaConverter_1.InputfastaReferencefie" />
+        </connections>
+        <icons>
+                <icon id="1" value="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&#xA;vxLlxzsUg7J7AAAAAElFTkSuQmCC" />
+                <icon id="0" value="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&#xA;778A9kmA5oLhKtUAAAAASUVORK5CYII=" />
+        </icons>
+        <moduleGroup id="MAQ_1" name="MAQ" posX="0" posY="0" sourceCode="">
+                <metadata>
+                        <data key="__creationDateKey" value="Mon Jul 18 19:18:08 PDT 2011" />
+                </metadata>
+                <module id="SamToolsmaq2sam-long_1" name="SamTools: maq2sam-long" package="SamTools" version="0.1.10" description="SAM (Sequence Alignment/Map) tools is a flexible generic format for storing nucleotide sequence alignment. SAM tools provide efficient utilities on manipulating alignments in the SAM format. &#xA;&#xA;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. " icon="0" posX="420" posY="641" sourceCode="" location="pipeline://cranium.loni.usc.edu/maq2sam-long.csh" executableVersion="r783">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 19505943</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://sourceforge.net/projects/samtools/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <output id="SamToolsmaq2sam-long_1.OutputSAMfile" name="Output SAM file" description="samtools view -bt ref_list.txt -o aln.bam aln.sam.gz &#xA;&#xA;-t FILE &#x9;This file is TAB-delimited. Each line must contain the reference name and the length of the reference, one line for each distinct reference; additional fields are ignored. This file also defines the order of the reference sequences in sorting. If you run ‘samtools faidx &lt;ref.fa&gt;’, the resultant index file &lt;ref.fa&gt;.fai can be used as this &lt;in.ref_list&gt; file." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SamToolsmaq2sam-long_1.InputlistfileofMAPFiles" name="Input list file of MAP Files" description="samtools view -bt ref_list.txt -o aln.bam aln.sam.gz &#xA;&#xA;-t FILE &#x9;This file is TAB-delimited. Each line must contain the reference name and the length of the reference, one line for each distinct reference; additional fields are ignored. This file also defines the order of the reference sequences in sorting. If you run ‘samtools faidx &lt;ref.fa&gt;’, the resultant index file &lt;ref.fa&gt;.fai can be used as this &lt;in.ref_list&gt; file." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="map" extension="map" description="fasta mapping file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SamToolsmaq2sam-long_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <license>http://sourceforge.net/projects/samtools/
+BSD</license>
+                </module>
+                <dataModule id="MAQSAMtoolsOutputs_1" name="MAQ SAMtools Outputs" package="MAQ" version="0.7.1" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." posX="464" posY="818" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <tag />
+                        <uri>http://maq.sourceforge.net/maq-man.shtml#use</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Nov 19 13:31:31 PST 2010" />
+                        </metadata>
+                        <input id="MAQSAMtoolsOutputs_1.Input" name="Input" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/tmp/{$username}/Alignment_MAQ/s_1_sequence.1k.sam</value>
+                        </values>
+                </dataModule>
+                <dataModule id="MAQMAPOutput_1" name="MAQ MAP Output" package="MAQ" version="0.7.1" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." posX="208" posY="812" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <tag />
+                        <uri>http://maq.sourceforge.net/maq-man.shtml#use</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Nov 19 13:31:31 PST 2010" />
+                        </metadata>
+                        <input id="MAQMAPOutput_1.Input" name="Input" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="map" extension="map" description="fasta mapping file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="map" extension="map" description="fasta mapping file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/tmp/{$username}/Alignment_MAQ/s_1_sequence.1k.map</value>
+                        </values>
+                </dataModule>
+                <module id="MAQMapper_1" name="MAQ Mapper" package="MAQ" version="0.7.1" description="Usage:   maq map [options] &lt;out.map&gt; &lt;chr.bfa&gt; &lt;reads_1.bfq&gt; [reads_2.bfq]&#xA;&#xA;Options: -1 INT      length of the first read (&lt;=127) [0]&#xA;         -2 INT      length of the second read (&lt;=127) [0]&#xA;         -m FLOAT    rate of difference between reads and references [0.001]&#xA;         -e INT      maximum allowed sum of qualities of mismatches [70]&#xA;         -d FILE     adapter sequence file [null]&#xA;         -a INT      max distance between two paired reads [250]&#xA;         -A INT      max distance between two RF paired reads [0]&#xA;         -n INT      number of mismatches in the first 24bp [2]&#xA;         -M c|g      methylation alignment mode [null]&#xA;         -u FILE     dump unmapped and poorly aligned reads to FILE [null]&#xA;         -H FILE     dump multiple/all 01-mismatch hits to FILE [null]&#xA;         -C INT      max number of hits to output. &gt;512 for all 01 hits. [250]&#xA;         -s INT      seed for random number generator [random]&#xA;         -W          disable Smith-Waterman alignment&#xA;         -t          trim all reads (usually not recommended)&#xA;         -c          match in the colorspace&#xA;&#xA;Maq is a software that builds mapping assemblies from short reads generated by the next-generation sequencing machines. It is particularly designed for Illumina-Solexa 1G Genetic Analyzer, and has preliminary functions to handle ABI SOLiD data.&#xA;&#xA;The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." icon="1" posX="319" posY="477" sourceCode="" location="pipeline://cranium.loni.usc.edu/maq" gridVariables="h_vmem=8">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 2181060</citation>
+                                <citation>PMID: 18714091</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://maq.sourceforge.net/maq-man.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <input id="MAQMapper_1.Options" name="Options" description="Options: -1 INT      length of the first read (&lt;=127) [0]&#xA;         -2 INT      length of the second read (&lt;=127) [0]&#xA;         -m FLOAT    rate of difference between reads and references [0.001]&#xA;         -e INT      maximum allowed sum of qualities of mismatches [70]&#xA;         -d FILE     adapter sequence file [null]&#xA;         -a INT      max distance between two paired reads [250]&#xA;         -A INT      max distance between two RF paired reads [0]&#xA;         -n INT      number of mismatches in the first 24bp [2]&#xA;         -M c|g      methylation alignment mode [null]&#xA;         -u FILE     dump unmapped and poorly aligned reads to FILE [null]&#xA;         -H FILE     dump multiple/all 01-mismatch hits to FILE [null]&#xA;         -C INT      max number of hits to output. &gt;512 for all 01 hits. [250]&#xA;         -s INT      seed for random number generator [random]&#xA;         -W          disable Smith-Waterman alignment&#xA;         -t          trim all reads (usually not recommended)&#xA;         -c          match in the colorspace&#xA;&#xA;" required="false" enabled="false" order="1">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>-e 70</value>
+                                </values>
+                        </input>
+                        <output id="MAQMapper_1.Outputmappingfile" name="Output mapping file" description="Output mapping file&#xA;&#xA;maq map [options] &lt;out.map&gt; &lt;chr.bfa&gt; &lt;reads_1.bfq&gt; [reads_2.bfq]&#xA;" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="map" extension="map" description="fasta mapping file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MAQMapper_1.MAQRoutine" name="MAQ Routine" required="true" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>map</value>
+                                </values>
+                        </input>
+                        <input id="MAQMapper_1.ForwardReads" name="Forward Reads" description="maq map [options] &lt;out.map&gt; &lt;chr.bfa&gt; &lt;reads_1.bfq&gt; [reads_2.bfq]&#xA;" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MAQMapper_1.InputBFAReference" name="Input BFA Reference" description="maq map [options] &lt;out.map&gt; &lt;chr.bfa&gt; &lt;reads_1.bfq&gt; [reads_2.bfq]&#xA;" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFA" extension="bfa" description="MAQ bfa File type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MAQMapper_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="5">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MAQMapper_1.ReverseReads" name="Reverse Reads" required="false" enabled="true" order="5">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="" />
+                        </executableAuthors>
+                        <license>http://maq.sourceforge.net/maq-manpage.shtml#12
+GPL</license>
+                </module>
+                <dataModule id="InputReferenceFastaFile_1" name="Input Reference Fasta File" package="MAQ" version="0.7.1" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" posX="307" posY="88" sourceCode="" type="File" source="true" loopIndex="false">
+                        <tag />
+                        <uri>http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <output id="InputReferenceFastaFile_1.Output" name="Output" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/gatk/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <module id="MAQFasta2BfaConverter_1" name="MAQ Fasta2Bfa Converter" package="MAQ" version="0.7.1" description="Maq is a software that builds mapping assemblies from short reads generated by the next-generation sequencing machines. It is particularly designed for Illumina-Solexa 1G Genetic Analyzer, and has preliminary functions to handle ABI SOLiD data.&#xA;&#xA;The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." icon="1" posX="292" posY="211" sourceCode="" location="pipeline://cranium.loni.usc.edu/maq">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 2181060</citation>
+                                <citation>PMID: 18714091</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://maq.sourceforge.net/maq-man.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <input id="MAQFasta2BfaConverter_1.InputfastaReferencefie" name="Input fasta Reference fie" description="s_1_sequence.txt is the Solexa read sequence file.&#xA;&#xA;maq sol2sanger s_1_sequence.txt s_1_sequence.fastq" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MAQFasta2BfaConverter_1.Outputbinaryfastafilebfa" name="Output binary fasta file (bfa)" description="Output (converted) binary fastq file (bfq) file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFA" extension="bfa" description="MAQ bfa File type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MAQFasta2BfaConverter_1.MAQRoutine" name="MAQ Routine" required="true" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>fasta2bfa</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="" />
+                        </executableAuthors>
+                        <license>http://maq.sourceforge.net/maq-manpage.shtml#12
+GPL</license>
+                </module>
+                <dataModule id="FowardBFQ_1" name="Foward BFQ" posX="660" posY="90" sourceCode="" type="File" source="true" loopIndex="false">
+                        <tag />
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:17:00 PDT 2011" />
+                        </metadata>
+                        <output id="FowardBFQ_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/s_1_1_sequence.1k.bfq</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReverseBFQ_1" name="Reverse BFQ" posX="701" posY="157" sourceCode="" type="File" source="true" loopIndex="false">
+                        <tag />
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:17:00 PDT 2011" />
+                        </metadata>
+                        <output id="ReverseBFQ_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ BFQ" extension="bfq" description="MAQ binary fastq file (bfq)" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/s_1_2_sequence.1k.bfq</value>
+                        </values>
+                </dataModule>
+                <annotations visible="true">
+                        <annotation width="200" height="193" posX="46" posY="72" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="For paired end reads, enable &quot;Reverse Reads&quot; parameter in the MAQ Mapper and connect a data source with the reverse reads.">
+                                <styles>
+                                        <style name="For paired end reads, enable &quot;Reverse Reads&quot; parameter in the MAQ Mapper and connect a data source with the reverse reads.$0" fontSize="20" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

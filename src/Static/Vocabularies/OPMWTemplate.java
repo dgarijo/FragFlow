@@ -41,5 +41,6 @@ public class OPMWTemplate {
     
     public static final String DATA_VARIABLE = PREFIX_OPMW+"DataVariable";
     public static final String WORFKLOW_TEMPLATE_PROCESS = PREFIX_OPMW+"WorkflowTemplateProcess";
+    public static final String WORFKLOW_TEMPLATE_ARTIFACT = PREFIX_OPMW+"WorkflowTemplateArtifact";
             
 }

@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="FSLChangeFiletypenii.gz_1.OutputFilename" sink="Testing_1.Channel1" />
+                <connection source="RX_model_1.Output" sink="Testing_1.Learnfile" />
+                <connection source="RX_prior_1.Output" sink="Testing_1.PriorMask" />
+                <connection source="FSLChangeFiletypenii.gz_2.OutputFilename" sink="Testing_1.Channel2" />
+                <connection source="FSLChangeFiletypenii.gz_1.OutputFilename" sink="Testing_2.Channel1" />
+                <connection source="LX_model_1.Output" sink="Testing_2.Learnfile" />
+                <connection source="LX_prior_1.Output" sink="Testing_2.PriorMask" />
+                <connection source="FSLChangeFiletypenii.gz_2.OutputFilename" sink="Testing_2.Channel2" />
+                <connection source="smartline_Testing_LX_1.smartlineoutput" sink="LX_1.Input" />
+                <connection source="smartline_Testing_RX_1.smartlineoutput" sink="RX_1.Input" />
+                <connection source="Channel1_1.Output" sink="FSLChangeFiletypenii.gz_1.InputFilename" />
+                <connection source="Channel2_1.Output" sink="FSLChangeFiletypenii.gz_2.InputFilename" />
+                <connection source="Testing_2.Outputfile" sink="smartline_Testing_LX_1.smartlineinput" />
+                <connection source="Testing_1.Outputfile" sink="smartline_Testing_RX_1.smartlineinput" />
+        </connections>
+        <icons>
+                <icon id="0" value="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" />
+        </icons>
+        <moduleGroup id="Deploy_1" name="Deploy" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="Testing_1" name="Testing" package="ACM-AND-OR" description="Testing module.  You must supply the same images in the correct channel inputs.  Testing is done 1 image at a time." icon="0" posX="799" posY="713" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/loniApps/jmorra/test.exe">
+                        <authors>
+                                <author fullName="Jonathan Morra" email="jonmorra@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Jul 03 11:02:54 PDT 2007" />
+                        </metadata>
+                        <input id="Testing_1.Channel1" name="Channel 1" description="Channel 1 image." required="true" enabled="true" order="0" prefix="-i" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Mask" name="Mask" description="Analyze image mask.  If provided error metrics are printed to standard out." required="false" enabled="false" order="10" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Structure Value</dependent>
+                                        <dependsOn>Structure Value</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="Testing_1.Learnfile" name="Learn file" description="Output from training." required="true" enabled="true" order="11" prefix="-train" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.PriorMask" name="Prior Mask" description="Analyze image prior mask.  Necessary you included priors when training." required="false" enabled="true" order="12" prefix="-prior" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.StructureValue" name="Structure Value" description="Structure value in mask provided (only necessary if correct masks are provided for analysis)." required="false" enabled="false" order="14" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <dependencies>
+                                        <dependent>Mask</dependent>
+                                        <dependsOn>Mask</dependsOn>
+                                </dependencies>
+                        </input>
+                        <output id="Testing_1.Outputfile" name="Output file" description="Estimated mask" required="true" enabled="true" order="15" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Testing_1.Tempdirectory" name="Temp directory" description="Temp directory.  Necessary for SVM classifications." required="false" enabled="false" order="16" prefix="-temp" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="Testing_1.svm_perf_classify" name="svm_perf_classify" description="svm_perf_classify location.  Necessary for SVM classifications." required="false" enabled="false" order="17" prefix="-classify" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Testing_1.Threshold" name="Threshold" description="Threshold at which to classify voxels as structure or not [0-1].  Default is 0.5" required="false" enabled="true" order="13" prefix="-thresh" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="Testing_1.Channel2" name="Channel 2" description="Channel 2 image." required="false" enabled="true" order="1" prefix="-i_1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel3" name="Channel 3" description="Channel 3 image." required="false" enabled="false" order="2" prefix="-i_2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel4" name="Channel 4" description="Channel 4 image." required="false" enabled="false" order="3" prefix="-i_3" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel5" name="Channel 5" description="Channel 5 image." required="false" enabled="false" order="4" prefix="-i_4" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel6" name="Channel 6" description="Channel 6 image." required="false" enabled="false" order="5" prefix="-i_5" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel7" name="Channel 7" description="Channel 7 image." required="false" enabled="false" order="6" prefix="-i_6" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel8" name="Channel 8" description="Channel 8 image." required="false" enabled="false" order="7" prefix="-i_7" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel9" name="Channel 9" description="Channel 9 image." required="false" enabled="false" order="8" prefix="-i_8" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_1.Channel10" name="Channel 10" description="Channel 10 image." required="false" enabled="false" order="9" prefix="-i_9" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Jonathan Morra" email="jonmorra@gmail.com" website="" />
+                        </executableAuthors>
+                </module>
+                <module id="Testing_2" name="Testing" package="ACM-AND-OR" description="Testing module.  You must supply the same images in the correct channel inputs.  Testing is done 1 image at a time." icon="0" posX="29" posY="714" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/loniApps/jmorra/test.exe">
+                        <authors>
+                                <author fullName="Jonathan Morra" email="jonmorra@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Jul 03 11:02:54 PDT 2007" />
+                        </metadata>
+                        <input id="Testing_2.Channel1" name="Channel 1" description="Channel 1 image." required="true" enabled="true" order="0" prefix="-i" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Mask" name="Mask" description="Analyze image mask.  If provided error metrics are printed to standard out." required="false" enabled="false" order="10" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Structure Value</dependent>
+                                        <dependsOn>Structure Value</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="Testing_2.Learnfile" name="Learn file" description="Output from training." required="true" enabled="true" order="11" prefix="-train" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.PriorMask" name="Prior Mask" description="Analyze image prior mask.  Necessary you included priors when training." required="false" enabled="true" order="12" prefix="-prior" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.StructureValue" name="Structure Value" description="Structure value in mask provided (only necessary if correct masks are provided for analysis)." required="false" enabled="false" order="14" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <dependencies>
+                                        <dependent>Mask</dependent>
+                                        <dependsOn>Mask</dependsOn>
+                                </dependencies>
+                        </input>
+                        <output id="Testing_2.Outputfile" name="Output file" description="Estimated mask" required="true" enabled="true" order="15" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Testing_2.Tempdirectory" name="Temp directory" description="Temp directory.  Necessary for SVM classifications." required="false" enabled="false" order="16" prefix="-temp" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="Testing_2.svm_perf_classify" name="svm_perf_classify" description="svm_perf_classify location.  Necessary for SVM classifications." required="false" enabled="false" order="17" prefix="-classify" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Testing_2.Threshold" name="Threshold" description="Threshold at which to classify voxels as structure or not [0-1].  Default is 0.5" required="false" enabled="true" order="13" prefix="-thresh" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="Testing_2.Channel2" name="Channel 2" description="Channel 2 image." required="false" enabled="true" order="1" prefix="-i_1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel3" name="Channel 3" description="Channel 3 image." required="false" enabled="false" order="2" prefix="-i_2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel4" name="Channel 4" description="Channel 4 image." required="false" enabled="false" order="3" prefix="-i_3" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel5" name="Channel 5" description="Channel 5 image." required="false" enabled="false" order="4" prefix="-i_4" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel6" name="Channel 6" description="Channel 6 image." required="false" enabled="false" order="5" prefix="-i_5" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel7" name="Channel 7" description="Channel 7 image." required="false" enabled="false" order="6" prefix="-i_6" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel8" name="Channel 8" description="Channel 8 image." required="false" enabled="false" order="7" prefix="-i_7" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel9" name="Channel 9" description="Channel 9 image." required="false" enabled="false" order="8" prefix="-i_8" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Testing_2.Channel10" name="Channel 10" description="Channel 10 image." required="false" enabled="false" order="9" prefix="-i_9" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Jonathan Morra" email="jonmorra@gmail.com" website="" />
+                        </executableAuthors>
+                </module>
+                <dataModule id="LX_model_1" name="LX_model" posX="127" posY="550" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Nov 30 14:11:34 CET 2011" />
+                        </metadata>
+                        <output id="LX_model_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <dataModule id="LX_prior_1" name="LX_prior" posX="174" posY="595" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Nov 30 14:11:34 CET 2011" />
+                        </metadata>
+                        <output id="LX_prior_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <dataModule id="RX_model_1" name="RX_model" posX="897" posY="555" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Nov 30 14:11:34 CET 2011" />
+                        </metadata>
+                        <output id="RX_model_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <dataModule id="RX_prior_1" name="RX_prior" posX="947" posY="629" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Nov 30 14:11:34 CET 2011" />
+                        </metadata>
+                        <output id="RX_prior_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <dataModule id="LX_1" name="LX" posX="56" posY="856" sourceCode="" type="File" source="false" loopIndex="false" dirDump="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 16 18:56:38 CET 2012" />
+                        </metadata>
+                        <input id="LX_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <dataModule id="RX_1" name="RX" posX="826" posY="856" sourceCode="" type="File" source="false" loopIndex="false" dirDump="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 16 18:56:38 CET 2012" />
+                        </metadata>
+                        <input id="RX_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <module id="FSLChangeFiletypenii.gz_1" name="FSLChangeFiletype (nii.gz)" package="FSL" version="4.1.4" description="Used to change the file type of an image (e.g. from ANALYZE_GZ to NIFTI). The first argument is the desired file type (one of ANALYZE, ANALYZE_GZ, NIFTI, NIFTI_GZ, NIFTI_PAIR, NIFTI_PAIR_GZ) and the second is the input file. If no third argument is given then the input file is converted in place. This in place conversion removes the original files: e.g. for an Analyze file called stdimg then avwchfiletype NIFTI_GZ stdimg would replace stdimg.hdr and stdimg.img with stdimg.nii.gz. Note that having multiple copies of an image with the same basename and different filetypes (e.g. stdimg.nii.gz and stdimg.hdr and stdimg.img) creates many problems for determining what images to read, and in general will cause FSL programs to stop." posX="436" posY="176" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/fsl-4.1.4_64bit/bin/fslchfiletype" executableVersion="4.1.4">
+                        <authors>
+                                <author fullName="Stephen Tabaquin" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004
+
+PMID: 15501092</citation>
+                        </citations>
+                        <tag>Converter</tag>
+                        <tag>analyze</tag>
+                        <tag>nifti</tag>
+                        <uri>http://www.fmrib.ox.ac.uk/fsl/avwutils/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jul 09 17:35:05 PDT 2007" />
+                        </metadata>
+                        <input id="FSLChangeFiletypenii.gz_1.FileType" name="File Type" description="Changes the file type of the image file, or copies to new file.&#xA;Valid values of filetype are ANALYZE, NIFTI, NIFTI_PAIR, ANALYZE_GZ, NIFTI_GZ, NIFTI_PAIR_GZ" required="true" enabled="true" order="0">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>ANALYZE</enumeration>
+                                        <enumeration>NIFTI</enumeration>
+                                        <enumeration>NIFTI_PAIR</enumeration>
+                                        <enumeration>ANALYZE_GZ</enumeration>
+                                        <enumeration>NIFTI_GZ</enumeration>
+                                        <enumeration>NIFTI_PAIR_GZ</enumeration>
+                                </format>
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="FSLChangeFiletypenii.gz_1.InputFilename" name="Input Filename" description="Specifies the input image file." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="FSLChangeFiletypenii.gz_1.OutputFilename" name="Output Filename" description="Specifies the 2nd filename, or output image file (copies to new file).&#xA;&#xA;By default, this module is defined to output a Nii Gz file, but if you choose a different output filetype, change the Acceptable file types in the definition of this parameter to below to reflect that choice." required="false" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Mark Jenkinson" email="mark@fmrib.ox.ac.uk" website="http://users.fmrib.ox.ac.uk/~mark/" />
+                                <author fullName="Steve Smith" email="steve@fmrib.ox.ac.uk" website="http://www.fmrib.ox.ac.uk/Members/steve " />
+                        </executableAuthors>
+                        <license>http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html
+
+LICENCE
+
+FMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford
+(the "Software")
+
+The Software remains the property of the University of Oxford ("the
+University").
+
+The Software is distributed "AS IS" under this Licence solely for
+non-commercial use in the hope that it will be useful, but in order
+that the University as a charitable foundation protects its assets for
+the benefit of its educational and research purposes, the University
+makes clear that no condition is made or to be implied, nor is any
+warranty given or to be implied, as to the accuracy of the Software,
+or that it will be suitable for any particular purpose or for use
+under any specific conditions. Furthermore, the University disclaims
+all responsibility for the use which is made of the Software. It
+further disclaims any liability for the outcomes arising from using
+the Software.
+
+The Licensee agrees to indemnify the University and hold the
+University harmless from and against any and all claims, damages and
+liabilities asserted by third parties (including claims for
+negligence) which arise directly or indirectly from the use of the
+Software or the sale of any products based on the Software.
+
+No part of the Software may be reproduced, modified, transmitted or
+transferred in any form or by any means, electronic or mechanical,
+without the express permission of the University. The permission of
+the University is not required if the said reproduction, modification,
+transmission or transference is done without financial return, the
+conditions of this Licence are imposed upon the receiver of the
+product, and all original and amended source code is included in any
+transmitted product. You may be held legally responsible for any
+copyright infringement that is caused or encouraged by your failure to
+abide by these terms and conditions.
+
+You are not permitted under this Licence to use this Software
+commercially. Use for which any financial return is received shall be
+defined as commercial use, and includes (1) integration of all or part
+of the source code or the Software into a product for sale or license
+by or on behalf of Licensee to third parties or (2) use of the
+Software or any derivative of it for research with the final aim of
+developing software products for sale or license to a third party or
+(3) use of the Software or any derivative of it for research with the
+final aim of developing non-software products for sale or license to a
+third party, or (4) use of the Software to provide any service to an
+external organisation for which payment is received. If you are
+interested in using the Software commercially, please contact Isis
+Innovation Limited ("Isis"), the technology transfer company of the
+University, to negotiate a licence. Contact details are:
+innovation@isis.ox.ac.uk quoting reference BS/3497.</license>
+                </module>
+                <dataModule id="Channel1_1" name="Channel1" posX="456" posY="48" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 16 18:55:22 CET 2012" />
+                        </metadata>
+                        <output id="Channel1_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <module id="FSLChangeFiletypenii.gz_2" name="FSLChangeFiletype (nii.gz)" package="FSL" version="4.1.4" description="Used to change the file type of an image (e.g. from ANALYZE_GZ to NIFTI). The first argument is the desired file type (one of ANALYZE, ANALYZE_GZ, NIFTI, NIFTI_GZ, NIFTI_PAIR, NIFTI_PAIR_GZ) and the second is the input file. If no third argument is given then the input file is converted in place. This in place conversion removes the original files: e.g. for an Analyze file called stdimg then avwchfiletype NIFTI_GZ stdimg would replace stdimg.hdr and stdimg.img with stdimg.nii.gz. Note that having multiple copies of an image with the same basename and different filetypes (e.g. stdimg.nii.gz and stdimg.hdr and stdimg.img) creates many problems for determining what images to read, and in general will cause FSL programs to stop." posX="508" posY="240" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/fsl-4.1.4_64bit/bin/fslchfiletype" executableVersion="4.1.4">
+                        <authors>
+                                <author fullName="Stephen Tabaquin" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>S.M. Smith, M. Jenkinson, M.W. Woolrich, C.F. Beckmann, T.E.J. Behrens, H. Johansen-Berg, P.R. Bannister, M. De Luca, I. Drobnjak, D.E. Flitney, R. Niazy, J. Saunders, J. Vickers, Y. Zhang, N. De Stefano, J.M. Brady, and P.M. Matthews. Advances in functional and structural MR image analysis and implementation as FSL. NeuroImage, 23(S1):208-219, 2004
+
+PMID: 15501092</citation>
+                        </citations>
+                        <tag>Converter</tag>
+                        <tag>analyze</tag>
+                        <tag>nifti</tag>
+                        <uri>http://www.fmrib.ox.ac.uk/fsl/avwutils/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jul 09 17:35:05 PDT 2007" />
+                        </metadata>
+                        <input id="FSLChangeFiletypenii.gz_2.FileType" name="File Type" description="Changes the file type of the image file, or copies to new file.&#xA;Valid values of filetype are ANALYZE, NIFTI, NIFTI_PAIR, ANALYZE_GZ, NIFTI_GZ, NIFTI_PAIR_GZ" required="true" enabled="true" order="0">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>ANALYZE</enumeration>
+                                        <enumeration>NIFTI</enumeration>
+                                        <enumeration>NIFTI_PAIR</enumeration>
+                                        <enumeration>ANALYZE_GZ</enumeration>
+                                        <enumeration>NIFTI_GZ</enumeration>
+                                        <enumeration>NIFTI_PAIR_GZ</enumeration>
+                                </format>
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="FSLChangeFiletypenii.gz_2.InputFilename" name="Input Filename" description="Specifies the input image file." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="FSLChangeFiletypenii.gz_2.OutputFilename" name="Output Filename" description="Specifies the 2nd filename, or output image file (copies to new file).&#xA;&#xA;By default, this module is defined to output a Nii Gz file, but if you choose a different output filetype, change the Acceptable file types in the definition of this parameter to below to reflect that choice." required="false" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Mark Jenkinson" email="mark@fmrib.ox.ac.uk" website="http://users.fmrib.ox.ac.uk/~mark/" />
+                                <author fullName="Steve Smith" email="steve@fmrib.ox.ac.uk" website="http://www.fmrib.ox.ac.uk/Members/steve " />
+                        </executableAuthors>
+                        <license>http://www.fmrib.ox.ac.uk/fsl/fsl/licence.html
+
+LICENCE
+
+FMRIB Software Library, Release 4.1 (c) 2008, The University of Oxford
+(the "Software")
+
+The Software remains the property of the University of Oxford ("the
+University").
+
+The Software is distributed "AS IS" under this Licence solely for
+non-commercial use in the hope that it will be useful, but in order
+that the University as a charitable foundation protects its assets for
+the benefit of its educational and research purposes, the University
+makes clear that no condition is made or to be implied, nor is any
+warranty given or to be implied, as to the accuracy of the Software,
+or that it will be suitable for any particular purpose or for use
+under any specific conditions. Furthermore, the University disclaims
+all responsibility for the use which is made of the Software. It
+further disclaims any liability for the outcomes arising from using
+the Software.
+
+The Licensee agrees to indemnify the University and hold the
+University harmless from and against any and all claims, damages and
+liabilities asserted by third parties (including claims for
+negligence) which arise directly or indirectly from the use of the
+Software or the sale of any products based on the Software.
+
+No part of the Software may be reproduced, modified, transmitted or
+transferred in any form or by any means, electronic or mechanical,
+without the express permission of the University. The permission of
+the University is not required if the said reproduction, modification,
+transmission or transference is done without financial return, the
+conditions of this Licence are imposed upon the receiver of the
+product, and all original and amended source code is included in any
+transmitted product. You may be held legally responsible for any
+copyright infringement that is caused or encouraged by your failure to
+abide by these terms and conditions.
+
+You are not permitted under this Licence to use this Software
+commercially. Use for which any financial return is received shall be
+defined as commercial use, and includes (1) integration of all or part
+of the source code or the Software into a product for sale or license
+by or on behalf of Licensee to third parties or (2) use of the
+Software or any derivative of it for research with the final aim of
+developing software products for sale or license to a third party or
+(3) use of the Software or any derivative of it for research with the
+final aim of developing non-software products for sale or license to a
+third party, or (4) use of the Software to provide any service to an
+external organisation for which payment is received. If you are
+interested in using the Software commercially, please contact Isis
+Innovation Limited ("Isis"), the technology transfer company of the
+University, to negotiate a licence. Contact details are:
+innovation@isis.ox.ac.uk quoting reference BS/3497.</license>
+                </module>
+                <dataModule id="Channel2_1" name="Channel2" posX="528" posY="109" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 16 18:55:22 CET 2012" />
+                        </metadata>
+                        <output id="Channel2_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+
+                        </values>
+                </dataModule>
+                <module id="smartline_Testing_LX_1" name="smartline_Testing_LX" package="Pipeline Utilities" description="Smartline conversion from type (nii) of module Testing to type (nii.gz) of module LX" posX="76" posY="807" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/java/latest/bin/java" gridVariables="h_vmem=4" smartModule="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="" />
+                        </metadata>
+                        <input id="smartline_Testing_LX_1.jarfile" name="jar file" required="false" enabled="true" predefined="true" order="0" prefix="-Djava.awt.headless=true -Xmx2500m -jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="smartline_Testing_LX_1.smartlineinput" name="smartline input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="smartline_Testing_LX_1.softwarename" name="software name" required="false" enabled="true" predefined="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+
+                                </values>
+                        </input>
+                        <output id="smartline_Testing_LX_1.smartlineoutput" name="smartline output" required="false" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="smartline_Testing_RX_1" name="smartline_Testing_RX" package="Pipeline Utilities" description="Smartline conversion from type (nii) of module Testing to type (nii.gz) of module RX" posX="846" posY="807" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/java/latest/bin/java" gridVariables="h_vmem=4" smartModule="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="" />
+                        </metadata>
+                        <input id="smartline_Testing_RX_1.jarfile" name="jar file" required="false" enabled="true" predefined="true" order="0" prefix="-Djava.awt.headless=true -Xmx2500m -jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+
+                                </values>
+                        </input>
+                        <input id="smartline_Testing_RX_1.smartlineinput" name="smartline input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="smartline_Testing_RX_1.softwarename" name="software name" required="false" enabled="true" predefined="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+
+                                </values>
+                        </input>
+                        <output id="smartline_Testing_RX_1.smartlineoutput" name="smartline output" required="false" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Nii Gz" extension="nii.gz" description="Compressed Nifti" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <variables>
+                        <variable name="Age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="Var 1">Value</variable>
+                        <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                        <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                        <variable name="Var sasasa2">Value</variable>
+                        <variable name="age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                        <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                        <variable name="y">//idaxs/project/subject/study/subjectAge</variable>
+                </variables>
+                <annotations visible="true">
+                        <annotation width="200" height="112" posX="208" posY="36" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Foe a meaningful hippocampii segmentation the User must use as input to this pipe only images registered to icbm152 template.">
+                                <styles>
+                                        <style name=" template.$115" fontSize="12" />
+                                        <style name="Foe a meaningful hippocampii segmentation the User must use as input to this pipe only images registered to $0" fontSize="12" />
+                                        <style name="icbm152$108" fontSize="12" isBold="true" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

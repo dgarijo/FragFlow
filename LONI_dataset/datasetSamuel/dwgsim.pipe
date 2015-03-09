@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="InputReferenceFasta_1.Output" sink="Dwgsim_1.Inputreferencefasta" />
+                <connection source="OutputPrefix_1.Output" sink="Dwgsim_1.Outputprefix" />
+                <connection source="OutputDirectory_1.Output" sink="Dwgsim_1.ExecutionDirectory" />
+        </connections>
+        <icons>
+                <icon id="0" value="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" />
+        </icons>
+        <moduleGroup id="dwgsim_fgene_1" name="dwgsim_fgene" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="Dwgsim_1" name="Dwgsim" package="Dwgsim" version="1.0" description="GOAL: generate simulation data&#xA;FINAL OUTPUT: forward and reverse reads file to be used with the aligners, a file formatted for BFAST and a mutation file.&#xA;&#xA;Whole genome simulation can be performed with dwgsim. dwgsim is based off of wgsim found in SAMtools written by Heng Li. It was modified to handle ABI SOLiD data, as well as various assumptions about aligners and positions of indels. The documentation below is for the latest dwgsim (not DNAA) release." icon="0" posX="167" posY="345" sourceCode="" location="pipeline://cranium.loni.usc.edu/scripts/dwgsim.sh" executableVersion="1.0">
+                        <tag>Genomics</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 26 16:04:38 PDT 2011" />
+                        </metadata>
+                        <input id="Dwgsim_1.Inputreferencefasta" name="Input reference fasta" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Dwgsim_1.Outputprefix" name="Output prefix" required="true" enabled="true" order="2">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.basecolorerrorrate1" name="base/color error rate 1" description="base/color error rate of the first read [from 0.020 to 0.020 by 0.000]" required="false" enabled="false" order="3" prefix="-e" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.basecolorerrorrate2" name="base/color error rate 2" description="base/color error rate of the second read [from 0.020 to 0.020 by 0.000]" required="false" enabled="false" order="4" prefix="-E" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.innerdistance" name="inner distance" description="inner distance between the two ends [500]" required="false" enabled="false" order="5" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.standarddeviation" name="standard deviation" description="standard deviation [0.000]" required="false" enabled="false" order="6" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.numberofreadpairs" name="number of read pairs " description="number of read pairs [1000000]" required="false" enabled="true" order="7" prefix="-N" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>15000000</value>
+                                </values>
+                        </input>
+                        <input id="Dwgsim_1.lengthoffirstread" name="length of first read" description="length of the first read [70]" required="false" enabled="true" order="8" prefix="-1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>100</value>
+                                </values>
+                        </input>
+                        <input id="Dwgsim_1.lengthofsecondread" name="length of second read " description="length of the second read [70]" required="false" enabled="true" order="9" prefix="-2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>100</value>
+                                </values>
+                        </input>
+                        <input id="Dwgsim_1.rateofmutations" name="rate of mutations" description="rate of mutations [0.0010]" required="false" enabled="false" order="10" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.indelmutationfraction" name="indel mutation fraction" description="fraction of mutations that are indels [0.10]" required="false" enabled="false" order="11" prefix="-R" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.extendedindelprobability" name="extended indel probability" description="probability an indel is extended [0.30]" required="false" enabled="false" order="12" prefix="-X" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.randomDNAreadprobability" name="random DNA read probability" description="probability of a random DNA read [0.05]" required="false" enabled="false" order="13" prefix="-y" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.maxNsallowed" name="max Ns allowed" description="maximum number of Ns allowed in a given read [0]" required="false" enabled="false" order="14" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.generatereadsfor" name="generate reads for" description="generate reads for:&#xA;0: Illumina&#xA;1: SOLiD&#xA;2: Ion Torrent" required="false" enabled="false" order="15" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                </format>
+                        </input>
+                        <input id="Dwgsim_1.generatereadstype" name="generate reads type" description="generate reads [0]:&#xA;0: default (opposite strand for Illumina, same strand for&#xA;SOLiD/Ion Torrent)&#xA;1: same strand (mate pair)&#xA;2: opposite strand (paired end)" required="false" enabled="false" order="16" prefix="-S" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                </format>
+                        </input>
+                        <input id="Dwgsim_1.IonTorrentflow" name="Ion Torrent flow" description="the flow order for Ion Torrent data [(null)]" required="false" enabled="false" order="17" prefix="-f" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.Haploidmode" name="Haploid mode" description="haploid mode [False]" required="false" enabled="false" order="18" prefix="-H" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Dwgsim_1.randomseed" name="random seed" description="random seed (-1 uses the current time) [-1]" required="false" enabled="false" order="19" prefix="-z" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Dwgsim_1.mutationstxtfile" name="mutations txt file" description="the mutations txt file to re-create [not using]" required="false" enabled="false" order="20" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Dwgsim_1.bed-likemutations" name="bed-like mutations" description="the bed-like set of candidate mutations [not using]" required="false" enabled="false" order="21" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Dwgsim_1.print" name="print" description="print this message" required="false" enabled="false" order="22" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Dwgsim_1.ExecutionDirectory" name="Execution Directory" required="false" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                        </input>
+                </module>
+                <dataModule id="InputReferenceFasta_1" name="Input Reference Fasta" posX="274" posY="109" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 26 16:55:11 PDT 2011" />
+                        </metadata>
+                        <output id="InputReferenceFasta_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/gatk/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <dataModule id="OutputPrefix_1" name="Output Prefix" posX="435" posY="189" sourceCode="" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 26 16:57:44 PDT 2011" />
+                        </metadata>
+                        <output id="OutputPrefix_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>test</value>
+                        </values>
+                </dataModule>
+                <dataModule id="OutputDirectory_1" name="Output Directory" description="Defaults to /usr/pipeline or home directory" posX="162" posY="55" sourceCode="" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 26 17:14:28 PDT 2011" />
+                        </metadata>
+                        <output id="OutputDirectory_1.Output" name="Output" description="Defaults to /usr/pipeline or home directory" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>/ifs/tmp/{$username}/dwgsim</value>
+                        </values>
+                </dataModule>
+        </moduleGroup>
+</pipeline>
+

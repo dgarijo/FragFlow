@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="CNV-Seq_1.OutputCNVFile" sink="CNV-R_1.InputCNVFile" />
+                <connection source="RPath_1.Output" sink="CNV-R_1.RPath" />
+                <connection source="InputBam_1.Output" sink="ExtractHits_1.InputFile" />
+                <connection source="Reference_1.Output" sink="ExtractHits_2.InputFile" />
+                <connection source="ExtractHits_1.OutputHits" sink="CNV-Seq_1.Test" />
+                <connection source="ExtractHits_2.OutputHits" sink="CNV-Seq_1.Reference" />
+                <connection source="RPath_1.Output" sink="CNV-Seq_1.RPath" />
+        </connections>
+        <moduleGroup id="Untitled_1" name="Untitled" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <dataModule id="InputBam_1" name="Input Bam" posX="115" posY="27" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 11:09:38 PDT 2011" />
+                        </metadata>
+                        <output id="InputBam_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1.sam</value>
+                        </values>
+                </dataModule>
+                <dataModule id="RPath_1" name="R Path" posX="546" posY="284" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jul 07 11:18:16 PDT 2011" />
+                        </metadata>
+                        <output id="RPath_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//usr/local/R-2.10.1_64bit/bin/R</value>
+                        </values>
+                </dataModule>
+                <module id="CNV-R_1" name="CNV-R" package="CNV-Seq" version="1.0" icon="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" posX="317" posY="593" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/cnv-seq/cnv-seq-R.sh" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jul 07 11:14:33 PDT 2011" />
+                        </metadata>
+                        <input id="CNV-R_1.InputCNVFile" name="Input CNV File" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="cnv File" extension="cnv" description="" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CNV-R_1.OutputDataDescription" name="Output Data Description" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="CNV-R_1.RPath" name="R Path" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CNV-R_1.OutputPlot" name="Output Plot" required="false" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="PDF File" extension="pdf" description="" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Plot Arguments</dependent>
+                                        <dependsOn>Plot Arguments</dependsOn>
+                                </dependencies>
+                        </output>
+                        <input id="CNV-R_1.PlotArguments" name="Plot Arguments" description="A comma-separated list of arguments to plot.cnv(). Can't contain spaces.&#xA;&#xA;i.e.: chromosome=2,from=140036061,to=144238634&#xA;&#xA;or&#xA;&#xA;CNV=4,upstream=4e+6,downstream=4e+6" required="false" enabled="true" order="4">
+                                <format type="String" cardinality="1" />
+                                <dependencies>
+                                        <dependent>Output Plot</dependent>
+                                        <dependsOn>Output Plot</dependsOn>
+                                </dependencies>
+                                <values>
+                                        <value>chromosome=2,from=140036061,to=144238634</value>
+                                </values>
+                        </input>
+                </module>
+                <dataModule id="Reference_1" name="Reference" posX="425" posY="24" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 11:09:38 PDT 2011" />
+                        </metadata>
+                        <output id="Reference_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1.sam</value>
+                        </values>
+                </dataModule>
+                <module id="ExtractHits_1" name="Extract Hits" package="SamTools" version="0.1.10" icon="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" posX="128" posY="172" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/samtools/samtools-0.1.10/samtools_extract_hits.sh" executableVersion="0.1.10">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 30 13:43:35 PDT 2011" />
+                        </metadata>
+                        <input id="ExtractHits_1.InputFile" name="Input File" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ExtractHits_1.OutputHits" name="Output Hits" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="hits File" extension="hits" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="ExtractHits_2" name="Extract Hits" package="SamTools" version="0.1.10" icon="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" posX="386" posY="172" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/samtools/samtools-0.1.10/samtools_extract_hits.sh" executableVersion="0.1.10">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 30 13:43:35 PDT 2011" />
+                        </metadata>
+                        <input id="ExtractHits_2.InputFile" name="Input File" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ExtractHits_2.OutputHits" name="Output Hits" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="hits File" extension="hits" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="CNV-Seq_1" name="CNV-Seq" package="CNV-Seq" version="1.0" icon="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" posX="269" posY="382" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/cnv-seq/cnv-seq.pl" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 12:03:24 PDT 2011" />
+                        </metadata>
+                        <input id="CNV-Seq_1.Test" name="Test" required="false" enabled="true" order="0" prefix="--test" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CNV-Seq_1.Reference" name="Reference" required="false" enabled="true" order="1" prefix="--ref" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CNV-Seq_1.Genome" name="Genome" required="false" enabled="true" order="2" prefix="--genome" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>human</value>
+                                </values>
+                        </input>
+                        <input id="CNV-Seq_1.RPath" name="R Path" required="false" enabled="true" order="3" prefix="--Rexe" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CNV-Seq_1.OutputCountFile" name="Output Count File" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="count File" extension="count" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="CNV-Seq_1.OutputCNVFile" name="Output CNV File" required="true" enabled="true" order="5">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="cnv File" extension="cnv" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+        </moduleGroup>
+</pipeline>
+

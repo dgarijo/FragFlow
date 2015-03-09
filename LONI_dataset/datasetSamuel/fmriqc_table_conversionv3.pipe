@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="Datacsv_1.Output" sink="Splitimages_1.data" />
+                <connection source="Splitimages_1.realimagedata" sink="RealMetadataCSV_1.realdata" />
+                <connection source="Splitimages_1.realimagelist" sink="RealMetadataCSV_1.realimages" />
+                <connection source="Splitimages_1.phantomdata" sink="PhantomMetadataCSV_1.phantomdata" />
+                <connection source="Splitimages_1.phantomlist" sink="PhantomMetadataCSV_1.phantomimages" />
+                <connection source="Splitimages_1.realimagedata" sink="RealEvalCSV_1.data" />
+                <connection source="Splitimages_1.phantomdata" sink="PhantomEvalCSV_1.data" />
+                <connection source="Splitimages_1.realimagedata" sink="RealCommentsCSV_1.data" />
+                <connection source="Splitimages_1.phantomdata" sink="PhantomCommentsCSV_1.data" />
+        </connections>
+        <icons>
+                <icon id="0" value="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&#xA;RK5CYII=" />
+        </icons>
+        <moduleGroup id="fmriqc_1" name="fmriqc" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="Splitimages_1" name="Split images" icon="0" posX="715" posY="202" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/splitimages.sh">
+                        <tag />
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="Splitimages_1.data" name="data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Splitimages_1.realimagelist" name="real image list" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="Splitimages_1.phantomlist" name="phantom list" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="Splitimages_1.realimagedata" name="real image data" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="Splitimages_1.phantomdata" name="phantom data" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="Datacsv_1" name="Data csv" posX="707" posY="27" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 12:03:47 PST 2014" />
+                        </metadata>
+                        <output id="Datacsv_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/data.csv</value>
+                        </values>
+                </dataModule>
+                <module id="RealMetadataCSV_1" name="Real Metadata CSV" icon="0" posX="212" posY="396" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writemeta.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="RealMetadataCSV_1.realdata" name="real data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="RealMetadataCSV_1.metadataheaders" name="metadata headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/METADATA.csv</value>
+                                </values>
+                        </input>
+                        <output id="RealMetadataCSV_1.out" name="out" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="RealMetadataCSV_1.realimages" name="realimages" required="false" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </module>
+                <module id="PhantomMetadataCSV_1" name="Phantom Metadata CSV" icon="0" posX="1138" posY="407" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writemetaphant.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="PhantomMetadataCSV_1.phantomdata" name="phantom data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PhantomMetadataCSV_1.metadataheaders" name="metadata headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/FMRI_PHANTOM_DATA.csv</value>
+                                </values>
+                        </input>
+                        <output id="PhantomMetadataCSV_1.out" name="out" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="PhantomMetadataCSV_1.phantomimages" name="phantomimages" required="false" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </module>
+                <module id="RealEvalCSV_1" name="Real Eval CSV" icon="0" posX="346" posY="518" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writeeval.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="RealEvalCSV_1.data" name="data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="RealEvalCSV_1.evalheaders" name="eval headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/EVAL.csv</value>
+                                </values>
+                        </input>
+                        <output id="RealEvalCSV_1.out" name="out" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="PhantomEvalCSV_1" name="Phantom Eval CSV" icon="0" posX="1057" posY="537" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writeevalphant.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="PhantomEvalCSV_1.data" name="data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PhantomEvalCSV_1.evalheaders" name="eval headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/FMRI_PHANTOM_EVAL.csv</value>
+                                </values>
+                        </input>
+                        <output id="PhantomEvalCSV_1.out" name="out" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="RealCommentsCSV_1" name="Real Comments CSV" icon="0" posX="479" posY="612" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writecm.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="RealCommentsCSV_1.data" name="data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="RealCommentsCSV_1.out" name="out" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="RealCommentsCSV_1.commentheaders" name="comment headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/COMMENTS.csv</value>
+                                </values>
+                        </input>
+                </module>
+                <module id="PhantomCommentsCSV_1" name="Phantom Comments CSV" icon="0" posX="967" posY="630" sourceCode="" location="pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/writecmphant.sh">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 18 11:40:09 PST 2014" />
+                        </metadata>
+                        <input id="PhantomCommentsCSV_1.data" name="data" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="PhantomCommentsCSV_1.out" name="out" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="PhantomCommentsCSV_1.commentheaders" name="comment headers" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="csv file" extension="csv" description="excel delimited file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifshome/shobel/fmri_qc/FMRI_PHANTOM_COMMENT.csv</value>
+                                </values>
+                        </input>
+                </module>
+        </moduleGroup>
+</pipeline>
+

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="Link_1.Destination" sink="SOAP2bwt-builder_1.Referencefile" />
+                <connection source="Link_1.Destination" sink="SOAP2_1.PrefixName" />
+                <connection source="ForwardFastqfiles_1.Output" sink="SOAP2_1.Queryafile" />
+                <connection source="SOAP2bwt-builder_1.FlowControl" sink="SOAP2_1.FlowControl" />
+                <connection source="SOAPtoSAM_1.outputsam" sink="Outputsam_1.Input" />
+                <connection source="SOAP2_1.Output" sink="SOAPtoSAM_1.aln.soap" />
+                <connection source="Reference_1.Output" sink="Link_1.Source" />
+        </connections>
+        <moduleGroup id="Alignment_SOAP_1" name="Alignment_SOAP" posX="0" posY="0">
+                <module id="SOAP2bwt-builder_1" name="SOAP: 2bwt-builder" package="SOAP" version="2.21" description="Index builder preprocesses the FASTA reference sequence and generates the index files needed by the soap executable.&#xA;&#xA;Input: reference.fasta file &#xA;Tool:SOAP2&#xA;Server Location &lt;ExecutablePath&gt;/2bwt-builder&#xA;Output: alignment.sam&#xA;&#xA;Example: ./2bwt-builder ~/human_genome.fa&#xA;&#xA;Under the directory there will be 13 index files, all their prefixes are your_fasta file name with “.index” added, e.g. human_genome.fa.index. The suffixes include *.amb, *.ann, *.bwt, *.fmv, *.hot, *.lkt, *.pac, *.rev.bwt, *.rev.fmv, *.rev.lkt, *.rev.pac, *.sa, and *.sai." location="pipeline://genomics.loni.ucla.edu/2bwt-builder" sourceCode="" icon="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" posX="366" posY="231" executableVersion="2.21" gridVariables="h_vmem=8">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Prof. T.W. Lam, Alan Tam, Simon Wong, Edward Wu and S.M. Yiu" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>Li et al. (2009) SOAP2: an improved ultrafast tool for short read alignment. BIOINFORMATICS, doi:10.1093/bioinformatics/btp336</citation>
+                        </citations>
+                        <license>Copyright © 2007,2008-2010 Beijing Genomics Institute</license>
+                        <tag>bioinformatics genomics soap</tag>
+                        <uri>http://soap.genomics.org.cn/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 13:34:14 PDT 2011" />
+                        </metadata>
+                        <input id="SOAP2bwt-builder_1.Referencefile" name="Reference file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SOAP2bwt-builder_1.FlowControl" name="Flow Control" required="true" enabled="true" order="1">
+                                <format type="Flow Control" cardinality="1" />
+                        </output>
+                </module>
+                <dataModule id="Reference_1" name="Reference " posX="500" posY="5" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 12:52:22 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                        <output id="Reference_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <module id="SOAP2_1" name="SOAP2" package="SOAP" version="2.21" description="SOAPaligner/soap2 is a member of the SOAP (Short Oligonucleotide Analysis Package). It is an updated version of SOAP software for short oligonucleotide alignment. The new program features in super fast and accurate alignment for huge amounts of short reads generated by Illumina/Solexa Genome Analyzer. Compared to soap v1, it is one order of magnitude faster. It require only 2 minutes aligning one million single-end reads onto the human reference genome. Another remarkable improvement of SOAPaligner is that it now supports a wide range of the read length.&#xA;&#xA;Input: reads.fastq &#xA;Tool: SOAP2&#xA;Server Location: ./soap&#xA;Output: alignment.soap&#xA;&#xA;Example: For paired-end reads:&#xA;./soap –a &lt;reads_a&gt; -b &lt;reads_b&gt; -D &lt;index.files&gt; -o &lt;PE_output&gt; -2 &lt;SE_output&gt; -m &lt;min_insert_size&gt; -x &lt;max_insert_size&gt;&#xA;&#xA;For alignment of single-end reads:&#xA;./soap –a &lt;reads_a&gt; -D &lt;index.files&gt; -o &lt;output&gt;&lt;/output&gt;" location="pipeline://genomics.loni.ucla.edu/soap" sourceCode="" icon="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" posX="288" posY="406" executableVersion="2.21">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Prof. T.W. Lam, Alan Tam, Simon Wong, Edward Wu and S.M. Yiu" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>Li et al. (2009) SOAP2: an improved ultrafast tool for short read alignment. BIOINFORMATICS, doi:10.1093/bioinformatics/btp336</citation>
+                        </citations>
+                        <license>Copyright © 2007,2008-2010 Beijing Genomics Institute</license>
+                        <tag>bioinformatics genomics soap</tag>
+                        <uri>http://soap.genomics.org.cn/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 13:34:14 PDT 2011" />
+                        </metadata>
+                        <input id="SOAP2_1.PrefixName" name="Prefix Name" description="Prefix name for reference index [*.index]. The program can only accept the prefix of your index files, such as “~/human_genome.fa.index”." required="true" enabled="true" order="0" prefix="-D" prefixSpaced="true" prefixAllArgs="false" includeTransformedParameter="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.index</transform>
+                                </format>
+                        </input>
+                        <input id="SOAP2_1.Queryafile" name="Query a file" description="Query file, for SE reads alignment or one end of PE reads" required="true" enabled="true" order="1" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SOAP2_1.Querybfile" name="Query b file" description="Query b file, one end of PE reads" required="false" enabled="false" order="2" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>SE Output</dependent>
+                                        <dependsOn>SE Output</dependsOn>
+                                </dependencies>
+                        </input>
+                        <output id="SOAP2_1.Output" name="Output" description="Output file for alignment results" required="true" enabled="true" order="3" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="SOAP2_1.SEOutput" name="SE Output" description="Output file contains mapped but unpaired reads when do PE alignment" required="false" enabled="false" order="4" prefix="-2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Query b file</dependent>
+                                        <dependsOn>Query b file</dependsOn>
+                                </dependencies>
+                        </output>
+                        <output id="SOAP2_1.Outputfile3" name="Output file 3" description="Output file for unmapped reads" required="false" enabled="false" order="5" prefix="-u" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SOAP2_1.Min.insertsize" name="Min. insert size" description="Minimal insert size INT allowed for PE, [400]" required="false" enabled="false" order="6" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.Maxinsertsize" name="Max insert size" description="Maximal insert size INT allowed for PE, [600]" required="false" enabled="false" order="7" prefix="-x" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.Filterlowqualityreads" name="Filter low quality reads" description=" Filter low quality reads contain more INT bp Ns, [5]" required="false" enabled="false" order="8" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.Readnameonly" name="Read name only" description="Output reads id instead of reads name, [none]" required="false" enabled="false" order="9" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="SOAP2_1.Reportrepeathits" name="Report repeat hits" description="How to report repeat hits, 0=none; 1=random one; 2=all, [1]" required="false" enabled="false" order="10" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                </format>
+                        </input>
+                        <input id="SOAP2_1.RFalignment" name="RF alignment" description="RF alignment for long insert size(&gt;=  2k  bps)  PE  data, [none] FR alignment" required="false" enabled="false" order="11" prefix="-R" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="SOAP2_1.Readlength" name="Read length" description="For long reads with high error rate at 3'-end, those can't align whole length, then first align  5' INT bp subsequence as a seed, [256] use whole length of the read" required="false" enabled="false" order="12" prefix="-l" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.Allowmismatches" name="Allow mismatches" description="Totally allowed mismatches in one read, [2]" required="false" enabled="false" order="13" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.MatchMode" name="Match Mode" description="Match mode for each read or the seed part of read,  which&#xA;       shouldn't contain more than 2 mismaches, [4]&#xA;       0: exact match only&#xA;       1: 1 mismatch match only&#xA;       2: 2 mismatch match only&#xA;       3: [gap] (coming soon)&#xA;       4: find the best hits" required="false" enabled="false" order="14" prefix="-M" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.Multithreads" name="Multithreads" description="Multithreads, n threads, [1]" required="false" enabled="false" order="15" prefix="-p" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAP2_1.FlowControl" name="Flow Control" required="false" enabled="true" order="16">
+                                <format type="Flow Control" cardinality="1" />
+                        </input>
+                </module>
+                <dataModule id="Outputsam_1" name="Output sam" posX="106" posY="683" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 15:25:12 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_SOAP/test_soap.sam</value>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_SOAP/test_soap2.sam</value>
+                        </values>
+                        <input id="Outputsam_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <module id="SOAPtoSAM_1" name="SOAPtoSAM" package="SOAP" version="2.21" description="SOAP to SAM file converter.&#xA;&#xA;Input: alignment.soap&#xA;Tool: soap2sam.pl&#xA;Server Location: ./soap2sam.pl (available at http://soap.genomics.org.cn/soapaligner.html)&#xA;Output: alignment.sam&#xA;&#xA;Example: soap2sam.pl [-p] &lt;aln.soap&gt;" location="pipeline://genomics.loni.ucla.edu/soap2sam.sh" sourceCode="" icon="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" posX="205" posY="544" executableVersion="2.21">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Prof. T.W. Lam, Alan Tam, Simon Wong, Edward Wu and S.M. Yiu" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>Li et al. (2009) SOAP2: an improved ultrafast tool for short read alignment. BIOINFORMATICS, doi:10.1093/bioinformatics/btp336</citation>
+                        </citations>
+                        <license>Copyright © 2007,2008-2010 Beijing Genomics Institute</license>
+                        <tag>bioinformatics genomics soap</tag>
+                        <uri>http://soap.genomics.org.cn/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 13:34:14 PDT 2011" />
+                        </metadata>
+                        <input id="SOAPtoSAM_1.aln.soap" name="aln.soap" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SOAPtoSAM_1.outputsam" name="output sam" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="Link_1" name="Link" description="symbolically links reference file to a location the user can write to" location="pipeline://genomics.loni.ucla.edu//bin/ln" sourceCode="" icon="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&#xA;f/5HgAEAOLKDwvqWF5kAAAAASUVORK5CYII=" posX="440" posY="104">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 16:45:40 PDT 2011" />
+                        </metadata>
+                        <input id="Link_1.Source" name="Source" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Link_1.Destination" name="Destination" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Link_1.SymbolicLink" name="Symbolic Link" required="true" enabled="true" order="0" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                </module>
+                <dataModule id="ForwardFastqfiles_1" name="Forward Fastq files" posX="233" posY="5" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:32:20 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_extraction/s_1_1_sequence.1k.fastq</value>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_extraction/s_1_2_sequence.1k.fastq</value>
+                        </values>
+                        <output id="ForwardFastqfiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <annotations visible="true">
+                        <annotation width="184" height="122" posX="19" posY="62" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="For paired end reads, enable &quot;Query b file&quot; parameter in SOAP2 and connect a data source with reverse reads. ">
+                                <styles>
+                                        <style name="For paired end reads, enable &quot;Query b file&quot; parameter in SOAP2 and connect a data source with reverse reads. $0" fontSize="16" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

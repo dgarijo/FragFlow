@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="BWAaln_1.outputfile" sink="BWAsamsesampe_1.Readsai" />
+                <connection source="AllFastqfiles_1.Output" sink="BWAsamsesampe_1.Readfastq" />
+                <connection source="Link_1.Destination" sink="BWAsamsesampe_1.Referencefasta" />
+                <connection source="Reference_1.Output" sink="Link_1.Source" />
+                <connection source="Link_1.Destination" sink="BWAIndex_1.Referencefile" />
+                <connection source="BWAsamsesampe_1.Output" sink="Outputdirectory_1.Input" />
+                <connection source="Link_1.Destination" sink="BWAaln_1.Reference" />
+                <connection source="AllFastqfiles_1.Output" sink="BWAaln_1.Infq" />
+                <connection source="BWAIndex_1.Outputflowcontrol" sink="BWAaln_1.inflow" />
+        </connections>
+        <icons>
+                <icon id="1" value="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" />
+                <icon id="0" value="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&#xA;AElFTkSuQmCC" />
+        </icons>
+        <moduleGroup id="BWA_1" name="BWA" posX="0" posY="0" sourceCode="">
+                <metadata>
+                        <data key="__creationDateKey" value="Mon Jul 18 19:18:27 PDT 2011" />
+                </metadata>
+                <module id="BWAsamsesampe_1" name="BWA: samse/sampe" package="BWA" version="0.7.8" description="BWA is a fast light-weighted tool that aligns relatively short sequences (queries) to a sequence database (targe), such as the human reference genome. It implements two different algorithms, both based on Burrows-Wheeler Transform (BWT). The first algorithm is designed for short queries up to ~200bp with low error rate (&lt;3%). It does gapped global alignment w.r.t. queries, supports paired-end reads, and is one of the fastest short read alignment algorithms to date while also visiting suboptimal hits. The second algorithm, BWA-SW, is designed for long reads with more errors. It performs heuristic Smith-Waterman-like alignment to find high-scoring local hits (and thus chimera). On low-error short queries, BWA-SW is slower and less accurate than the first algorithm, but on long queries, it is better.&#xA;&#xA;bwa samse [-n maxOcc] &lt;in.db.fasta&gt; &lt;in.sai&gt; &lt;in.fq&gt; &gt; &lt;out.sam&gt;" icon="0" posX="367" posY="740" sourceCode="" location="pipeline://cranium.loni.usc.edu/bwa_sam.sh" executableVersion="0.7.8">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168]</citation>
+                        </citations>
+                        <tag>BWA genomics</tag>
+                        <uri>http://bio-bwa.sourceforge.net/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jun 10 14:51:05 PDT 2011" />
+                        </metadata>
+                        <input id="BWAsamsesampe_1.Readsai" name="Read sai" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Sai" extension="sai" description="sai" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAsamsesampe_1.Readfastq" name="Read fastq" required="true" enabled="true" order="6">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAsamsesampe_1.Referencefasta" name="Reference fasta" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAsamsesampe_1.Routine" name="Routine" description="Choose samse for single end reads, or sampe for paired end reads. " required="true" enabled="true" order="0">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>samse</enumeration>
+                                        <enumeration>sampe</enumeration>
+                                </format>
+                                <values>
+                                        <value>samse</value>
+                                </values>
+                        </input>
+                        <input id="BWAsamsesampe_1.Options" name="Options" description="-a INT maximum insert size [500]&#xA;-o INT maximum occurrences for one end [100000]&#xA;-n INT maximum hits to output for paired reads [3]&#xA;-N INT maximum hits to output for discordant pairs [10]&#xA;-c FLOAT prior of chimeric rate (lower bound) [1.0e-05]&#xA;-f FILE sam file to output results to [stdout]&#xA;-r STR read group header line such as `@RG\tID:foo\tSM:bar' [null]&#xA;-P&#xA;preload index into memory (for base-space reads only)&#xA;-s disable Smith-Waterman for the unmapped mate&#xA;-A disable insert size estimate (force -s)" required="false" enabled="false" order="8">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <output id="BWAsamsesampe_1.Output" name="Output" description="Pipeline generated directory" required="true" enabled="true" order="3">
+                                <format type="Directory" cardinality="1" />
+                        </output>
+                        <input id="BWAsamsesampe_1.Optionsflag" name="Options flag" required="true" enabled="true" order="7" prefix="-options" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAsamsesampe_1.fastqflag" name="fastq flag" required="true" enabled="true" order="5" prefix="-fastq" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAsamsesampe_1.Outputbasename" name="Output basename" description="The basename of all output files" required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>samfile</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li, Chi-Kwong, Nong Ge, Yuta Mori" email="" website="" />
+                        </executableAuthors>
+                        <license>GNU GENERAL PUBLIC LICENSE
+
+Version 3, 29 June 2007
+
+Copyright © 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.</license>
+                </module>
+                <dataModule id="Reference_1" name="Reference " posX="130" posY="9" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 12:52:22 PDT 2011" />
+                        </metadata>
+                        <output id="Reference_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/gatk/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <module id="Link_1" name="Link" description="symbolically links reference file to a location the user can write to" icon="1" posX="172" posY="157" sourceCode="" location="pipeline://cranium.loni.usc.edu//bin/ln">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 16:45:40 PDT 2011" />
+                        </metadata>
+                        <input id="Link_1.Source" name="Source" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Link_1.Destination" name="Destination" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Link_1.SymbolicLink" name="Symbolic Link" required="true" enabled="true" order="0" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                </module>
+                <module id="BWAIndex_1" name="BWA: Index" package="BWA" version="0.7.8" description="Index database sequences in the FASTA format." icon="0" posX="89" posY="368" sourceCode="" location="pipeline://cranium.loni.usc.edu/bwa" executableVersion="0.7.8">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168]</citation>
+                        </citations>
+                        <tag>genomics BWA</tag>
+                        <uri>http://bio-bwa.sourceforge.net/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Apr 28 12:02:04 PDT 2011" />
+                        </metadata>
+                        <input id="BWAIndex_1.color-spaceindex" name="color-space index" description="Build color-space index. The input fast should be in nucleotide space." required="false" enabled="false" order="2" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAIndex_1.prefixofoutputdatabase" name="prefix of output database" description="Prefix of the output database [same as db filename]" required="false" enabled="false" order="3" prefix="-p" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="BWAIndex_1.algorithm" name="algorithm" description="Algorithm for constructing BWT index. Available options are: &#xA;&#xA;IS: linear-time algorithm for constructing suffix array. It requires 5.37N memory where N is the size of the database. IS is moderately fast, but does not work with database larger than 2GB. IS is the default algorithm due to its simplicity. The current codes for IS algorithm are reimplemented by Yuta Mori.&#xA;&#xA;bwtsw: Algorithm implemented in BWT-SW. This method works with the whole human genome, but it does not work with database smaller than 10MB and it is usually slower than IS." required="false" enabled="true" order="4" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>IS</enumeration>
+                                        <enumeration>bwtsw</enumeration>
+                                </format>
+                                <values>
+                                        <value>bwtsw</value>
+                                </values>
+                        </input>
+                        <input id="BWAIndex_1.Referencefile" name="Reference file" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAIndex_1.index" name="index" description="For both algorithms, the database file in the FASTA format must be first indexed with the ‘index’ command" required="true" enabled="true" order="0" prefix="index" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <output id="BWAIndex_1.Outputflowcontrol" name="Output flow control" required="true" enabled="true" order="5">
+                                <format type="Flow Control" cardinality="1" />
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Heng Li, Chi-Kwong, Nong Ge, Yuta Mori" email="" website="" />
+                        </executableAuthors>
+                        <license>GNU GENERAL PUBLIC LICENSE
+
+Version 3, 29 June 2007
+
+Copyright © 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.</license>
+                </module>
+                <dataModule id="Outputdirectory_1" name="Output directory" posX="435" posY="893" sourceCode="" type="Directory" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Jul 20 16:29:01 PDT 2011" />
+                        </metadata>
+                        <input id="Outputdirectory_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/tmp/{$username}/Alignment_BWA/</value>
+                        </values>
+                </dataModule>
+                <dataModule id="AllFastqfiles_1" name="All Fastq files" posX="453" posY="233" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:32:20 PDT 2011" />
+                        </metadata>
+                        <output id="AllFastqfiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/s_1_1_sequence.1k.fastq</value>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/s_1_2_sequence.1k.fastq</value>
+                        </values>
+                </dataModule>
+                <module id="BWAaln_1" name="BWA: aln" package="BWA" version="0.7.8" description="BWA is a fast light-weighted tool that aligns relatively short sequences (queries) to a sequence database (targe), such as the human reference genome. It implements two different algorithms, both based on Burrows-Wheeler Transform (BWT). The first algorithm is designed for short queries up to ~200bp with low error rate (&lt;3%). It does gapped global alignment w.r.t. queries, supports paired-end reads, and is one of the fastest short read alignment algorithms to date while also visiting suboptimal hits. The second algorithm, BWA-SW, is designed for long reads with more errors. It performs heuristic Smith-Waterman-like alignment to find high-scoring local hits (and thus chimera). On low-error short queries, BWA-SW is slower and less accurate than the first algorithm, but on long queries, it is better.&#xA;&#xA;bwa  [-n maxDiff] [-o maxGapO] [-e maxGapE] [-d nDelTail] [-i nIndelEnd] [-k maxSeedDiff] [-l seedLen] [-t nThrds] [-cRN] [-M misMsc] [-O gapOsc] [-E gapEsc] [-q trimQual] &lt;in.db.fasta&gt; &lt;in.query.fq&gt; &gt; &lt;out.sai&gt;&#xA;&#xA;Find the SA coordinates of the input reads. Maximum maxSeedDiff differences are allowed in the first seedLen subsequence and maximum maxDiff differences are allowed in the whole sequence." icon="0" posX="253" posY="537" sourceCode="" location="pipeline://cranium.loni.usc.edu/bwa" executableVersion="0.5.9">
+                        <authors>
+                                <author fullName="Samuel Hobel" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Li H. and Durbin R. (2009) Fast and accurate short read alignment with Burrows-Wheeler Transform. Bioinformatics, 25:1754-60. [PMID: 19451168]</citation>
+                        </citations>
+                        <tag />
+                        <uri>http://bio-bwa.sourceforge.net/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Dec 17 16:16:29 PST 2013" />
+                        </metadata>
+                        <input id="BWAaln_1.Reference" name="Reference" description="Prefix" required="true" enabled="true" order="0" prefix="aln" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAaln_1.Infq" name="In fq" description="In fq" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BWAaln_1.maxdiff" name="max diff" description="Max #diff (int) or missing prob under 0.02 err rate (float) [0.04]" required="false" enabled="false" order="2" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.maxgapopens" name="max gap opens" description="Maximum number or fraction of gap opens [1]" required="false" enabled="false" order="3" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.maxgapextensions" name="max gap extensions" description="Maximum number of gap extensions, -1 for disabling long gaps [-1]" required="false" enabled="false" order="4" prefix="-e" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.noindel" name="no indel" description="Do not put an indel within INT bp towards the ends [5]" required="false" enabled="false" order="5" prefix="-i" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.maxlongdeletion" name="max long deletion" description="Maximum occurrences for extending a long deletion [10]" required="false" enabled="false" order="6" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.seedlength" name="seed length" description="Seed length [32]" required="false" enabled="false" order="7" prefix="-l" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.maxseeddiff" name="max seed diff" description="Maximum differences in the seed [2]" required="false" enabled="false" order="8" prefix="-k" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.maxqueueentries" name="max queue entries" description="Maximum entries in the queue [2000000]" required="false" enabled="false" order="9" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.threads" name="threads" description="Number of threads [1]" required="false" enabled="false" order="10" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.Mismatchpenalty" name="Mismatch penalty" description="Mismatch penalty [3]" required="false" enabled="false" order="11" prefix="-M" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.Gapopenpenalty" name="Gap open penalty" description="Gap open penalty [11]" required="false" enabled="false" order="12" prefix="-O" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.Gapextensionpenalty" name="Gap extension penalty" description="Gap extension penalty [4]" required="false" enabled="false" order="13" prefix="-E" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.stopsearch" name="stop search" description="Stop searching when there are &gt;INT equally best hits [30]" required="false" enabled="false" order="14" prefix="-R" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BWAaln_1.thresholdforreadtrim" name="threshold for read trim" description="Quality threshold for read trimming down to 35bp [0]" required="false" enabled="false" order="15" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <output id="BWAaln_1.outputfile" name="output file" description="File to write output to instead of stdout" required="true" enabled="true" order="16" prefix="-f" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Sai" extension="sai" description="sai" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BWAaln_1.Colorspace" name="Color space" description="Input sequences are in the color space" required="false" enabled="false" order="17" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.Logscaledgappenalty" name="Log scaled gap penalty" description="Log-scaled gap penalty for long deletions" required="false" enabled="false" order="18" prefix="-L" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.Non-iterativemode" name="Non-iterative mode" description="Non-iterative mode: search for all n-difference hits (slooow)" required="false" enabled="false" order="19" prefix="-N" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.BAMinput" name="BAM input" description="The input read file is in the BAM format" required="false" enabled="false" order="20" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.singlereadsonly" name="single reads only" description="Use single-end reads only (effective with -b)" required="false" enabled="false" order="21" prefix="-0" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.usefirstreadinpair" name="use first read in pair" description="Use the 1st read in a pair (effective with -b)" required="false" enabled="false" order="22" prefix="-1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.usesecondreadinpair" name="use second read in pair" description="Use the 2nd read in a pair (effective with -b)" required="false" enabled="false" order="23" prefix="-2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BWAaln_1.inflow" name="in flow" required="true" enabled="true" order="24">
+                                <format type="Flow Control" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li, Chi-Kwong, Nong Ge, Yuta Mori" email="" website="" />
+                        </executableAuthors>
+                        <license>GNU GENERAL PUBLIC LICENSE
+
+Version 3, 29 June 2007
+
+Copyright © 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.</license>
+                </module>
+                <annotations visible="true">
+                        <annotation width="326" height="58" posX="327" posY="7" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Works with either single or paired reads. Make sure the first parameter of &quot;BWA: samse/sampe&quot; is set to &quot;samse&quot; for SE and &quot;sampe&quot; for PE.">
+                                <styles>
+                                        <style name="Works with either single or paired reads. Make sure the first parameter of &quot;BWA: samse/sampe&quot; is set to &quot;samse&quot; for SE and &quot;sampe&quot; for PE.$0" fontSize="14" />
+                                </styles>
+                        </annotation>
+                        <annotation width="306" height="109" posX="452" posY="103" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="If this data source contains paired ends reads, make sure they are in alternating form.&#xA;Forward&#xA;Reverse&#xA;Forward&#xA;Reverse...">
+                                <styles>
+                                        <style name="If this data source contains paired ends reads, make sure they are in alternating form.&#xA;Forward&#xA;Reverse&#xA;Forward&#xA;Reverse...$0" fontSize="14" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

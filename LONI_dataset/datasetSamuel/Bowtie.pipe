@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="Reference_1.Output" sink="Bowtieindexing_1.InputFQFile" />
+                <connection source="Bowtieindexing_1.OutputIndexfile" sink="BowtieAlignment_1.BowtieInputIndexGenome" />
+                <connection source="ForwardSequencefiles_1.Output" sink="BowtieAlignment_1.FowardsequenceFile" />
+                <connection source="ReverseSequenceFiles_1.Output" sink="BowtieAlignment_1.ReversesequenceFile" />
+                <connection source="BowtieAlignment_1.outputfile" sink="Output_1.Input" />
+        </connections>
+        <moduleGroup id="Bowtie_1" name="Bowtie" posX="0" posY="0">
+                <module id="Bowtieindexing_1" name="Bowtie: indexing" package="Bowtie" version="0.12.7" description="http://bowtie-bio.sourceforge.net/tutorial.shtml&#xA;&#xA;Building a new index&#xA;&#xA;The pre-built E. coli index included with Bowtie is built from the sequence for strain 536, known to cause urinary tract infections. We will create a new index from the sequence of E. coli strain O157:H7, a strain known to cause food poisoning. Download the sequence file by right-clicking this link and selecting &quot;Save Link As...&quot; or &quot;Save Target As...&quot;. The sequence file is named NC_002127.fna. When the sequence file is finished downloading, move it to the Bowtie install directory and issue this command:&#xA;&#xA; /applications/BOWTIE_0.10.0/bowtie-0.10.1/bowtie-build /projects1/idinov/projects/Pipeline_genomics_informatics_2011/test_data_2011/&#xA;ref_chr2.fasta /projects1/idinov/projects/Pipeline_genomics_informatics_2011/test_data_2011/chr_2_index &#xA;&#xA;&#xA;&#xA;Bowtie is an ultrafast, memory-efficient short read aligner geared toward quickly aligning large sets of short DNA sequences (reads) to large genomes. It aligns 35-base-pair reads to the human genome at a rate of 25 million reads per hour on a typical workstation. Bowtie indexes the genome with a Burrows-Wheeler  index to keep its memory footprint small: for the human genome, the index is typically about 2.2 GB (for unpaired alignment) or 2.9 GB (for paired-end or colorspace alignment). Multiple processors can be used simultaneously to achieve greater alignment speed. Bowtie can also output alignments in the standard SAM format, allowing Bowtie to interoperate with other tools supporting SAM, including the SAMtools consensus, SNP, and indel callers. Bowtie runs on the command line under Windows, Mac OS X, Linux, and Solaris.&#xA;&#xA;Bowtie also forms the basis for other tools, including TopHat: a fast splice junction mapper for RNA-seq reads, Cufflinks: a tool for transcriptome assembly and isoform quantitiation from RNA-seq reads, Crossbow: a cloud-computing software tool for large-scale resequencing data,and Myrna: a cloud computing tool for calculating differential gene expression in large RNA-seq datasets.&#xA;&#xA;/usr/local/loniWorkflows/Bioinformatics/bowtie/bowtie e_coli reads/e_coli_1000.fq&#xA;" location="pipeline://genomics.loni.ucla.edu/bowtie-build" sourceCode="" icon="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" posX="293" posY="150">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <citations>
+                                <citation>PMID: 19261174 
+PMID: 19930550
+PMID: 19289445</citation>
+                        </citations>
+                        <license>http://www.cbcb.umd.edu/research/SR-assembly.shtml 
+open-source Artistic License</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bowtie-bio.sourceforge.net/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <output id="Bowtieindexing_1.OutputIndexfile" name="Output Index file" description="http://bowtie-bio.sourceforge.net/tutorial.shtml&#xA;&#xA;Building a new index&#xA;&#xA;The pre-built E. coli index included with Bowtie is built from the sequence for strain 536, known to cause urinary tract infections. We will create a new index from the sequence of E. coli strain O157:H7, a strain known to cause food poisoning. Download the sequence file by right-clicking this link and selecting &quot;Save Link As...&quot; or &quot;Save Target As...&quot;. The sequence file is named NC_002127.fna. When the sequence file is finished downloading, move it to the Bowtie install directory and issue this command:&#xA;&#xA; /applications/BOWTIE_0.10.0/bowtie-0.10.1/bowtie-build /projects1/idinov/projects/Pipeline_genomics_informatics_2011/test_data_2011/&#xA;ref_chr2.fasta /projects1/idinov/projects/Pipeline_genomics_informatics_2011/test_data_2011/chr_2_index &#xA;&#xA;&#xA;&#xA;Bowtie is an ultrafast, memory-efficient short read aligner geared toward quickly aligning large sets of short DNA sequences (reads) to large genomes. It aligns 35-base-pair reads to the human genome at a rate of 25 million reads per hour on a typical workstation. Bowtie indexes the genome with a Burrows-Wheeler  index to keep its memory footprint small: for the human genome, the index is typically about 2.2 GB (for unpaired alignment) or 2.9 GB (for paired-end or colorspace alignment). Multiple processors can be used simultaneously to achieve greater alignment speed. Bowtie can also output alignments in the standard SAM format, allowing Bowtie to interoperate with other tools supporting SAM, including the SAMtools consensus, SNP, and indel callers. Bowtie runs on the command line under Windows, Mac OS X, Linux, and Solaris.&#xA;&#xA;Bowtie also forms the basis for other tools, including TopHat: a fast splice junction mapper for RNA-seq reads, Cufflinks: a tool for transcriptome assembly and isoform quantitiation from RNA-seq reads, Crossbow: a cloud-computing software tool for large-scale resequencing data,and Myrna: a cloud computing tool for calculating differential gene expression in large RNA-seq datasets.&#xA;&#xA;/usr/local/loniWorkflows/Bioinformatics/bowtie/bowtie e_coli reads/e_coli_1000.fq&#xA;" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools" extension="fai" description="FAI file" />
+                                                <filetype name="fasta.index" extension="fasta.index" description="fasta index file">
+                                                        <need>fasta</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Bowtieindexing_1.InputFQFile" name="Input FQ File" description="samtools sort aln.bam aln_sorted.bam " required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Bowtieindexing_1.Options" name="Options" description="Also, the -t option instructs Bowtie to print timing statistics. The output should look something like this: " required="false" enabled="false" order="0">
+                                <format type="String" cardinality="1" />
+                        </input>
+                </module>
+                <module id="BowtieAlignment_1" name="Bowtie: Alignment" package="Bowtie" version="0.12.7" description="Bowtie is an ultrafast, memory-efficient short read aligner geared toward quickly aligning large sets of short DNA sequences (reads) to large genomes. It aligns 35-base-pair reads to the human genome at a rate of 25 million reads per hour on a typical workstation. Bowtie indexes the genome with a Burrows-Wheeler  index to keep its memory footprint small: for the human genome, the index is typically about 2.2 GB (for unpaired alignment) or 2.9 GB (for paired-end or colorspace alignment). Multiple processors can be used simultaneously to achieve greater alignment speed. Bowtie can also output alignments in the standard SAM format, allowing Bowtie to interoperate with other tools supporting SAM, including the SAMtools consensus, SNP, and indel callers. Bowtie runs on the command line under Windows, Mac OS X, Linux, and Solaris.&#xA;&#xA;Bowtie also forms the basis for other tools, including TopHat: a fast splice junction mapper for RNA-seq reads, Cufflinks: a tool for transcriptome assembly and isoform quantitiation from RNA-seq reads, Crossbow: a cloud-computing software tool for large-scale resequencing data,and Myrna: a cloud computing tool for calculating differential gene expression in large RNA-seq datasets.&#xA;&#xA;bowtie [options]* &lt;ebwt&gt; {-1 &lt;m1&gt; -2 &lt;m2&gt; | --12 &lt;r&gt; | &lt;s&gt;} [&lt;hit&gt;]" location="pipeline://genomics.loni.ucla.edu/bowtie" sourceCode="" icon="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" posX="331" posY="363">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <citations>
+                                <citation>PMID: 19261174 
+PMID: 19930550
+PMID: 19289445</citation>
+                        </citations>
+                        <license>http://www.cbcb.umd.edu/research/SR-assembly.shtml 
+open-source Artistic License</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bowtie-bio.sourceforge.net/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <input id="BowtieAlignment_1.BowtieInputIndexGenome" name="Bowtie Input Index Genome" description="http://bowtie-bio.sourceforge.net/tutorial.shtml&#xA;&#xA;/usr/local/loniWorkflows/Bioinformatics/bowtie/bowtie e_coli reads/e_coli_1000.fq&#xA;&#xA;bowtie -t e_coli reads/e_coli_1000.fq e_coli.map&#xA;" required="true" enabled="true" order="5">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools" extension="fai" description="FAI file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BowtieAlignment_1.FowardsequenceFile" name="Foward sequence File" description="samtools sort aln.bam aln_sorted.bam " required="true" enabled="true" order="7" prefix="-1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BowtieAlignment_1.solexa1.3-qualsflag" name="solexa1.3-quals flag" required="false" enabled="false" order="9" prefix="--solexa1.3-quals" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BowtieAlignment_1.k" name="k" description="report up to &lt;int&gt; good alignments per read (default: 1)" required="false" enabled="false" order="4">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BowtieAlignment_1.v" name="v" description=" report end-to-end hits w/ &lt;=v mismatches; ignore qualities" required="false" enabled="true" order="6" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>2</value>
+                                </values>
+                        </input>
+                        <input id="BowtieAlignment_1.a" name="a" description="report all alignments per read (much slower than low -k)" required="false" enabled="true" order="3" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BowtieAlignment_1.printtime" name="print time" description="print wall-clock time taken by search phases" required="false" enabled="false" order="1" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BowtieAlignment_1.printalignments" name="print alignments" description="print nothing but the alignments" required="false" enabled="false" order="2" prefix="--quiet" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BowtieAlignment_1.outputSAMformat" name="output SAM format" description=" write hits in SAM format&#xA;" required="false" enabled="true" order="10" prefix="--sam" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <output id="BowtieAlignment_1.outputfile" name="output file" required="true" enabled="true" order="11">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BowtieAlignment_1.verbose" name="verbose" description="for debugging" required="false" enabled="false" order="0" prefix="--verbose" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BowtieAlignment_1.ReversesequenceFile" name="Reverse sequence File" required="false" enabled="true" order="8" prefix="-2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </module>
+                <dataModule id="Reference_1" name="Reference " posX="306" posY="23" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 12:52:22 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                        <output id="Reference_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <dataModule id="Output_1" name="Output" posX="283" posY="541" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jun 17 15:45:32 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/${username}/Alignment_Bowtie/testbowtie.sam</value>
+                        </values>
+                        <input id="Output_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <dataModule id="ForwardSequencefiles_1" name="Forward Sequence file(s)" posX="550" posY="61" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Text file" extension="txt" description="Text file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 14:14:27 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1_1_sequence.150k.txt</value>
+                        </values>
+                        <output id="ForwardSequencefiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <dataModule id="ReverseSequenceFiles_1" name="Reverse Sequence File(s)" posX="589" posY="120" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Text file" extension="txt" description="Text file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 15:36:19 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1_2_sequence.150k.txt</value>
+                        </values>
+                        <output id="ReverseSequenceFiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <metadata>
+                        <data key="__creationDateKey" value="Mon Jul 18 19:19:08 PDT 2011" />
+                </metadata>
+                <annotations visible="true">
+                        <annotation width="215" height="122" posX="29" posY="67" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="For paired end reads, enable the &quot;Reverse sequence file&quot; parameter in Bowtie: Alignment and connect a data source with reverse reads.">
+                                <styles>
+                                        <style name="For paired end reads, enable the &quot;Reverse sequence file&quot; parameter in Bowtie: Alignment and connect a data source with reverse reads.$0" fontSize="16" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

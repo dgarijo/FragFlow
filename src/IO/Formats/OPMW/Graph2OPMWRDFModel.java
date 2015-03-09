@@ -54,7 +54,7 @@ public class Graph2OPMWRDFModel {
      * Given a graph, this method produces a representation of the graph using
      * the OPMW for traces model (that is, using opmv:used and 
      * opmv:wasGeneratedBy)
-     * @param template graph to convert in RDF
+     * @param trace graph to convert in RDF
      * @return the Jena model with the graph loaded.
      */
     public static OntModel graph2OPMWTrace(Graph trace){
@@ -99,6 +99,7 @@ public class Graph2OPMWRDFModel {
                     GeneralMethods.addProperty(m, currentURI,"a"+i+j , usageDep);
                     GeneralMethods.addProperty(m, "a"+i+j, structureURIs.get(j-1), generationDep);
                     GeneralMethods.addProperty(m, currentURI, structureURIs.get(j-1), "http://www.opmw.org/ontology/informBy");
+                    //attention: this may cause the comparison between workflows to fail if removed! LoniWorkflowsAndGroupingStatistics
                 }
             }
         }

@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="smartline_LThalamusmasks_BitConverter_1.smartlineoutput" sink="BitConverter_1.Input" />
+                <connection source="BitConverter_2.Output" sink="BinaryMask_1.Input" />
+                <connection source="Binarize_1.OutputBinaryVolume" sink="BinaryMask_1.BinaryMaskFile" />
+                <connection source="smartline_wholebrainssd_BitConverter_1.smartlineoutput" sink="BitConverter_2.Input" />
+                <connection source="wholebrainssd_1.Output" sink="smartline_wholebrainssd_BitConverter_1.smartlineinput" />
+                <connection source="smartline_RThalamusmasks_BitConverter_1.smartlineoutput" sink="BitConverter_3.Input" />
+                <connection source="BitConverter_3.Output" sink="Binarize_1.Input" />
+                <connection source="RThalamusmasks_1.Output" sink="smartline_RThalamusmasks_BitConverter_1.smartlineinput" />
+                <connection source="BitConverter_2.Output" sink="BinaryMask_2.Input" />
+                <connection source="Binarize_2.OutputBinaryVolume" sink="BinaryMask_2.BinaryMaskFile" />
+                <connection source="BitConverter_1.Output" sink="Binarize_2.Input" />
+                <connection source="LThalamusmasks_1.Output" sink="smartline_LThalamusmasks_BitConverter_1.smartlineinput" />
+        </connections>
+        <icons>
+                <icon id="0" value="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" />
+                <icon id="2" value="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&#xA;AElFTkSuQmCC" />
+                <icon id="1" value="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" />
+        </icons>
+        <moduleGroup id="Untitled_1" name="Untitled" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="BitConverter_1" name="Bit Converter" package="LONI" version="v1.0" description="converts analyze images between 8, 16, and 32 bits" icon="0" posX="579" posY="250" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/LONI/apps/ieckstei/anlz_convert" executableVersion="v1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="Alen.Zamanyan@loni.ucla.edu" website="http://loni.ucla.edu" />
+                        </authors>
+                        <tag>convert</tag>
+                        <tag>analyze</tag>
+                        <tag>bits</tag>
+                        <uri>http://loni.ucla.edu</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Sep 23 15:55:40 PDT 2008" />
+                        </metadata>
+                        <input id="BitConverter_1.Input" name="Input" description="name of input file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BitConverter_1.Output" name="Output" description="name of output file" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BitConverter_1.BitsPerVoxelinOutput" name="Bits Per Voxel in Output" description="The number of bits per voxel in the output&#xA;0 - keep the datatype unchanged" required="true" enabled="true" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>8</enumeration>
+                                        <enumeration>16</enumeration>
+                                        <enumeration>32</enumeration>
+                                </format>
+                                <values>
+                                        <value>16</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Ilya Eckstein" email="ilya.eckstein@loni.ucla.edu" website="http://www.geometry.caltech.edu/~ilyaeck/proff.html" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+  * Permission is granted to use this software without charge for non-commercial research purposes only.
+  * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+  * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+  * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+  * You must not remove or alter any copyright or other proprietary notices in the software.
+  * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+  * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+  * This software is for research purposes only and has not been approved for clinical use.
+  * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+  * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+  * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="BinaryMask_1" name="Binary Mask" package="AIR" version="5.2.5_16" description="Applies a binary mask volume to a given volume of the same dimensions and size to produce a volume where zeros exist wherever there were zeros in the binary volume and data from the provided volume exists where there were ones in the binary volume." icon="1" posX="847" posY="729" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/air-5.2.5_64_16/bin/binarymask" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>ROI extraction</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/binarymask.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Sep 08 16:03:48 PDT 2006" />
+                        </metadata>
+                        <input id="BinaryMask_1.Input" name="Input" description="Original volume to be modified by the binary mask." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BinaryMask_1.BinaryMaskFile" name="Binary Mask File" description="Binary mask to apply to the original volume.  Places with ones will be preserved in the output and zeros will be zero in the output.  Essentially a voxelwise multiplication of the files is occurring.  This must be of the same dimensions and sizes as the original Volume." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BinaryMask_1.Outputmaskedvolume" name="Output (masked volume)" description="Voxelwise masked volume.  Voxels with zeros in the mask are zeros in this output.  Voxels with ones in the mask have the original Volume's data in this output volume." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BinaryMask_1.Overwrite" name="Overwrite" description="'y' if you want to allow overwriting of existing files output" required="true" enabled="true" order="3">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>y</enumeration>
+                                        <enumeration>n</enumeration>
+                                </format>
+                                <values>
+                                        <value>y</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="BitConverter_2" name="Bit Converter" package="LONI" version="v1.0" description="converts analyze images between 8, 16, and 32 bits" icon="0" posX="285" posY="329" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/LONI/apps/ieckstei/anlz_convert" executableVersion="v1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="Alen.Zamanyan@loni.ucla.edu" website="http://loni.ucla.edu" />
+                        </authors>
+                        <tag>convert</tag>
+                        <tag>analyze</tag>
+                        <tag>bits</tag>
+                        <uri>http://loni.ucla.edu</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Sep 23 15:55:40 PDT 2008" />
+                        </metadata>
+                        <input id="BitConverter_2.Input" name="Input" description="name of input file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BitConverter_2.Output" name="Output" description="name of output file" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BitConverter_2.BitsPerVoxelinOutput" name="Bits Per Voxel in Output" description="The number of bits per voxel in the output&#xA;0 - keep the datatype unchanged" required="true" enabled="true" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>8</enumeration>
+                                        <enumeration>16</enumeration>
+                                        <enumeration>32</enumeration>
+                                </format>
+                                <values>
+                                        <value>16</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Ilya Eckstein" email="ilya.eckstein@loni.ucla.edu" website="http://www.geometry.caltech.edu/~ilyaeck/proff.html" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+  * Permission is granted to use this software without charge for non-commercial research purposes only.
+  * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+  * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+  * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+  * You must not remove or alter any copyright or other proprietary notices in the software.
+  * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+  * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+  * This software is for research purposes only and has not been approved for clinical use.
+  * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+  * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+  * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="smartline_wholebrainssd_BitConverter_1" name="smartline_whole brain ss'd_Bit Converter" package="Pipeline Utilities" description="Smartline conversion from type (nii) of module whole brain ss'd to type (img,hdr) of module Bit Converter of package LONI" posX="262" posY="184" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/java/latest/bin/java" gridVariables="h_vmem=5.5" smartModule="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="" />
+                        </metadata>
+                        <input id="smartline_wholebrainssd_BitConverter_1.jarfile" name="jar file" required="false" enabled="true" predefined="true" order="0" prefix="-Djava.awt.headless=true -Xmx2500m -jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifs/pl_cache/utilities/smartline/Smartline.jar</value>
+                                </values>
+                        </input>
+                        <input id="smartline_wholebrainssd_BitConverter_1.smartlineinput" name="smartline input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="smartline_wholebrainssd_BitConverter_1.softwarename" name="software name" required="false" enabled="true" predefined="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LONI</value>
+                                </values>
+                        </input>
+                        <input id="smartline_wholebrainssd_BitConverter_1.softwareversion" name="software version" required="false" enabled="true" predefined="true" order="3">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>v1.0</value>
+                                </values>
+                        </input>
+                        <output id="smartline_wholebrainssd_BitConverter_1.smartlineoutput" name="smartline output" required="false" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="RThalamusmasks_1" name="R Thalamus masks" posX="974" posY="30" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 27 14:49:03 PST 2014" />
+                        </metadata>
+                        <output id="RThalamusmasks_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_10_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_11_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_12_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_13_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_14_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_15_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_16_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_17_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_18_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_19_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_1_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_20_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_22_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_23_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_24_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_25_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_26_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_27_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_28_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_29_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_2_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_31_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_32_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_33_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_34_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_35_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_36_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_37_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_38_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_39_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_3_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_40_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_41_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_42_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_43_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_44_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_45_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_46_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_4_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_5_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_7_R_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_9_R_Thal_first.nii</value>
+                        </values>
+                </dataModule>
+                <module id="BitConverter_3" name="Bit Converter" package="LONI" version="v1.0" description="converts analyze images between 8, 16, and 32 bits" icon="0" posX="878" posY="259" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/LONI/apps/ieckstei/anlz_convert" executableVersion="v1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="Alen.Zamanyan@loni.ucla.edu" website="http://loni.ucla.edu" />
+                        </authors>
+                        <tag>convert</tag>
+                        <tag>analyze</tag>
+                        <tag>bits</tag>
+                        <uri>http://loni.ucla.edu</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Sep 23 15:55:40 PDT 2008" />
+                        </metadata>
+                        <input id="BitConverter_3.Input" name="Input" description="name of input file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BitConverter_3.Output" name="Output" description="name of output file" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BitConverter_3.BitsPerVoxelinOutput" name="Bits Per Voxel in Output" description="The number of bits per voxel in the output&#xA;0 - keep the datatype unchanged" required="true" enabled="true" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>8</enumeration>
+                                        <enumeration>16</enumeration>
+                                        <enumeration>32</enumeration>
+                                </format>
+                                <values>
+                                        <value>16</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Ilya Eckstein" email="ilya.eckstein@loni.ucla.edu" website="http://www.geometry.caltech.edu/~ilyaeck/proff.html" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+  * Permission is granted to use this software without charge for non-commercial research purposes only.
+  * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+  * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+  * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+  * You must not remove or alter any copyright or other proprietary notices in the software.
+  * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+  * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+  * This software is for research purposes only and has not been approved for clinical use.
+  * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+  * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+  * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="Binarize_1" name="Binarize" package="AIR" version="5.2.5_16" description="Converts volumes into 1 bit 'binary' files that are usually used as masks to be applied to other volumes with the 'Binary Mask' command.  The function uses a thresholding from a minimum and maximum voxel value.  All voxels outside of the range will be zero and those inside the range will be labeled as one." icon="2" posX="948" posY="437" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/air-5.2.5_64_16/bin/binarize" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>conversion</tag>
+                        <tag>mri to binary</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/binarize.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Sep 08 16:02:26 PDT 2006" />
+                        </metadata>
+                        <input id="Binarize_1.Input" name="Input " description="Full data volume from which the binary mask is to be derived." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Binarize_1.OutputBinaryVolume" name="Output (Binary Volume)" description="The 1 bit 'binary' mask volume created by applying a min and max thresholding on the input volume." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Binarize_1.Overwrite" name="Overwrite" description="'y' grants permission to overwrite output" required="false" enabled="false" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>y</enumeration>
+                                        <enumeration>n</enumeration>
+                                </format>
+                                <values>
+                                        <value>n</value>
+                                </values>
+                        </input>
+                        <input id="Binarize_1.MinimumVoxelIntensity" name="Minimum Voxel Intensity" description="Voxels from this intensity to the maximum intensity, inclusive, are put as ones in the binary volume.  All other voxels are zeros.  If a maximum intesity is not provided, then all voxels at or above this intensity are included. If the minimum intensity is also not provided then the default is to map all non-black voxels to one" required="false" enabled="false" order="3">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Binarize_1.MaximumVoxelIntensity" name="Maximum Voxel Intensity" description="Voxels from the minimum intensity to this maximum intensity, inclusive, are placed as ones in the binary volume.  If this value is not provided then just all values at or above the minimum value are included. If neither min nor max values are specified, then the default is to map all non-black voxels to one" required="false" enabled="false" order="4">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="smartline_RThalamusmasks_BitConverter_1" name="smartline_R Thalamus masks_Bit Converter" package="Pipeline Utilities" description="Smartline conversion from type (nii) of module R Thalamus masks to type (img,hdr) of module Bit Converter of package LONI" posX="942" posY="161" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/java/latest/bin/java" gridVariables="h_vmem=5.5" smartModule="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="" />
+                        </metadata>
+                        <input id="smartline_RThalamusmasks_BitConverter_1.jarfile" name="jar file" required="false" enabled="true" predefined="true" order="0" prefix="-Djava.awt.headless=true -Xmx2500m -jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifs/pl_cache/utilities/smartline/Smartline.jar</value>
+                                </values>
+                        </input>
+                        <input id="smartline_RThalamusmasks_BitConverter_1.smartlineinput" name="smartline input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="smartline_RThalamusmasks_BitConverter_1.softwarename" name="software name" required="false" enabled="true" predefined="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LONI</value>
+                                </values>
+                        </input>
+                        <input id="smartline_RThalamusmasks_BitConverter_1.softwareversion" name="software version" required="false" enabled="true" predefined="true" order="3">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>v1.0</value>
+                                </values>
+                        </input>
+                        <output id="smartline_RThalamusmasks_BitConverter_1.smartlineoutput" name="smartline output" required="false" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="BinaryMask_2" name="Binary Mask" package="AIR" version="5.2.5_16" description="Applies a binary mask volume to a given volume of the same dimensions and size to produce a volume where zeros exist wherever there were zeros in the binary volume and data from the provided volume exists where there were ones in the binary volume." icon="1" posX="507" posY="734" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/air-5.2.5_64_16/bin/binarymask" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>ROI extraction</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/binarymask.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Sep 08 16:03:48 PDT 2006" />
+                        </metadata>
+                        <input id="BinaryMask_2.Input" name="Input" description="Original volume to be modified by the binary mask." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="BinaryMask_2.BinaryMaskFile" name="Binary Mask File" description="Binary mask to apply to the original volume.  Places with ones will be preserved in the output and zeros will be zero in the output.  Essentially a voxelwise multiplication of the files is occurring.  This must be of the same dimensions and sizes as the original Volume." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BinaryMask_2.Outputmaskedvolume" name="Output (masked volume)" description="Voxelwise masked volume.  Voxels with zeros in the mask are zeros in this output.  Voxels with ones in the mask have the original Volume's data in this output volume." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="BinaryMask_2.Overwrite" name="Overwrite" description="'y' if you want to allow overwriting of existing files output" required="true" enabled="true" order="3">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>y</enumeration>
+                                        <enumeration>n</enumeration>
+                                </format>
+                                <values>
+                                        <value>y</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="Binarize_2" name="Binarize" package="AIR" version="5.2.5_16" description="Converts volumes into 1 bit 'binary' files that are usually used as masks to be applied to other volumes with the 'Binary Mask' command.  The function uses a thresholding from a minimum and maximum voxel value.  All voxels outside of the range will be zero and those inside the range will be labeled as one." icon="2" posX="649" posY="428" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/air-5.2.5_64_16/bin/binarize" executableVersion="5.2.5_16">
+                        <authors>
+                                <author fullName="D. Cornelius Hojatkashani" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Woods, R.P., Grafton, S.T., Holmes, C.J., Cherry, S.R., and Mazziotta, J.C. (1998a). Automated image registration: I. General methods and intrasubject, intramodality validation. J Comput Assist Tomogr V22, 139-152.
+PMID: 9448779</citation>
+                                <citation>Woods, R.P., Grafton, S.T., Watson, J.D., Sicotte, N.L., and Mazziotta, J.C. (1998b). Automated image registration: II. Intersubject validation of linear and nonlinear models. J Comput Assist Tomogr 22, 153-165.
+PMID: 9448780</citation>
+                        </citations>
+                        <tag>conversion</tag>
+                        <tag>mri to binary</tag>
+                        <uri>http://bishopw.loni.ucla.edu/AIR5/binarize.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Sep 08 16:02:26 PDT 2006" />
+                        </metadata>
+                        <input id="Binarize_2.Input" name="Input " description="Full data volume from which the binary mask is to be derived." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Binarize_2.OutputBinaryVolume" name="Output (Binary Volume)" description="The 1 bit 'binary' mask volume created by applying a min and max thresholding on the input volume." required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Binarize_2.Overwrite" name="Overwrite" description="'y' grants permission to overwrite output" required="false" enabled="false" order="2">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>y</enumeration>
+                                        <enumeration>n</enumeration>
+                                </format>
+                                <values>
+                                        <value>n</value>
+                                </values>
+                        </input>
+                        <input id="Binarize_2.MinimumVoxelIntensity" name="Minimum Voxel Intensity" description="Voxels from this intensity to the maximum intensity, inclusive, are put as ones in the binary volume.  All other voxels are zeros.  If a maximum intesity is not provided, then all voxels at or above this intensity are included. If the minimum intensity is also not provided then the default is to map all non-black voxels to one" required="false" enabled="false" order="3">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Binarize_2.MaximumVoxelIntensity" name="Maximum Voxel Intensity" description="Voxels from the minimum intensity to this maximum intensity, inclusive, are placed as ones in the binary volume.  If this value is not provided then just all values at or above the minimum value are included. If neither min nor max values are specified, then the default is to map all non-black voxels to one" required="false" enabled="false" order="4">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <license>http://www.loni.ucla.edu/Software/license.php
+
+By registering for downloads from the UCLA Laboratory of Neuro Imaging, you are agreeing to the following terms and conditions as well as to the Terms of Use of the LONI website. To view the LONI website's Terms of Use go to, http://www.loni.ucla.edu/software/termsofuse.php.
+
+    * Permission is granted to use this software without charge for non-commercial research purposes only.
+    * Other than the rights granted herein, LONI retains all rights, title, and interest in LONI software and Technology, and You retain all rights, title, and interest in Your Modifications and associated specifications, subject to the terms of this License.
+    * You may make verbatim copies of this software for personal use, or for use within your organization, provided that you duplicate all of the original copyright notices and associated disclaimers. If you provide the use of the software to other users within your organization, they also must comply with all the terms of this Software Distribution Agreement.
+    * YOU MAY NOT DISTRIBUTE COPIES of this software, or copies of software derived from this software, to others outside your organization without specific prior written permission from the UCLA Laboratory of Neuro Imaging, except where noted for specific software products.
+    * You must not remove or alter any copyright or other proprietary notices in the software.
+    * Software has not been reviewed or approved by the Food and Drug Administration, and is for non-clinical, IRB-approved Research Use Only. In no event shall data or images generated through the use of the Software be used in the provision of patient care.
+    * THE SOFTWARE IS PROVIDED "AS IS," AND THE UNIVERSITY OF CALIFORNIA AND ITS COLLABORATORS DO NOT MAKE ANY WARRANTY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, NOR DO THEY ASSUME ANY LIABILITY OR RESPONSIBILITY FOR THE USE OF THIS SOFTWARE.
+    * This software is for research purposes only and has not been approved for clinical use.
+    * You may publish papers and books using results produced using software provided by this site provided that you reference the appropriate citations. A list of citations is available here.
+    * You agree to comply with LONI's Trademark Usage Requirements, as modified from time to time, described in the "Use of Materials Limitations" section of the LONI Terms of Use Agreement. Except as expressly provided in this License, you are granted no rights in or to any LONI trademarks now or hereafter used or licensed by LONI.
+    * All Technology and technical data delivered under this Agreement are subject to US export control laws and may be subject to export or import regulations in other countries. You agree to comply strictly with all such laws and regulations and acknowledge that you have the responsibility to obtain such licenses to export, re-export, or import as may be required after delivery to you.</license>
+                </module>
+                <module id="smartline_LThalamusmasks_BitConverter_1" name="smartline_L Thalamus masks_Bit Converter" package="Pipeline Utilities" description="Smartline conversion from type (nii) of module L Thalamus masks to type (img,hdr) of module Bit Converter of package LONI" posX="673" posY="156" sourceCode="" location="pipeline://cranium.loni.usc.edu//usr/local/java/latest/bin/java" gridVariables="h_vmem=5.5" smartModule="true">
+                        <metadata>
+                                <data key="__creationDateKey" value="" />
+                        </metadata>
+                        <input id="smartline_LThalamusmasks_BitConverter_1.jarfile" name="jar file" required="false" enabled="true" predefined="true" order="0" prefix="-Djava.awt.headless=true -Xmx2500m -jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://cranium.loni.usc.edu//ifs/pl_cache/utilities/smartline/Smartline.jar</value>
+                                </values>
+                        </input>
+                        <input id="smartline_LThalamusmasks_BitConverter_1.smartlineinput" name="smartline input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="smartline_LThalamusmasks_BitConverter_1.softwarename" name="software name" required="false" enabled="true" predefined="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LONI</value>
+                                </values>
+                        </input>
+                        <input id="smartline_LThalamusmasks_BitConverter_1.softwareversion" name="software version" required="false" enabled="true" predefined="true" order="3">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>v1.0</value>
+                                </values>
+                        </input>
+                        <output id="smartline_LThalamusmasks_BitConverter_1.smartlineoutput" name="smartline output" required="false" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="LThalamusmasks_1" name="L Thalamus masks" posX="735" posY="30" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 27 14:49:03 PST 2014" />
+                        </metadata>
+                        <output id="LThalamusmasks_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_10_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_11_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_12_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_13_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_14_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_15_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_16_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_17_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_18_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_19_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_1_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_20_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_22_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_23_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_24_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_25_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_26_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_27_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_28_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_29_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_2_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_31_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_32_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_33_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_34_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_35_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_36_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_37_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_38_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_39_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_3_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_40_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_41_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_42_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_43_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_44_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_45_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_46_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_4_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_5_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_7_L_Thal_first.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_9_L_Thal_first.nii</value>
+                        </values>
+                </dataModule>
+                <dataModule id="wholebrainssd_1" name="whole brain ss'd" posX="208" posY="6" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Feb 27 14:47:41 PST 2014" />
+                        </metadata>
+                        <output id="wholebrainssd_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="NII file" extension="nii" description="NIfTI-1 volume (single file)" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_10_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_11_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_12_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_13_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_14_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_15_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_16_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_17_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_18_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_19_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_1_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_20_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_22_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_23_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_24_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_25_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_26_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_27_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_28_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_29_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_2_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_31_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_32_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_33_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_34_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_35_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_36_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_37_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_38_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_39_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_3_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_40_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_41_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_42_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_43_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_44_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_45_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_46_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_4_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_5_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_7_optiBET_brain.nii</value>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/loni/ccb/data/2014/BioEpi_TBI_Seizure_Jan_10_2014/new_Data_March_2014/transfer_to_Ivo/VEB_9_optiBET_brain.nii</value>
+                        </values>
+                </dataModule>
+                <variables>
+                        <variable name="Age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                        <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                        <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                        <variable name="state">//idaxs/project/subject/subjectInfo[@item='DX Group']</variable>
+                        <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                        <variable name="label">21</variable>
+                        <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                        <variable name="Group">//PipelineMetadata/Group</variable>
+                        <variable name="Dx">//idaxs/project/subject/subjectInfo[@item='DX Group']</variable>
+                        <variable name="Var 2">Value</variable>
+                        <variable name="Var 1">Value</variable>
+                        <variable name="State">//idaxs/project/subject/subjectInfo[@item='DX Group']</variable>
+                        <variable name="Var sasasa2">Value</variable>
+                        <variable name="age">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="Gender">//idaxs/project/subject/subjectSex</variable>
+                        <variable name="gender">//PipelineMetadata/Sex</variable>
+                        <variable name="group">//PipelineMetadata/Group</variable>
+                        <variable name="y">//idaxs/project/subject/study/subjectAge</variable>
+                        <variable name="datadir">/ifs/loni/ccb/agenco/thalamus/workflow_data</variable>
+                        <variable name="Sex">//idaxs/project/subject/subjectSex</variable>
+                </variables>
+        </moduleGroup>
+</pipeline>
+

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="ForwardFastq_1.Output" sink="SOAPconfig_1.Pairedendfastq1" />
+                <connection source="ReverseFastq_1.Output" sink="SOAPconfig_1.Pairedendfastq2" />
+                <connection source="SOAPconfig_1.Configfile" sink="SOAPdenovo_2.Configfile" />
+                <connection source="ExecutionDirectory_1.Output" sink="SOAPdenovo_2.ExecutionDirectory" />
+        </connections>
+        <moduleGroup id="SOAPdenovo_1" name="SOAPde novo" posX="0" posY="0">
+                <authors>
+                        <author fullName="federica Torri" email="ftorri@uci.edu" website="" />
+                        <author fullName="Andrew Clark" email="clarkap@usc.edu" website="" />
+                        <author fullName="Ivo Dinov" email="ivo.dinov@loni.ucla.edu" website="www.loni.ucla.edu/~dinov" />
+                        <author fullName="Sam Hobel" email="shobel87@gmail.com" website="" />
+                </authors>
+                <dataModule id="ForwardFastq_1" name="Forward Fastq " posX="480" posY="50" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 09 14:43:08 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/faculty/dinov/gcps/data/genome_fastq_data_size_Feb_2012/1744-3_DLPFC_NoIndex_L004_R1.fq</value>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/faculty/dinov/gcps/data/genome_fastq_data_size_Feb_2012/2107-4_DLPFC_NoIndex_L003_R1.fq</value>
+                        </values>
+                        <output id="ForwardFastq_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <module id="SOAPconfig_1" name="SOAP config" package="SOAPdenovo" version="1.05" description="SOAPdenovo assembler, configuration file production.&#xA;&#xA;Input: alignment.soap&#xA;Tool: soap2sam.pl&#xA;Server Location: ./soap2sam.pl (available at http://soap.genomics.org.cn/soapaligner.html)&#xA;Output: alignment.sam&#xA;&#xA;Example: soap2sam.pl [-p] &lt;aln.soap&gt;" location="pipeline://genomics.loni.ucla.edu/scripts/soap_config.sh" sourceCode="" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCAAeAFYEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/ANXxH4k2oJWj8yeZifmPQVy/&#xA;/CRXP/PKL9al8Sfetvo39K7Pwho9lL4GkvrLRrDV9ZMhH2e7kCjG7GMkHHHPTmvm6NGVefKmfJYe&#xA;hLEVOVPXc9/ooorh/wDhIrn/AJ5RfrR/wkVz/wA8ov1r0KPT7uS0u/7d+GkEEYjJjbSp4ZZCfplD&#xA;+Waw/D66NovwwufFmpaJ9tuBLtW2uFww+YKFwehyeeK6Xl81JK6OuWV1FNRutQooormf+Eiuf+eU&#xA;X60f8JFc/wDPKL9a6fw34x0jX9es9KufAFnax3LbPOUxtsOOuNorA8QaMiePb3Q9MhbidEijznG9&#xA;QfyGf0rGphXCPNFpryMKuCcIc8ZKS20Ciiiq/wDwkVz/AM8ov1o/4SK5/wCeUX616XHpfhG31WHw&#xA;RLZQyaq+nmVrvywSG6fe6hjywHoK8803R2svHdnpOoQq+y9SKRGGVddw/MEfzp1cJOna/UK2BqUu&#xA;W/X8Aoooqv8A8JFc/wDPKL9aQ+IbkjHlR/rXf+JbqPRNelsNP+F8mq26IrfaoLf5GJGSB8pHH1rG&#xA;+Ium6bZaNoOo2+lf2XdXzlJbXoUOwtgj1GCPxq6mBnCLldOxrVy2dODlzJ2CiiivNdQ8WanpOps9&#xA;ldSwSOmGMbYyPSisDxJ/yEh/uCiuuhTj7NM7sLSj7GLCiiivSPEZ+e3+jf0qa28TeHLfw2ula34Y&#xA;uL47iftVjtWYDOQC2VYfgelc745vLrQ/EF1YMySeQ5APYjqP0rlf+Emuv+eUX61yYelWhLnikcOF&#xA;o4ilL2kEgooor1XRviF4V8LNcXGheGPE5upI9gW7nLRnvzmRsfXFReHfHVrp/g+XSPE2h3OpQXEz&#xA;TOlsVJUs24DBI6HHINeX/wDCTXX/ADyi/Wj/AISa6/55RfrXZKpiW0+VHfOpi5NPlWgUUUV65ZfE&#xA;TwRpd2l7Y+C9dW5iyYy0a4B/77P8qz9C8eW9n4o1jxdq+jXkl1dyYtLSAKxiXaFBYkjnA/U15n/w&#xA;k11/zyi/Wj/hJrr/AJ5RfrSvWSSjBIm+ISSjCKV7hRRRXpcfxV8dTuLoQaHCXOQr2z71HYE7uuKu&#xA;at4903VfF2j6mNHv4Lm1dDdSbFMcgXB+U5znqBnHavKP+Emuv+eUX60f8JNdf88ov1qZPEyTUkiZ&#xA;vFzTUkmvyCiiivTda+KHifWdcuJ9DvLrSdOCoscFzbRsxOPmOee/vXOahe63ruoQXmu6xLfNbhhD&#xA;GUCIhIwSAO9cr/wk11/zyi/WkPia7x/q4vyNKp9andbJk1frtS60SfQKKKKTxJ/yEh/uCip/DPhv&#xA;UvHetXUUV3DDJFF5jNIDjGQMDA96K6qdPkgos7qNFwpqL6BRRRX/2Q==" posX="260" posY="251" executableVersion="1.05">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Prof. T.W. Lam, Alan Tam, Simon Wong, Edward Wu and S.M. Yiu" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>Li et al. (2009) SOAP2: an improved ultrafast tool for short read alignment. BIOINFORMATICS, doi:10.1093/bioinformatics/btp336</citation>
+                        </citations>
+                        <license>Copyright © 2007,2008-2010 Beijing Genomics Institute</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://soap.genomics.org.cn/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 13:34:14 PDT 2011" />
+                        </metadata>
+                        <input id="SOAPconfig_1.Maxreadlength" name="Max read length" description="Any read longer than max_rd_len will be cut to this length." required="false" enabled="true" order="1" prefix="max_rd_len=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>100</value>
+                                </values>
+                        </input>
+                        <input id="SOAPconfig_1.Averageinsertsize" name="Average insert size" description="This value indicates the average insert size of this library or the peak value position in the insert size distribution figure." required="false" enabled="false" order="2" prefix="avg_ins=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>361</value>
+                                </values>
+                        </input>
+                        <input id="SOAPconfig_1.Reversesequence" name="Reverse sequence" description="This option takes value 0 or 1. It tells the assembler if the read sequences need to be complementarily reversed. &#xA;Illumima GA produces two types of paired-end libraries: a) forward-reverse, generated from fragmented DNA ends with typical insert size less than 500 bp; b) forward-forward, generated from circularizing libraries with typical insert size greater than 2 Kb. The parameter “reverse_seq” should be set to indicate this: 0, forward-reverse; 1, forward-forward." required="false" enabled="true" order="3" prefix="reverse_seq=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>0</enumeration>
+                                        <enumeration>1</enumeration>
+                                </format>
+                                <values>
+                                        <value>0</value>
+                                </values>
+                        </input>
+                        <input id="SOAPconfig_1.Assemblyflags" name="Assembly flags" description="This indicator decides in which part(s) the reads are used. It takes value 1(only contig assembly), 2 (only scaffold assembly), 3(both contig and scaffold assembly), or 4 (only gap closure)." required="false" enabled="true" order="4" prefix="asm_flags=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>1</enumeration>
+                                        <enumeration>2</enumeration>
+                                        <enumeration>3</enumeration>
+                                        <enumeration>4</enumeration>
+                                </format>
+                                <values>
+                                        <value>3</value>
+                                </values>
+                        </input>
+                        <input id="SOAPconfig_1.Readlengthcutoff" name="Read length cutoff" description="The assembler will cut the reads from the current library to this length." required="false" enabled="false" order="5" prefix="rd_len_cutoff=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAPconfig_1.Rank" name="Rank" description="It takes integer values and decides in which order the reads are used for scaffold assembly. Libraries with the same “rank” are used at the same time during scaffold assembly. &#xA;" required="false" enabled="false" order="6" prefix="rank=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAPconfig_1.Pairnumbercutoff" name="Pair number cutoff" description="This parameter is the cutoff value of pair number for a reliable connection between two contigs or pre-scaffolds." required="false" enabled="false" order="7" prefix="pair_num_cutoff=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAPconfig_1.Maplength" name="Map length" description="This takes effect in the “map” step and is the minimun alignment length between a read and a contig required for a reliable read location.&#xA;" required="false" enabled="false" order="8" prefix="map_len=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SOAPconfig_1.Singleendfasta" name="Single end fasta" description="In the configuration file single end fasta files are indicated by “f=/path/filename” " required="false" enabled="false" order="9" prefix="f=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SOAPconfig_1.Singleendfastq" name="Single end fastq" description="In the configuration file single end fastq files are indicated by “q=/pah/filename” " required="false" enabled="false" order="10" prefix="q=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SOAPconfig_1.Pairedendfasta1" name="Paired end fasta 1" description="Paired reads in two fasta sequence files are indicated by “f1=” and “f2=”. " required="false" enabled="false" order="11" prefix="f1=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Paired end fasta 2</dependent>
+                                        <dependsOn>Paired end fasta 2</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="SOAPconfig_1.Pairedendfasta2" name="Paired end fasta 2" description="Paired reads in two fasta sequence files are indicated by “f1=” and “f2=”. &#xA;" required="false" enabled="false" order="12" prefix="f2=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Paired end fasta 1</dependent>
+                                        <dependsOn>Paired end fasta 1</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="SOAPconfig_1.Pairedendfastq1" name="Paired end fastq 1" description="While paired reads in two fastq sequences files are indicated by “q1=” and “q2=”. " required="true" enabled="true" order="13" prefix="q1=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Paired end fastq 2</dependent>
+                                        <dependsOn>Paired end fastq 2</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="SOAPconfig_1.Pairedendfastq2" name="Paired end fastq 2" description="While paired reads in two fastq sequences files are indicated by “q1=” and “q2=”." required="true" enabled="true" order="14" prefix="q2=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>Paired end fastq 1</dependent>
+                                        <dependsOn>Paired end fastq 1</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="SOAPconfig_1.Pairedreadsinsinglefile" name="Paired reads in single file" description="Paired reads in a single fasta sequence file is indicated by “p=” item.&#xA;" required="false" enabled="false" order="15" prefix="p=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SOAPconfig_1.Configfile" name="Config file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="ExecutionDirectory_1" name="Execution Directory" posX="158" posY="56" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 10 17:25:15 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>/ifs/tmp/${username}/SOAPdenovo</value>
+                        </values>
+                        <output id="ExecutionDirectory_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                </dataModule>
+                <module id="SOAPdenovo_2" name="SOAP de novo" package="SOAPdenovo" version="1.05" description="SOAPdenovo assembler.&#xA;&#xA;Input: alignment.soap&#xA;Tool: soap2sam.pl&#xA;Server Location: ./soap2sam.pl (available at http://soap.genomics.org.cn/soapaligner.html)&#xA;Output: alignment.sam&#xA;&#xA;Example: soap2sam.pl [-p] &lt;aln.soap&gt;" location="pipeline://genomics.loni.ucla.edu/scripts/soapdenovo.sh" sourceCode="" icon="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" posX="215" posY="438" executableVersion="1.05" gridVariables="h_stack=256;h_vmem=5">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Prof. T.W. Lam, Alan Tam, Simon Wong, Edward Wu and S.M. Yiu" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>Li et al. (2009) SOAP2: an improved ultrafast tool for short read alignment. BIOINFORMATICS, doi:10.1093/bioinformatics/btp336</citation>
+                        </citations>
+                        <license>Copyright © 2007,2008-2010 Beijing Genomics Institute</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://soap.genomics.org.cn/index.html</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jun 27 13:34:14 PDT 2011" />
+                        </metadata>
+                        <input id="SOAPdenovo_2.K-mersize" name="K-mer size" description="K-mer size [default 23, min 13, max63]" required="false" enabled="true" order="4" prefix="-K" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>31</value>
+                                </values>
+                        </input>
+                        <input id="SOAPdenovo_2.Configfile" name="Config file" required="false" enabled="true" order="2" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SOAPdenovo_2.Outputgraphfileprefix" name="Output graph file prefix" description="output graph file prefix" required="false" enabled="true" order="8" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>SOAPdenovo_output</value>
+                                </values>
+                        </input>
+                        <input id="SOAPdenovo_2.inputgraphfileprefix" name="input graph file prefix" description="input graph file prefix. for contig" required="false" enabled="false" order="3" prefix="-g" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>SOAPdenovo_output</value>
+                                </values>
+                        </input>
+                        <input id="SOAPdenovo_2.multithreads" name="multithreads" description="multithreads, n threads [default 8]" required="false" enabled="true" order="5" prefix="-p" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>16</value>
+                                </values>
+                        </input>
+                        <input id="SOAPdenovo_2.Method" name="Method" description="Once the configuration file is available, a typical way to run the assembler is:&#xA;./soapdenovo all –s config_file –K 25 –R –o graph_prefix&#xA;&#xA;User can also choose to run the assembly process step by step as:&#xA;./soapdenovo pregraph –s config_file –K 25 [–R -d -p] –o graph_prefix&#xA;./soapdenovo contig –g graph_prefix [–R –M 1 -D]&#xA;./soapdenovo map –s config_file –g graph_prefix [-p]&#xA;./soapdenovo scaff –g graph_prefix [–F -u -G -p]" required="true" enabled="true" order="1">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>all</enumeration>
+                                        <enumeration>pregraph</enumeration>
+                                        <enumeration>contig</enumeration>
+                                        <enumeration>map</enumeration>
+                                        <enumeration>scaff</enumeration>
+                                </format>
+                                <values>
+                                        <value>all</value>
+                                </values>
+                        </input>
+                        <input id="SOAPdenovo_2.Solvetinyrepeats" name="Solve tiny repeats " description="use reads to solve tiny repeats [default no]&#xA;" required="false" enabled="true" order="6" prefix="-R" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="SOAPdenovo_2.ExecutionDirectory" name="Execution Directory" required="true" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SOAPdenovo_2.unmaskcontigs" name="unmask contigs" description="un-mask contigs with high coverage before scaffolding (default mask)" required="false" enabled="true" order="7" prefix="-u" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                </module>
+                <dataModule id="ReverseFastq_1" name="Reverse Fastq" posX="698" posY="101" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Feb 06 21:47:14 PST 2012" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/faculty/dinov/gcps/data/genome_fastq_data_size_Feb_2012/1744-3_DLPFC_NoIndex_L004_R2.fq</value>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/faculty/dinov/gcps/data/genome_fastq_data_size_Feb_2012/2107-4_DLPFC_NoIndex_L003_R2.fq</value>
+                        </values>
+                        <output id="ReverseFastq_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <metadata>
+                        <data key="__creationDateKey" value="Tue Jan 31 19:22:40 PST 2012" />
+                </metadata>
+        </moduleGroup>
+</pipeline>
+

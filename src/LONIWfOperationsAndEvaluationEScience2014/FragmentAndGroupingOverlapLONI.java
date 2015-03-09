@@ -46,10 +46,7 @@ public class FragmentAndGroupingOverlapLONI {
     //how many nodes and connections are equal?
     //nodes + connections = percentage.
     
-    /*
-     * Note: this has been implemented for subdue only (for the moment).
-     * For pafi and parsemis will not be necessary to call the included fragments.
-     */
+    
     private double compareFragmentToGraph(Fragment f, Graph g){        
         //in order to simpify, we will test just the connections of the substructures separately.
         int graphSize = g.getNumberOfNodes();
@@ -219,7 +216,8 @@ public class FragmentAndGroupingOverlapLONI {
 //        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,47);
         
         //Corpus2 (Ivo)
-        repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowIVO\\all\\";
+        //repositoryFolder = "C:\\Users\\Monen\\Desktop\\LONIDatasets\\WorkflowIVO\\all\\";
+        repositoryFolder = "C:\\Users\\Dani\\Desktop\\WC2\\all\\";
 //        fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2MDL", occurrencesFile+"corpus2MDL_occurrences");
         fc = new FragmentCollectionReaderSUBDUE(fragmentFile+"corpus2SIZE", occurrencesFile+"corpus2SIZE_occurrences");
         LoniTemplateAndGroupings2Graph test = new LoniTemplateAndGroupings2Graph(repositoryFolder);
@@ -232,8 +230,8 @@ public class FragmentAndGroupingOverlapLONI {
         }
         endCollection = DatasetFilter.removeDuplicates(test.getGraphCollection());
         System.out.println("Total size of collection with groupings "+endCollection.getGraphs().size());
-//        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
-//        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
+        FragmentAndGroupingOverlapLONI fa = new FragmentAndGroupingOverlapLONI();
+        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,2);
 //        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,5);
 //        fa.printStatisticsOnFragmentOverlap(fc.getFragmentCatalogAsAnArrayList(), endCollection,10);
         

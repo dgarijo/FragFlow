@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="FastxFastq2fasta_1.Output" sink="ABYSS_1.Forwardsequenceinput" />
+                <connection source="Fastqinput_1.Output" sink="FastxFastq2fasta_1.Input" />
+                <connection source="ABYSS_1.contigoutfile" sink="Outputfile_1.Input" />
+        </connections>
+        <moduleGroup id="Abyss_SE_1" name="Abyss_SE" posX="0" posY="0">
+                <authors>
+                        <author fullName="Federica Torri" email="ftorri@uci.edu" website="" />
+                        <author fullName="Andrew Clark" email="clarkap@usc.edu" website="" />
+                        <author fullName="Ivo DInov" email="ivo.dinov@loni.ucla.edu" website="www.loni.ucla.edu/~dinov" />
+                        <author fullName="Sam Hobel" email="shobel87@gmail.com" website="" />
+                </authors>
+                <module id="ABYSS_1" name="ABYSS" package="Abyss" version="1.2.7" description="ABySS is a de novo, parallel, paired-end sequence assembler that is designed for short reads. The single-processor version is useful for assembling genomes up to 100 Mbases in size. The parallel version is implemented using MPI and is capable of assembling larger genomes." location="pipeline://genomics.loni.ucla.edu/ABYSS/ABYSS.sh" sourceCode="" icon="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&#xA;eeUUUV//2Q==" posX="158" posY="370" executableVersion="1.2.7">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Shaun Jackman" email="" website="" />
+                        </executableAuthors>
+                        <citations>
+                                <citation>PMID: 19251739</citation>
+                        </citations>
+                        <license>ABySS
+Copyright 2011 Genome Sciences Centre
+
+BC CANCER AGENCY SOFTWARE LICENSE AGREEMENT (ACADEMIC USE)
+CAREFULLY READ THE FOLLOWING TERMS AND CONDITIONS. This License
+Agreement (the "Agreement") is a legal contract between you, your
+employer, educational institution or organization (collectively, "You")
+and the British Columbia Cancer Agency ("BCCA") with respect to the
+license of the software, including all associated documentation
+(collectively, the "Product").
+
+BCCA is willing to license the Product to You only if You accept the
+terms and conditions of this Agreement. By clicking on the "I ACCEPT"
+button, or by copying, downloading, accessing or otherwise using the
+Product, You automatically agree to be bound by the terms of this
+Agreement. IF YOU DO NOT WISH TO BE BOUND BY THE TERMS OF THIS
+AGREEMENT, DO NOT COPY, DOWNLOAD, ACCESS OR OTHERWISE USE THE
+PRODUCT.
+
+1. AUTHORITY: In the event that You are an educational institution or
+organization, Your representative who is clicking the "I ACCEPT"
+button, or otherwise copying, downloading, accessing or using the
+Product hereby, in their personal capacity, represents and warrants
+that they possess the legal authority to enter into this Agreement
+on Your behalf and to bind You to the terms of this Agreement.
+
+2. LICENSE TO USE: BCCA hereby grants to You a personal, non-exclusive,
+non-transferable, limited license to use the Product solely for
+internal, non-commercial use for non-profit research or educational
+purposes only on the terms and conditions contained in this Agreement.
+The Product may be installed at a single site at Your premises only. A
+copy of the Product installed on a single common machine or cluster of
+machines may be shared for internal use by Qualified Users only. In
+order to be a "Qualified User", an individual must be a student,
+researcher, professor, instructor or staff member of a non-profit
+educational institution or organization who uses the Product solely for
+non-profit research or educational purposes.
+
+3. RESTRICTIONS: You acknowledge and agree that You shall not, and
+shall not authorize any third party to:
+(a) make copies of the Product, except as provided in Section 2 and
+except for a single backup copy, and any such copy together with the
+original must be kept in Your possession or control;
+(b) modify, adapt, decompile, disassemble, translate into another
+computer language, create derivative works of, or otherwise reverse
+engineer the Product, or disclose any trade secrets relating to the
+Product, except as permitted in Section 5;
+(c) license, sublicense, distribute, sell, lease, transfer, assign,
+trade, rent or publish the Product or any part thereof and/or copies
+thereof, to any third party;
+(d) use the Product to process any data other than Your own;
+(e) use the Product or any part thereof for any commercial or
+for-profit purpose or any other purpose other than as permitted in
+Section 2; or
+(f) use, without its express permission, the name of BCCA.
+
+4. INTELLECTUAL PROPERTY RIGHTS: Subject to Section 5 below, all
+patents, copyrights, trade secrets, service marks, trademarks and
+other proprietary rights in or related to the Product and any
+improvements, modifications and enhancements thereof are and will
+remain the exclusive property of BCCA or its licensors. You agree
+that You will not, either during or after the termination of this
+Agreement, contest or challenge the title to or the intellectual
+property rights of BCCA or its licensors in the Product or any
+portion thereof.
+
+5. OWNERSHIP OF IMPROVEMENTS: In the event that the Product, in the
+form provided to You, includes source code (the "Source Code"),
+You are entitled to make improvements, modifications and
+enhancements to the Source Code (collectively, "Improvements")
+which Improvements are to be used by You for non-profit research
+and educational purposes only and You shall be the owner of those
+Improvements that You directly make and of all intellectual
+property rights to such Improvements, subject to the foregoing
+limits on Your use and distribution of such Improvements. You
+hereby grant to BCCA a perpetual, non-exclusive, worldwide,
+fully-paid, irrevocable license to use such Improvements for any
+purposes whatsoever, and to sublicense such Improvements including
+the right for third parties to sublicense the same, in perpetuity
+to the extent such rights are not limited in duration under
+applicable law, without identifying or seeking Your
+consent. Notwithstanding the foregoing, You acknowledge that BCCA
+and its licensors will retain or own all rights in and to any
+pre-existing code or other technology, content and data that may be
+incorporated in the Improvements. For greater certainty, this
+Section applies solely to the Source Code and shall not give You
+any rights with respect to the object code or any other portion or
+format of the Product which use, for greater certainty, is limited
+as set forth in this Agreement including as set out in Section 3(b)
+above. You acknowledge and agree that you will provide copies of
+Improvements to BCCA in such format as reasonably requested by BCCA
+at any time upon the request of BCCA.
+
+6. CONFIDENTIALITY: You acknowledge that the Product is and
+incorporates confidential and proprietary information developed,
+acquired by or licensed to BCCA. You will take all reasonable
+precautions necessary to safeguard the confidentiality of the
+Product, and will not disclose any information about the Product to
+any other person without BCCA's prior written consent. You will
+not allow the removal or defacement of any confidential or
+proprietary notice placed on the Product. You acknowledge that any
+breach of this Section 6 will cause irreparable harm to BCCA and
+its licensors.
+
+7. NO WARRANTIES: THIS PRODUCT IS PROVIDED TO YOU BY BCCA IN ORDER TO
+ALLOW YOU TO OBTAIN ACCESS TO LEADING ACADEMIC RESEARCH. THE PRODUCT
+IS PROVIDED TO YOU ON AN "AS IS" BASIS WITHOUT WARRANTY OF ANY
+KIND. NO WARRANTY, REPRESENTATION OR CONDITION EITHER EXPRESS OR
+IMPLIED, INCLUDING WITHOUT LIMITATION, ANY IMPLIED WARRANTY OR
+CONDITION OF MERCHANTABILITY, NON-INFRINGEMENT, PERFORMANCE,
+DURABILITY OR FITNESS FOR A PARTICULAR PURPOSE OR USE SHALL
+APPLY. BCCA DOES NOT WARRANT THAT THE PRODUCT WILL OPERATE ON A
+CONTINUOUS OR TROUBLE FREE BASIS.
+
+8. LIMITATION OF LIABILITY: TO THE MAXIMUM EXTENT PERMITTED BY
+APPLICABLE LAW, IN NO EVENT SHALL THE AGGREGATE LIABILITY OF BCCA TO
+YOU EXCEED THE AMOUNT YOU HAVE PAID TO ACQUIRE THE PRODUCT ("MAXIMUM
+AMOUNT") AND WHERE YOU HAVE NOT PAID ANY AMOUNT FOR THE PRODUCT THEN
+THE MAXIMUM AMOUNT SHALL BE DEEMED TO BE CDN$100.00. IN NO EVENT SHALL
+BCCA BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, OR SPECIAL
+DAMAGES, INCLUDING WITHOUT LIMITATION ANY DAMAGES FOR LOST PROFITS OR
+SAVINGS, REGARDLESS OF WHETHER THEY HAVE BEEN ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE. EXCEPT TO THE EXTENT THAT THE LAWS OF A
+COMPETENT JURISDICTION REQUIRE LIABILITIES BEYOND AND DESPITE THESE
+LIMITATIONS, EXCLUSIONS AND DISCLAIMERS, THESE LIMITATIONS, EXCLUSIONS
+AND DISCLAIMERS SHALL APPLY WHETHER AN ACTION, CLAIM OR DEMAND ARISES
+FROM A BREACH OF WARRANTY OR CONDITION, BREACH OF CONTRACT,
+NEGLIGENCE, STRICT LIABILITY OR ANY OTHER KIND OF CIVIL OR STATUTORY
+LIABILITY CONNECTED WITH OR ARISING FROM THIS AGREEMENT. YOU AGREE
+THAT THE FOREGOING DISCLAIMER OF WARRANTIES AND LIMITATION OF
+LIABILITY ARE FAIR IN LIGHT OF THE NATURE OF THE RIGHTS GRANTED HEREIN
+AND THE AMOUNT OF FEES PAID BY YOU IN RESPECT OF THE PRODUCT.
+
+9. INDEMNITY: You will indemnify, defend and hold harmless BCCA, its
+board of directors, staff and agents from and against any and all
+liability, loss, damage, action, claim or expense (including
+attorney's fees and costs at trial and appellate levels) in
+connection with any claim, suit, action, demand or judgement
+(collectively, "Claim") arising out of, connected with, resulting
+from, or sustained as a result of Your use of the Product or the
+downloading of the Product, including without limitation, any Claim
+relating to infringement of BCCA's intellectual property rights or
+the intellectual property rights of any third party.
+
+10. SUPPORT AND MAINTENANCE: You acknowledge and agree that, unless
+and to the extent expressly agreed by BCCA in a separate written
+document, the Product is provided to You without any support or
+maintenance from BCCA and, for greater certainty, BCCA shall have
+no obligation to issue any update or upgrade to any Product.
+
+11. TERM: This Agreement is effective until terminated. You may
+terminate this Agreement at any time by ceasing use of the Product
+and destroying or deleting any copies of the Product. This
+Agreement will terminate immediately without notice from BCCA if
+You fail to comply with any provision of this Agreement. BCCA may
+terminate this Agreement at any time upon notice to you where BCCA
+determines, in its sole discretion, that any continued use of the
+Product could infringe the rights of any third parties. Upon
+termination of this Agreement, and in any event upon BCCA
+delivering You notice of termination, You shall immediately purge
+all Products from Your computer system(s), return to BCCA all
+copies of the Product that are in Your possession or control, and
+cease any further development of any Improvements. On any
+termination of this Agreement Sections 1, 4, 6, 7, 8, 9, 13 and 14
+shall survive such termination.
+
+12. GOVERNMENT END USERS: Where any of the Product is used, duplicated
+or disclosed by or to the United States government or a government
+contractor or sub contractor, it is provided with RESTRICTED
+RIGHTS as defined in Title 48 CFR 52.227-19 and is subject to the
+following: Title 48 CFR 2.101, 52.227-19, 227.7201 through
+227.7202-4, FAR 52.227-14, and FAR 52.227-19(c)(1-2) and (6/87),
+and where applicable, the customary software license, as described
+in Title 48 CFR 227-7202 with respect to commercial software and
+commercial software documentation including DFAR 252.227-7013,
+DFAR 252,227-7014, DFAR 252.227-7015 and DFAR 252.7018, all as
+applicable.
+
+13. USE OF THE DOWNLOAD SERVICE: You acknowledge and agree that you
+will be responsible for all costs, charges and taxes (where
+applicable) arising out of Your use of the Product and the
+downloading of the Product. You acknowledge that You are
+responsible for supplying any hardware or software necessary to
+use the Product pursuant to this Agreement.
+
+14. GENERAL PROVISIONS:
+(a) This Agreement will be governed by the laws of the Province of
+British Columbia, and the laws of Canada applicable therein, excluding
+any rules of private international law that lead to the application of
+the laws of any other jurisdiction. The United Nations Convention on
+Contracts for the International Sale of Goods (1980) does not apply to
+this Agreement. The courts of the Province of British Columbia shall
+have non-exclusive jurisdiction to hear any matter arising in
+connection with this Agreement.
+(b) USE OF THE PRODUCT IS PROHIBITED IN ANY JURISDICTION WHICH DOES
+NOT GIVE EFFECT TO THE TERMS OF THIS AGREEMENT.
+(c) You agree that no joint venture, partnership, employment,
+consulting or agency relationship exists between You and BCCA as a
+result of this Agreement or Your use of the Product.
+(d) You hereby consent to Your contact information and any other
+personally identifiable information that You provide to us being
+disclosed to and maintained and used by us and our business partners
+for the purposes of (i) managing and developing our respective
+businesses and operations; (ii) marketing products and services to You
+and your staff; and (iii) developing new and enhancing existing
+products. You further agree that we may provide this information to
+other persons as required to satisfy any legal requirements and to any
+person that acquires some or all of the assets of BCCA. Where any of
+the personally identifiable information that You provide to us is in
+respect of individuals other than Yourself (such as Your staff) then
+You represent and warrant to use that You have obtained all necessary
+consents and authorizations from such individuals in order to comply
+with this provision. Please see the BCCA website for further
+information regarding personally identifiable information.
+(e) This Agreement is the entire Agreement between You and BCCA
+relating to this subject matter. You will not contest the validity of
+this Agreement merely because it is in electronic form. No
+modification of this Agreement will be binding, unless in writing and
+accepted by an authorized representative of each party.
+(f) The provisions of this Agreement are severable in that if any
+provision in the Agreement is determined to be invalid or
+unenforceable under any controlling body of law, that will not affect
+the validity or enforceability of the remaining provisions of the
+Agreement.
+(g) You agree to print out or download a copy of this Agreement and
+retain it for Your records.
+(h) You consent to the use of the English language in this Agreement.
+(i) You may not assign this Agreement or any of Your rights or
+obligations hereunder without BCCA's prior written consent. BCCA, at
+its sole discretion may assign this Agreement without notice to You.</license>
+                        <tag>Bioinformatics genomics abyss</tag>
+                        <uri>http://www.bcgsc.ca/platform/bioinfo/software/abyss</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 17 15:13:56 PDT 2011" />
+                        </metadata>
+                        <input id="ABYSS_1.discardunchaste" name="discard unchaste" description="discard unchaste reads [default] for qseq, export and SAM files only" required="false" enabled="false" order="1" prefix="--chastity" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.dontdiscardunchaste" name="don't discard unchaste" description="do not discard unchaste reads" required="false" enabled="false" order="2" prefix="--no-chastity" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.trimmasked" name="trim masked" description="trim masked bases from the ends of reads [default]" required="false" enabled="false" order="3" prefix="--trim-masked" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.donttrimmasked" name="don't trim masked" description="do not trim masked bases from the ends of reads" required="false" enabled="false" order="4" prefix="--no-trim-masked" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.trimbases" name="trim bases" description=" trim bases from the ends of reads whose quality is less than the threshold" required="false" enabled="false" order="5" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.standardquality" name="standard quality" description="zero quality is `!' (33) default for FASTQ and SAM files" required="false" enabled="false" order="6" prefix="--standard-quality" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.illuminaquality" name="illumina quality" description="zero quality is `@' (64) default for qseq and export files" required="false" enabled="false" order="7" prefix="--illumina-quality" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <output id="ABYSS_1.contigoutfile" name="contig outfile" description="write the contigs to FILE" required="true" enabled="true" order="8" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="ABYSS_1.kmersize" name="kmer size" description=" k-mer size" required="false" enabled="true" order="9" prefix="--kmer=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>25</value>
+                                </values>
+                        </input>
+                        <input id="ABYSS_1.trimlength" name="trim length" description="maximum length of dangling edges to trim" required="false" enabled="false" order="10" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.coverage" name="coverage" description="remove contigs with mean k-mer coverage less than this threshold" required="false" enabled="false" order="11" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.popbubbles" name="pop bubbles" description=" pop bubbles shorter than N bp [3*k]" required="false" enabled="false" order="12" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.dontpopbubbles" name="don't pop bubbles" description="do not pop bubbles" required="false" enabled="false" order="13" prefix="-b0" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.erodebases" name="erode bases" description=" erode bases at the ends of blunt contigs with coverage less than this threshold" required="false" enabled="false" order="14" prefix="-e" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.erodestrand" name="erode strand" description="  erode bases at the ends of blunt contigs with coverage less than this threshold on either strand" required="false" enabled="false" order="15" prefix="-E" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ABYSS_1.recordkmercoverage" name="record kmer coverage" description="record the k-mer coverage histogram in FILE" required="false" enabled="false" order="16" prefix="--coverage-hist=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ABYSS_1.graphfile" name="graph file" description="generate a graph in dot format" required="false" enabled="false" order="17" prefix="-g" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ABYSS_1.bubblefile" name="bubble file" description="record popped bubbles in FILE" required="false" enabled="false" order="18" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ABYSS_1.verbose" name="verbose" description="display verbose output" required="false" enabled="false" order="19" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ABYSS_1.Forwardsequenceinput" name="Forward sequence input" description="Forward reads in fastq format." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </module>
+                <module id="FastxFastq2fasta_1" name="Fastx: Fastq2fasta" package="Fastx" version="1.0" description="$ fastq_to_fasta -h&#xA;usage: fastq_to_fasta [-h] [-r] [-n] [-v] [-z] [-i INFILE] [-o OUTFILE]&#xA;&#xA;version 0.0.6&#xA;[-h]         = This helpful help screen.&#xA;[-r]         = Rename sequence identifiers to numbers.&#xA;[-n]         = keep sequences with unknown (N) nucleotides.&#xA;                   Default is to discard such sequences.&#xA;[-v]         = Verbose - report number of sequences.&#xA;                   If [-o] is specified,  report will be printed to STDOUT.&#xA;                   If [-o] is not specified (and output goes to STDOUT),&#xA;                   report will be printed to STDERR.&#xA;[-z]         = Compress output with GZIP.&#xA;[-i INFILE]  = FASTA/Q input file. default is STDIN.&#xA;[-o OUTFILE] = FASTA output file. default is STDOUT." location="pipeline://genomics.loni.ucla.edu/bin/fastq_to_fasta2" sourceCode="" icon="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&#xA;" posX="239" posY="187" executableVersion="0.0.6">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <license>FASTX-Toolkit LICENSE
+=====================
+
+FASTX-Toolkit is distributed under the Affero GPL (AGPL) version 3 or later.
+See the COPYING file, or GNU Affero General Public License
+
+EXCEPT
+
+Files under the 'galaxy' sub-direcory are distributed under the same license as
+Galaxy itself (which is a more permissive, MIT style license).
+See the GALAXY-LICENSE file.</license>
+                        <tag>fastx toolkit fastq fasta</tag>
+                        <uri>http://hannonlab.cshl.edu/fastx_toolkit/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 17 15:56:34 PDT 2011" />
+                        </metadata>
+                        <input id="FastxFastq2fasta_1.Help" name="Help" description="displays options" required="false" enabled="false" order="2" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="FastxFastq2fasta_1.Renamesequenceids" name="Rename sequence ids" description="Rename sequence identifiers to numbers." required="false" enabled="false" order="4" prefix="-r" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="FastxFastq2fasta_1.Keepunknowns" name="Keep unknowns" description="keep sequences with unknown (N) nucleotides." required="false" enabled="true" order="3" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="FastxFastq2fasta_1.Verbose" name="Verbose" description="Verbose - report number of sequences. &#xA;If [-o] is specified,  report will be printed to STDOUT.&#xA;If [-o] is not specified (and output goes to STDOUT), report will be printed to STDERR." required="false" enabled="true" order="5" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="FastxFastq2fasta_1.Input" name="Input" description="FASTA/Q input file. default is STDIN." required="true" enabled="true" order="0" prefix="-i" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="FastxFastq2fasta_1.Output" name="Output" required="true" enabled="true" order="1" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="FastxFastq2fasta_1.Compress" name="Compress" description="Compress output with GZIP." required="false" enabled="false" order="6" prefix="-z" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                </module>
+                <dataModule id="Fastqinput_1" name="Fastq input" posX="138" posY="38" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 22 14:32:17 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_extraction/s_1_1_sequence.150k.fastq</value>
+                        </values>
+                        <output id="Fastqinput_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <dataModule id="Outputfile_1" name="Output file" posX="239" posY="533" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 31 15:17:07 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/${username}/Abyss_SE/contigs.fa</value>
+                        </values>
+                        <input id="Outputfile_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <metadata>
+                        <data key="__creationDateKey" value="Tue Jan 31 19:17:34 PST 2012" />
+                </metadata>
+                <annotations visible="true">
+                        <annotation width="200" height="22" posX="386" posY="70" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Outputs a contigs fasta file">
+                                <styles>
+                                        <style name="Outputs a contigs fasta file$0" fontSize="12" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

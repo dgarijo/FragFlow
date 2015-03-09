@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="MarkDuplicates_1.MetricsFile" sink="MetricsFile_1.Input" />
+                <connection source="BuildBamIndex_1.Output" sink="Results_1.Input" />
+                <connection source="FixMateInformation_1.Output" sink="ValidateSamFile_1.Input" />
+                <connection source="SamFormatConverter_1.BamOutput" sink="SortSam_1.Input" />
+                <connection source="SortSam_1.Output" sink="MarkDuplicates_1.Input" />
+                <connection source="MarkDuplicates_1.Output" sink="FixMateInformation_1.Input" />
+                <connection source="SamToolsCamldMDtag_1.OutputNo-DuplicatesBAMfile" sink="BuildBamIndex_1.Input" />
+                <connection source="SAMfile_1.Output" sink="CleanSam_1.Input" />
+                <connection source="CleanSam_1.Output" sink="SamFormatConverter_1.Input" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="SamToolsFaidx_1.InputReferenceFAFile" />
+                <connection source="FixMateInformation_1.Output" sink="SamToolsCamldMDtag_1.InputBAMFile" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="SamToolsCamldMDtag_1.InputReferenceFasta" />
+                <connection source="SamToolsFaidx_1.Flow" sink="SamToolsCamldMDtag_1.Flow" />
+        </connections>
+        <moduleGroup id="Untitled_1" name="Untitled" posX="0" posY="0">
+                <dataModule id="MetricsFile_1" name="Metrics File" posX="710" posY="581" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Nov 10 12:47:38 PST 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/BasicQC1_revised/metricsfile.txt</value>
+                        </values>
+                        <input id="MetricsFile_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <dataModule id="Results_1" name="Results" posX="1333" posY="724" type="File" source="false" loopIndex="false" dirDump="true">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Nov 10 12:46:54 PST 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/BasicQC1_revised</value>
+                        </values>
+                        <input id="Results_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <module id="ValidateSamFile_1" name="Validate Sam File" package="Picard" version="1.43" description="Read a SAM or BAM file and report on its validity." location="pipeline://genomics.loni.ucla.edu//ifshome/shobel/scripts/validatesamfile.sh" sourceCode="" icon="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" posX="982" posY="450">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Apr 25 12:43:06 PDT 2011" />
+                        </metadata>
+                        <input id="ValidateSamFile_1.Tmpdir" name="Tmp dir" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Validationstringency" name="Validation stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT}" required="false" enabled="false" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Compressionlevel" name="Compression level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Maxrecordsinram" name="Max records in ram" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Createindex" name="Create index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.Createmd5file" name="Create md5 file" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/ValidateSamFile.jar</value>
+                                </values>
+                        </input>
+                        <input id="ValidateSamFile_1.Input" name="Input" description="The BAM or SAM file. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ValidateSamFile_1.Output" name="Output" description="Output file or standard out if missing Default value: null. " required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="ValidateSamFile_1.Mode" name="Mode" description="Mode of output Default value: VERBOSE. This option can be set to 'null' to clear the default value. Possible values: {VERBOSE, SUMMARY} " required="false" enabled="false" order="11" prefix="MODE=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>VERBOSE</enumeration>
+                                        <enumeration>SUMMARY</enumeration>
+                                </format>
+                        </input>
+                        <input id="ValidateSamFile_1.Ignore" name="Ignore" description="List of validation error types to ignore. Possible values: {INVALID_FLAG_PROPER_PAIR, INVALID_FLAG_MATE_UNMAPPED, MISMATCH_FLAG_MATE_UNMAPPED, INVALID_FLAG_MATE_NEG_STRAND, MISMATCH_FLAG_MATE_NEG_STRAND, INVALID_FLAG_FIRST_OF_PAIR, INVALID_FLAG_SECOND_OF_PAIR, PAIRED_READ_NOT_MARKED_AS_FIRST_OR_SECOND, INVALID_FLAG_NOT_PRIM_ALIGNMENT, INVALID_FLAG_READ_UNMAPPED, INVALID_INSERT_SIZE, INVALID_MAPPING_QUALITY, INVALID_CIGAR, ADJACENCT_INDEL_IN_CIGAR, INVALID_MATE_REF_INDEX, MISMATCH_MATE_REF_INDEX, INVALID_REFERENCE_INDEX, INVALID_ALIGNMENT_START, MISMATCH_MATE_ALIGNMENT_START, MATE_FIELD_MISMATCH, INVALID_TAG_NM, MISSING_TAG_NM, MISSING_HEADER, MISSING_SEQUENCE_DICTIONARY, MISSING_READ_GROUP, RECORD_OUT_OF_ORDER, READ_GROUP_NOT_FOUND, INVALID_INDEXING_BIN, MISSING_VERSION_NUMBER, INVALID_VERSION_NUMBER, TRUNCATED_FILE, MISMATCH_READ_LENGTH_AND_QUALS_LENGTH, EMPTY_READ, CIGAR_MAPS_OFF_REFERENCE, MISMATCH_READ_LENGTH_AND_E2_LENGTH, MISMATCH_READ_LENGTH_AND_U2_LENGTH, E2_BASE_EQUALS_PRIMARY_BASE, BAM_FILE_MISSING_TERMINATOR_BLOCK, UNRECOGNIZED_HEADER_TYPE, POORLY_FORMATTED_HEADER_TAG, HEADER_TAG_MULTIPLY_DEFINED, HEADER_RECORD_MISSING_REQUIRED_TAG, INVALID_DATE_STRING, TAG_VALUE_TOO_LARGE, INVALID_INDEX_FILE_POINTER, INVALID_PREDICTED_MEDIAN_INSERT_SIZE, DUPLICATE_READ_GROUP_ID, DUPLICATE_PROGRAM_GROUP_ID, MATE_NOT_FOUND} This option may be specified 0 or more times. " required="false" enabled="false" order="12" includeTransformedParameter="false">
+                                <format type="String" cardinality="-1">
+                                        <transform order="0" operation="Prepend">IGNORE=</transform>
+                                </format>
+                                <values>
+                                        <value>MATE_NOT_FOUND</value>
+                                        <value>MISSING_TAG_NM</value>
+                                </values>
+                        </input>
+                        <input id="ValidateSamFile_1.MaxOutput" name="Max Output" description="The maximum number of lines output in verbose mode Default value: 100. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="13" prefix="MAX_OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="ValidateSamFile_1.ReferenceSequence" name="Reference Sequence" description="Reference sequence file, the NM tag check will be skipped if this is missing Default value: null. " required="false" enabled="false" order="14" prefix="REFERENCE_SEQUENCE=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ValidateSamFile_1.IgnoreWarnings" name="Ignore Warnings" description="If true, only report errors, and ignore warnings. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="15" prefix="IGNORE_WARNINGS=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ValidateSamFile_1.DontValidateIndex" name="Don't Validate Index" description="If true and input is a BAM file with an index file, also validates the index. Default value: true. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="16" prefix="VALIDATE_INDEX=false" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ValidateSamFile_1.IsBisulfiteSequenced" name="Is Bisulfite Sequenced" description="Whether the SAM or BAM file consists of bisulfite sequenced reads. If so, C-&gt;T is not counted as an error in computing the value of the NM tag. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="17" prefix="IS_BISULFITE_SEQUENCED=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="ValidateSamFile_1.MaxOpenTempFiles" name="Max Open Temp Files" description="Relevant for a coordinate-sorted file containing read pairs only. Maximum number of file handles to keep open when spilling mate info to disk. Set this number a little lower than the per-process maximum number of file that may be open. This number can be found by executing the 'ulimit -n' command on a Unix system. Default value: 8000. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="18" prefix="MAX_OPEN_TEMP_FILES=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                </module>
+                <dataModule id="SAMfile_1" name="SAM file" posX="143" posY="11" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 30 15:29:08 PDT 2011" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_BWA/basename-0.sam</value>
+                        </values>
+                        <output id="SAMfile_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <module id="SortSam_1" name="Sort Sam" package="Picard" version="1.43" description="Sorts the input SAM or BAM.  Input and output formats are determined by file extension." location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="467" posY="241">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Apr 25 12:43:06 PDT 2011" />
+                        </metadata>
+                        <input id="SortSam_1.Tmpdir" name="Tmp dir" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Validationstringency" name="Validation stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT}" required="false" enabled="true" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LENIENT</value>
+                                </values>
+                        </input>
+                        <input id="SortSam_1.Compressionlevel" name="Compression level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Maxrecordsinram" name="Max records in ram" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Createindex" name="Create index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.Createmd5file" name="Create md5 file" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SortSam_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/SortSam.jar</value>
+                                </values>
+                        </input>
+                        <input id="SortSam_1.Input" name="Input" description="The BAM or SAM file to sort. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SortSam_1.Output" name="Output" description="The sorted BAM or SAM output file. Required. " required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SortSam_1.SortOrder" name="Sort Order" description="Sort order of output file Required. Possible values: {unsorted, queryname, coordinate} " required="true" enabled="true" order="11" prefix="SORT_ORDER=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>unsorted</enumeration>
+                                        <enumeration>queryname</enumeration>
+                                        <enumeration>coordinate</enumeration>
+                                </format>
+                                <values>
+                                        <value>coordinate</value>
+                                </values>
+                        </input>
+                </module>
+                <module id="MarkDuplicates_1" name="Mark Duplicates" package="Picard" version="1.43" description="Examines aligned records in the supplied SAM or BAM file to locate duplicate molecules. All records are then written to the output file with the duplicate records flagged." location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="562" posY="340" rotation="1">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Apr 25 12:43:06 PDT 2011" />
+                        </metadata>
+                        <input id="MarkDuplicates_1.Tmpdir" name="Tmp dir" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Validationstringency" name="Validation stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT}" required="false" enabled="true" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LENIENT</value>
+                                </values>
+                        </input>
+                        <input id="MarkDuplicates_1.Compressionlevel" name="Compression level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Maxrecordsinram" name="Max records in ram" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Createindex" name="Create index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Createmd5file" name="Create md5 file" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.Input" name="Input" description="The input SAM or BAM file to analyze. Must be coordinate sorted. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MarkDuplicates_1.Output" name="Output" description="The output file to right marked records to Required. " required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MarkDuplicates_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/MarkDuplicates.jar</value>
+                                </values>
+                        </input>
+                        <output id="MarkDuplicates_1.MetricsFile" name="Metrics File" description="File to write duplication metrics to Required." required="true" enabled="true" order="11" prefix="METRICS_FILE=" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MarkDuplicates_1.RemoveDuplicates" name="Remove Duplicates" description="If true do not write duplicates to the output file instead of writing them with appropriate flags set. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="12" prefix="REMOVE_DUPLICATES=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="MarkDuplicates_1.AssumeSorted" name="Assume Sorted" description="If true, assume that the input file is coordinate sorted, even if the header says otherwise. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="13" prefix="ASSUME_SORTED=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="MarkDuplicates_1.MaxSequencesforDiskReadEndsMap" name="Max Sequences for Disk Read Ends Map" description="This option is obsolete. ReadEnds will always be spilled to disk. Default value: 50000. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="14" prefix="MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.MaxFileHandlesforReadEndsMap" name="Max File Handles for Read Ends Map" description="Maximum number of file handles to keep open when spilling read ends to disk. Set this number a little lower than the per-process maximum number of file that may be open. This number can be found by executing the 'ulimit -n' command on a Unix system. Default value: 8000. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="15" prefix="MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.ReadNameRegex" name="Read Name Regex" description="Regular expression that can be used to parse read names in the incoming SAM file. Read names are parsed to extract three variables: tile/region, x coordinate and y coordinate. These values are used to estimate the rate of optical duplication in order to give a more accurate estimated library size. The regular expression should contain three capture groups for the three variables, in order. Default value: [a-zA-Z0-9]+:[0-9]:([0-9]+):([0-9]+):([0-9]+).*. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="16" prefix="READ_NAME_REGEX=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="MarkDuplicates_1.OpticalDuplicatePixelDistance" name="Optical Duplicate Pixel Distance" description="The maximum offset between two duplicte clusters in order to consider them optical duplicates. This should usually be set to some fairly small number (e.g. 5-10 pixels) unless using later versions of the Illumina pipeline that multiply pixel values by 10, in which case 50-100 is more normal. Default value: 100. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="17" prefix="OPTICAL_DUPLICATE_PIXEL_DISTANCE=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                </module>
+                <module id="FixMateInformation_1" name="Fix Mate Information" package="Picard" version="1.43" description="Ensure that all mate-pair information is in sync between each read and it's mate pair. If no OUTPUT file is supplied then the output is written to a temporary file and then copied over the INPUT file." location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="810" posY="218" rotation="1">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Apr 25 12:43:06 PDT 2011" />
+                        </metadata>
+                        <input id="FixMateInformation_1.Tmpdir" name="Tmp dir" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Validationstringency" name="Validation stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT}" required="false" enabled="true" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LENIENT</value>
+                                </values>
+                        </input>
+                        <input id="FixMateInformation_1.Compressionlevel" name="Compression level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Maxrecordsinram" name="Max records in ram" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Createindex" name="Create index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Createmd5file" name="Create md5 file" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="FixMateInformation_1.Input" name="Input" description="The input file to fix. This option may be specified 0 or more times." required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="FixMateInformation_1.Output" name="Output" description="The output file to write to. If no output file is supplied, the input file is overwritten. Default value: null." required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="FixMateInformation_1.Sortorder" name="Sort order" description="Optional sort order if the OUTPUT file should be sorted differently than the INPUT file. Default value: null. Possible values: {unsorted, queryname, coordinate}" required="false" enabled="false" order="11" prefix="SORT_ORDER=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>unsorted</enumeration>
+                                        <enumeration>queryname</enumeration>
+                                        <enumeration>coordinate</enumeration>
+                                </format>
+                        </input>
+                        <input id="FixMateInformation_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/FixMateInformation.jar</value>
+                                </values>
+                        </input>
+                </module>
+                <module id="BuildBamIndex_1" name="Build Bam Index" package="Picard" version="1.43" description="Generates BAM index (.bai) File" location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="1277" posY="563">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <tag />
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Apr 07 11:48:23 PDT 2011" />
+                        </metadata>
+                        <input id="BuildBamIndex_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/BuildBamIndex.jar</value>
+                                </values>
+                        </input>
+                        <input id="BuildBamIndex_1.TempLocation" name="Temp Location" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="BuildBamIndex_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>ERROR</enumeration>
+                                        <enumeration>WARNING</enumeration>
+                                        <enumeration>INFO</enumeration>
+                                        <enumeration>DEBUG</enumeration>
+                                </format>
+                        </input>
+                        <input id="BuildBamIndex_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BuildBamIndex_1.ValidationStringency" name="Validation Stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT} " required="false" enabled="true" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>STRICT</enumeration>
+                                        <enumeration>LENIENT</enumeration>
+                                        <enumeration>SILENT</enumeration>
+                                </format>
+                                <values>
+                                        <value>LENIENT</value>
+                                </values>
+                        </input>
+                        <input id="BuildBamIndex_1.CompressionLevel" name="Compression Level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BuildBamIndex_1.MaxRecordsinRAM" name="Max Records in RAM" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="BuildBamIndex_1.CreateIndex" name="Create Index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BuildBamIndex_1.CreateMD5File" name="Create MD5 File" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="BuildBamIndex_1.Input" name="Input" description="A BAM file to process. Must be sorted in coordinate order. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="BuildBamIndex_1.Output" name="Output" description="The BAM index file. Defaults to x.bai if INPUT is x.bam, otherwise INPUT.bai.  If INPUT is a URL and OUTPUT is unspecified, defaults to a file in the current directory. Default value: null. " required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM Index File" extension="bai" description="SAMtools BAM Index File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="InputReferenceFastaFile_1" name="Input Reference Fasta File" package="MAQ" version="0.7.1" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" posX="1129" posY="15" type="File" source="true" loopIndex="false">
+                        <uri>http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/</uri>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                        <output id="InputReferenceFastaFile_1.Output" name="Output" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <module id="CleanSam_1" name="Clean Sam" package="Picard" version="1.43" description="Read SAM and perform various fix-ups. Currently, the only fix-up it to soft-clip an alignment that hangs off the end of its reference sequence." location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="144" posY="241">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <tag />
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Apr 07 11:48:23 PDT 2011" />
+                        </metadata>
+                        <input id="CleanSam_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/CleanSam.jar</value>
+                                </values>
+                        </input>
+                        <input id="CleanSam_1.TempLocation" name="Temp Location" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="CleanSam_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>ERROR</enumeration>
+                                        <enumeration>WARNING</enumeration>
+                                        <enumeration>INFO</enumeration>
+                                        <enumeration>DEBUG</enumeration>
+                                </format>
+                        </input>
+                        <input id="CleanSam_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="CleanSam_1.ValidationStringency" name="Validation Stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT} " required="false" enabled="false" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>ERROR</enumeration>
+                                        <enumeration>WARNING</enumeration>
+                                        <enumeration>INFO</enumeration>
+                                        <enumeration>DEBUG</enumeration>
+                                </format>
+                        </input>
+                        <input id="CleanSam_1.CompressionLevel" name="Compression Level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="CleanSam_1.MaxRecordsinRAM" name="Max Records in RAM" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value. " required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="CleanSam_1.CreateIndex" name="Create Index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="CleanSam_1.CreateMD5File" name="Create MD5 File" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="CleanSam_1.Input" name="Input" description="Input SAM to be cleaned. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CleanSam_1.Output" name="Output" description="Where to write cleaned SAM. Required. " required="true" enabled="true" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="SamFormatConverter_1" name="Sam Format Converter" package="Picard" version="1.43" description="Convert a BAM file to a SAM file, or BAM to SAM.  Input and output formats are determined by file extension." location="pipeline://genomics.loni.ucla.edu/java" sourceCode="" icon="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" posX="230" posY="342" rotation="1">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Alec Wysoker" email="" website="" />
+                                <author fullName="Kathleen Tibbetts" email="" website="" />
+                                <author fullName="Tim Fennell" email="" website="" />
+                                <author fullName="Ben Weisburd" email="" website="" />
+                        </executableAuthors>
+                        <license>Copyright: 2009 The Broad Institute
+License: MIT
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.</license>
+                        <tag />
+                        <uri>http://picard.sourceforge.net/command-line-overview.shtml</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Apr 25 12:43:06 PDT 2011" />
+                        </metadata>
+                        <input id="SamFormatConverter_1.Tmpdir" name="Tmp dir" description="Default value: &lt;System temp directory&gt;/&lt;current user name&gt;. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="1" prefix="TMP_DIR=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Verbosity" name="Verbosity" description="Control verbosity of logging. Default value: INFO. This option can be set to 'null' to clear the default value. Possible values: {ERROR, WARNING, INFO, DEBUG}" required="false" enabled="false" order="2" prefix="VERBOSITY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Quiet" name="Quiet" description="Whether to suppress job-summary info on System.err. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="3" prefix="QUIET=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Validationstringency" name="Validation stringency" description="Validation stringency for all SAM files read by this program. Setting stringency to SILENT can improve performance when processing a BAM file in which variable-length data (read, qualities, tags) do not otherwise need to be decoded. Default value: STRICT. This option can be set to 'null' to clear the default value. Possible values: {STRICT, LENIENT, SILENT}" required="false" enabled="true" order="4" prefix="VALIDATION_STRINGENCY=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>LENIENT</value>
+                                </values>
+                        </input>
+                        <input id="SamFormatConverter_1.Compressionlevel" name="Compression level" description="Compression level for all compressed files created (e.g. BAM and GELI). Default value: 5. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="5" prefix="COMPRESSION_LEVEL=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Maxrecordsinram" name="Max records in ram" description="When writing SAM files that need to be sorted, this will specify the number of records stored in RAM before spilling to disk. Increasing this number reduces the number of file handles needed to sort a SAM file, and increases the amount of RAM needed. Default value: 500000. This option can be set to 'null' to clear the default value." required="false" enabled="false" order="6" prefix="MAX_RECORDS_IN_RAM=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Createindex" name="Create index" description="Whether to create a BAM index when writing a coordinate-sorted BAM file. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false}" required="false" enabled="false" order="7" prefix="CREATE_INDEX=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.Createmd5file" name="Create md5 file" description="Whether to create an MD5 digest for any BAM files created. Default value: false. This option can be set to 'null' to clear the default value. Possible values: {true, false} " required="false" enabled="false" order="8" prefix="CREATE_MD5_FILE=true" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="SamFormatConverter_1.JarFile" name="Jar File" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="JAR" extension="jar" description="Sun JAR file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/SamFormatConverter.jar</value>
+                                </values>
+                        </input>
+                        <input id="SamFormatConverter_1.Input" name="Input" description="The BAM or SAM file to parse. Required. " required="true" enabled="true" order="9" prefix="INPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SamFormatConverter_1.SamOutput" name="Sam Output" description="The BAM or SAM output file. Required. " required="false" enabled="false" order="10" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="SamFormatConverter_1.BamOutput" name="Bam Output" required="false" enabled="true" order="11" prefix="OUTPUT=" prefixSpaced="false" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="SamToolsFaidx_1" name="SamTools: Faidx" package="SamTools" version="0.1.10" description="SAM (Sequence Alignment/Map) tools is a flexible generic format for storing nucleotide sequence alignment. SAM tools provide efficient utilities on manipulating alignments in the SAM format. &#xA;&#xA;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. " location="pipeline://genomics.loni.ucla.edu/samtools" sourceCode="" icon="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" posX="1378" posY="186" executableVersion="r783">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <citations>
+                                <citation>PMID: 19505943</citation>
+                        </citations>
+                        <license>http://sourceforge.net/projects/samtools/
+BSD</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://sourceforge.net/projects/samtools/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <output id="SamToolsFaidx_1.OutputFAIfile" name="Output FAI file" description="Output index file (fai) file&#xA;index &#x9;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. &#xA;" required="true" enabled="true" order="2" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="Input Reference FA File">
+                                        <fileTypes>
+                                                <filetype name="SAMtools" extension="fai" description="FAI file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.fai</transform>
+                                </format>
+                        </output>
+                        <input id="SamToolsFaidx_1.SAMtoolsRoutine" name="SAMtools Routine" description="samtools faidx &lt;ref.fasta&gt; [region1 [...]]&#xA;Index reference sequence in the FASTA format or extract subsequence from indexed reference sequence. If no region is specified, faidx will index the file and create &lt;ref.fasta&gt;.fai on the disk. If regions are speficified, the subsequences will be retrieved and printed to stdout in the FASTA format. The input file can be compressed in the RAZF format." required="true" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>faidx</value>
+                                </values>
+                        </input>
+                        <input id="SamToolsFaidx_1.InputReferenceFAFile" name="Input Reference FA File" description="Input Reference BFA file&#xA;&#xA;maq match reads-1.map ref.bfa reads-1.bfq&#xA;    Align the reads to the reference" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SamToolsFaidx_1.Flow" name="Flow" required="false" enabled="true" order="3">
+                                <format type="Flow Control" cardinality="1" />
+                        </output>
+                </module>
+                <module id="SamToolsCamldMDtag_1" name="SamTools: Camld (MD tag)" package="SamTools" version="0.1.10" description="SAM (Sequence Alignment/Map) tools is a flexible generic format for storing nucleotide sequence alignment. SAM tools provide efficient utilities on manipulating alignments in the SAM format. &#xA;&#xA;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. " location="pipeline://genomics.loni.ucla.edu/samtools_calmd.sh" sourceCode="" icon="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" posX="1294" posY="412" executableVersion="r783">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <citations>
+                                <citation>PMID: 19505943</citation>
+                        </citations>
+                        <license>http://sourceforge.net/projects/samtools/
+BSD</license>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://sourceforge.net/projects/samtools/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <output id="SamToolsCamldMDtag_1.OutputNo-DuplicatesBAMfile" name="Output No-Duplicates BAM file" description="Output index file (fai) file&#xA;index &#x9;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. &#xA;" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SamToolsCamldMDtag_1.SAMtoolsRoutine" name="SAMtools Routine" description="samtools calmd [-EeubSr] [-C capQcoef] &lt;aln.bam&gt; &lt;ref.fasta&gt;&#xA;Generate the MD tag. If the MD tag is already present, this command will give a warning if the MD tag generated is different from the existing tag. Output SAM by default.&#xA;&#xA;OPTIONS:&#xA;-A&#x9; When used jointly with -r this option overwrites the original base quality.&#xA;-e&#x9; Convert a the read base to = if it is identical to the aligned reference base. Indel caller does not support the = bases at the moment.&#xA;-u&#x9; Output uncompressed BAM&#xA;-b&#x9; Output compressed BAM&#xA;-S&#x9; The input is SAM with header lines&#xA;-C INT&#x9; Coefficient to cap mapping quality of poorly mapped reads. See the pileup command for details. [0]&#xA;-r&#x9; Compute the BQ tag (without -A) or cap base quality by BAQ (with -A).&#xA;-E&#x9; Extended BAQ calculation. This option trades specificity for sensitivity, though the effect is minor." required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>calmd</value>
+                                </values>
+                        </input>
+                        <input id="SamToolsCamldMDtag_1.InputBAMFile" name="Input BAM File" description="Input Reference BFA file&#xA;&#xA;maq match reads-1.map ref.bfa reads-1.bfq&#xA;    Align the reads to the reference" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SamToolsCamldMDtag_1.InputControlsFlags" name="Input Controls (Flags)" description="samtools calmd [-eubSr] [-C capQcoef] &lt;aln.bam&gt; &lt;ref.fasta&gt;&#xA;&#xA;Generate the MD tag. If the MD tag is already present, this command will give a warning if the MD tag generated is different from the existing tag. Output SAM by default.&#xA;&#xA;OPTIONS:&#xA;-e &#x9;Convert a the read base to = if it is identical to the aligned reference base. Indel caller does not support the = bases at the moment.&#xA;-u &#x9;Output uncompressed BAM&#xA;-b &#x9;Output compressed BAM&#xA;-S &#x9;The input is SAM with header lines&#xA;-C INT &#x9;Coefficient to cap mapping quality of poorly mapped reads. See the pileup command for details. [0]&#xA;-r &#x9;Perform probabilistic realignment to compute BAQ, which will be used to cap base quality. " required="false" enabled="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>-b</value>
+                                </values>
+                        </input>
+                        <input id="SamToolsCamldMDtag_1.InputReferenceFasta" name="Input Reference Fasta" description="http://samtools.sourceforge.net/samtools.shtml&#xA;&#xA;calmd &#x9;samtools calmd [-eubSr] [-C capQcoef] &lt;aln.bam&gt; &lt;ref.fasta&gt;&#xA;&#xA;Generate the MD tag. If the MD tag is already present, this command will give a warning if the MD tag generated is different from the existing tag. Output SAM by default.&#xA;&#xA;OPTIONS:&#xA;-e &#x9;Convert a the read base to = if it is identical to the aligned reference base. Indel caller does not support the = bases at the moment.&#xA;-u &#x9;Output uncompressed BAM&#xA;-b &#x9;Output compressed BAM&#xA;-S &#x9;The input is SAM with header lines&#xA;-C INT &#x9;Coefficient to cap mapping quality of poorly mapped reads. See the pileup command for details. [0]&#xA;-r &#x9;Perform probabilistic realignment to compute BAQ, which will be used to cap base quality. &#xA;&#xA;" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SamToolsCamldMDtag_1.Flow" name="Flow" required="false" enabled="true" order="5">
+                                <format type="Flow Control" cardinality="1" />
+                        </input>
+                </module>
+        </moduleGroup>
+</pipeline>
+

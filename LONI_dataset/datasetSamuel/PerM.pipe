@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="Reference_1.Output" sink="PerM_2.ReferenceFasta" />
+                <connection source="ForwardFastqfiles_1.Output" sink="PerM_2.Forwardfastqfiles" />
+                <connection source="ReverseFastqfiles_1.Output" sink="PerM_2.Reversefastqfiles" />
+                <connection source="PerM_2.Outputs" sink="SAMOutput_1.Input" />
+                <connection source="PerM_2.Outputunmappedreads" sink="UnmappedOutputfastq_1.Input" />
+                <connection source="PerM_2.Outputambiguousreads" sink="AbmiguousOutputfastq_1.Input" />
+        </connections>
+        <moduleGroup id="PerM_1" name="PerM" posX="0" posY="0" sourceCode="">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="PerM_2" name="PerM" package="PERM" version="0.3.5" description="PerM is a software package which was designed to perform highly efficient genome scale alignments for hundreds of millions of short reads produced by the ABI SOLiD and Illumina sequencing platforms. Today PerM is capable of providing full sensitivity for alignments within 4 mismatches for 50bp SOLID reads and 9 mismatches for 100bp Illumina reads.&#xA;&#xA;Usage&#xA;The reference sequence(s) can be whole genomes with multiple chromosomes, the transcriptome or even the millions reads in the fasta format, separated by '&gt;'. The reads can be in the fasta, fastq, csfasta + QUAL formats or fastq for SOLiD reads. PerM can output alignments in our mapping format or the SAM format and that output can be further processed by ComB, SAMtools or the Galaxy's *test* server. Check the manual for more detail.&#xA;&#xA;For single end:&#xA;perm &lt;reference or index path&gt; &lt;read length or reads path &gt; &lt;-flag options&gt;&#xA;Ex:  perm Ref.fasta Reads.fa -v 5 -o out.sam &#xA;Ex:  perm RefFilesList.txt ReadsFileList.txt -v 3 -A -m -s my.index&#xA;Ex:  perm Ref.index ReadsSetFilesList.txt -E &gt; my.log&#xA;&#xA;For paired-end reads:&#xA;perm &lt;reference or index path&gt; -1 &lt;forward reads&gt; -2 &lt;reverse reads&gt; &lt;-flag options&gt;&#xA;Ex:  perm chrM.fa  -1 F3.fq -2 R3.fq -U 500 -L 200 -o out.sam.&#xA;Ex:  perm hg18.txt -1 F3.csfasta -2 R3.csfasta -U 500 -L 0 -e -m -s hg18.index&#xA;Ex:  perm Transcriptom.index -1 F3.fa -2 R3.fa&#xA;&#xA;For build index only:&#xA;perm &lt;reference&gt; &lt;read length&gt; &lt;format&gt; &lt;seed&gt; &lt;index path&gt;&#xA;Ex:  perm hg18.fa 50 --readFormat csfasta --seed F3 -s 50F3hg18Solid.index&#xA;Ex:  perm hg18.txt 50 --readFormat fastq --seed F2 -s 50F2hg18Illumina.index &#xA;&#xA;Algorithm and Performance&#xA;With its special periodic spaced seeds, PerM can be fully sensitive to four mismatches, and highly sensitive to higher numbers of mismatches. This seed matching method has speed advantages in longer read (although limited to 64bp currently), non-mappable reads (for fixed number of shift and checking) and in the genome scale mapping due to the high seed weight. PerM is about 43 million reads per CPU hour, full sensitive to 3 mismatches and highly sensitive to more than 3 mismatches for 50bp SOLiD reads. PerM can build the reference index in parallel; it takes half hour to build the human genome index with 16 CPUs and 15 GB memory" icon="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&#xA;joFVF4AA/E9SSSTVOiiiiiigAooor//Z" posX="328" posY="241" sourceCode="" location="pipeline://genomics.loni.ucla.edu/perm3.5_noMP" executableVersion="0.3.5" gridVariables="h_vmem=8">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Chen Y, Souaiaia T, Chen T. PerM: Efficient mapping of short sequencing reads with periodic full sensitive spaced seeds. Bioinformatics, 2009, 25 (19): 2514-2521.</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://code.google.com/p/perm/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jun 10 15:01:23 PDT 2011" />
+                        </metadata>
+                        <input id="PerM_2.ReferenceFasta" name="Reference Fasta" description="For a transcriptome with multiple genes or isoforms as reference, concatenate all FASTA sequences in a single FASTA file. Alternatively, if there are many files, for example one per chromosome, ex: chr1.fa to chrY.fa, list the FASTA filenames one per line in a file which has the .txt extension. The .txt is important because PerM examines the file extension to know if the input file is a list of filenames. The filenames need to include the file path (relative or absolute) unless the FASTA files are all in the same directory that PerM is run from." required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PerM_2.Forwardfastqfiles" name="Forward fastq files" description="The read file(s) should be in the .fasta, .fastq, .csfasta or .csfastq format. PerM parses a file according to its extension, or the format explicitly specified by the --readFormat &lt;format&gt; flag. If there are multiple read files, list each filename, one per line, in a .txt file. PerM takes it as the input and can map multiple read sets in parallel by OpenMP." required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="csfasta" extension="csfasta" description="csfasta" />
+                                                <filetype name="csfastq" extension="csfastq" description="csfastq" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="PerM_2.Outputs" name="Outputs" description="Name of mapping output file when mapping a single read set. The output file format will be either the .mapping tab delimited text format or the SAM format as determined by the extension of the output filename. For example -o out.sam will output in SAM format; -o /path/to/out.mapping will output in .mapping format. Use --outputFormat to override this behavior. The -o option does not apply when multiple reads sets are being mapped at once to take advantage of multiple CPUs (cores); see the -d option for that case.&#xA;&#xA;Outputs: alignment.sam, unmapped_reads.fastq, ambiguous_reads.fastq" required="true" enabled="true" order="14" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="PerM_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="PerM_2.Allalignments" name="All alignments" description="Output all alignments within the mismatch threshold (see -v option), end-to-end." required="false" enabled="false" order="5" prefix="-A" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Bestalignments" name="Best alignments" description="Output best alignments in terms of mismatches in the threshold (see -v option). For example, if a read has no perfect match alignments, two single base mismatch alignments, and additional alignments with more mismatches, only the two single base mismatch alignments will be output. -B is the default mode if neither -A or -B is specified." required="false" enabled="false" order="6" prefix="-B" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Uniquelymappedreads" name="Uniquely mapped reads" description="Output only uniquely mapped reads remaining after the best down selection has been applied if applicable. When combined with the -A option, only reads with a single alignment within the mismatch threshold (see -v option) will be output." required="false" enabled="false" order="7" prefix="-E" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Mismatchesallowed" name="Mismatches allowed" description="Maximum number of mismatches allowed (or allowed in each end for pair-end reads). The default value is the number of mismatches that the seed used is fully sensitive to." required="false" enabled="false" order="8" prefix="-v" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Maxalignments" name="Max alignments " description="Specifies maximum number of alignments to output. The default value is 200 if the -k flag is not given. Alignments for reads mapping to more than the maximum number positions will not be output. Use the -a option to collect reads which exceeded the maximum." required="false" enabled="false" order="9" prefix="-k" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Ignorebases" name="Ignore bases" description="Number of bases at the 5' end of each read to ignore. For example, if the first 5 bases are used as a barcode or to index multiple samples together, use -t 5. If not specified, no initial bases will be ignored." required="false" enabled="false" order="10" prefix="-t" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Usebasesafterignore" name="Use bases after ignore" description="Number of bases in each read to use, starting after any bases ignored by -t option. Later bases at the 3' of the read are ignored. For example, -T 30 means use only first 30 bases (signals) after the any bases ignored due to the -t option." required="false" enabled="false" order="11" prefix="-T" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Dontreusesavedindex" name="Don't reuse saved index" description="Create the reference index without reusing the saved index even if available." required="false" enabled="false" order="12" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Saveindex" name="Save index" description="Save the reference index to accelerate the mapping in the future. If path is not specified, the index will be created in the current working directory (i.e. where PerM is run from) using the default index name. If path is a directory, the index will be created in the specified directory using the default index name (directory must exist; it will not automatically be created). If path is a file path, the index will be created with the specified name." required="false" enabled="false" order="13" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="PerM_2.Outputdirectory" name="Output directory" description="Output directory for mapping output files when mapping multiple read sets (output files will be named automatically). If the directory specified does not exist, the output directory will be created provided the parent directory exists. If the -d switch is not specified, files will be written to the directory PerM is run from. Note: if -d filepath is specified when mapping a single read set, dirpath will be prepended to filepath; however, this usage is not recommended." required="false" enabled="false" order="17" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Directory" cardinality="1" />
+                        </output>
+                        <input id="PerM_2.Createmappedfastafastq" name="Create mapped fasta/fastq" description="Create a FASTA (FASTQ) file for reads mapped to more positions than the threshold specified by -k or the default of 200." required="false" enabled="false" order="18" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PerM_2.Createunmappedfastafastq" name="Create unmapped fasta/fastq" description="Create a FASTA (FASTAQ) file of unmapped reads. When a single read set is mapped, filename specifies the name of the output file. When multiple read sets are mapped, filename is irrelevant and should be omitted; the files of unmapped sequences will automatically be named and created in the directory PerM is run from." required="false" enabled="false" order="19">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PerM_2.Ambiguosreadonly" name="Ambiguos read only" description="Output only ambiguous mapping to find repeats (similar regions within substitution threshold). When this option is specified, reads that mapped to over mapping number threshold that specified by -k will still be printed." required="false" enabled="false" order="20" prefix="--ambiguosreadonly" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.NoSAMHeader" name="No SAM Header" description="Do not include a SAM header. This makes it easier to concatenate multiple SAM output files." required="false" enabled="false" order="21" prefix="--noSamHeader" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Includereads" name="Include reads" description="Map reads with equal or fewer N or '.' bases than the specified threshold by encoding N or '.' as A or 3. Reads with more 'N' will be discarded. The default setting discards read with any 'N'." required="false" enabled="false" order="22" prefix="--includeReadsWN" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Statsonly" name="Stats only" description="Output the mapping statistics to stdout only, without saving alignments to files." required="false" enabled="false" order="23" prefix="--statsOnly" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Ignorequalityscores" name="Ignore quality scores" description="Ignore the quality scores in FASTQ or QUAL files." required="false" enabled="false" order="24" prefix="--ignoreQS" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Printnumberofmismatches" name="Print number of mismatches" description="When quality scores are available, use this flag to print number of mismatches, instead of mismatch scores in mapping format." required="false" enabled="false" order="25" prefix="--printNM" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="PerM_2.Seed" name="Seed" description="Specify the seed pattern. The F0, F1, F2, F3, and F4 seeds are fully sensitive to 0-4 mismatches respectively. The S11 S20 S12 seeds are designed for the SOLiD sequencer. An Skj seed is full sensitive to k adjacent mismatch pairs (SNP signature is color space) and j isolated mismatches. See the algorithm page for more information about the seed patterns." required="false" enabled="false" order="26" prefix="--seed" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Referenceformat" name="Reference format" description="Assume references sequence(s) are in the specified format, instead of guessing according to file's extension. {fasta | list | index }" required="false" enabled="false" order="27" prefix="--refFormat" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Readformat" name="Read format" description="Assume reads are in the specified format, instead of guessing according to the file(s)' extension. {fasta | fastq | csfasta | csfastq}" required="false" enabled="false" order="28" prefix="--readFormat" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Outputformat" name="Output format" description="Override the default output mapping format option or specify it explicitly when the output file extension is not .sam or .mapping. { sam | mapping }" required="false" enabled="false" order="29" prefix="--outputFormat" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Delimiter" name="Delimiter" description="This is a character used as the delimiter to separate the the read id, and the additional info in the line with '&gt;' when reading a FASTA or CSFASTA file." required="false" enabled="false" order="30" prefix="--delimiter" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="PerM_2.Log" name="Log" description="filepath specifies the name of the log file which contains the mapping statistics that will also be printed on the screen." required="false" enabled="false" order="31" prefix="--log" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="PerM_2.Excludeambiguouspaired" name="Exclude ambiguous paired" description="For Paired-end Reads. Exclude ambiguous paired." required="false" enabled="false" order="32" prefix="-e" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                                <dependencies>
+                                        <dependsOn>Reverse fastq files</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="PerM_2.LowerBound" name="Lower Bound" description="For Paired-end Reads. Lower bound for mate-paired separation distance" required="false" enabled="false" order="33" prefix="-L" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <dependencies>
+                                        <dependsOn>Reverse fastq files</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="PerM_2.UpperBound" name="Upper Bound" description="For Paired-end Reads. Upper bound for mate-paired separation distance" required="false" enabled="false" order="34" prefix="-U" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <dependencies>
+                                        <dependsOn>Reverse fastq files</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="PerM_2.-1flag" name="-1 flag" description="indicates that the following files are foward reads and part of a pair" required="false" enabled="true" order="1" prefix="-1" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                                <dependencies>
+                                        <dependent>Reverse fastq files</dependent>
+                                        <dependsOn>Reverse fastq files</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="PerM_2.-2flag" name="-2 flag" description="indicates that the following files are reverse reads" required="false" enabled="true" order="3" prefix="-2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                                <dependencies>
+                                        <dependent>Reverse fastq files</dependent>
+                                        <dependsOn>Reverse fastq files</dependsOn>
+                                </dependencies>
+                        </input>
+                        <input id="PerM_2.Reversefastqfiles" name="Reverse fastq files" required="false" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                                <dependencies>
+                                        <dependent>-1 flag</dependent>
+                                        <dependent>-2 flag</dependent>
+                                        <dependent>Exclude ambiguous paired</dependent>
+                                        <dependent>Lower Bound</dependent>
+                                        <dependent>Upper Bound</dependent>
+                                        <dependsOn>-1 flag</dependsOn>
+                                        <dependsOn>-2 flag</dependsOn>
+                                </dependencies>
+                        </input>
+                        <output id="PerM_2.Outputunmappedreads" name="Output unmapped reads" required="true" enabled="true" order="15" prefix="-u" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="PerM_2.Outputambiguousreads" name="Output ambiguous reads" required="true" enabled="true" order="16" prefix="-a" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Ting Chen" email="" website="" />
+                        </executableAuthors>
+                        <license>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</license>
+                </module>
+                <dataModule id="Reference_1" name="Reference " posX="199" posY="17" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 12:52:22 PDT 2011" />
+                        </metadata>
+                        <output id="Reference_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                <filetype name="Text file" extension="txt" description="Text file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifshome/shobel/Bioinformatics/Alignment/ref_chr2.fasta</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ForwardFastqfiles_1" name="Forward Fastq files" posX="407" posY="24" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:32:20 PDT 2011" />
+                        </metadata>
+                        <output id="ForwardFastqfiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_extraction/s_1_1_sequence.1k.fastq</value>
+                        </values>
+                </dataModule>
+                <dataModule id="SAMOutput_1" name="SAM Output" posX="150" posY="482" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 16:40:18 PDT 2011" />
+                        </metadata>
+                        <input id="SAMOutput_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="SAMtools SAM file" extension="sam" description="SAMtools SAM file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_PerM/test_perm.sam</value>
+                        </values>
+                </dataModule>
+                <dataModule id="UnmappedOutputfastq_1" name="Unmapped Output (fastq)" posX="343" posY="485" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 16:40:18 PDT 2011" />
+                        </metadata>
+                        <input id="UnmappedOutputfastq_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_PerM/unmapped_output.fastq</value>
+                        </values>
+                </dataModule>
+                <dataModule id="AbmiguousOutputfastq_1" name="Abmiguous Output (fastq)" posX="656" posY="492" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Jun 16 16:40:18 PDT 2011" />
+                        </metadata>
+                        <input id="AbmiguousOutputfastq_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_PerM/ambiguous_output.fastq</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReverseFastqfiles_1" name="Reverse Fastq files" posX="654" posY="22" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 13:32:20 PDT 2011" />
+                        </metadata>
+                        <output id="ReverseFastqfiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                <filetype name="Sequence FASTQ File Type" extension="fq" description="Sequence FASTQ File Type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/shobel/Alignment_extraction/s_1_2_sequence.1k.fastq</value>
+                        </values>
+                </dataModule>
+                <annotations visible="true">
+                        <annotation width="212" height="103" posX="34" posY="193" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="For paired end reads, enable the &quot;Reverse Fastq files&quot; parameter in PERM and connect a data source with reverse reads.">
+                                <styles>
+                                        <style name="For paired end reads, enable the &quot;Reverse Fastq files&quot; parameter in PERM and connect a data source with reverse reads.$0" fontSize="16" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

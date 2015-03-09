@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="Convert2annovar_1.Outfile" sink="AnnotateVariation_1.QueryFileorTableName" />
+                <connection source="GATKUnifiedGenotyper_1.Outputfile" sink="Convert2annovar_1.Variantfile" />
+                <connection source="ReferenceFasta_1.Output" sink="GATKUnifiedGenotyper_1.FASTAInputFile" />
+                <connection source="DBSNP_1.Output" sink="GATKUnifiedGenotyper_1.DBSNPSNPcatalog" />
+                <connection source="InputBAM_1.Output" sink="GATKUnifiedGenotyper_1.BAMInputFile" />
+        </connections>
+        <moduleGroup id="Untitled_1" name="Untitled" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="AnnotateVariation_1" name="Annotate Variation" package="ANNOVAR" version="1.0" description="Optional arguments:" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCAANAFYEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/ALHxq12/1LxRaeGdJ1Q2LWdp&#xA;JeXDicxbm2kqmQRzgcD/AGhVjWvF9xrv7N/9rQ3Usd/F5VvPJG5Vw6yKpORzyMH8a663+EmiT+Jt&#xA;Y1zXimszahIHSOeLasAHYYPPGB+FUE+DVvB4b1/QLfWpY9P1W4SeOP7OD9mKtnA+bnIwO3Sl0sP7&#xA;Vz3+iiivItR8Za/pngr/AIRPV7u6j1KG5gurW5WVt0sDqWwW6kcgj647V0HxC1TxNZfFe4vNDu7g&#xA;/wBl2EN69t5rbGQABvl6H73PtmvSfGHwk07xdYaPE969rd6bEsAuUiDGVFAGCMjuMjnjJrXg8DQx&#xA;fECfxW14ZDNZCza1aIbcAAZznnp0x3p9RLYKKKK8m0f4h3V3rXj7xLp087RJpcU1rBKxZYZCEU/K&#xA;eOGz9cUkfhTUJvhQ3j1vFWr/ANu+Ub0OLk+WAG+5j6fr7V6F4b+EGj+HdQ110uHn0/VoWgayePAi&#xA;QnOA2efbisb/AIUtKtq2gp4x1RfDzS+YdP8ALXpnON2fX2x7UgCiiiubm8U6tZal4B8d3l3MLPUI&#xA;vsmoRiQiIsMrvK9ASDu+q10HgnV5fEPxC8W+L7m+mGhaaGt7dPMPlYUctt6H5Vz/AMCrs/Efw80r&#xA;XvAkfhSImztYBGLeRV3mIoeuCeSRkH6mqFn8MYdO+Gdx4NstUkhFySZ70Qjc+SCflz3AC9elPvb5&#xA;fMOwUUUV474X8b6tb+PtO8VX+qM2m6vfy28lmbgt5CEgAlM8AZGP901v/FHUraH4vwW+rarq9ppH&#xA;9nB5Bp0rBg3z4IA46gZOK7TUPgf4XuvC0OlW0SWl9GqD+0kizKxXqSM961Yvhyh8Z2HiS81RrqW2&#xA;08WMkLwALONhUsTnjO7pijy7f5B38/8AMKKKK534FXesX2l6xPc3l5daN9q2abJePuk2gnOfw257&#xA;Zziiuh8J/DpvBeq6nLpGsyLpt6xddPlg3JC2eCrbs8DI+mPSiq0Ytgooor//2Q==" posX="582" posY="729" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/annovar/annotate_variation.pl">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Wang K, Li M, Hakonarson H (2010) ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data. Nucleic acids research 38: e164.</citation>
+                        </citations>
+                        <uri>http://www.openbioinformatics.org/annovar/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 28 12:51:53 PDT 2011" />
+                        </metadata>
+                        <input id="AnnotateVariation_1.QueryFileorTableName" name="Query File or Table Name" description="Query file table name" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Annovar File" extension="annovar" description="" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AnnotateVariation_1.Databaselocation" name="Database location" description="Database location" required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>/usr/local/loniWorkflows/Bioinformatics/annovar/humandb</value>
+                                </values>
+                        </input>
+                        <input id="AnnotateVariation_1.help" name="help" description="Specify the source of database (default usually works fine) Arguments to control input and output files" required="false" enabled="false" order="2" prefix="-h" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Zerostart" name="Zerostart" description="input query file uses half-open zero-start coordinate" required="false" enabled="false" order="8" prefix="--zerostart" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Buildver" name="Buildver" description="genome build version (default: hg18 for human)" required="false" enabled="false" order="10" prefix="--buildver" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Gff3dbfile" name="Gff3dbfile" description="Specify the GFF3 DB file used in region-based annotation" required="false" enabled="false" order="11" prefix="--gff3dbfile" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AnnotateVariation_1.Genericdbfile" name="Genericdbfile" description="Specify the generic DB file used in filter-based annotation" required="false" enabled="false" order="12" prefix="--genericdbfile" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AnnotateVariation_1.Vcfdbfile" name="Vcfdbfile" description="Specify the DB file in VCF format in filter-based annotation" required="false" enabled="false" order="13" prefix="--vcfdbfile" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AnnotateVariation_1.Time" name="Time" description="print out local time during program run" required="false" enabled="false" order="14" prefix="--time" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Comment" name="Comment" description="print out comment line (those starting with #) in output files" required="false" enabled="false" order="17" prefix="--comment" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Batchsize" name="Batchsize" description="Batch size for processing variants per batch (default: 5m)" required="false" enabled="false" order="19" prefix="--batchsize" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Genomebinsize" name="Genomebinsize" description="Bin size to speed up search (default: 100k for -geneanno, 10k for -regionanno)" required="false" enabled="false" order="20" prefix="--genomebinsize" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Expandbin" name="Expandbin" description="Check nearby bin to find neighboring genes (default: 2m/genomebinsize)" required="false" enabled="false" order="21" prefix="--expandbin" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Neargene" name="Neargene" description="Distance threshold to define upstream/downstream of a gene" required="false" enabled="false" order="22" prefix="--neargene" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Scorethreshold" name="Score threshold" description="Minimum score of DB regions to use in annotation" required="false" enabled="false" order="23" prefix="--score_threshold" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Normscorethreshold" name="Normscore threshold" description="Minimum normalized score of DB regions to use in annotation" required="false" enabled="false" order="24" prefix="--normscore_threshold" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Rawscore" name="Rawscore" description="Minimum percentage of query overlap to define match to DB (default: 0)" required="false" enabled="false" order="25" prefix="--rawscore" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Splicingthreshold" name="Splicing threshold" description="Distance between splicing variants and exon/intron boundary (default: 2)" required="false" enabled="false" order="26" prefix="--splicing_threshold" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Mafthreshold" name="Maf threshold" description="Filter 1000G variants with MAF above this threshold (default: 0)" required="false" enabled="false" order="28" prefix="--maf_threshold" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Siftthreshold" name="Sift threshold" description="Threshold for deleterious prediction (default: 0.05)" required="false" enabled="false" order="29" prefix="--sift_threshold" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="2" />
+                        </input>
+                        <input id="AnnotateVariation_1.Precedence" name="Precedence" description="Comma-delimited to specify precedence of variant function (default: exonic&gt;intronic...) Arguments to control memory usage" required="false" enabled="false" order="30" prefix="--precedence" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Memfree" name="Memfree" description="Ensure minimum amount of free system memory (default: 100000, in the order of kb)" required="false" enabled="false" order="31" prefix="--memfree" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Memtotal" name="Memtotal" description="Limit total amount of memory used by ANNOVAR (default: 0, unlimited, in the order of kb)" required="false" enabled="false" order="32" prefix="--memtotal" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Chromosome" name="Chromosome" description="Examine these specific chromosomes in database file" required="false" enabled="false" order="33" prefix="--chromosome" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.DownloadDB" name="Download DB" description="download UCSC Genome Browser annotation database" required="false" enabled="false" order="3" prefix="--downdb" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Annotatebyfunctionconsequences" name="Annotate by function consequences" description="annotate variants by functional consequences on genes" required="false" enabled="false" order="4" prefix="--geneanno" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Annotatebytargettingregions" name="Annotate by targetting regions" description="annotate variants by targetting specific genomics regions" required="false" enabled="false" order="5" prefix="--regionanno" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.Filtervariantsbasedonapositionslist" name="Filter variants based on a positions list" description="filter variants based on a position list" required="false" enabled="false" order="6" prefix="--filter" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.SourceDatabase" name="Source Database" description="specify the source of database (default usually works fine)" required="false" enabled="false" order="7" prefix="--webfrom" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.DatabaseType" name="Database Type" required="false" enabled="false" order="9" prefix="--dbtype" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.Separate" name="Separate" description="separately print out all function of a variant (default: one line per variant)" required="false" enabled="false" order="15" prefix="--separate" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="AnnotateVariation_1.ColumnsWanted" name="Columns Wanted" description="specify which columns to output in -regionanno by comma-delimited numbers" required="false" enabled="false" order="16" prefix="--colsWanted" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.ScoreColumn" name="Score Column" description="the column with scores in database file (for region-based annotation)" required="false" enabled="false" order="18" prefix="--scorecolumn" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateVariation_1.MinimumOverlap" name="Minimum Overlap" description="minimum percentage of query overlap to define match to DB (default: 0)" required="false" enabled="false" order="27" prefix="--minqueryfrac" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <output id="AnnotateVariation_1.OutputExonicVariantFunction" name="Output Exonic Variant Function" required="true" enabled="true" order="35" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="Query File or Table Name">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.exonic_variant_function</transform>
+                                </format>
+                        </output>
+                        <output id="AnnotateVariation_1.OutputLog" name="Output Log" required="true" enabled="true" order="36" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="Query File or Table Name">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.log</transform>
+                                </format>
+                        </output>
+                        <output id="AnnotateVariation_1.OutputVariantFunction" name="Output Variant Function" required="true" enabled="true" order="34" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="Query File or Table Name">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.variant_function</transform>
+                                </format>
+                        </output>
+                        <output id="AnnotateVariation_1.InvalidInputLog" name="Invalid Input Log" required="true" enabled="true" order="37" includeTransformedParameter="false">
+                                <format type="File" cardinality="1" transformationBase="Query File or Table Name">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">invalid_input</transform>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="K. Wang" email="" website="" />
+                                <author fullName="M. Li" email="" website="" />
+                                <author fullName="H Hakonarson" email="" website="" />
+                        </executableAuthors>
+                        <license>ANNOVAR is open-source and free for non-profit use.</license>
+                </module>
+                <module id="Convert2annovar_1" name="Convert2annovar" package="ANNOVAR" version="1.0" description="Function: convert variant call file generated from various software programs&#xA;     into ANNOVAR input format&#xA;&#xA;     Example: convert2annovar.pl -format pileup -outfile variant.query variant.pileup&#xA;              convert2annovar.pl -format cg -outfile variant.query variant.cg&#xA;              convert2annovar.pl -format gff3-solid -outfile variant.query variant.snp.gff&#xA;              convert2annovar.pl -format soap variant.snp &gt; variant.avinput&#xA;              convert2annovar.pl -format maq variant.snp &gt; variant.avinput&#xA;              convert2annovar.pl -format casava -chr 1 variant.snp &gt; variant.avinput&#xA;              convert2annovar.pl -format vcf4 variantfile &gt; variant.avinput&#xA;     Version: $LastChangedDate: 2011-02-19 18:31:10 -0800 (Sat, 19 Feb 2011) $" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCAANAFYEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/ALHxq12/1LxRaeGdJ1Q2LWdp&#xA;JeXDicxbm2kqmQRzgcD/AGhVjWvF9xrv7N/9rQ3Usd/F5VvPJG5Vw6yKpORzyMH8a663+EmiT+Jt&#xA;Y1zXimszahIHSOeLasAHYYPPGB+FUE+DVvB4b1/QLfWpY9P1W4SeOP7OD9mKtnA+bnIwO3Sl0sP7&#xA;Vz3+iiivItR8Za/pngr/AIRPV7u6j1KG5gurW5WVt0sDqWwW6kcgj647V0HxC1TxNZfFe4vNDu7g&#xA;/wBl2EN69t5rbGQABvl6H73PtmvSfGHwk07xdYaPE969rd6bEsAuUiDGVFAGCMjuMjnjJrXg8DQx&#xA;fECfxW14ZDNZCza1aIbcAAZznnp0x3p9RLYKKKK8m0f4h3V3rXj7xLp087RJpcU1rBKxZYZCEU/K&#xA;eOGz9cUkfhTUJvhQ3j1vFWr/ANu+Ub0OLk+WAG+5j6fr7V6F4b+EGj+HdQ110uHn0/VoWgayePAi&#xA;QnOA2efbisb/AIUtKtq2gp4x1RfDzS+YdP8ALXpnON2fX2x7UgCiiiubm8U6tZal4B8d3l3MLPUI&#xA;vsmoRiQiIsMrvK9ASDu+q10HgnV5fEPxC8W+L7m+mGhaaGt7dPMPlYUctt6H5Vz/AMCrs/Efw80r&#xA;XvAkfhSImztYBGLeRV3mIoeuCeSRkH6mqFn8MYdO+Gdx4NstUkhFySZ70Qjc+SCflz3AC9elPvb5&#xA;fMOwUUUV474X8b6tb+PtO8VX+qM2m6vfy28lmbgt5CEgAlM8AZGP901v/FHUraH4vwW+rarq9ppH&#xA;9nB5Bp0rBg3z4IA46gZOK7TUPgf4XuvC0OlW0SWl9GqD+0kizKxXqSM961Yvhyh8Z2HiS81RrqW2&#xA;08WMkLwALONhUsTnjO7pijy7f5B38/8AMKKKK534FXesX2l6xPc3l5daN9q2abJePuk2gnOfw257&#xA;Zziiuh8J/DpvBeq6nLpGsyLpt6xddPlg3JC2eCrbs8DI+mPSiq0Ytgooor//2Q==" posX="560" posY="564" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/annovar/convert2annovar.pl" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alex Genco" email="alexgenco@gmail.com" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Wang K, Li M, Hakonarson H (2010) ANNOVAR: functional annotation of genetic variants from high-throughput sequencing data. Nucleic acids research 38: e164.</citation>
+                        </citations>
+                        <uri>http://www.openbioinformatics.org/annovar/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Oct 03 14:23:24 PDT 2011" />
+                        </metadata>
+                        <input id="Convert2annovar_1.Variantfile" name="Variantfile" description="Variantfile " required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="Convert2annovar_1.Outfile" name="Outfile" description="Output file name (default: STDOUT)" required="true" enabled="true" order="2" prefix="--outfile" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Annovar File" extension="annovar" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="Convert2annovar_1.Snpqual" name="Snpqual" description="Quality score threshold in pileup file (default: 20)" required="false" enabled="false" order="3" prefix="--snpqual" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Coverage" name="Coverage" description="Read coverage threshold in pileup file (default: 0)" required="false" enabled="false" order="4" prefix="--coverage" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Includeinfo" name="Includeinfo" description="include supporting information in output" required="false" enabled="false" order="5" prefix="--includeinfo" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Convert2annovar_1.Chrmt" name="Chrmt" description="Chr identifier for mitochondria (default: M)" required="false" enabled="false" order="7" prefix="--chrmt" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Altcov" name="Altcov" description="Alternative allele coverage threshold (for pileup format)" required="false" enabled="false" order="8" prefix="--altcov" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Fraction" name="Fraction" description="Minimum allelic fraction to claim a mutation (for pileup format)" required="false" enabled="false" order="9" prefix="--fraction" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Species" name="Species" description="If human, convert chr23/24/25 to X/Y/M (for gff3-solid format)" required="false" enabled="false" order="10" prefix="--species" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Convert2annovar_1.Format" name="Format" description="input format (default: pileup)" required="false" enabled="true" order="1" prefix="--format" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>vcf4</value>
+                                </values>
+                        </input>
+                        <input id="Convert2annovar_1.Chromosome" name="Chromosome" description="specify the chromosome (for CASAVA format)" required="false" enabled="false" order="6" prefix="--chr" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Wang K." email="" website="" />
+                        </executableAuthors>
+                        <license>ANNOVAR is open-source and free for non-profit use.</license>
+                </module>
+                <dataModule id="DBSNP_1" name="DBSNP" posX="778" posY="154" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 19 13:12:34 PDT 2011" />
+                        </metadata>
+                        <output id="DBSNP_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="rod" extension="rod" description="DBSNP GATK Catalog of NCBI SNPs" />
+                                                <filetype name="vcf" extension="vcf" description="vcf" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="rod" extension="rod" description="DBSNP GATK Catalog of NCBI SNPs" />
+                                <filetype name="vcf" extension="vcf" description="vcf" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/GATK/GATK_Test_Data/dbsnp_129_b36.rod</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReferenceFasta_1" name="Reference Fasta" posX="276" posY="152" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 19 13:11:23 PDT 2011" />
+                        </metadata>
+                        <output id="ReferenceFasta_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <dataModule id="InputBAM_1" name="Input BAM" posX="543" posY="150" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 19 13:12:00 PDT 2011" />
+                        </metadata>
+                        <output id="InputBAM_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1.sorted.bam</value>
+                        </values>
+                </dataModule>
+                <module id="GATKUnifiedGenotyper_1" name="GATK Unified Genotyper" package="GATK" version="1.0" description="The GATK Unified Genotyper is a multiple-sample, technology-aware SNP and indel caller. It uses a Bayesian genotype likelihood model to estimate simultaneously the most likely genotypes and allele frequency in a population of N samples, emitting an accurate posterior probability of there being a segregating variant allele at each locus as well as for the genotype of each sample. The system can either emit just the variant sites or complete genotypes (which includes homozygous reference calls) satisfying some phred-scaled confidence value. The genotyper can make accurate calls on both single sample data and multi-sample data.&#xA;http://www.broadinstitute.org/gsa/wiki/index.php/Base_quality_score_recalibration&#xA;&#xA;Example (to output ONLY SNPs):&#xA;&#xA;nohup java -jar GenomeAnalysisTK.jar -l INFO -R /projects/USC/production/ref/ensembl_ncbi36/ensembl_hg18_ncbi36_r50.fa -T UnifiedGenotyperV2 -I /projects1/ADNI_2_USC/JLK-227/JLK-227.bam&#xA;-o /projects1/ADNI_2_USC/GATK/JLK-227_dbsnp130.geno&#xA;--DBSNP /applications/GATK/resources/dbsnp_129_b36.rod --assume_single_sample_reads JLK-227 --platform SOLEXA -all_bases -stand_call_conf 30.0*" icon="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&#xA;9FcD4v8AG+pXukxRyQWgUThvlRv7rf7XvRX/2Q==" posX="498" posY="378" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/java/bin/java" executableVersion="1.0">
+                        <authors>
+                                <author fullName="ShapeTools Group" email="shapetls@loni.ucla.edu" website="http://www.loni.ucla.edu/twiki/bin/view/CCB/ShapeToolLibraryProgram" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 20644199</citation>
+                        </citations>
+                        <uri>http://www.broadinstitute.org/gsa/wiki/index.php/Variant_quality_score_recalibration</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu May 21 11:44:24 PDT 2009" />
+                        </metadata>
+                        <input id="GATKUnifiedGenotyper_1.Jar" name="Jar" description="Application_Jar " required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/GATK/dist/GenomeAnalysisTK.jar</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.FASTAInputFile" name="FASTA Input File" description="Reference Genome input file (FASTA format)" required="true" enabled="true" order="2" prefix="-R" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.DBSNPSNPcatalog" name="DBSNP SNP catalog" description="DBSNP" required="true" enabled="true" order="6" prefix="--DBSNP" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="rod" extension="rod" description="DBSNP GATK Catalog of NCBI SNPs" />
+                                                <filetype name="vfc" extension="vfc" description="DBSNP New GATK SNP format" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.BAMInputFile" name="BAM Input File" required="true" enabled="true" order="4" prefix="-I" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Platform" name="Platform" description="SOLEXA" required="false" enabled="false" order="8" prefix="--platform" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>SOLEXA</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.InfoFlag" name="Info Flag" required="true" enabled="true" order="1" prefix="-l" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>INFO</value>
+                                </values>
+                        </input>
+                        <output id="GATKUnifiedGenotyper_1.Outputfile" name="Output file" description="A raw, unfiltered, highly specific callset in VCF format." required="true" enabled="true" order="5" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="vcf" extension="vcf" description="vcf" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="GATKUnifiedGenotyper_1.Assumesinglesamplereads" name="Assume single sample reads" description="JLK-227" required="false" enabled="true" order="7" prefix="--assume_single_sample_reads" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>JLK-227</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Allbases" name="All bases" required="false" enabled="false" order="9" prefix="-all_bases" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Standcallconf" name="Stand call conf" required="false" enabled="true" order="10" prefix="-stand_call_conf" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>30</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Analysistype" name="Analysis type" description="UnifiedGenotyper or UnifiedGenotyperV2" required="false" enabled="true" order="3" prefix="-T" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>UnifiedGenotyper</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Genotypingmode" name="Genotyping mode" description="DISCOVERY&#xA;the default; the Unified Genotyper will choose the most likely alternate allele&#xA;GENOTYPE_GIVEN_ALLELES&#xA;only the alleles passed in from a VCF rod bound to the -alleles argument will&#xA;be used for genotyping. Note that if we combine this option with the export all&#xA;SITES we can have PED identical for different patients!!!!!" required="false" enabled="false" order="11" prefix="--genotyping_mode" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>DISCOVERY</enumeration>
+                                        <enumeration>GENOTYPE_GIVEN_ALLELES</enumeration>
+                                </format>
+                                <values>
+                                        <value>DISCOVERY</value>
+                                </values>
+                        </input>
+                        <input id="GATKUnifiedGenotyper_1.Outputmode" name="Output mode" description="Should we output confident genotypes (i.e. including ref calls) or just the variants? Default: EMIT_VARIANTS_ONLY. " required="false" enabled="false" order="12" prefix="--output_mode" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="ShapeTools Group" email="shapetls@loni.ucla.edu" website="http://www.loni.ucla.edu/twiki/bin/view/CCB/ShapeToolLibraryProgram" />
+                        </executableAuthors>
+                        <license>http://www.broadinstitute.org/gsa/wiki/index.php/GATK_licensing
+
+Copyright (c) 2010, The Broad Institute 
+
+Permission is hereby granted, free of charge, to any person 
+obtaining a copy of this software and associated documentation 
+files (the "Software"), to deal in the Software without 
+restriction, including without limitation the rights to use, 
+copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the 
+Software is furnished to do so, subject to the following 
+conditions: 
+
+The above copyright notice and this permission notice shall be 
+included in all copies or substantial portions of the Software. 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND 
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+        </moduleGroup>
+</pipeline>
+

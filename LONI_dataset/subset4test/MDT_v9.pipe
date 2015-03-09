@@ -1,0 +1,1807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="9p_1.StartcommandtoReconcile" sink="AIRreconcile_2.StartcommandfromAlignLinear2" />
+                <connection source="AIRreconcile_2.StartcommandtoDefineCommon1" sink="SaveCommonAIRfiles_1.Start" />
+                <connection source="EqualizeHistogram_1.equalizedImage" sink="alignlinearreconciledefinecommon_1.StandardVolume" />
+                <connection source="EqualizeHistogram_1.equalizedImage" sink="alignlinearreconciledefinecommon_1.ResliceVolume" />
+                <connection source="EqualizeHistogram_1.equalizedImage" sink="alignlinearreconciledefinecommon_1.Usedtodeterminefilepath" />
+                <connection source="EqualizeHistogram_1.equalizedImage" sink="alignlinearreconciledefinecommon_1.Nooffiles" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="HardMean_1.InputFiles" />
+                <connection source="KL_MI_register_1.displacementfieldimage" sink="KL_MI_deform_1.displacementimage" />
+                <connection source="KL_MI_register_2.displacementfieldimage" sink="InterpAveragepairsof3_1.InputstandardFiles" />
+                <connection source="KL_MI_deformfield_1.DeformedTemplateimage" sink="InterpAveragepairsof3_1.Inputinterpolatedfiles" />
+                <connection source="InterpAveragepairsof3_1.HardMean" sink="KL_MI_deform_2.displacementimage" />
+                <connection source="KL_MI_register_2.displacementfieldimage" sink="KL_MI_deformfield_1.displacementimage" />
+                <connection source="KL_MI_register_1.displacementfieldimage" sink="KL_MI_deformfield_1.Templateimage" />
+                <connection source="HardMean_2.HardMean" sink="KL_MI_register_2.Targetimage" />
+                <connection source="KL_MI_deform_1.DeformedTemplateimage" sink="KL_MI_register_2.Templateimage" />
+                <connection source="HardMean_3.HardMean" sink="KL_MI_register_3.Targetimage" />
+                <connection source="KL_MI_deform_2.DeformedTemplateimage" sink="KL_MI_register_3.Templateimage" />
+                <connection source="KL_MI_register_3.displacementfieldimage" sink="KL_MI_deformfield_2.displacementimage" />
+                <connection source="InterpAveragepairsof3_1.HardMean" sink="KL_MI_deformfield_2.Templateimage" />
+                <connection source="InterpAveragepairsof3_2.HardMean" sink="KL_MI_deform_3.displacementimage" />
+                <connection source="KL_MI_register_3.displacementfieldimage" sink="InterpAveragepairsof3_2.InputstandardFiles" />
+                <connection source="KL_MI_deformfield_2.DeformedTemplateimage" sink="InterpAveragepairsof3_2.Inputinterpolatedfiles" />
+                <connection source="KL_MI_deform_1.DeformedTemplateimage" sink="HardMean_2.InputFiles" />
+                <connection source="KL_MI_deform_2.DeformedTemplateimage" sink="HardMean_3.InputFiles" />
+                <connection source="HardMean_1.HardMean" sink="KL_MI3-stepmultiscale_1.Targetimage" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="KL_MI3-stepmultiscale_1.Templateimage" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="KL_MI3-stepmultiscale_1.Templateimage_2" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="KL_MI3-stepmultiscale_1.Templateimage_3" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="KL_MI3-stepmultiscale_1.Templateimage_4" />
+                <connection source="AIRtoField_1.displacementfield" sink="KL_MI_deform_4.displacementimage" />
+                <connection source="EqualizeHistogram_1.equalizedImage" sink="KL_MI_deform_4.Templateimage" />
+                <connection source="alignlinearreconciledefinecommon_1.OutputAIRfiles" sink="AIRtoField_1.AIRaffinetransformation" />
+                <connection source="HardMean_1.HardMean" sink="Affinemeanimage_1.Input" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="ReslicedVolumestocommonspace_1.Input" />
+                <connection source="alignlinearreconciledefinecommon_1.OutputAIRfiles" sink="Savecommonairfiles_1.Input" />
+                <connection source="KL_MI3-stepmultiscale_1.DeformedTemplateimage" sink="NL-registeredtoaffinemean_1.Input" />
+                <connection source="N3kids_1.Output" sink="EqualizeHistogram_1.Imagetoequalize" />
+                <connection source="HardMean_4.HardMean" sink="MDT_1.Input" />
+                <connection source="CompositeGeometricAveraging_1.currenttarget" sink="HardMean_4.InputFiles" />
+                <connection source="HardMean_5.HardMean" sink="KL_MI_invert_1.displacementimage" />
+                <connection source="composevectorfields1stgrid_1.Composedfield" sink="KL_MI_deform_5.displacementimage" />
+                <connection source="KL_MI_deformfield_3.DeformedTemplateimage" sink="InterpAveragepairsof3_3.Inputinterpolatedfiles" />
+                <connection source="KL_MI_invert_1.inversefieldimage" sink="composevectorfields1stgrid_1.Field2" />
+                <connection source="KL_MI_invert_1.inversefieldimage" sink="composevectorfields1stgrid_1.Field2_2" />
+                <connection source="KL_MI_deform_4.DeformedTemplateimage" sink="CompositeGeometricAveraging_1.Originaltarget" />
+                <connection source="KL_MI3-stepmultiscale_1.DeformationField" sink="CompositeGeometricAveraging_1.Newfileds" />
+                <connection source="KL_MI3-stepmultiscale_1.DeformationField" sink="CompositeGeometricAveraging_1.previousinversefield" />
+        </connections>
+        <moduleGroup id="AIRreconcile_1" name="AIRreconcile" posX="0" posY="0">
+                <moduleGroup id="alignlinearreconciledefinecommon_1" name="align linear, reconcile &amp; define common" package="AIR variable cost fcn" posX="53" posY="356">
+                        <module id="9p_1" name="9p" package="AIR variable cost fcn" version="5.2.5" description="This is a general linear intramodality registration tool (within or across subjects, 2D or 3D). The user can specify any of a variety of models, including rigid-body, affine, or perspective.&#xA;&#xA;The program will generate a .air file that can be used to reslice the specified reslice data set to match the specified standard data set.&#xA;&#xA;64-bit compilation" location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCAA4ADgEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/APn+iug/4mnjjXP+WCzLF/up&#xA;Gg/Mnk+/X06anhjwumravDFejZBIzqJHyWJC7ySuQ2OwOBnnuCA4xbdkDdj5/oorpvCnhafxBfvF&#xA;JbXPkiIsJEXAzkdyMdzXF0V6+/wk+ZmhvZJnYYEkgMZXp0ySegxyOhqa2+Ft3DdwTzXpk8h/MjXz&#xA;i2HyDu5GM8D8hQ0lu0NJs5mivWV+DTS8/bngH+3hj+lXrb4L2UeGuNTlnP8AdCbB/MmvGq2JkkVE&#xA;a7aZxLIrSMVKfKFwE3Hpjlfu4GBjIr2yx8FaVYh92lzyFzlgGQK3XkqpAPU/TNZPjnQjdaTFDpOk&#xA;usi7gESAjphh93n+H1xUxlGUuVblyp2jzNnjFTta3CQCdoJVhY4DlCFJ9M17xa/DrTrDBt7K1Yjo&#xA;0mWb9ayPHfhe/uPDgW3tkYxTK4VGUeo9vWvEaK6688OXunrJbPZxzCUK0lysXAx0VQ6xlPc9+PfJ&#xA;Wns59mY80e54vRWpJ4d1eIndp05/3V3fyor07whpOhXugxXn2ZJCCdzOSF9cheMZBBrfjubCG7t0&#xA;gjWKNGYsUjCr90jNec+B7srZ3dlLM5t0ZSyupVwF5TPJ7dQD2A54J6065bQxpvgzkkDDdKh0XKTn&#xA;KTs9vI19slHlSXmepeGbHS7jSbK6stOgWSZB92Pc2/oQCcnqDXo+j+HNUgkaaWFQCmAu8buvpXn/&#xA;AMBLlLm6v7OXBe1Tz4QewYhT+XH517zb/eP0rsopY5ollidXjYZVlOQRT653wjdfabO7ZUZIhNlE&#xA;JB28cjjp9K6KueS5XY1i+ZXOSZWRirAqw4IPakrW16NVuInAALKc++KyaKim4eFvSQfrxUtQ3Q/0&#xA;ZyOq8/lRD4kEvhYVQ1qPzNHuh6Ju/Kr9R3CeZbSof4kI/Sqnil3Hh64hjYCS4KQLlsDLsAf0zRXN&#xA;fFe8kj8O29vDIivPMMOzbQoOFyT2A3HmivRjVVNJb/16HG4KWp5dqtx9l0m7nzgpCxH1xx+tFZXj&#xA;Oc2/huVOjSusf65P8qK4L4d21xNc6lATm1Np57AqQW8t0TcDj7uWK9f610l9EI5SqnMJ+dHWszwd&#xA;oTaPHdatqtqtrKySRWlrLDiVSxAMnPzIAF2gEkncx4B+Yk1D7PdRkSMuDyO2KSTVPUzk05mb8INT&#xA;k074j6eitiO63W8g9QR/iBX1Vb9Wr5j+Fvhe7k161126ZLaztiXjMrBWlbGBtB7e9fR9textbrIJ&#xA;kzj5sEHmvQvB9tJBpMjyD/XSl15zkY6/nmugri9Z8TnQ7MXUcF+1oRlZkUPCBx1IB2jLAc464FYN&#xA;v8TtTuAPK00OzZ2RFCryAddpOA2OMgc85xjOOR03J3eh2KairLUpa7IHu40HVE5/GsuuR8VeNZfD&#xA;N/KNRgnlV3JSRYTtcZ4w3SuXb4124fCaNKV/vGUA/lj+tepUyUAwuDwCp6159afFDTnlii1GC6t5&#xA;n2/IZFTaT3YkLgd856c1vWnjTwtcSvGZSk0ZxIsqEsnsTzg8GmsO/wDhtROqj1agcnBrypfi7b3A&#xA;53Wv1i3H+ZqVfGkF/wADWlOf4S+z9OK5X4l38byWsMlxCkMcEKzRyAN5is4J9xxg5TnAPqaK5L4i&#xA;30WreJnkhI8kHbFKG4dThRhcZ4Cnp6j8StanxWM47HLfEqTyZ4LPoRLI5HtnA/rRWL42uxda9hZA&#xA;6xxKu4HOSeT/ADoovvGmp3xS5m1S4MkH7pG2W6pJIy4dmVVGUXAxkPxjBUmsu71C6uLtpf7QaV5I&#xA;lchYBuBEZJHlhQFwRyQeg3c0UVPM+4WRzzTSMQWdiRwCTVuz1jUrCUSWt9PE3s5/lRRWjpni3XtO&#xA;tEuLLV4rWEERsoiV5GyT8+JAFPQjg9hxzmqRnuLvVrWDWVWOaa+a/md2HKtjcCFHyt8hGMDk84oo&#xA;pDsbTfETxU9s9u+rM8LjDI8MbA/mtcwSWYk9Sc0UVytFFFADaKKKKKKKACiiiv/Z" posX="0" posY="19">
+                                <authors>
+                                        <author fullName="Allan MacKenzie-Graham" email="" website="" />
+                                        <author fullName="Arash Payan" email="apayan@loni.ucla.edu" website="" />
+                                </authors>
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="rwoods@ucla.edu" website="http://bishopw.loni.ucla.edu" />
+                                </executableAuthors>
+                                <tag>registration</tag>
+                                <tag>linear</tag>
+                                <uri>http://bishopw.loni.ucla.edu/AIR5/alignlinear.html</uri>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Aug 28 12:14:19 PDT 2006" />
+                                </metadata>
+                                <input id="9p_1.StandardVolume" name="Standard Volume" description="The atlas that  the input file is resliced to match. " required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="9p_1.ResliceVolume" name="Reslice Volume" description="The input being registered to the  standard-file." required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="9p_1.LinearTransformation" name="Linear Transformation" description="Resultant linear spatial transformation matrix saved as a .air file" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="-2" cardinalityBase="Reslice Volume">
+                                                <fileTypes>
+                                                        <filetype name="AIR file" extension="air" description="AIR Linear transformation" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <output id="9p_1.StartcommandtoReconcile" name="Start command to Reconcile" required="true" enabled="true" order="4">
+                                        <format type="Flow Control" cardinality="1" />
+                                </output>
+                                <input id="9p_1.perlscript" name="perl script" description="AIR_9p_x3 -- 9 parameter AIR with cost function 3&#xA;AIR_12p_x3 -- 12 parameter AIR with cost function 3&#xA;&#xA;AIR_9p -- 9 parameter AIR with cost function 2&#xA;AIR -- 12 parameter AIR with cost function 2" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/ClausAIR/" switchSpaced="false">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>AIR_9p_x3.pl</enumeration>
+                                                <enumeration>AIR_12p_x3.pl</enumeration>
+                                                <enumeration>AIR_9p.pl</enumeration>
+                                                <enumeration>AIR.pl</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>AIR.pl</value>
+                                        </values>
+                                </input>
+                        </module>
+                        <module id="AIRreconcile_2" name="AIR reconcile" location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" posX="198" posY="190" advancedOptions="h_vmem=2">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Nov 09 14:57:04 PST 2009" />
+                                </metadata>
+                                <input id="AIRreconcile_2.Usedtodeterminefilepath" name="Used to determine file path" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/ClausExe/RECONCILE.pl" switchSpaced="true">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="AIRreconcile_2.StartcommandtoDefineCommon1" name="Start command to DefineCommon1" required="true" enabled="true" order="2">
+                                        <format type="Flow Control" cardinality="1" />
+                                </output>
+                                <input id="AIRreconcile_2.StartcommandfromAlignLinear2" name="Start command from AlignLinear2" required="true" enabled="true" order="1">
+                                        <format type="Flow Control" cardinality="1" />
+                                </input>
+                        </module>
+                        <module id="SaveCommonAIRfiles_1" name="Save Common AIR files" location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" posX="377" posY="324">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Nov 09 17:13:56 PST 2009" />
+                                </metadata>
+                                <input id="SaveCommonAIRfiles_1.Nooffiles" name="No of files" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/ClausExe/SAVE_COMMON.pl" switchSpaced="true">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="File" extension="" description="Any type of data file" />
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="SaveCommonAIRfiles_1.Start" name="Start" required="true" enabled="true" order="1">
+                                        <format type="Flow Control" cardinality="1" />
+                                </input>
+                                <output id="SaveCommonAIRfiles_1.OutputAIRfiles" name="Output AIR files" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="-2" cardinalityBase="No of files">
+                                                <fileTypes>
+                                                        <filetype name="AIR file" extension="air" description="AIR Linear transformation" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <input description="The atlas that  the input file is resliced to match. " link="9p_1.StandardVolume" id="alignlinearreconciledefinecommon_1.StandardVolume" name="Standard Volume" order="1" />
+                        <input description="The input being registered to the  standard-file." link="9p_1.ResliceVolume" id="alignlinearreconciledefinecommon_1.ResliceVolume" name="Reslice Volume" order="2" />
+                        <input description="AIR_9p_x3 -- 9 parameter AIR with cost function 3&#xA;AIR_12p_x3 -- 12 parameter AIR with cost function 3&#xA;&#xA;AIR_9p -- 9 parameter AIR with cost function 2&#xA;AIR -- 12 parameter AIR with cost function 2" link="9p_1.perlscript" id="alignlinearreconciledefinecommon_1.perlscript" name="perl script" order="0" />
+                        <input link="AIRreconcile_2.Usedtodeterminefilepath" id="alignlinearreconciledefinecommon_1.Usedtodeterminefilepath" name="Used to determine file path" order="3" />
+                        <input link="SaveCommonAIRfiles_1.Nooffiles" id="alignlinearreconciledefinecommon_1.Nooffiles" name="No of files" order="4" />
+                        <output link="SaveCommonAIRfiles_1.OutputAIRfiles" id="alignlinearreconciledefinecommon_1.OutputAIRfiles" name="Output AIR files" order="5" />
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Nov 12 18:01:55 PST 2009" />
+                        </metadata>
+                </moduleGroup>
+                <module id="HardMean_1" name="Hard Mean" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="713" posY="736">
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <tag>averaging MRI</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                        </metadata>
+                        <output id="HardMean_1.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="HardMean_1.multiple" name="multiple" description="multiplicity of files to average (will correspond to number of outputs)" required="true" enabled="true" order="0">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="HardMean_1.InputFiles" name="Input Files" description="Name of the files to be averaged" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="HardMean_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <moduleGroup id="KL_MI3-stepmultiscale_1" name="KL_MI 3-step multiscale" package="Inverse-consistent" posX="456" posY="979">
+                        <module id="KL_MI_register_1" name="KL_MI_register" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="17" posY="20">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_register_1.TimeSteplimit" name="TimeStep limit" description="timestep limit (default = 500)" required="false" enabled="true" order="0" switch="-t" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>300</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.griddim1" name="grid dim 1" description="pixel number along x direction of the common grid.  If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="8" switch="-i" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>32</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.griddim2" name="grid dim 2" description="pixel number along y direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="9" switch="-j" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>32</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.griddim3" name="grid dim 3" description="pixel number along z direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="10" switch="-k" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>32</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.x0-padding" name="x 0-padding" description="number of 0-padding pixels along x direction of the common grid (default=5)" required="false" enabled="false" order="11" switch="-x" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.y0padding" name="y 0 padding" description="number of 0-padding pixels along y direction of the common grid (default=5)" required="false" enabled="false" order="12" switch="-y" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.z0padding" name="z 0 padding" description="number of 0-padding pixels along z direction of the common grid (default=5)" required="false" enabled="false" order="13" switch="-z" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.StandardDeviation" name="Standard Deviation" description="standard deviation of the gaussian kernel (default = 6.0)" required="false" enabled="true" order="14" switch="-s" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>9.0</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.fidelityterm" name="fidelity term " description="fidelity term (1 = L2, 2 = Mutual Information, default = 2)&#xA;3 -- MI with inverse consistency, takes ~twice as long" required="false" enabled="true" order="15" switch="-f" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>3</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.labmda" name="labmda" description="labmda -- weight of the KL distance term (default = 0.5)" required="false" enabled="false" order="16" switch="-l" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>500</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.Energythreshold" name="Energy threshold" description="threshold total energy to terminate (default = 1e-4)" required="false" enabled="false" order="17" switch="-e " switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>1e-5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.Intermediateoutputpath" name="Intermediate output path" description="absolute path of directory where all intermediate information is printed&#xA;Nothing is printed if this option is not used" required="false" enabled="false" order="19" switch="-d" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_1.displacementfieldimage" name="displacement field image " required="true" enabled="true" order="22">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_1.Targetimage" name="Target image" required="true" enabled="true" order="23">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_1.Templateimage" name="Template image" required="true" enabled="true" order="24">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_register_1.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="25">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_1.continuetomax" name="continue to max" description="this flag makes the algorithm run the maximum number of iterations regardless of energy" required="false" enabled="false" order="18" switch="-c" switchSpaced="true">
+                                        <format type="File" cardinality="0">
+                                                <fileTypes>
+                                                        <filetype name="File" extension="" description="Any type of data file" />
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_1.Gaussiansmoothing" name="Gaussian smoothing" description="gaussian smoothing of all data with specified standard deviation. If salt and pepper noise is prevalent in your images, MI will likely fail without this. Good std - 0.4" required="false" enabled="false" order="1" switch="-g" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.5</value>
+                                        </values>
+                                </input>
+                                <output id="KL_MI_register_1.Usedatlas" name="Used atlas" description="Analyze file containing the version of the atlas that is on the same grid as the native displacement fields. NOTE: if the regrid displacements option is used, this may no longer be on the same grid -- the field itself is put on the original atlas or template grid and padded with zeros if needed" required="false" enabled="false" order="6" switch="-a " switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_1.regriddisplacementsflag" name="regrid displacements flag" description="1 -- field is printed on the template(data) grid&#xA;2 -- field is printed on the atlas grid &#xA;&#xA;zero padding is used when needed" required="false" enabled="false" order="7" switch="-r " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>1</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.triangleu" name="triangle u" description="Maximum displacement for determining variable time step. Default = 0.1" required="false" enabled="true" order="2" switch="-u" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.MutualInformationgaussianstd" name="Mutual Information gaussian std" description="default - 6.0" required="false" enabled="false" order="5" switch="-m" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>4.5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.MedianFilter" name="Median Filter" description="Preprocess with 3x3x3 median filter. &#xA;1. data (template)&#xA;2. atlas (target)&#xA;3. both" required="false" enabled="false" order="3" switch="-p" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>2</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.MIbinsize" name="MI bin size" description="Power of two for the number of MI bins. Default = 7." required="false" enabled="false" order="4" switch="-b " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>4</enumeration>
+                                                <enumeration>5</enumeration>
+                                                <enumeration>6</enumeration>
+                                                <enumeration>7</enumeration>
+                                                <enumeration>8</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>8</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_1.JacobianOutputPath" name="Jacobian Output Path" description="This is the directory where the forward Jacobian is printed every 100 iterations. The option will be ignored if Intermediate Output option is used, as in that case the Jacobian is printed every 50 iterations. " required="false" enabled="false" order="20" switch="-D" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_1.FinalJacobian" name="Final Jacobian" description="final forward Jacobian" required="false" enabled="false" order="21" switch="-J" switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <output id="KL_MI_register_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="26">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deform_1" name="KL_MI_deform" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="248" posY="112">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deform_1.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deform_1.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deform_1.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deform_1.flag" name="flag" required="true" enabled="true" order="0" switch="-deform" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_deform_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="InterpAveragepairsof3_1" name="Interp Average pairs of 3" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="132" posY="543">
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="" website="" />
+                                </executableAuthors>
+                                <tag>averaging MRI</tag>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                </metadata>
+                                <output id="InterpAveragepairsof3_1.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="InterpAveragepairsof3_1.InputstandardFiles" name="Input standard Files" description="Name of the files to be averaged" required="true" enabled="true" order="0" switch="3" switchSpaced="true">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="InterpAveragepairsof3_1.Inputinterpolatedfiles" name="Input interpolated files" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="InterpAveragepairsof3_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deform_2" name="KL_MI_deform" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="367" posY="648">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deform_2.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deform_2.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deform_2.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deform_2.flag" name="flag" required="true" enabled="true" order="0" switch="-deform" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_deform_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deformfield_1" name="KL_MI_deform field" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" posX="254" posY="442">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deformfield_1.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deformfield_1.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deformfield_1.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deformfield_1.flag" name="flag" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/deform_field.pl" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_deformfield_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_register_2" name="KL_MI_register" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="2" posY="349">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_register_2.TimeSteplimit" name="TimeStep limit" description="timestep limit (default = 500)" required="false" enabled="true" order="0" switch="-t" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>300</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.griddim1" name="grid dim 1" description="pixel number along x direction of the common grid.  If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="8" switch="-i" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>64</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.griddim2" name="grid dim 2" description="pixel number along y direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="9" switch="-j" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>64</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.griddim3" name="grid dim 3" description="pixel number along z direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="10" switch="-k" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>64</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.x0-padding" name="x 0-padding" description="number of 0-padding pixels along x direction of the common grid (default=5)" required="false" enabled="false" order="11" switch="-x" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.y0padding" name="y 0 padding" description="number of 0-padding pixels along y direction of the common grid (default=5)" required="false" enabled="false" order="12" switch="-y" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.z0padding" name="z 0 padding" description="number of 0-padding pixels along z direction of the common grid (default=5)" required="false" enabled="false" order="13" switch="-z" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.StandardDeviation" name="Standard Deviation" description="standard deviation of the gaussian kernel (default = 6.0)" required="false" enabled="true" order="14" switch="-s" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>9.0</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.fidelityterm" name="fidelity term " description="fidelity term (1 = L2, 2 = Mutual Information, default = 2)&#xA;3 -- MI with inverse consistency, takes ~twice as long" required="false" enabled="true" order="15" switch="-f" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>3</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.labmda" name="labmda" description="labmda -- weight of the KL distance term (default = 0.5)" required="false" enabled="false" order="16" switch="-l" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>500</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.Energythreshold" name="Energy threshold" description="threshold total energy to terminate (default = 1e-4)" required="false" enabled="false" order="17" switch="-e " switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>1e-5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.Intermediateoutputpath" name="Intermediate output path" description="absolute path of directory where all intermediate information is printed&#xA;Nothing is printed if this option is not used" required="false" enabled="false" order="19" switch="-d" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_2.displacementfieldimage" name="displacement field image " required="true" enabled="true" order="22">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_2.Targetimage" name="Target image" required="true" enabled="true" order="23">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_2.Templateimage" name="Template image" required="true" enabled="true" order="24">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_register_2.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="25">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_2.continuetomax" name="continue to max" description="this flag makes the algorithm run the maximum number of iterations regardless of energy" required="false" enabled="false" order="18" switch="-c" switchSpaced="true">
+                                        <format type="File" cardinality="0">
+                                                <fileTypes>
+                                                        <filetype name="File" extension="" description="Any type of data file" />
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_2.Gaussiansmoothing" name="Gaussian smoothing" description="gaussian smoothing of all data with specified standard deviation. If salt and pepper noise is prevalent in your images, MI will likely fail without this. Good std - 0.4" required="false" enabled="false" order="1" switch="-g" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.5</value>
+                                        </values>
+                                </input>
+                                <output id="KL_MI_register_2.Usedatlas" name="Used atlas" description="Analyze file containing the version of the atlas that is on the same grid as the native displacement fields. NOTE: if the regrid displacements option is used, this may no longer be on the same grid -- the field itself is put on the original atlas or template grid and padded with zeros if needed" required="false" enabled="false" order="6" switch="-a " switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_2.regriddisplacementsflag" name="regrid displacements flag" description="1 -- field is printed on the template(data) grid&#xA;2 -- field is printed on the atlas grid &#xA;&#xA;zero padding is used when needed" required="false" enabled="false" order="7" switch="-r " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>1</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.triangleu" name="triangle u" description="Maximum displacement for determining variable time step. Default = 0.1" required="false" enabled="true" order="2" switch="-u" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.MutualInformationgaussianstd" name="Mutual Information gaussian std" description="default - 6.0" required="false" enabled="false" order="5" switch="-m" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>4.5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.MedianFilter" name="Median Filter" description="Preprocess with 3x3x3 median filter. &#xA;1. data (template)&#xA;2. atlas (target)&#xA;3. both" required="false" enabled="false" order="3" switch="-p" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>2</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.MIbinsize" name="MI bin size" description="Power of two for the number of MI bins. Default = 7." required="false" enabled="false" order="4" switch="-b " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>4</enumeration>
+                                                <enumeration>5</enumeration>
+                                                <enumeration>6</enumeration>
+                                                <enumeration>7</enumeration>
+                                                <enumeration>8</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>8</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_2.JacobianOutputPath" name="Jacobian Output Path" description="This is the directory where the forward Jacobian is printed every 100 iterations. The option will be ignored if Intermediate Output option is used, as in that case the Jacobian is printed every 50 iterations. " required="false" enabled="false" order="20" switch="-D" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_2.FinalJacobian" name="Final Jacobian" description="final forward Jacobian" required="false" enabled="false" order="21" switch="-J" switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <output id="KL_MI_register_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="26">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_register_3" name="KL_MI_register" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="14" posY="872">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_register_3.TimeSteplimit" name="TimeStep limit" description="timestep limit (default = 500)" required="false" enabled="true" order="0" switch="-t" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>300</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.griddim1" name="grid dim 1" description="pixel number along x direction of the common grid.  If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="8" switch="-i" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>128</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.griddim2" name="grid dim 2" description="pixel number along y direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="9" switch="-j" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>128</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.griddim3" name="grid dim 3" description="pixel number along z direction of the common grid. If the template and target have the same grid, the default is the same as the input." required="false" enabled="true" order="10" switch="-k" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>128</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.x0-padding" name="x 0-padding" description="number of 0-padding pixels along x direction of the common grid (default=5)" required="false" enabled="false" order="11" switch="-x" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.y0padding" name="y 0 padding" description="number of 0-padding pixels along y direction of the common grid (default=5)" required="false" enabled="false" order="12" switch="-y" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.z0padding" name="z 0 padding" description="number of 0-padding pixels along z direction of the common grid (default=5)" required="false" enabled="false" order="13" switch="-z" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>18</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.StandardDeviation" name="Standard Deviation" description="standard deviation of the gaussian kernel (default = 6.0)" required="false" enabled="true" order="14" switch="-s" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>7.0</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.fidelityterm" name="fidelity term " description="fidelity term (1 = L2, 2 = Mutual Information, default = 2)&#xA;3 -- MI with inverse consistency, takes ~twice as long" required="false" enabled="true" order="15" switch="-f" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>3</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.labmda" name="labmda" description="labmda -- weight of the KL distance term (default = 0.5)" required="false" enabled="false" order="16" switch="-l" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>500</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.Energythreshold" name="Energy threshold" description="threshold total energy to terminate (default = 1e-4)" required="false" enabled="false" order="17" switch="-e " switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>1e-5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.Intermediateoutputpath" name="Intermediate output path" description="absolute path of directory where all intermediate information is printed&#xA;Nothing is printed if this option is not used" required="false" enabled="false" order="19" switch="-d" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_3.displacementfieldimage" name="displacement field image " required="true" enabled="true" order="22">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_3.Targetimage" name="Target image" required="true" enabled="true" order="23">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_3.Templateimage" name="Template image" required="true" enabled="true" order="24">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_register_3.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="25">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_3.continuetomax" name="continue to max" description="this flag makes the algorithm run the maximum number of iterations regardless of energy" required="false" enabled="false" order="18" switch="-c" switchSpaced="true">
+                                        <format type="File" cardinality="0">
+                                                <fileTypes>
+                                                        <filetype name="File" extension="" description="Any type of data file" />
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_register_3.Gaussiansmoothing" name="Gaussian smoothing" description="gaussian smoothing of all data with specified standard deviation. If salt and pepper noise is prevalent in your images, MI will likely fail without this. Good std - 0.4" required="false" enabled="false" order="1" switch="-g" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.5</value>
+                                        </values>
+                                </input>
+                                <output id="KL_MI_register_3.Usedatlas" name="Used atlas" description="Analyze file containing the version of the atlas that is on the same grid as the native displacement fields. NOTE: if the regrid displacements option is used, this may no longer be on the same grid -- the field itself is put on the original atlas or template grid and padded with zeros if needed" required="false" enabled="false" order="6" switch="-a " switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_register_3.regriddisplacementsflag" name="regrid displacements flag" description="1 -- field is printed on the template(data) grid&#xA;2 -- field is printed on the atlas grid &#xA;&#xA;zero padding is used when needed" required="false" enabled="false" order="7" switch="-r " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>1</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.triangleu" name="triangle u" description="Maximum displacement for determining variable time step. Default = 0.1" required="false" enabled="false" order="2" switch="-u" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>0.12</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.MutualInformationgaussianstd" name="Mutual Information gaussian std" description="default - 6.0" required="false" enabled="false" order="5" switch="-m" switchSpaced="true">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>4.5</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.MedianFilter" name="Median Filter" description="Preprocess with 3x3x3 median filter. &#xA;1. data (template)&#xA;2. atlas (target)&#xA;3. both" required="false" enabled="false" order="3" switch="-p" switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>1</enumeration>
+                                                <enumeration>2</enumeration>
+                                                <enumeration>3</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>2</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.MIbinsize" name="MI bin size" description="Power of two for the number of MI bins. Default = 7." required="false" enabled="false" order="4" switch="-b " switchSpaced="true">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>4</enumeration>
+                                                <enumeration>5</enumeration>
+                                                <enumeration>6</enumeration>
+                                                <enumeration>7</enumeration>
+                                                <enumeration>8</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>8</value>
+                                        </values>
+                                </input>
+                                <input id="KL_MI_register_3.JacobianOutputPath" name="Jacobian Output Path" description="This is the directory where the forward Jacobian is printed every 100 iterations. The option will be ignored if Intermediate Output option is used, as in that case the Jacobian is printed every 50 iterations. " required="false" enabled="false" order="20" switch="-D" switchSpaced="true">
+                                        <format type="Directory" cardinality="1" />
+                                </input>
+                                <output id="KL_MI_register_3.FinalJacobian" name="Final Jacobian" description="final forward Jacobian" required="false" enabled="false" order="21" switch="-J" switchSpaced="true">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <output id="KL_MI_register_3.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="26">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deformfield_2" name="KL_MI_deform field" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" posX="336" posY="968">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deformfield_2.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deformfield_2.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deformfield_2.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deformfield_2.flag" name="flag" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/deform_field.pl" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_deformfield_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deform_3" name="KL_MI_deform" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="383" posY="1215">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deform_3.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deform_3.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deform_3.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deform_3.flag" name="flag" required="true" enabled="true" order="0" switch="-deform" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_deform_3.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="InterpAveragepairsof3_2" name="Interp Average pairs of 3" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="123" posY="1090">
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="" website="" />
+                                </executableAuthors>
+                                <tag>averaging MRI</tag>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                </metadata>
+                                <output id="InterpAveragepairsof3_2.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="InterpAveragepairsof3_2.InputstandardFiles" name="Input standard Files" description="Name of the files to be averaged" required="true" enabled="true" order="0" switch="3" switchSpaced="true">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="InterpAveragepairsof3_2.Inputinterpolatedfiles" name="Input interpolated files" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="InterpAveragepairsof3_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="HardMean_2" name="Hard Mean" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="115" posY="229">
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="" website="" />
+                                </executableAuthors>
+                                <tag>averaging MRI</tag>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                </metadata>
+                                <output id="HardMean_2.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="HardMean_2.multiple" name="multiple" description="multiplicity of files to average (will correspond to number of outputs)" required="true" enabled="true" order="0">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>1</value>
+                                        </values>
+                                </input>
+                                <input id="HardMean_2.InputFiles" name="Input Files" description="Name of the files to be averaged" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="HardMean_2.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="HardMean_3" name="Hard Mean" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="113" posY="763">
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="" website="" />
+                                </executableAuthors>
+                                <tag>averaging MRI</tag>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                </metadata>
+                                <output id="HardMean_3.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="HardMean_3.multiple" name="multiple" description="multiplicity of files to average (will correspond to number of outputs)" required="true" enabled="true" order="0">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>1</value>
+                                        </values>
+                                </input>
+                                <input id="HardMean_3.InputFiles" name="Input Files" description="Name of the files to be averaged" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="HardMean_3.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <input link="KL_MI_register_1.Targetimage" id="KL_MI3-stepmultiscale_1.Targetimage" name="Target image" order="2" />
+                        <input link="KL_MI_register_1.Templateimage" id="KL_MI3-stepmultiscale_1.Templateimage" name="Template image" order="3" />
+                        <input link="KL_MI_deform_1.Templateimage" id="KL_MI3-stepmultiscale_1.Templateimage_2" name="Template image" order="5" />
+                        <input link="KL_MI_deform_2.Templateimage" id="KL_MI3-stepmultiscale_1.Templateimage_3" name="Template image" order="6" />
+                        <input link="KL_MI_deform_3.Templateimage" id="KL_MI3-stepmultiscale_1.Templateimage_4" name="Template image" order="7" />
+                        <output link="KL_MI_deform_3.DeformedTemplateimage" id="KL_MI3-stepmultiscale_1.DeformedTemplateimage" name="Deformed Template image" order="8" />
+                        <output description="Name of the average output file(s)" link="InterpAveragepairsof3_2.HardMean" id="KL_MI3-stepmultiscale_1.DeformationField" name="Deformation Field" order="4" />
+                        <variables>
+                                <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                                <variable name="Var 1">Value</variable>
+                                <variable name="Var sasasa2">Value</variable>
+                                <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                                <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                                <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                                <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                        </variables>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Nov 02 16:17:11 PST 2009" />
+                        </metadata>
+                </moduleGroup>
+                <module id="KL_MI_deform_4" name="KL_MI_deform" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="310" posY="562">
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                        </metadata>
+                        <input id="KL_MI_deform_4.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="3">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="KL_MI_deform_4.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="KL_MI_deform_4.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="KL_MI_deform_4.flag" name="flag" description="deform: image printed on input image grid&#xA;&#xA;deform2: image printed on field grid" required="true" enabled="true" order="0">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>-deform</enumeration>
+                                        <enumeration>-deform2</enumeration>
+                                </format>
+                                <values>
+                                        <value>-deform2</value>
+                                </values>
+                        </input>
+                        <output id="KL_MI_deform_4.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <module id="AIRtoField_1" name="AIR to Field" version="1.0" description="This module convertes air files to KL_MI-style vector fields that have an identical effect on the image" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/ccbbm_shared/ccbbm" sourceCode="" posX="138" posY="452" rotation="1">
+                        <authors>
+                                <author fullName="Boris Gutman" email="bgutman@ucla.edu" website="" />
+                        </authors>
+                        <executableAuthors>
+                                <author fullName="Boris Gutman" email="" website="" />
+                        </executableAuthors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Apr 25 17:08:41 PDT 2007" />
+                        </metadata>
+                        <input id="AIRtoField_1.AIRaffinetransformation" name="AIR affine transformation" description="air file                                                                                                                        " required="true" enabled="true" order="0" switch="-air2field" switchSpaced="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MESH M" extension="m" description="Triangulation Mesh" />
+                                                <filetype name="AIR file" extension="air" description="AIR Linear transformation" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="AIRtoField_1.displacementfield" name="displacement field" description="displacement field" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="3">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="AIRtoField_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <dataModule id="Affinemeanimage_1" name="Affine mean image" posX="814" posY="880" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Nov 10 09:55:39 PST 2009" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/temp/12yo_9p_mean.img</value>
+                        </values>
+                        <input id="Affinemeanimage_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <dataModule id="ReslicedVolumestocommonspace_1" name="Resliced Volumes to common space" posX="297" posY="774" type="File" source="false" loopIndex="false" dirDump="true">
+                        <fileTypes>
+                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Nov 08 13:02:04 PST 2009" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/temp/affine9p</value>
+                        </values>
+                        <input id="ReslicedVolumestocommonspace_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <dataModule id="Savecommonairfiles_1" name="Save common air files" posX="22" posY="994" type="File" source="false" loopIndex="false" dirDump="true">
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Nov 06 18:39:33 PST 2009" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/temp/air</value>
+                        </values>
+                        <input id="Savecommonairfiles_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <dataModule id="NL-registeredtoaffinemean_1" name="NL-registered to affine mean" description="This volume represents the final minimun distance template (MDT) atlas." posX="693" posY="1122" type="File" source="false" loopIndex="false" dirDump="true">
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Apr 10 15:52:07 PDT 2009" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/temp/MDT_with_KLMIHealthyBrain_DtoryDump</value>
+                        </values>
+                        <input id="NL-registeredtoaffinemean_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <module id="EqualizeHistogram_1" name="Equalize Histogram" description="It inensity scales all the images to have same intensity distribution as first input image" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/EqualizeHistogram/EqualizeHistogram" sourceCode="" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCAA4ADgEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/APn+rFlZzaheRWsABkkOBk4A&#xA;7kn8Kr12nw8so5767uHBbygiFc4G0klv0T+dVBXlYmTsrnz/AFa0zTrrV9TttOsojLc3MgjjQdyf&#xA;5Cqtev8A7PekJd+LdQ1SRVYWNsFTIyVeQ4BHp8quPxrrPC3hqy02zMkflS3EihJJ3XcF4LEf7PTt&#xA;n866BtLXAzHmLIXBUrn64HP1xmppL200oiJIQo2n5EPC5O7P17fSrcutWdgXF2jxtGozGRnf34I+&#xA;gP4/hXUrJGN2em+A/hNovhOyWa+hh1HVnX95PKm5E6HaingYx97GT7dK7ySytZoHgltoXhcYaNow&#xA;Vb6joanorznxn4VTzXltdK8jy03PcRttUnPdex5Ge/fpXnE9vLaztDPG0ci9VYV7nrur6X/Z8lhd&#xA;SNFHJGpMULbmYblIAPQZ29+wryjxZGi3li6AAyWasxxycO6jPqcKB+FYVI9TSD6Hl3jT4K6BrWnz&#xA;zaHax6bqgBaPyyRFIf7rL0UH1AGPevme6tZ7G7mtLqJoriFzHJG4wVYHBBr7pr5c+O9hDZfEhpYU&#xA;2m7tI55PdssmfyQVz9FFFZGh5nRRRRXe/DUwyHVbYt/pDLFLGvPIUsDz0HLr+dcFXQeCb37D4usG&#xA;YyeXM/kOqH72/wCUZ9RuKn8K0ou01czqq8GFe0fs7anHBr+s6Y3D3VukyH/rmxBH/kT9K8Xrpfh9&#xA;qj6P8QNDu0YqPtaROc/wOdjfoxrvpb6a63TS5JJ69iOORUWpyyGKN1VWUAY3ZK49wO9bV3piLp0h&#xA;hjKKkrIATkgAA/1rA8xvJMWec4FdUktjli29T7KooorJu4UECXiiJg0hXZsKrgdCQDVDxzcho9Ht&#xA;BEiiK2aTzEPyvucjIHYfJ+Oa1ZYkgSSF/MdcZ+TBBb0PoMd/0rnfGN0k9/YQKrB7Wxiik3Dqxy/H&#xA;thx+RrnqNWOimgr5q/aDu3l8cWVq0aqkFipVsctuds8+nH8/WvpWvlX43atHqfxKuo4h8tjDHalv&#xA;7xGWP5FyPwrnaKKKxNjzqiiiir+h+Z/wkGm+UoaT7VFsUttBO8YGcHH1waoV1vw60R9W8V29y25L&#xA;TT2W6mlA4BU5Rc9MswHHoG9KqN+ZWJk0k7hUlvJJFcxSRZ8xHDJj1B4qOus+HPhe68U+M7C3hhLW&#xA;0EqT3cmPlSNSCcn1OMD6/WvTdRvWs7+ZMbo2PzIeh/8Ar1gyrbXFx/o7AOT9xjg5/rV/WZVkuZGB&#xA;zuNcpeKN5AOa7au9jjp7XPsOiiiuhtdDltDNd6sjWmlKC09w7MoRfoDyT0A7kgCvKdTvn1PU7m9c&#xA;FTNIWCFi2xeygnsBgD2Fd/4gSe5+GJ8qMtFbahHJKR/CNrKD+bqPxrzWuKTdzrgjM8Qa9YeGtFuN&#xA;T1GdIoYUJAZgDI2OFX1J9K+LNQvp9U1K6v7pt1xcytNI3qzHJ/nX0N+0PbzSeEdMmSNmiivf3jAZ&#xA;C5Q4zXzhRRRRUlhRRRXR+GtO8POFv/EOqiGBJSq2MSO0k+ACclR8i8gZ6nDAYxmupb4jaRBYxWOn&#xA;2N1bWkQxHCqKAPf73J9SeSaKK0hUcNjOUFPc19BtdDmuGl13UZ7a1jIJhtYTJNN7KThV+pP4GvZN&#xA;B+Mvgbwvpy6do3h7UoLZTknbHudv7zHfkn6miiqQ8W6ZcIXeSWNs42yISfrxmqJ1WyuHYrcpx13f&#xA;L/Oiiq9rKT1J9kktDcg/aD8JSMBJZavFnu0MZA/J8/pXQWHxf8DX8gjTXEhcjpcRPGP++iMfrRRX&#xA;T+GdeFiHglVJ7SddrxsAyOCMHI6EEVa1X4d6F4jLXWiTppVyykmEqWgdiSfXMfXHGQAOBRRTcVJk&#xA;XaXMjcbXfC2t2Uls2q6Re20w2PGbiORXHoRmvKPFHwM0q/aS68J6rDA5yRZzyb4yfRXGSv4g/UUU&#xA;V534i8Ha54WcHU7PbA7lI7iNg8chGehHTIGQDg47UUUVzQd1dnQndHjniDwprfha6EGsWEluSfkk&#xA;4aN/91hkH6daKKK//9k=" posX="243" posY="171" advancedOptions="h_stack=128;h_vmem=4">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Nov 10 12:09:20 PST 2009" />
+                        </metadata>
+                        <input id="EqualizeHistogram_1.Imagetoequalize" name="Image to equalize" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="EqualizeHistogram_1.equalizedImage" name="equalized Image" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="EqualizeHistogram_1.optionalmaskforrescaledimage" name="optional mask for rescaled image" required="false" enabled="false" order="0" switch="-mask" switchSpaced="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="EqualizeHistogram_1.limits" name="limits" description="[min, max] of the final image" required="true" enabled="true" order="1">
+                                <format type="Number" cardinality="2" />
+                                <values>
+                                        <value>0</value>
+                                        <value>10000</value>
+                                </values>
+                        </input>
+                        <input id="EqualizeHistogram_1.CDFcutoff" name="CDF cutoff" description="all intensities above (CDF = 1 - this number) will be reduced to the intensity that has exactly (CDF = 1 - this number) &#xA;&#xA;This is a way to get rid of bright spots and take them out of equalization" required="true" enabled="true" order="2">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>0</value>
+                                </values>
+                        </input>
+                </module>
+                <dataModule id="N3kids_1" name="N3kids " posX="459" posY="28" type="File" source="true" loopIndex="false">
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Nov 06 18:12:50 PST 2009" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/0747/0747_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/1416/1416_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/1418/1418_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/2742/2742_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/2743/2743_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/2885/2885_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/3103/3103_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/3520/3520_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/3653/3653_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/3690/3690_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/4459/4459_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/4943/4943_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5018/5018_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5176/5176_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5430/5430_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5437/5437_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5598/5598_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5626/5626_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5661/5661_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5735/5735_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/5889/5889_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6203/6203_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6205/6205_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6316/6316_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6353/6353_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6381/6381_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6400/6400_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6544/6544_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/6798/6798_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7050/7050_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7055/7055_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7261/7261_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7427/7427_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7594/7594_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7807/7807_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/7947/7947_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/8008/8008_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/9291/9291_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/9431/9431_nu_0000.img</value>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/enigma/jstein/Giovanni/raw/9480/9480_nu_0000.img</value>
+                        </values>
+                        <output id="N3kids_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </dataModule>
+                <dataModule id="MDT_1" name="MDT" posX="581" posY="1419" type="File" source="false" loopIndex="false" dirDump="false">
+                        <fileTypes>
+                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                        <need>hdr</need>
+                                </filetype>
+                        </fileTypes>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Mar 01 14:06:28 PST 2010" />
+                        </metadata>
+                        <values>
+                                <value>pipeline://cranium.loni.ucla.edu//ifs/mdt/4Jason/Giovanni/40_Gio_MDT_no_med_no_mask_cmn2.img</value>
+                        </values>
+                        <input id="MDT_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                </dataModule>
+                <module id="HardMean_4" name="Hard Mean" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="432" posY="1290">
+                        <executableAuthors>
+                                <author fullName="Roger P. Woods" email="" website="" />
+                        </executableAuthors>
+                        <tag>averaging MRI</tag>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                        </metadata>
+                        <output id="HardMean_4.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="HardMean_4.multiple" name="multiple" description="multiplicity of files to average (will correspond to number of outputs)" required="true" enabled="true" order="0">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>1</value>
+                                </values>
+                        </input>
+                        <input id="HardMean_4.InputFiles" name="Input Files" description="Name of the files to be averaged" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                        <need>hdr</need>
+                                                </filetype>
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="HardMean_4.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                </module>
+                <moduleGroup id="CompositeGeometricAveraging_1" name="Composite Geometric Averaging" package="Common grid" posX="332" posY="1164">
+                        <module id="KL_MI_invert_1" name="KL_MI_invert" description="This module compute the geometric inverse of a vector field" location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="234" posY="204">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_invert_1.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_invert_1.inversefieldimage" name="inverse field image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_invert_1.flag" name="flag" required="true" enabled="true" order="0" switch="-invert" switchSpaced="true">
+                                        <format type="String" cardinality="0" />
+                                </input>
+                                <output id="KL_MI_invert_1.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <module id="KL_MI_deform_5" name="KL_MI_deform" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/KL_Registration" sourceCode="" posX="428" posY="618">
+                                <metadata>
+                                        <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                </metadata>
+                                <input id="KL_MI_deform_5.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <input id="KL_MI_deform_5.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="KL_MI_deform_5.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deform_5.flag" name="flag" required="true" enabled="true" order="0">
+                                        <format type="Enumerated" cardinality="1">
+                                                <enumeration>-deform</enumeration>
+                                                <enumeration>-deform2</enumeration>
+                                        </format>
+                                        <values>
+                                                <value>-deform</value>
+                                        </values>
+                                </input>
+                                <output id="KL_MI_deform_5.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="KL_MI_deform_5.optionalgrid" name="optional grid" description="this analyze file can be used to set the final grid on which the resliced image is printed" required="false" enabled="false" order="4">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                        </module>
+                        <module id="HardMean_5" name="Hard Mean" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="259" posY="20">
+                                <executableAuthors>
+                                        <author fullName="Roger P. Woods" email="" website="" />
+                                </executableAuthors>
+                                <tag>averaging MRI</tag>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                </metadata>
+                                <output id="HardMean_5.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="2">
+                                        <format type="File" cardinality="3">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                                <input id="HardMean_5.multiple" name="multiple" description="multiplicity of files to average (will correspond to number of outputs)" required="true" enabled="true" order="0">
+                                        <format type="Number" cardinality="1" />
+                                        <values>
+                                                <value>3</value>
+                                        </values>
+                                </input>
+                                <input id="HardMean_5.InputFiles" name="Input Files" description="Name of the files to be averaged" required="true" enabled="true" order="1">
+                                        <format type="File" cardinality="-1">
+                                                <fileTypes>
+                                                        <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                <need>hdr</need>
+                                                        </filetype>
+                                                </fileTypes>
+                                        </format>
+                                </input>
+                                <output id="HardMean_5.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                        <format type="File" cardinality="1">
+                                                <fileTypes>
+                                                        <filetype name="XML File" extension="xml" description="XML File" />
+                                                </fileTypes>
+                                        </format>
+                                </output>
+                        </module>
+                        <moduleGroup id="composevectorfields1stgrid_1" name="compose vector fields (1st grid)" posX="531" posY="339">
+                                <module id="InterpAveragepairsof3_3" name="Interp Average pairs of 3" description="This program will average together a series of files." location="pipeline://cranium.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/Ana_Average/Ana_Average" sourceCode="" posX="165" posY="312">
+                                        <executableAuthors>
+                                                <author fullName="Roger P. Woods" email="" website="" />
+                                        </executableAuthors>
+                                        <tag>averaging MRI</tag>
+                                        <metadata>
+                                                <data key="__creationDateKey" value="Mon Sep 11 17:42:51 PDT 2006" />
+                                        </metadata>
+                                        <output id="InterpAveragepairsof3_3.HardMean" name="Hard  Mean" description="Name of the average output file(s)" required="true" enabled="true" order="3">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </output>
+                                        <input id="InterpAveragepairsof3_3.InputstandardFiles" name="Input standard Files" description="Name of the files to be averaged" required="true" enabled="true" order="2">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image" extension="img" description="Analyze Image file">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </input>
+                                        <input id="InterpAveragepairsof3_3.Inputinterpolatedfiles" name="Input interpolated files" required="true" enabled="true" order="1">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image" extension="img" description="Analyze Image">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </input>
+                                        <output id="InterpAveragepairsof3_3.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="3">
+                                                <format type="File" cardinality="1">
+                                                        <fileTypes>
+                                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                                        </fileTypes>
+                                                </format>
+                                        </output>
+                                        <input id="InterpAveragepairsof3_3.multiplicity" name="multiplicity" required="true" enabled="true" order="0" switch="3" switchSpaced="true">
+                                                <format type="File" cardinality="0">
+                                                        <fileTypes>
+                                                                <filetype name="File" extension="" description="Any type of data file" />
+                                                        </fileTypes>
+                                                </format>
+                                        </input>
+                                </module>
+                                <module id="KL_MI_deformfield_3" name="KL_MI_deform field" description="This is useful if one sets custom pixel dimensions of common grid in the register module (and/or the atlas and data are on different grids), but then wishes to view the results of the registration (deformed template) on the original grid. That is precisely what this does." location="pipeline://cranium.loni.ucla.edu//usr/bin/perl" sourceCode="" posX="54" posY="101">
+                                        <metadata>
+                                                <data key="__creationDateKey" value="Sun Nov 18 20:41:00 PST 2007" />
+                                        </metadata>
+                                        <input id="KL_MI_deformfield_3.displacementimage" name="displacement image" required="true" enabled="true" order="1">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </input>
+                                        <input id="KL_MI_deformfield_3.Templateimage" name="Template image" required="true" enabled="true" order="2">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </input>
+                                        <output id="KL_MI_deformfield_3.DeformedTemplateimage" name="Deformed Template image" required="true" enabled="true" order="3">
+                                                <format type="File" cardinality="3">
+                                                        <fileTypes>
+                                                                <filetype name="Analyze Image 3D" extension="img" description="Analyze Image 3D file">
+                                                                        <need>hdr</need>
+                                                                </filetype>
+                                                        </fileTypes>
+                                                </format>
+                                        </output>
+                                        <input id="KL_MI_deformfield_3.perlscript" name="perl script" description="deform_field -- keeps the grid of the 2nd field&#xA;deform_field_1st_grid -- keeps the grid of the 1st field" required="true" enabled="true" order="0" switch="/ifs/ccb/CCB_SW_Tools/SurfaceTools/YalinWang_BorisGutman/KL_Registration_float/" switchSpaced="false">
+                                                <format type="Enumerated" cardinality="1">
+                                                        <enumeration>deform_field.pl</enumeration>
+                                                        <enumeration>deform_field_1st_grid.pl</enumeration>
+                                                </format>
+                                                <values>
+                                                        <value>deform_field.pl</value>
+                                                </values>
+                                        </input>
+                                        <output id="KL_MI_deformfield_3.MetadataOutput_Predefined" name="MetadataOutput_Predefined" required="true" enabled="true" predefined="true" isMetadata="true" order="4">
+                                                <format type="File" cardinality="1">
+                                                        <fileTypes>
+                                                                <filetype name="XML File" extension="xml" description="XML File" />
+                                                        </fileTypes>
+                                                </format>
+                                        </output>
+                                </module>
+                                <output description="Name of the average output file(s)" link="InterpAveragepairsof3_3.HardMean" id="composevectorfields1stgrid_1.Composedfield" name="Composed field" order="2" />
+                                <input description="Name of the files to be averaged" link="InterpAveragepairsof3_3.InputstandardFiles" id="composevectorfields1stgrid_1.Field2" name="Field 2" order="3" />
+                                <input link="KL_MI_deformfield_3.displacementimage" id="composevectorfields1stgrid_1.Field2_2" name="Field 2" order="0" />
+                                <input link="KL_MI_deformfield_3.Templateimage" id="composevectorfields1stgrid_1.Field1" name="Field 1" order="1" />
+                                <input description="deform_field -- keeps the grid of the 2nd field&#xA;deform_field_1st_grid -- keeps the grid of the 1st field" link="KL_MI_deformfield_3.perlscript" id="composevectorfields1stgrid_1.perlscript" name="perl script" order="-1" />
+                                <variables>
+                                        <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                                        <variable name="Var 1">Value</variable>
+                                        <variable name="Var sasasa2">Value</variable>
+                                        <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                                        <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                                        <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                                        <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                                </variables>
+                                <metadata>
+                                        <data key="__creationDateKey" value="Wed Nov 04 11:31:49 PST 2009" />
+                                </metadata>
+                        </moduleGroup>
+                        <input link="KL_MI_deform_5.Templateimage" id="CompositeGeometricAveraging_1.Originaltarget" name="Original target" order="2" />
+                        <output link="KL_MI_deform_5.DeformedTemplateimage" id="CompositeGeometricAveraging_1.currenttarget" name="current target" order="3" />
+                        <input description="this analyze file can be used to set the final grid on which the resliced image is printed" link="KL_MI_deform_5.optionalgrid" id="CompositeGeometricAveraging_1.optionalgrid" name="optional grid" order="-1" />
+                        <input description="Name of the files to be averaged" link="HardMean_5.InputFiles" id="CompositeGeometricAveraging_1.Newfileds" name="New fileds" order="1" />
+                        <input link="composevectorfields1stgrid_1.Field1" id="CompositeGeometricAveraging_1.previousinversefield" name="previous inverse field" order="0" />
+                        <input description="deform_field -- keeps the grid of the 2nd field&#xA;deform_field_1st_grid -- keeps the grid of the 1st field" link="composevectorfields1stgrid_1.perlscript" id="CompositeGeometricAveraging_1.perlscript" name="perl script" order="-1" />
+                        <variables>
+                                <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                                <variable name="Var 1">Value</variable>
+                                <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                                <variable name="Var sasasa2">Value</variable>
+                                <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                                <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                                <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                        </variables>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Nov 04 11:41:43 PST 2009" />
+                        </metadata>
+                </moduleGroup>
+                <variables>
+                        <variable name="TestCDR">//idaxs/project/subject/study/weightKg</variable>
+                        <variable name="Var 1">Value</variable>
+                        <variable name="SUID">//idaxs/project/subject/subjectIdentifier</variable>
+                        <variable name="Var sasasa2">Value</variable>
+                        <variable name="sex">//idaxs/project/subject/subjectSex</variable>
+                        <variable name="MMSCORE">//idaxs/project/subject/visit/assessment[@name='MMSE']/component[@name='MMSE Total Score']/assessmentScore[@attribute='MMSCORE']</variable>
+                        <variable name="CDRSCORE">//idaxs/project/subject/visit/assessment[@name='CDR']/component[@name='CDR Total Score']/assessmentScore[@attribute='CDGLOBAL']</variable>
+                </variables>
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+        </moduleGroup>
+</pipeline>
+

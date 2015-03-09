@@ -23,26 +23,27 @@ import Static.TestConstants;
 import java.util.HashMap;
 
 /**
- * This class will visualize all fragments detected in the input workflow collection.
+ * This class will filter fragments with empty annotations and then visualize them.
  * @author Daniel Garijo
  */
-public class VisualizeTavernaOPMWSUBDUEFragments {
+public class VisualizeTavernaOPMWSUBDUEFragmentsFiltered {
     //shall I filter something here as well?
     public static void main(String[] args){
         //String file = TestConstants.SUBDUEResultFolder+"resultsTavernaColab\\step1 (categories)\\";
         //String file = TestConstants.SUBDUEResultFolder+"resultsTavernaColab\\step1-1 (web services)\\";
-        String file = TestConstants.SUBDUEResultFolder+"resultsTavernaColab\\step 2 (ontologies)\\unfiltered(edam)\\";
-        
+        String file = TestConstants.SUBDUEResultFolder+"resultsTavernaColab\\step 2 (ontologies)\\filtered(edam)\\";
         //String ocFile = TestConstants.SUBDUEResultFolder +"resultsTavernaColab\\step1 (categories)\\";
         String ocFile = file;
         String outputPath="";//"fragments";
         SUBDUEFragmentCollectionWriterGraphml instance = new SUBDUEFragmentCollectionWriterGraphml();
         try{
-            HashMap<String,Fragment> structureResults = new FragmentCollectionReaderSUBDUE(file+"resultsTavStep2-1Ev1", ocFile+"resultsTavStep2-1Ev1_occurrences").getFragmentCatalogAsHashMap();
-            instance.writeFragmentsToFile(structureResults, outputPath+"resultsTavStep2-1Ev1.graphml", null);            
+            HashMap<String,Fragment> structureResults = new FragmentCollectionReaderSUBDUE(file+"resultsTavStep2-1Ev1-EDAM-Filtered", ocFile+"resultsTavStep2-1Ev1-EDAM-Filtered_occurrences").getFragmentCatalogAsHashMap();
+            structureResults = TavernaOPMWFragmentFilter.filter(structureResults);
+            instance.writeFragmentsToFile(structureResults, outputPath+"resultsTavStep2-1Ev1-EDAM-Filtered.graphml", null);            
             
-            HashMap<String,Fragment> structureResults1 = new FragmentCollectionReaderSUBDUE(file+"resultsTavStep2-1Ev2", ocFile+"resultsTavStep2-1Ev2_occurrences").getFragmentCatalogAsHashMap();
-            instance.writeFragmentsToFile(structureResults1, outputPath+"resultsTavStep2-1Ev2.graphml", null);
+            HashMap<String,Fragment> structureResults1 = new FragmentCollectionReaderSUBDUE(file+"resultsTavStep2-1Ev2-EDAM-Filtered", ocFile+"resultsTavStep2-1Ev2-EDAM-Filtered_occurrences").getFragmentCatalogAsHashMap();
+            structureResults1 = TavernaOPMWFragmentFilter.filter(structureResults1);
+            instance.writeFragmentsToFile(structureResults1, outputPath+"resultsTavStep2-1Ev2-EDAM-Filtered.graphml", null);
            
         }catch(Exception e){
             System.err.println("Error: something whent wrong when writing the fragments");

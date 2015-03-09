@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="ReadFiles_1.Output" sink="Novoalign_1.Readfiles" />
+                <connection source="IndexFileName_1.Output" sink="Novoalign_1.Indexedreference" />
+                <connection source="Novoindex_1.Flowcontrol" sink="Novoalign_1.FlowControl" />
+                <connection source="ExecutionDirectory_1.Output" sink="Novoalign_1.ExecutionDirectory" />
+                <connection source="IndexFileName_1.Output" sink="Novoindex_1.Indexname" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="Novoindex_1.Referencefile" />
+                <connection source="ExecutionDirectory_1.Output" sink="Novoindex_1.ExecutionDirectory" />
+                <connection source="Novoalign_1.OutputFile" sink="Outputfile_1.Input" />
+        </connections>
+        <moduleGroup id="novoalign_1" name="novoalign" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="Novoalign_1" name="Novoalign" package="Novoalign" version="2.07" description="Novoalign is a short-read mapper designed to be fast and sensitive on small to large genome databases. It's primary design is based on the use of read quality information and the need to assemble genomes from resequencing experiments.&#xA;Novoalign supports fragment, paired-end and mate-pair reads from major sequencing platforms such as Illumina, SOLiD and Roche 454.&#xA;NovoalignCS is the version of Novoalign developed for SOLiD colourspace reads." icon="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&#xA;KKKKKKACiiiiiiigAooor//Z" posX="307" posY="500" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/novocraft/scripts/novoalign.sh" executableVersion="2.07" gridVariables="h_stack=128;h_vmem=10">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>novo bioinformatics genomics</tag>
+                        <uri>http://www.novocraft.com/main/index.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Aug 04 14:32:22 PDT 2011" />
+                        </metadata>
+                        <input id="Novoalign_1.Readfiles" name="Read files" description="Filenames for the read sequences for Side 1 &amp; 2. If only one file is specified then single end reads are processed. If two files are specified then the program will operate in paired end mode.&#xA;File formats allowed include Solexa PRB, Sanger FASTQ, FASTA, Solexa FASTQ, Illumina FASTQ, and Illumina qseq_txt." required="true" enabled="true" order="3" prefix="-f" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="-1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Novoalign_1.Format" name="Format" description="Specifies a read file format. For Fastq '_sequence.txt' files from Illumina Pipeline 1.3 please specify -F ILMFQ.&#xA;Other values for the -F option are:&#xA;&#xA;FA&#x9;Fasta format read files without base qualities&#xA;SLXFQ&#x9;Fastq format with Solexa style quality values. 10log10(P/(1-P)) + '@'&#xA;STDFQ&#x9;Fastq format with Sanger coding of quality values. -10log10(Perr) + '!'&#xA;ILMFQ&#x9;Fastq with Illumina coding of quality values. -10log10(Perr) + '@'&#xA;PRB&#x9;Illumina _prb.txt format.&#xA;PRBnSEQ&#x9;Illumina _prb.txt with _seq.txt files.&#xA;QSEQ&#x9;Illumina *_qseq.txt format files from Bustard. NovoalignCS can use ABI colour space fasta with qualities or colour space fastq files. Detection of file formats should be automatic however you can still specify the format using the -F option.&#xA;For csfastq, paired end reads should be in two separate files.&#xA;CSFASTA&#x9;ABI Solid colour space fasta format with optional _QV.qual file.&#xA;CSFASTQ&#x9;Colour space FASTQ format as used in BFAST." required="true" enabled="true" order="4" prefix="-F" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>ILMFQ</value>
+                                </values>
+                        </input>
+                        <input id="Novoalign_1.Indexedreference" name="Indexed reference" description="Full pathname of indexed reference sequence created by novoindex&#xA;" required="true" enabled="true" order="2" prefix="-d" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Novoalign_1.Reportformat" name="Report format" description="Specifies the report format. Native, Pairwise &amp; SAM. Default is Native." required="false" enabled="true" order="5" prefix="-o" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>SAM</value>
+                                </values>
+                        </input>
+                        <input id="Novoalign_1.FlowControl" name="Flow Control" required="true" enabled="true" order="6">
+                                <format type="Flow Control" cardinality="1" />
+                        </input>
+                        <input id="Novoalign_1.ExecutionDirectory" name="Execution Directory" required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <output id="Novoalign_1.OutputFile" name="Output File" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Novocraft" email="office@novocraft.com" website="http://www.novocraft.com/main/index.php" />
+                        </executableAuthors>
+                </module>
+                <module id="Novoindex_1" name="Novoindex" package="Novoalign" version="2.07" description="Novoalign is a short-read mapper designed to be fast and sensitive on small to large genome databases. It's primary design is based on the use of read quality information and the need to assemble genomes from resequencing experiments.&#xA;Novoalign supports fragment, paired-end and mate-pair reads from major sequencing platforms such as Illumina, SOLiD and Roche 454.&#xA;NovoalignCS is the version of Novoalign developed for SOLiD colourspace reads." icon="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&#xA;KKKKKKACiiiiiiigAooor//Z" posX="415" posY="320" sourceCode="" location="pipeline://genomics.loni.ucla.edu//usr/local/loniWorkflows/Bioinformatics/novocraft/scripts/novoindex.sh" executableVersion="2.07" gridVariables="h_stack=64">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>novo bioinformatics genomics</tag>
+                        <uri>http://www.novocraft.com/main/index.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Aug 04 15:31:37 PDT 2011" />
+                        </metadata>
+                        <input id="Novoindex_1.Indexname" name="Index name" required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="Novoindex_1.Referencefile" name="Reference file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="Novoindex_1.ExecutionDirectory" name="Execution Directory" required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <output id="Novoindex_1.Flowcontrol" name="Flow control" required="true" enabled="true" order="9">
+                                <format type="Flow Control" cardinality="1" />
+                        </output>
+                        <input id="Novoindex_1.kmerlength" name="kmer length" description="is the kmer length to be used for the index. Novoindex will select appropriate values if either of these is not specified. Default value is log4(N/20s) where N is genome size and s step size." required="false" enabled="false" order="3" prefix="-k" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Novoindex_1.stepsize" name="step size" description="is the step size for the index. Typical values are from 1 to 3, usually defaults to 1 or 2. Genomes larger than 4Gbp can be indexed using a stepsize &gt; 1, the requirement is N/s &lt; 4G." required="false" enabled="false" order="4" prefix="-s" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="Novoindex_1.masking" name="masking" description="lower case masking option. If included then lower case sequence is not indexed." required="false" enabled="false" order="5" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Novoindex_1.b" name="b" description="Creates an index based on insilico bisulphite treatment of the reference sequence. A double index based on C&gt;T and G&gt;A conversion is created. Alignments using an index created with b option will be done in bisulphite mode." required="false" enabled="false" order="6" prefix="-b" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Novoindex_1.c" name="c" description="Creates an index in ABI Solid Colour Space for use with NovoalignCS. b &amp; c options are mutually exclusive." required="false" enabled="false" order="7" prefix="-c" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="Novoindex_1.name" name="name" description="Sets the an internal name for the reference sequence index. This is used in report headers and as the AS: field in SAM SQ record. Defaults to the indexfile name" required="false" enabled="false" order="8" prefix="-n" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Novocraft" email="office@novocraft.com" website="http://www.novocraft.com/main/index.php" />
+                        </executableAuthors>
+                </module>
+                <dataModule id="ExecutionDirectory_1" name="Execution Directory" posX="535" posY="82" sourceCode="" type="Directory" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 08 12:51:13 PDT 2011" />
+                        </metadata>
+                        <output id="ExecutionDirectory_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/${username}/Novoalign</value>
+                        </values>
+                </dataModule>
+                <dataModule id="InputReferenceFastaFile_1" name="Input Reference Fasta File" package="MAQ" version="0.7.1" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" posX="591" posY="151" sourceCode="" type="File" source="true" loopIndex="false">
+                        <uri>http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <output id="InputReferenceFastaFile_1.Output" name="Output" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReadFiles_1" name="Read Files" posX="325" posY="18" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Thu Aug 04 14:38:19 PDT 2011" />
+                        </metadata>
+                        <output id="ReadFiles_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1_1_sequence.150k.txt</value>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1_2_sequence.150k.txt</value>
+                        </values>
+                </dataModule>
+                <dataModule id="IndexFileName_1" name="Index File Name" posX="117" posY="66" sourceCode="" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 08 12:52:58 PDT 2011" />
+                        </metadata>
+                        <output id="IndexFileName_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>indexfile</value>
+                        </values>
+                </dataModule>
+                <dataModule id="Outputfile_1" name="Output file" posX="369" posY="633" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <tag />
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 08 14:39:45 PDT 2011" />
+                        </metadata>
+                        <input id="Outputfile_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/tmp/${username}/Novoalign/novoalign.sam</value>
+                        </values>
+                </dataModule>
+                <annotations visible="true">
+                        <annotation width="200" height="255" posX="767" posY="254" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name=" If only one read file is specified then single end reads are processed. If two files are specified then the program will operate in paired end mode. This means you can run the workflow in batch mode for single reads but not paired unless you change the cardinality of the Read Files parameter to 2.&#xA;">
+                                <styles>
+                                        <style name=" If only one read file is specified then single end reads are processed. If two files are specified then the program will operate in paired end mode. This means you can run the workflow in batch mode for single reads but not paired unless you change the cardinality of the Read Files parameter to 2.&#xA;$0" fontSize="16" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

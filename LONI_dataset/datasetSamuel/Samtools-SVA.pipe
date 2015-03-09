@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".1">
+        <connections>
+                <connection source="InputBAM_1.Output" sink="SamToolsBamtoVCF_1.InputBAMFile" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="SamToolsBamtoVCF_1.Reference" />
+                <connection source="SNPFilter_1.Outputfile" sink="CreateGSAPFile_1.SNPInput" />
+                <connection source="IndelFilter_1.Outputfile" sink="CreateGSAPFile_1.IndelInput" />
+                <connection source="ERDS_1.OutputDirectory" sink="CreateGSAPFile_1.ERDSDirectoryName" />
+                <connection source="CoverageandQualityScore_1.Outputfile" sink="CreateGSAPFile_1.BCODirectorybasename" />
+                <connection source="pedinfo_1.Output" sink="CreateGSAPFile_1.Pedigreeinfofile" />
+                <connection source="GSAPTemplate_1.Output" sink="CreateGSAPFile_1.GSAPTemplate" />
+                <connection source="GenomeBrowserBuffer_1.Output" sink="CreateGSAPFile_1.GenomeBrowserBuffer" />
+                <connection source="SubjectName_1.Output" sink="CreateGSAPFile_1.SubjectName" />
+                <connection source="SamToolsVarFilter_1.OutputFile" sink="SNPFilter_1.Inputfile" />
+                <connection source="SamToolsBamtoVCF_1.OutputPileup" sink="SamToolsVarFilter_1.InputFile" />
+                <connection source="SamToolsBamtoVCF_1.OutputPileup" sink="ERDS_1.PileupFile" />
+                <connection source="SubjectName_1.Output" sink="ERDS_1.SampleName" />
+                <connection source="SNPFilter_1.Outputfile" sink="ERDS_1.SNVFile" />
+                <connection source="Gender_1.Output" sink="ERDS_1.Gender" />
+                <connection source="ErdsDir_1.Output" sink="ERDS_1.Erdsdir" />
+                <connection source="ReferenceFasta_1.Output" sink="ERDS_1.ReferenceGenome" />
+                <connection source="ReferenceFai_1.Output" sink="ERDS_1.ReferenceGenomefai" />
+                <connection source="SamToolsVarFilter_1.OutputFile" sink="IndelFilter_1.Inputfile" />
+                <connection source="SamToolsBamtoVCF_1.OutputPileup" sink="CoverageandQualityScore_1.Inputfile" />
+                <connection source="CreateGSAPFile_1.OutputGSAPFile" sink="AnnotateProject_1.GSAPfile" />
+                <connection source="MemoryallocationinMB_1.Output" sink="AnnotateProject_1.Memoryallocation" />
+                <connection source="SVAInstallationDirectory_1.Output" sink="AnnotateProject_1.SVAInstallationdirectory" />
+        </connections>
+        <moduleGroup id="Untitled_1" name="Untitled" posX="0" posY="0" sourceCode="">
+                <dataModule id="InputBAM_1" name="Input BAM" posX="115" posY="241" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 17 15:52:01 PDT 2011" />
+                        </metadata>
+                        <output id="InputBAM_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/s_1.sorted.bam</value>
+                        </values>
+                </dataModule>
+                <dataModule id="SubjectName_1" name="Subject Name" posX="113" posY="360" rotation="1" sourceCode="" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 24 11:35:07 PDT 2011" />
+                        </metadata>
+                        <output id="SubjectName_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>941603</value>
+                        </values>
+                </dataModule>
+                <dataModule id="Gender_1" name="Gender" posX="109" posY="446" rotation="1" sourceCode="" type="String" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 24 11:35:07 PDT 2011" />
+                        </metadata>
+                        <output id="Gender_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>M</value>
+                        </values>
+                </dataModule>
+                <dataModule id="GSAPTemplate_1" name="GSAP Template" posX="82" posY="868" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Oct 09 22:46:45 AMST 2011" />
+                        </metadata>
+                        <output id="GSAPTemplate_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifshome/shobel/LONI_Genomics/SVAtools/exampleTemplate.final.gsap</value>
+                        </values>
+                </dataModule>
+                <dataModule id="GenomeBrowserBuffer_1" name="Genome Browser Buffer" posX="81" posY="1092" rotation="1" sourceCode="" type="String" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Oct 09 22:51:52 AMST 2011" />
+                        </metadata>
+                        <output id="GenomeBrowserBuffer_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="String" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>/ifshome/shobel/LONI_Genomics/SVAtools/data/wgs.941603.gbb</value>
+                        </values>
+                </dataModule>
+                <module id="SamToolsBamtoVCF_1" name="SamTools: Bam to VCF" package="SamTools" version="0.1.10" description="SAM (Sequence Alignment/Map) tools is a flexible generic format for storing nucleotide sequence alignment. SAM tools provide efficient utilities on manipulating alignments in the SAM format. &#xA;&#xA;samtools index &lt;aln.bam&gt;&#xA;&#xA;Index sorted alignment for fast random access. Index file &lt;aln.bam&gt;.bai will be created. " icon="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" posX="322" posY="230" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/samtools_pileup.sh" executableVersion="r783">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 19505943</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://sourceforge.net/projects/samtools/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <output id="SamToolsBamtoVCF_1.OutputPileup" name="Output Pileup" description="variant file in vcf format" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools pileup" extension="pileup" description="generated from 'pileup -c' function" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="SamToolsBamtoVCF_1.InputBAMFile" name="Input BAM File" description="Alignment file in BAM format." required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools BAM file" extension="bam" description="SAMtools BAM file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SamToolsBamtoVCF_1.Function" name="Function" required="true" enabled="true" order="0" prefix="pileup" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="SamToolsBamtoVCF_1.Reference" name="Reference" description="reference file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="SamToolsBamtoVCF_1.Parameters" name="Parameters" description="Option: -s        simple (yet incomplete) pileup format&#xA;        -S        the input is in SAM&#xA;        -B        disable BAQ computation&#xA;        -A        use the original MAQ model for SNP calling (DEPRECATED)&#xA;        -2        output the 2nd best call and quality&#xA;        -i        only show lines/consensus with indels&#xA;        -Q INT    min base quality (possibly capped by BAQ) [13]&#xA;        -C INT    coefficient for adjusting mapQ of poor mappings [0]&#xA;        -m INT    filtering reads with bits in INT [0x704]&#xA;        -M INT    cap mapping quality at INT [60]&#xA;        -d INT    limit maximum depth for indels [1024]&#xA;        -t FILE   list of reference sequences (force -S)&#xA;        -l FILE   list of sites at which pileup is output&#xA;        -f FILE   reference sequence in the FASTA format&#xA;&#xA;        -c        compute the consensus sequence&#xA;        -v        print variants only (for -c)&#xA;        -g        output in the GLFv3 format (DEPRECATED)&#xA;        -T FLOAT  theta in maq consensus calling model (for -c) [0.83]&#xA;        -N INT    number of haplotypes in the sample (for -c) [2]&#xA;        -r FLOAT  prior of a difference between two haplotypes (for -c) [0.001]&#xA;        -G FLOAT  prior of an indel between two haplotypes (for -c) [0.00015]&#xA;        -I INT    phred prob. of an indel in sequencing/prep. (for -c) [40]" required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>-cf</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <license>http://sourceforge.net/projects/samtools/
+BSD</license>
+                </module>
+                <dataModule id="InputReferenceFastaFile_1" name="Input Reference Fasta File" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://www.loni.ucla.edu/twiki/bin/view/LONI/Pipeline_GenomicsInformatics&#xA;&#xA;http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" posX="109" posY="115" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <uri>http://www.loni.ucla.edu/twiki/bin/view/LONI/Pipeline_GenomicsInformatics</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <output id="InputReferenceFastaFile_1.Output" name="Output" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://www.loni.ucla.edu/twiki/bin/view/LONI/Pipeline_GenomicsInformatics&#xA;&#xA;http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ErdsDir_1" name="Erds Dir" posX="102" posY="534" rotation="1" sourceCode="" type="Directory" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Feb 27 21:08:29 PST 2012" />
+                        </metadata>
+                        <output id="ErdsDir_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifshome/shobel/LONI_Genomics/SVAtools/scripts/erds1.01</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReferenceFasta_1" name="Reference Fasta" posX="100" posY="634" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 19 13:11:23 PDT 2011" />
+                        </metadata>
+                        <output id="ReferenceFasta_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <dataModule id="ReferenceFai_1" name="Reference Fai" posX="99" posY="738" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Oct 19 13:11:23 PDT 2011" />
+                        </metadata>
+                        <output id="ReferenceFai_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools" extension="fai" description="FAI file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="SAMtools" extension="fai" description="FAI file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/CCB_SW_Tools/BioinformaticsGenetics/test_data_2011/mini-bam/gatk-hg18_ensembl.fa.fai</value>
+                        </values>
+                </dataModule>
+                <module id="CreateGSAPFile_1" name="Create GSAP File" package="SVA" version="1.0" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="1759" posY="620" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/scripts/makeGSAP.sh">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Dongliang Ge,Elizabeth K. Ruzzo,Kevin V. Shianna,Min He,Kimberly Pelak,Erin L. Heinzen,Anna C. Need,Elizabeth T. Cirulli,Jessica M. Maia,Samuel P. Dickson,Mingfu Zhu,Abanish Singh,Andrew S. Allen,and David B. Goldstein
+
+SVA: software for annotating and visualizing sequenced human genomes Bioinformatics (2011) 27(14): 1998-2000 first published online May 29, 2011 doi:10.1093/bioinformatics/btr317</citation>
+                        </citations>
+                        <tag />
+                        <uri>http://people.chgv.lsrc.duke.edu/~dg48/sva/oldinputs.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Aug 24 11:36:37 PDT 2011" />
+                        </metadata>
+                        <input id="CreateGSAPFile_1.SNPInput" name="SNP Input" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .samtools" extension="samtools" description="from SVA v1.0 snp_filter.pl" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CreateGSAPFile_1.IndelInput" name="Indel Input" required="true" enabled="true" order="1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .samtoolsindels" extension="samtoolsindels" description="from SVA v1.0 indel_filter.pl" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CreateGSAPFile_1.ERDSDirectoryName" name="ERDS Directory Name" required="true" enabled="true" order="2">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="CreateGSAPFile_1.BCODirectorybasename" name="BCO Directory basename" required="true" enabled="true" order="3">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="CreateGSAPFile_1.Pedigreeinfofile" name="Pedigree info file" required="true" enabled="true" order="6">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CreateGSAPFile_1.OutputGSAPFile" name="Output GSAP File" required="true" enabled="true" order="8">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="GSAP" extension="gsap" description="" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="CreateGSAPFile_1.GSAPTemplate" name="GSAP Template" required="true" enabled="true" order="4">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="CreateGSAPFile_1.GenomeBrowserBuffer" name="Genome Browser Buffer" required="true" enabled="true" order="7">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="CreateGSAPFile_1.SubjectName" name="Subject Name" required="true" enabled="true" order="5">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <output id="CreateGSAPFile_1.OutputFile" name="Output File" description="won't exist after the execution of this module, but will be written to a file to signify the output name of the next module" required="true" enabled="true" order="9">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Donglian Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <dataModule id="MemoryallocationinMB_1" name="Memory allocation (in MB)" description="in megabytes" posX="1850" posY="354" sourceCode="" type="Number" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Oct 09 22:41:46 AMST 2011" />
+                        </metadata>
+                        <output id="MemoryallocationinMB_1.Output" name="Output" description="in megabytes" required="true" enabled="true" order="-1">
+                                <format type="Number" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>1024</value>
+                        </values>
+                </dataModule>
+                <dataModule id="SVAInstallationDirectory_1" name="SVA Installation Directory" posX="1776" posY="296" sourceCode="" type="Directory" source="true" loopIndex="false">
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Feb 28 14:13:07 PST 2012" />
+                        </metadata>
+                        <output id="SVAInstallationDirectory_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="Directory" cardinality="1" />
+                        </output>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifs/ccb/samhobel/SequenceVariantAnalyzer-1.02b.95</value>
+                        </values>
+                </dataModule>
+                <dataModule id="pedinfo_1" name="pedinfo" posX="82" posY="982" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu" />
+                        </authors>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Oct 09 22:51:52 AMST 2011" />
+                        </metadata>
+                        <output id="pedinfo_1.Output" name="Output" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="File" extension="" description="Any type of data file" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://genomics.loni.ucla.edu//ifshome/shobel/LONI_Genomics/SVAtools/data/pedinfo.txt</value>
+                        </values>
+                </dataModule>
+                <module id="SNPFilter_1" name="SNP Filter" package="SVA" version="1.0" description="Generates SNV (single nucleotide variants) file." icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="882" posY="162" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/scripts/sva-snpfilter.sh" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="" website="" />
+                        </authors>
+                        <tag>variant</tag>
+                        <uri>http://people.chgv.lsrc.duke.edu/~dg48/sva/oldinputs.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 23 18:02:39 PDT 2011" />
+                        </metadata>
+                        <input id="SNPFilter_1.Inputfile" name="Input file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .snp_indel" extension="snp_indel" description="from SVA v1.0 varFilter step" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SNPFilter_1.Outputfile" name="Output file" required="true" enabled="true" order="1" includeTransformedParameter="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .samtools" extension="samtools" description="from SVA v1.0 snp_filter.pl" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.snp_indel</transform>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Dongliang Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <module id="SamToolsVarFilter_1" name="SamTools VarFilter" package="SamTools" version="0.1.10" description="Program: samtools.pl (helper script for SAMtools)&#xA;Version: 0.3.3&#xA;Contact: Heng Li &lt;lh3@sanger.ac.uk&gt;&#xA;&#xA;Usage:   samtools.pl &lt;command&gt; [&lt;arguments&gt;]&#xA;&#xA;Command: varFilter     filtering SNPs and short indels&#xA;         pileup2fq     generate fastq from `pileup -c'&#xA;         showALEN      print alignment length (ALEN) following CIGAR" icon="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" posX="548" posY="112" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/sva-samtools-varfilter.sh" executableVersion="r829">
+                        <authors>
+                                <author fullName="Ivo Dinov" email="" website="http://www.loni.ucla.edu/~dinov" />
+                        </authors>
+                        <citations>
+                                <citation>PMID: 19505943</citation>
+                        </citations>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://sourceforge.net/projects/samtools/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Aug 30 12:20:56 PDT 2010" />
+                        </metadata>
+                        <input id="SamToolsVarFilter_1.InputFile" name="Input File" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools pileup" extension="pileup" description="generated from 'pileup -c' function" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="SamToolsVarFilter_1.OutputFile" name="Output File" required="true" enabled="true" order="0" includeTransformedParameter="true">
+                                <format type="File" cardinality="1" transformationBase="Input File">
+                                        <fileTypes>
+                                                <filetype name="SVA .snp_indel" extension="snp_indel" description="from SVA v1.0 varFilter step" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.snp_indel</transform>
+                                </format>
+                        </output>
+                        <input id="SamToolsVarFilter_1.Function" name="Function" required="true" enabled="true" order="1" prefix="varFilter" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="SamToolsVarFilter_1.Parameters" name="Parameters" description="Options: -Q INT    minimum RMS mapping quality for SNPs [25]&#xA;         -q INT    minimum RMS mapping quality for gaps [10]&#xA;         -d INT    minimum read depth [3]&#xA;         -D INT    maximum read depth [100]&#xA;         -S INT    minimum SNP quality []&#xA;         -i INT    minimum indel quality []&#xA;&#xA;         -G INT    min indel score for nearby SNP filtering [25]&#xA;         -w INT    SNP within INT bp around a gap to be filtered [10]&#xA;&#xA;         -W INT    window size for filtering dense SNPs [10]&#xA;         -N INT    max number of SNPs in a window [2]&#xA;&#xA;         -l INT    window size for filtering adjacent gaps [30]&#xA;&#xA;         -p        print filtered variants" required="true" enabled="true" order="2">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>-D 200</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Heng Li" email="lh3@sanger.ac.uk" website="[PMID: 19505943] " />
+                        </executableAuthors>
+                        <license>http://sourceforge.net/projects/samtools/
+BSD</license>
+                </module>
+                <module id="ERDS_1" name="ERDS" package="SVA" version="1.0" description="Estimation by Read Depth with SNVs" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="1214" posY="330" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/scripts/erds1.01/erds.sh" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Dongliang Ge,Elizabeth K. Ruzzo,Kevin V. Shianna,Min He,Kimberly Pelak,Erin L. Heinzen,Anna C. Need,Elizabeth T. Cirulli,Jessica M. Maia,Samuel P. Dickson,Mingfu Zhu,Abanish Singh,Andrew S. Allen,and David B. Goldstein
+
+SVA: software for annotating and visualizing sequenced human genomes Bioinformatics (2011) 27(14): 1998-2000 first published online May 29, 2011 doi:10.1093/bioinformatics/btr317</citation>
+                        </citations>
+                        <tag>variant</tag>
+                        <uri>http://web.duke.edu/~mz34/erds.htm</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 23 18:02:39 PDT 2011" />
+                        </metadata>
+                        <input id="ERDS_1.PileupFile" name="Pileup File" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools pileup" extension="pileup" description="generated from 'pileup -c' function" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="ERDS_1.OutputDirectory" name="Output Directory" required="true" enabled="true" order="4" includeTransformedParameter="true">
+                                <format type="Directory" cardinality="-2" cardinalityBase="Sample Name" transformationBase="Sample Name">
+                                        <transform order="0" operation="Append">_ERDS</transform>
+                                </format>
+                        </output>
+                        <input id="ERDS_1.SampleName" name="Sample Name" description="Name of the sample" required="true" enabled="true" order="0">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ERDS_1.SNVFile" name="SNV File" required="true" enabled="true" order="3">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .samtools" extension="samtools" description="from SVA v1.0 snp_filter.pl" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ERDS_1.Gender" name="Gender" required="true" enabled="true" order="1">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <input id="ERDS_1.Erdsdir" name="Erds dir" required="true" enabled="true" order="5">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <input id="ERDS_1.ReferenceGenome" name="Reference Genome" required="true" enabled="true" order="6">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="ERDS_1.ReferenceGenomefai" name="Reference Genome fai" required="true" enabled="true" order="7">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Dongliang Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <module id="IndelFilter_1" name="Indel Filter" package="SVA" version="1.0" description="Generates Indel (insertion-deletion) file" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="894" posY="0" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/scripts/sva-indelfilter.sh" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Dongliang Ge,Elizabeth K. Ruzzo,Kevin V. Shianna,Min He,Kimberly Pelak,Erin L. Heinzen,Anna C. Need,Elizabeth T. Cirulli,Jessica M. Maia,Samuel P. Dickson,Mingfu Zhu,Abanish Singh,Andrew S. Allen,and David B. Goldstein
+
+SVA: software for annotating and visualizing sequenced human genomes Bioinformatics (2011) 27(14): 1998-2000 first published online May 29, 2011 doi:10.1093/bioinformatics/btr317</citation>
+                        </citations>
+                        <tag>variant</tag>
+                        <uri>http://people.chgv.lsrc.duke.edu/~dg48/sva/oldinputs.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 23 18:02:39 PDT 2011" />
+                        </metadata>
+                        <input id="IndelFilter_1.Inputfile" name="Input file" required="true" enabled="true" order="0">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .snp_indel" extension="snp_indel" description="from SVA v1.0 varFilter step" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="IndelFilter_1.Outputfile" name="Output file" required="true" enabled="true" order="1" includeTransformedParameter="true">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SVA .samtoolsindels" extension="samtoolsindels" description="from SVA v1.0 indel_filter.pl" />
+                                        </fileTypes>
+                                        <transform order="0" operation="Append">.samtoolsindels</transform>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Dongliang Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <module id="CoverageandQualityScore_1" name="Coverage and Quality Score" package="SVA" version="1.0" description="Generates the chromosome-wise .bco file." icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="1209" posY="562" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/java" executableVersion="1.0">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="" website="" />
+                        </authors>
+                        <citations>
+                                <citation>Dongliang Ge,Elizabeth K. Ruzzo,Kevin V. Shianna,Min He,Kimberly Pelak,Erin L. Heinzen,Anna C. Need,Elizabeth T. Cirulli,Jessica M. Maia,Samuel P. Dickson,Mingfu Zhu,Abanish Singh,Andrew S. Allen,and David B. Goldstein
+
+SVA: software for annotating and visualizing sequenced human genomes Bioinformatics (2011) 27(14): 1998-2000 first published online May 29, 2011 doi:10.1093/bioinformatics/btr317</citation>
+                        </citations>
+                        <tag>variant</tag>
+                        <uri>http://people.chgv.lsrc.duke.edu/~dg48/sva/oldinputs.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Tue Aug 23 18:02:39 PDT 2011" />
+                        </metadata>
+                        <input id="CoverageandQualityScore_1.Jarfile" name="Jar file" required="true" enabled="true" order="0" prefix="-jar" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                                <values>
+                                        <value>pipeline://genomics.loni.ucla.edu/scripts/pileup2bco.jar</value>
+                                </values>
+                        </input>
+                        <input id="CoverageandQualityScore_1.Inputfile" name="Input file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools pileup" extension="pileup" description="generated from 'pileup -c' function" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="CoverageandQualityScore_1.Outputfile" name="Output file" required="true" enabled="true" order="3" includeTransformedParameter="true">
+                                <format type="Directory" cardinality="-2" cardinalityBase="Input file">
+                                        <transform order="0" operation="Prepend">bco_</transform>
+                                </format>
+                        </output>
+                        <input id="CoverageandQualityScore_1.Parameters" name="Parameters" required="false" enabled="false" order="1">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Dongliang Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <module id="AnnotateProject_1" name="Annotate Project" package="SVA" version="1.0" icon="/9j/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAx&#xA;NDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy&#xA;MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAAUCABAAEAEASIAAhEBAxEBBCIA/8QAHwAAAQUB&#xA;AQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEG&#xA;E1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW&#xA;V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLD&#xA;xMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAA&#xA;AAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKR&#xA;obHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hp&#xA;anN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU&#xA;1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADgQBAAIRAxEEAAA/AN2iiivrznPf6KKK5SiiivUM&#xA;wooor6Nooor88OwKKKK+RKKKK/Wjzgooor6Booor4E7AooorlKKKK9QzCiiiuWooor1CAooor6Oo&#xA;oor87OwKKKKyf8ijv06VmeIdWGiaHc6i0fmCHbkbsZywX0Pr6Vj2+g69JEtxL4ixd8/vfsScdumc&#xA;dOK7FG6uSFFFFS98df6Uf5zXOaQNd1DwhbNNqPkak27zJ/IRv+Whx8o+X7oxT/B1zqV5oqXWpXv2&#xA;iWTPy+UqbMMw6r1yAK9GxmFFFFVeuPfvSfhn2rndHbVptYuvP1Xz7OHZs/0dF83KnPTkYP51X1CT&#xA;Xobwx2mp+cF/1ifZ0XbkDHJ6969O5AUUUUvbNHf2NRwTJPAJU+6f8al9c16hAUUUV7r4n1Cz0vw9&#xA;dXl9H5ttHs3rkrnLgDoCepFYkPgM6cGTRdT+wRcbE+z+bs9eWbnOT+ddJrGj2GvaXNpupwefZTbf&#xA;Mj3sucMGHKkHqB3rA/4VzoCr5CW2yz7weZIff727PXmvgYSSja9vxOthRRRUHg/VLrU9AinvJfOl&#xA;5zPtC7/mYfdAGMAAVg3mqxeCtZ1iacYtrnyfs0eTxtXDcgE9W7129paQWNulvbJsiTO1ck4ycnr9&#xA;ao6v4d0vXXgfUrbz2g3eW3mMuN2M/dI9BXSpR5m3syQooorlvDenvpOgQW9wcypu3NjrliR0J9aw&#xA;NFfWblrjWLa23fbtu470GdmVHX/AV1eo6ZZ6raG2vYfNhPVdxXPIPUEHqBTNL0TT9FiaLT7fyEbG&#xA;V3s2ep7k+prvuQFFFFcL4dMtqZ9NmXZ9n27BkH72WPT/ABreHt+FZUXhzSYbwXcdpi4X+LzH9MdM&#xA;46VqfX8a9NEBRRRX/9k=" posX="2086" posY="635" rotation="1" sourceCode="" location="pipeline://genomics.loni.ucla.edu/scripts/svacmd.sh">
+                        <authors>
+                                <author fullName="Alen Zamanyan" email="alen.zamanyan@loni.ucla.edu" website="http://pipeline.loni.ucla.edu" />
+                        </authors>
+                        <citations>
+                                <citation>Dongliang Ge,Elizabeth K. Ruzzo,Kevin V. Shianna,Min He,Kimberly Pelak,Erin L. Heinzen,Anna C. Need,Elizabeth T. Cirulli,Jessica M. Maia,Samuel P. Dickson,Mingfu Zhu,Abanish Singh,Andrew S. Allen,and David B. Goldstein
+
+SVA: software for annotating and visualizing sequenced human genomes Bioinformatics (2011) 27(14): 1998-2000 first published online May 29, 2011 doi:10.1093/bioinformatics/btr317</citation>
+                        </citations>
+                        <tag />
+                        <uri>http://people.chgv.lsrc.duke.edu/~dg48/sva/oldinputs.php</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Sun Oct 02 10:51:22 AMST 2011" />
+                        </metadata>
+                        <input id="AnnotateProject_1.GSAPfile" name="GSAP file" required="true" enabled="true" order="2">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="AnnotateProject_1.Memoryallocation" name="Memory allocation" required="true" enabled="true" order="1">
+                                <format type="Number" cardinality="1" />
+                        </input>
+                        <input id="AnnotateProject_1.SVAInstallationdirectory" name="SVA Installation directory" required="true" enabled="true" order="0">
+                                <format type="Directory" cardinality="1" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Dongliang Ge" email="" website="" />
+                                <author fullName="David Goldstein" email="" website="" />
+                        </executableAuthors>
+                        <license>http://people.chgv.lsrc.duke.edu/~dg48/sva/license.php
+
+Terms of use
+
+1. SVA is available to the research community, both in academia and in industry, free of charge.
+2. You accept that you cannot redistribute this software tool, for free or for a charge.
+3. You accept that you will contact the authors and obtain an agreement if you use this software tool as a component of a profitable bioinformatical service, or if you use any part of this software tool as a component of a profitable computer software package.
+4. An important note regarding an example dataset released with the SVA software
+The SVA software package is released with an example dataset. This example dataset was generated from a research project, funded by the The Bill &amp; Melinda Gates Foundation to David Goldstein at Duke University, Center for Human Genome Variation.
+As a condition to access and use the SVA software package, you agree:
+You accept that the example dataset is for demonstration purpose only. You agree not to publish, or file a patent application, on any results derived from the example dataset. You agree not to transfer or disclose the example dataset or any results derived from it, in whole or part, to others. You accept that the example dataset will be reissued from time to time, with suitable versioning. If the reissue is at the request of sample donors and/or other ethical scrutiny, you will destroy earlier versions of the dataset. You accept that there is no liability for the accuracy or comprehensiveness of the example dataset.
+These restrictions of course do not apply to any of the user datasets.
+5. By downloading or obtaining a DVD copy of this software tool, you agree the terms listed above. If you feel that you cannot agree to these terms, please do not download and use this software package.
+
+The questions regarding terms of use should also be addressed to Dr. Dongliang Ge at: d.ge@duke.edu .</license>
+                </module>
+                <variables>
+                        <variable name="SUBJECT">802204</variable>
+                </variables>
+                <annotations visible="true">
+                        <annotation width="527" height="170" posX="1427" posY="64" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="pileup = .pileup&#xA;varFilter = .snp_indel&#xA;SNP filter = .samtools&#xA;INDEL filter = .samtoolsindels&#xA;CNV/EVENTS = SUBJECT_ERDS&#xA;BCO = bco_SUBJECT&#xA;">
+                                <styles>
+                                        <style name="pileup = .pileup&#xA;varFilter = .snp_indel&#xA;SNP filter = .samtools&#xA;INDEL filter = .samtoolsindels&#xA;CNV/EVENTS = SUBJECT_ERDS&#xA;BCO = bco_SUBJECT&#xA;$0" fontSize="20" isBold="true" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+

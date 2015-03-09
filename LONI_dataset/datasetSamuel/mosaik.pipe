@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pipeline version=".2">
+        <connections>
+                <connection source="MosaikBuild_2.Outputfileforreference" sink="MosaikJump_1.Referencedatfile" />
+                <connection source="MosaikBuild_1.Outputfileforreads" sink="MosaikAligner_1.Input" />
+                <connection source="MosaikBuild_2.Outputfileforreference" sink="MosaikAligner_1.Referencesequence" />
+                <connection source="MosaikJump_1.Referencejumpinglibrary" sink="MosaikAligner_1.Jumpfilenamestub" />
+                <connection source="MosaikAligner_1.Output" sink="MosaikText_1.Inputalignmentarchive" />
+                <connection source="MosaikText_1.samoutput" sink="Outputfile_1.Input" />
+                <connection source="InputSolexaTXTreadsequencefiles_1.Output" sink="MosaikBuild_1.Inputforwardsequence" />
+                <connection source="InputReferenceFastaFile_1.Output" sink="MosaikBuild_2.Inputreferencefile" />
+        </connections>
+        <icons>
+                <icon id="0" value="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&#xA;rkJggg==" />
+        </icons>
+        <moduleGroup id="Mosaik_1" name="Mosaik" posX="0" posY="0" sourceCode="" recordsWorkflow="true">
+                <metadata>
+                        <data key="__creationDateKey" value="" />
+                </metadata>
+                <module id="MosaikJump_1" name="Mosaik: Jump" package="Mosaik" version="1.0" description="MosaikJump is a tool that converts a reference sequence archive into a “jump database”. As discussed earlier in section 2.2, the jump database is a custom data structure that separates seeds and hash positions in a manner that is fast and collision-free. As such, it works as a drop-in replacement for the traditional hash maps that MOSAIK normally uses.&#xA;&#xA;MOSAIK is a reference-guided assembler comprising of four main modular programs:&#xA;&#xA;MosaikBuild&#xA;MosaikAligner&#xA;MosaikSort&#xA;MosaikText.&#xA;&#xA;At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard &amp; Gerald, or SRF file formats and producing results in the BLAT axt, the BAM/SAM, the UCSC Genome Browser bed, or the Illumina ELAND formats" icon="0" posX="558" posY="327" rotation="1" sourceCode="" location="pipeline://cranium.loni.usc.edu/MosaikJump" executableVersion="1.1.0021" gridVariables="h_vmem=23;h_stack=128">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bioinformatics.bc.edu/marthlab/Mosaik</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 17:24:08 PDT 2011" />
+                        </metadata>
+                        <input id="MosaikJump_1.Referencedatfile" name="Reference dat file" required="true" enabled="true" order="0" prefix="-ia" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MosaikJump_1.Referencejumpinglibrary" name="Reference jumping library" required="true" enabled="true" order="1" prefix="-out" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MosaikJump_1.hashsize" name="hash size" description="default 15" required="true" enabled="true" order="2" prefix="-hs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>10</value>
+                                </values>
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Michael Strömberg, Wan-Ping Lee" email="" website="" />
+                        </executableAuthors>
+                        <license>Open Source Initiative OSI - The MIT License (MIT):Licensing
+
+The MIT License (MIT)
+Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+                <module id="MosaikAligner_1" name="Mosaik: Aligner" package="Mosaik" version="1.0" description="MosaikBuild translates external read formats to a format that the aligner can readily use. In addition to processing reads, the program also converts reference sequences from a FASTA file to an efficient binary format.&#xA;&#xA;MOSAIK is a reference-guided assembler comprising of four main modular programs:&#xA;&#xA;MosaikBuild&#xA;MosaikAligner&#xA;MosaikSort&#xA;MosaikText.&#xA;MosaikBuild &#xA;&#xA;At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard &amp; Gerald, or SRF file formats and producing results in the BLAT axt, the BAM/SAM, the UCSC Genome Browser bed, or the Illumina ELAND formats" icon="0" posX="732" posY="188" rotation="1" sourceCode="" location="pipeline://cranium.loni.usc.edu/MosaikAligner" executableVersion="1.1.0021" gridVariables="h_stack=128;h_vmem=23">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bioinformatics.bc.edu/marthlab/Mosaik</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 17:24:08 PDT 2011" />
+                        </metadata>
+                        <input id="MosaikAligner_1.Input" name="Input" description="specifies the input read archive" required="true" enabled="true" order="0" prefix="-in" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MosaikAligner_1.Output" name="Output" description="specifies the output alignment archive" required="true" enabled="true" order="1" prefix="-out" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MosaikAligner_1.Referencesequence" name="Reference sequence" description="specifies the input reference sequence archive" required="true" enabled="true" order="2" prefix="-ia" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikAligner_1.Hashsize" name="Hash size" description="specifies the hash size [4 - 32]. Default: 15" required="false" enabled="true" order="3" prefix="-hs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>10</value>
+                                </values>
+                        </input>
+                        <input id="MosaikAligner_1.Mode" name="Mode" description="specifies the alignment mode: unique or all" required="false" enabled="false" order="5" prefix="-m" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Enumerated" cardinality="1">
+                                        <enumeration>unique</enumeration>
+                                        <enumeration>all</enumeration>
+                                </format>
+                        </input>
+                        <input id="MosaikAligner_1.Mismatches" name="Mismatches" description="specifies the number of mismatches allowed. Default: 4" required="false" enabled="true" order="6" prefix="-mm" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>2</value>
+                                </values>
+                        </input>
+                        <input id="MosaikAligner_1.Maxhashpositions" name="Max hash positions" description="specifies the maximum number of hash positions to be used per seed" required="false" enabled="true" order="7" prefix="-mhp" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="Number" cardinality="1" />
+                                <values>
+                                        <value>100</value>
+                                </values>
+                        </input>
+                        <input id="MosaikAligner_1.Jumpfilenamestub" name="Jump filename stub" description="specifies the jump database filename stub" required="true" enabled="true" order="8" prefix="-j" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="File" extension="" description="Any type of data file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikAligner_1.BandedSmith-Waterman" name="Banded Smith-Waterman" description="uses the banded Smith-Waterman algorithm for increased performance" required="false" enabled="false" order="9" prefix="-bw" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="MosaikAligner_1.lowmemory" name="low memory" required="false" enabled="false" order="4" prefix="-lm" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <executableAuthors>
+                                <author fullName="Michael Strömberg, Wan-Ping Lee" email="" website="" />
+                        </executableAuthors>
+                        <license>Open Source Initiative OSI - The MIT License (MIT):Licensing
+
+The MIT License (MIT)
+Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+                <module id="MosaikText_1" name="Mosaik: Text" package="Mosaik" version="1.0" description="MOSAIK is a reference-guided assembler comprising of four main modular programs:&#xA;&#xA;MosaikBuild&#xA;MosaikAligner&#xA;MosaikSort&#xA;MosaikText.&#xA;&#xA;MosaikText converts alignments to different text-based formats. Currently it supports the BLAT axt (-axt) format, the BAM format (-bam), the UCSC Genome Browser bed format (-bed), the SAM format (-sam), and the Illumina ELAND (-eland) format. Alternatively alignments can be dumped directly to the screen (-screen) in an axt-like format.&#xA;&#xA;At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard &amp; Gerald, or SRF file formats and producing results in the BLAT axt, the BAM/SAM, the UCSC Genome Browser bed, or the Illumina ELAND formats" icon="0" posX="943" posY="172" rotation="1" sourceCode="" location="pipeline://cranium.loni.usc.edu/MosaikText" executableVersion="1.1.0021" gridVariables="h_vmem=23;h_stack=128">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>bioinformatics genomics mosaik</tag>
+                        <uri>http://bioinformatics.bc.edu/marthlab/Mosaik</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 17:24:08 PDT 2011" />
+                        </metadata>
+                        <input id="MosaikText_1.Inputalignmentarchive" name="Input alignment archive" required="true" enabled="true" order="0" prefix="-in" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikText_1.Uniquereads" name="Unique reads" description="limits the output to show only uniquely aligned reads." required="false" enabled="false" order="1" prefix="-u" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <output id="MosaikText_1.bamoutput" name="bam output" description="stores the data in the specified BAM file." required="false" enabled="false" order="2" prefix="-bam" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="BAM file (zipped)" extension="bam.gz" description="bam.gz" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <output id="MosaikText_1.samoutput" name="sam output" required="false" enabled="true" order="3" prefix="-sam" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="SAMtools SAM file (zipped)" extension="sam.gz" description="sam.gz" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Michael Strömberg, Wan-Ping Lee" email="" website="" />
+                        </executableAuthors>
+                        <license>Open Source Initiative OSI - The MIT License (MIT):Licensing
+
+The MIT License (MIT)
+Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+                <dataModule id="InputSolexaTXTreadsequencefiles_1" name="Input Solexa (TXT) read sequence files" package="MAQ" version="0.7.1" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." posX="47" posY="172" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <tag />
+                        <uri>http://maq.sourceforge.net/maq-man.shtml#use</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <output id="InputSolexaTXTreadsequencefiles_1.Output" name="Output" description="The raw reads format used by Solexa (those `s_?_sequence.txt' from the Solexa pipeline) are different from mapass' FASTQ format in that the qualties are scaled differently. To use maq, you need to first convert the format with:&#xA;&#xA;      maq sol2sanger s_1_sequence.txt s_1_sequence.fastq&#xA;&#xA;where s_1_sequence.txt is the Solexa read sequence file. Missing this step will lead to unreliable SNP calling." required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/s_1_1_sequence.1k.fastq</value>
+                        </values>
+                </dataModule>
+                <dataModule id="Outputfile_1" name="Output file" posX="1154" posY="221" rotation="1" sourceCode="" type="File" source="false" loopIndex="false" dirDump="false">
+                        <tag />
+                        <metadata>
+                                <data key="__creationDateKey" value="Mon Jul 25 13:41:07 PDT 2011" />
+                        </metadata>
+                        <input id="Outputfile_1.Input" name="Input" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="BAM file (zipped)" extension="bam.gz" description="bam.gz" />
+                                                <filetype name="SAMtools SAM file (zipped)" extension="sam.gz" description="sam.gz" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <fileTypes>
+                                <filetype name="BAM file (zipped)" extension="bam.gz" description="bam.gz" />
+                                <filetype name="SAMtools SAM file (zipped)" extension="sam.gz" description="sam.gz" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//ifs/tmp/{$username}/Alignment_Mosaik/mosaiktest.sam.gz</value>
+                        </values>
+                </dataModule>
+                <dataModule id="InputReferenceFastaFile_1" name="Input Reference Fasta File" package="MAQ" version="0.7.1" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" posX="57" posY="368" rotation="1" sourceCode="" type="File" source="true" loopIndex="false">
+                        <tag />
+                        <uri>http://hgdownload.cse.ucsc.edu/goldenPath/hg18/bigZips/</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Wed Sep 01 13:01:35 PDT 2010" />
+                        </metadata>
+                        <output id="InputReferenceFastaFile_1.Output" name="Output" description="Enter any reference genome for the relevant species.&#xA;&#xA;E.g., For humans get HG18 in fasta format from UCSC or ENSEMBL.&#xA;&#xA;http://hgdownload.cse.ucsc.edu/downloads.html&#xA;&#xA;" required="true" enabled="true" order="-1">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <fileTypes>
+                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                        </fileTypes>
+                        <values>
+                                <value>pipeline://cranium.loni.usc.edu//usr/local/loniWorkflows/Bioinformatics/data/gatk/gatk-hg18_ensembl.fa</value>
+                        </values>
+                </dataModule>
+                <module id="MosaikBuild_1" name="Mosaik: Build" package="Mosaik" version="1.0" description="MosaikBuild - Here we convert the reference sequence from a FASTA file to a native MOSAIK reference archive.&#xA;&#xA;MOSAIK is a reference-guided assembler comprising of four main modular programs:&#xA;&#xA;MosaikAligner&#xA;MosaikSort&#xA;MosaikText&#xA;MosaikBuild converts various sequence formats into Mosaik’s native read format. MosaikAligner pairwise aligns each read to a specified series of reference sequences. MosaikSort resolves paired-end reads and sorts the alignments by the reference sequence coordinates. Finally, MosaikText converts alignments to different text-based formats.&#xA;&#xA;At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard &amp; Gerald, or SRF file formats and producing results in the BLAT axt, the BAM/SAM, the UCSC Genome Browser bed, or the Illumina ELAND formats" icon="0" posX="280" posY="90" rotation="1" sourceCode="" location="pipeline://cranium.loni.usc.edu/MosaikBuild" executableVersion="1.1.0021" gridVariables="h_vmem=8;h_stack=128">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bioinformatics.bc.edu/marthlab/Mosaik</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 17:24:08 PDT 2011" />
+                        </metadata>
+                        <input id="MosaikBuild_1.Inputreferencefile" name="Input reference file" required="false" enabled="false" order="0" prefix="-fr" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MosaikBuild_1.Outputfileforreference" name="Output file for reference" required="false" enabled="false" order="5" prefix="-oa" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MosaikBuild_1.colorspaceflag" name="colorspace flag" description="Translates the reference sequence from basespace to colorspace." required="false" enabled="false" order="3" prefix="-cs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="MosaikBuild_1.Inputforwardsequence" name="Input forward sequence " required="false" enabled="true" order="1" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikBuild_1.Inputreversesequence" name="Input reverse sequence" required="false" enabled="false" order="2" prefix="-q2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                                <filetype name="MAQ fastq file" extension="fastq" description="MAQ fastq file type" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikBuild_1.sequencetech." name="sequence tech." description="specifies the sequencing technology: 454, helicos, illumina, sanger, solid" required="true" enabled="true" order="4" prefix="-st" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="1" />
+                                <values>
+                                        <value>illumina</value>
+                                </values>
+                        </input>
+                        <output id="MosaikBuild_1.Outputfileforreads" name="Output file for reads" required="false" enabled="true" order="6" prefix="-out" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Michael Strömberg, Wan-Ping Lee" email="" website="" />
+                        </executableAuthors>
+                        <license>Open Source Initiative OSI - The MIT License (MIT):Licensing
+
+The MIT License (MIT)
+Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+                <module id="MosaikBuild_2" name="Mosaik: Build" package="Mosaik" version="1.0" description="MosaikBuild - Here we convert the reference sequence from a FASTA file to a native MOSAIK reference archive.&#xA;&#xA;MOSAIK is a reference-guided assembler comprising of four main modular programs:&#xA;&#xA;MosaikAligner&#xA;MosaikSort&#xA;MosaikText&#xA;MosaikBuild converts various sequence formats into Mosaik’s native read format. MosaikAligner pairwise aligns each read to a specified series of reference sequences. MosaikSort resolves paired-end reads and sorts the alignments by the reference sequence coordinates. Finally, MosaikText converts alignments to different text-based formats.&#xA;&#xA;At this time, the workflow consists of supplying sequences in FASTA, FASTQ, Illumina Bustard &amp; Gerald, or SRF file formats and producing results in the BLAT axt, the BAM/SAM, the UCSC Genome Browser bed, or the Illumina ELAND formats" icon="0" posX="270" posY="278" rotation="1" sourceCode="" location="pipeline://cranium.loni.usc.edu/MosaikBuild" executableVersion="1.1.0021" gridVariables="h_vmem=23;h_stack=256">
+                        <authors>
+                                <author fullName="Sam Hobel" email="" website="" />
+                        </authors>
+                        <tag>bioinformatics genomics</tag>
+                        <uri>http://bioinformatics.bc.edu/marthlab/Mosaik</uri>
+                        <metadata>
+                                <data key="__creationDateKey" value="Fri Jul 22 17:24:08 PDT 2011" />
+                        </metadata>
+                        <input id="MosaikBuild_2.Inputreferencefile" name="Input reference file" required="false" enabled="true" order="0" prefix="-fr" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Fasta" extension="fa" description="FASTA Sequence Format" />
+                                                <filetype name="Fasta" extension="fasta" description="BLAST input query FASTA file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <output id="MosaikBuild_2.Outputfileforreference" name="Output file for reference" required="false" enabled="true" order="5" prefix="-oa" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <input id="MosaikBuild_2.colorspaceflag" name="colorspace flag" description="Translates the reference sequence from basespace to colorspace." required="false" enabled="false" order="3" prefix="-cs" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="String" cardinality="0" />
+                        </input>
+                        <input id="MosaikBuild_2.Inputforwardsequence" name="Input forward sequence " required="false" enabled="false" order="1" prefix="-q" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikBuild_2.Inputreversesequence" name="Input reverse sequence" required="false" enabled="false" order="2" prefix="-q2" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="Text file" extension="txt" description="Text file" />
+                                        </fileTypes>
+                                </format>
+                        </input>
+                        <input id="MosaikBuild_2.sequencetech." name="sequence tech." description="specifies the sequencing technology: 454, helicos, illumina, sanger, solid" required="false" enabled="false" order="4">
+                                <format type="String" cardinality="1" />
+                        </input>
+                        <output id="MosaikBuild_2.Outputfileforreads" name="Output file for reads" required="false" enabled="false" order="6" prefix="-out" prefixSpaced="true" prefixAllArgs="false">
+                                <format type="File" cardinality="1">
+                                        <fileTypes>
+                                                <filetype name="DAT file" extension="dat" description="A DAT type file" />
+                                        </fileTypes>
+                                </format>
+                        </output>
+                        <executableAuthors>
+                                <author fullName="Michael Strömberg, Wan-Ping Lee" email="" website="" />
+                        </executableAuthors>
+                        <license>Open Source Initiative OSI - The MIT License (MIT):Licensing
+
+The MIT License (MIT)
+Copyright (c) &lt;year&gt; &lt;copyright holders&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</license>
+                </module>
+                <annotations visible="true">
+                        <annotation width="348" height="84" posX="594" posY="35" background="102,102,204,51" foreground="0,0,0,255" expanded="true" type="text" name="Enable/disable &quot;Input reverse sequence&quot; parameter in the Mosaik: Build module as needed.&#xA;(Hash sizes between modules must be the same)">
+                                <styles>
+                                        <style name="Enable/disable &quot;Input reverse sequence&quot; parameter in the Mosaik: Build module as needed.&#xA;(Hash sizes between modules must be the same)$0" fontSize="16" />
+                                </styles>
+                        </annotation>
+                </annotations>
+        </moduleGroup>
+</pipeline>
+
